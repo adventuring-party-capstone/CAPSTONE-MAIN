@@ -173,6 +173,60 @@ const genres = [
      },
 ]
 
+// ingredients id
+const ingredients = [
+     {
+          ingredients_id: 1,
+          cocktails_db_ingredients_id: 141,
+          ingredients_name: "Cognac"
+     },
+     {
+          ingredients_id: 2,
+          cocktails_db_ingredients_id: 139,
+          ingredients_name: "Coffee"
+     },
+     {
+          ingredients_id: 3,
+          cocktails_db_ingredients_id: 1,
+          ingredients_name: "Vodka"
+     },
+     {
+          ingredients_id: 4,
+          cocktails_db_ingredients_id: 71,
+          ingredients_name: "Bourbon"
+     },
+     {
+          ingredients_id: 5,
+          cocktails_db_ingredients_id: 333,
+          ingredients_name: "Milk"
+     },
+     {
+          ingredients_id: 6,
+          cocktails_db_ingredients_id: 4,
+          ingredients_name: "Tequila"
+     },
+     {
+          ingredients_id: 7,
+          cocktails_db_ingredients_id: 542,
+          ingredients_name: "Prosecco"
+     },
+     {
+          ingredients_id: 8,
+          cocktails_db_ingredients_id: 308,
+          ingredients_name: "Lime juice"
+     },
+     {
+          ingredients_id: 9,
+          cocktails_db_ingredients_id: 3,
+          ingredients_name: "Rum"
+     },
+     {
+          ingredients_id: 10,
+          cocktails_db_ingredients_id: 28,
+          ingredients_name: "Apple juice"
+     },
+]
+
 // Tying genres and ingredients
 const genres_ingredients_id = [
      {
