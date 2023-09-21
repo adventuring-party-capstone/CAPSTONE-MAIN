@@ -2,12 +2,14 @@
 
 const client = require("./client");
 
+const { createUser } = require('./helpers/users');
+const { users } = require('./seedData')
 // Drop Tables for cleanliness
 
 const dropTables = async () => {
-	try {
-		console.log("Starting to drop tables");
-		await client.query(`
+    try {
+        console.log("Starting to drop tables");
+        await client.query(`
         DROP TABLE IF EXISTS users cascade;
         DROP TABLE IF EXISTS drinks cascade;
         DROP TABLE IF EXISTS genres cascade;
@@ -15,18 +17,18 @@ const dropTables = async () => {
         DROP TABLE IF EXISTS ingredients cascade;
         DROP TABLE IF EXISTS genres_ingredients cascade;
         `);
-		console.log("Tables dropped!");
-	} catch (error) {
-		console.log("Error dropping tables");
-		throw error;
-	}
+        console.log("Tables dropped!");
+    } catch (error) {
+        console.log("Error dropping tables");
+        throw error;
+    }
 };
 
 //Create Tables
 const createTables = async () => {
-	console.log("Building tables...");
-	await client.query(
-		`CREATE TABLE users (
+    console.log("Building tables...");
+    await client.query(
+        `CREATE TABLE users (
             users_id SERIAL PRIMARY KEY,
             username varchar(255) UNIQUE NOT NULL,
             password TEXT NOT NULL
@@ -61,26 +63,44 @@ const createTables = async () => {
             ingredients_id INTEGER REFERENCES ingredients(ingredients_id)
         );
         `
-	);
-	console.log("Tables built!");
+    );
+    console.log("Tables built!");
+};
+
+// Create initial users
+const createInitialUsers = async () => {
+    try {
+        console.log('...starting to create initial users')
+        for (const user of users) {
+            await createUser(user);
+        }
+        console.log("initial users created");
+        console.log("Users", users)
+    } catch (error) {
+        throw error;
+    }
 };
 
 // Call all functions and build database
 const rebuildDb = async () => {
-	try {
-		// connect to local database
-		console.log("entering rebuildDB function");
-		client.connect();
+    try {
+        // connect to local database
+        console.log("entering rebuildDB function");
+        client.connect();
 
-		// run functions
-		await dropTables();
-		await createTables();
-	} catch (error) {
-		console.error("Can't build DB", error);
-	} finally {
-		// close connection
-		client.end();
-	}
+        // run functions
+        await dropTables();
+        await createTables();
+
+        // Generating starting data
+        console.log("starting to seed data...")
+        await createInitialUsers();
+    } catch (error) {
+        console.error("Can't build DB", error);
+    } finally {
+        // close connection
+        client.end();
+    }
 };
 
 rebuildDb();

@@ -280,3 +280,5 @@ const genres_ingredients = [
 		ingredients_id: 10,
 	},
 ];
+
+module.exports = { users, drinks, genres, users_drinks_favorites, ingredients, genres_ingredients }
