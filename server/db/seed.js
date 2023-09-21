@@ -3,7 +3,8 @@
 const client = require("./client");
 
 const { createUser } = require('./helpers/users');
-const { users } = require('./seedData')
+const {createDrink} = require('./helpers/drinks');
+const { users, drinks } = require('./seedData')
 // Drop Tables for cleanliness
 
 const dropTables = async () => {
@@ -37,7 +38,7 @@ const createTables = async () => {
             drinks_id SERIAL PRIMARY KEY,
             cocktails_db_drinks_id INTEGER,
             drinks_name varchar(255) NOT NULL,
-            ingredients TEXT[],
+            ingredients TEXT,
             recipe TEXT,
             image TEXT,
             glass varchar(255),
@@ -71,11 +72,24 @@ const createTables = async () => {
 const createInitialUsers = async () => {
     try {
         console.log('...starting to create initial users')
+        console.log("users", users)
         for (const user of users) {
             await createUser(user);
         }
         console.log("initial users created");
         console.log("Users", users)
+    } catch (error) {
+        throw error;
+    }
+};
+const createInitialDrinks = async () => {
+    try {
+        console.log("...starting to create initial drinks")
+        for (const drink of drinks){
+            await createDrink(drink);
+        }
+        console.log("initial drinks created")
+        console.log("Drinks", drinks)
     } catch (error) {
         throw error;
     }
@@ -95,6 +109,7 @@ const rebuildDb = async () => {
         // Generating starting data
         console.log("starting to seed data...")
         await createInitialUsers();
+        await createInitialDrinks();
     } catch (error) {
         console.error("Can't build DB", error);
     } finally {
