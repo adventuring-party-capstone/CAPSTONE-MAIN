@@ -5,10 +5,10 @@ const router = express.Router();
 
 const { getAllGenresIngredients } = require("../db/helpers/genres_ingredients");
 
-// GET - /api/genresIngredients - get all genres ingredients
+// GET - /api/genres_ingredients - get all genres ingredients
 router.get("/", async (req, res, next) => {
     try {
-        console.log("entering api/genresIngredients router");
+        console.log("entering api/genres_ingredients router");
         const genres_ingredients = await getAllGenresIngredients();
         res.send(genres_ingredients);
     } catch (error) {

@@ -61,6 +61,6 @@ const getDrinkById = async (drink_id) => {
 	} catch (error) {
 		throw error;
 	}
-}
+};
 
 module.exports = { createDrink, getAllDrinks, getDrinkById };
