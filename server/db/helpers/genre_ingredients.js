@@ -16,5 +16,5 @@ const createGenreIngredient = async ({ genres_id, ingredients_id }) => {
 		throw error;
 	}
 };
-
+// wat
 module.exports = { createGenreIngredient };
