@@ -17,4 +17,34 @@ const createGenre = async ({ genres_name }) => {
      }
 };
 
-module.exports = { createGenre };
+const getAllGenres = async () => {
+	try {
+		console.log("entering get all genres");
+		const { rows } = await client.query(
+			`
+            SELECT *
+            FROM genres;
+            `
+		);
+		console.log("genres in get all", rows);
+		return rows;
+	} catch (error) {
+		throw error;
+	}
+};
+
+const getGenreById = async (genre_id) => {
+	try {
+		console.log("entering genre by id");
+		const { rows: [genre] } = await client.query(`
+		SELECT * FROM genres
+		WHERE genres_id = ${genre_id}`
+		);
+		console.log("genre in get genre by id", genre)
+		return genre;
+	} catch (error) {
+		throw error;
+	}
+}
+
+module.exports = { createGenre, getAllGenres, getGenreById };
