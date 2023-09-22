@@ -11,7 +11,6 @@ router.get("/health", (req, res, next) => {
 // ROUTER: /api/drinks
 router.use("/drinks", require("./drinks"));
 
-
 // ROUTER: /api/ingredients
 router.use("/ingredients", require("./ingredients"));
 
@@ -20,5 +19,8 @@ router.use("/genres", require("./genres"));
 
 // ROUTER: /api/genres_ingredients
 router.use("/genres_ingredients", require("./genres_ingredients"));
+
+// ROUTER: /api/users_drinks
+router.use("/users_drinks", require("./users_drinks"));
 
 module.exports = router;
