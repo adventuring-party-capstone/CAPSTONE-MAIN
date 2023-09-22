@@ -11,4 +11,7 @@ router.get("/health", (req, res, next) => {
 // ROUTER: /api/drinks
 router.use("/drinks", require("./drinks"));
 
+// ROUTER: /api/genres
+router.use("/genres", require("./genres"));
+
 module.exports = router;
