@@ -18,7 +18,6 @@ export default function DrinkCard({ musicChoice }) {
     }, []);
 
     // get all genres_ingredients
-
     useEffect(() => {
         async function getAllGenresIngredients() {
             const junctionGenresIngredients = await fetchAllGenresIngredients();
