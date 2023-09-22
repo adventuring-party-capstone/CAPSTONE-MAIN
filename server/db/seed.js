@@ -5,7 +5,8 @@ const client = require("./client");
 const { createUser } = require("./helpers/users");
 const { createDrink } = require("./helpers/drinks");
 const { createGenre } = require("./helpers/genres");
-const { users, drinks, genres } = require("./seedData");
+const { createIngredient } = require("./helpers/ingredients");
+const { users, drinks, genres, ingredients } = require("./seedData");
 // Drop Tables for cleanliness
 
 const dropTables = async () => {
@@ -112,6 +113,21 @@ const createInitialGenres = async () => {
      }
 };
 
+//creating initial ingredients
+const createInitialIngredients = async () => {
+    try {
+        console.log("starting to create initial ingredients...");
+        for (const ingredient of ingredients) {
+            await createIngredient(ingredient);
+        }
+        console.log("initial ingredient created!");
+        console.log("Ingredients", ingredients);
+        
+    } catch (error) {
+        throw error;
+    }
+};
+
 // Call all functions and build database
 const rebuildDb = async () => {
      try {
@@ -128,6 +144,7 @@ const rebuildDb = async () => {
           await createInitialUsers();
           await createInitialDrinks();
           await createInitialGenres();
+          await createInitialIngredients();
      } catch (error) {
           console.error("Can't build DB", error);
      } finally {
