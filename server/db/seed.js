@@ -6,7 +6,7 @@ const { createUser } = require("./helpers/users");
 const { createDrink } = require("./helpers/drinks");
 const { createGenre } = require("./helpers/genres");
 const { createIngredient } = require("./helpers/ingredients");
-const { createGenreIngredient } = require("./helpers/genre_ingredients");
+const { createGenreIngredient } = require("./helpers/genres_ingredients");
 const { createUserDrink } = require("./helpers/users_drinks");
 const {
     users,

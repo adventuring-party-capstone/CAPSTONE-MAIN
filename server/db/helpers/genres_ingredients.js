@@ -16,5 +16,20 @@ const createGenreIngredient = async ({ genres_id, ingredients_id }) => {
 		throw error;
 	}
 };
-// wat
-module.exports = { createGenreIngredient };
+
+const getAllGenresIngredients = async () => {
+	try {
+		console.log("entering get all genres ingredients");
+		const { rows } = await client.query(
+			`
+            SELECT *
+            FROM genres_ingredients;
+            `
+		);
+		console.log("genres ingredients in get all genres ingredients", rows);
+		return rows;
+	} catch (error) {
+		throw error;
+	}
+};
+module.exports = { createGenreIngredient, getAllGenresIngredients };
