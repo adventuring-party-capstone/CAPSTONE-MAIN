@@ -2,16 +2,18 @@
 
 import "./App.css";
 import MainSection from "./components/MainSection";
+import NavBar from "./components/NavBar";
 
 function App() {
-     // const [count, setCount] = useState(0)
+	// const [count, setCount] = useState(0)
 
-     return (
-          <>
-               <h1>let;s get this money</h1>
-               <MainSection />
-          </>
-     );
+	return (
+		<div id="app-container">
+			<h1>let;s get this money</h1>
+			<NavBar />
+			<MainSection />
+		</div>
+	);
 }
 
 export default App;
