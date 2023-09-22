@@ -35,13 +35,15 @@ const createDrink = async ({
 
 const getAllDrinks = async () => {
 	try {
-		const { drinks } = await client.query(
+		console.log("entering get all drinks");
+		const { rows } = await client.query(
 			`
             SELECT *
             FROM drinks;
             `
 		);
-		return drinks;
+		console.log("drinks in get all", rows);
+		return rows;
 	} catch (error) {
 		throw error;
 	}
