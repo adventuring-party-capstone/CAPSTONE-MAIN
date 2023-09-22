@@ -34,7 +34,7 @@ export default function Home() {
 			</form>
 			<div>
 
-				<DrinkCard musicChoice={musicChoice} />
+				{musicChoice && <DrinkCard musicChoice={musicChoice} />}
 			</div>
 		</div>
 	);

@@ -53,6 +53,7 @@ export default function DrinkCard({ musicChoice }) {
                             <>
                                 <div id="each-drink">
                                     <h3>{drink.drinks_name}</h3>
+                                    <img src={drink.image}></img>
                                 </div>
                             </>
                         )
