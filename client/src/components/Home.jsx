@@ -1,6 +1,7 @@
 // This component renders the homepage
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DrinkCard from "./DrinkCard";
 
 export default function Home() {
 	const [musicInput, setMusicInput] = useState("");
@@ -31,8 +32,13 @@ export default function Home() {
 					onKeyDown={handleKeyDown}
 				/>
 			</form>
+			<div>
+
+				<DrinkCard musicChoice={musicChoice} />
+			</div>
 		</div>
 	);
+
 }
 
 // need a search bar
