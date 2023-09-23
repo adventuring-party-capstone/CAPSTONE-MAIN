@@ -3,6 +3,7 @@ import { fetchAllDrinks } from "../../fetching/local";
 
 export default function AllDrinks() {
 	const [allDrinks, setAllDrinks] = useState([]);
+	const [searchParam, setSearchParam] = useState("");
 
 	useEffect(() => {
 		async function getAllDrinks() {
@@ -20,11 +21,28 @@ export default function AllDrinks() {
 		getAllDrinks();
 	}, []);
 
+	const drinksToDisplay = searchParam
+        ? allDrinks.filter((drink) =>
+            drink.drinks_name.toLowerCase().includes(searchParam)||
+			drink.ingredients.toLowerCase().includes(searchParam)
+        )
+        : allDrinks;
+
 	return (
 		<section id="all-drinks-container">
 			<h1>All Dranks</h1>
+			<label>
+                    Search:{" "}
+                    <input
+                        id="search"
+                        className="inputField"
+                        type="text"
+                        placeholder="Search"
+                        onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
+                    />
+                </label>
 			<div id="all-drinks-gallery">
-				{allDrinks.map((drink) => {
+				{drinksToDisplay.map((drink) => {
 					return (
 						<div key={drink.drinks_id}>
 							<h2>{drink.drinks_name}</h2>
