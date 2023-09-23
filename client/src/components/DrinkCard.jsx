@@ -64,7 +64,7 @@ export default function DrinkCard({ musicChoice }) {
     };
     return (
         <>
-            <div>
+            <div id="drink-card">
                 <h1>DRINK CARD</h1>
                 <h1>INGREDIENT {filtered_ingredients_names}</h1>
                 {drinks
