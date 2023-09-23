@@ -12,18 +12,16 @@ export default function Home() {
 
 		if (event.key === "Enter") {
 			event.preventDefault();
-			// setMusicInput(event.target.value);
 			setMusicChoice(musicInput);
 		}
-		console.log("music choice", musicChoice);
-		// console.log("current music input", musicInput);
 	};
+	console.log("music choice", musicChoice);
 
 	return (
 		<div id="home-container">
 			<h1>HOMEPAGE HERE</h1>
 			<form action="">
-				<label htmlFor="Search">Enter Genre Id </label>
+				<label htmlFor="Search">Enter Genre </label>
 				<input
 					type="text"
 					name="search"
@@ -32,13 +30,9 @@ export default function Home() {
 					onKeyDown={handleKeyDown}
 				/>
 			</form>
-			<div>
-
-				{musicChoice && <DrinkCard musicChoice={musicChoice} />}
-			</div>
+			<div>{musicChoice && <DrinkCard musicChoice={musicChoice} />}</div>
 		</div>
 	);
-
 }
 
 // need a search bar
