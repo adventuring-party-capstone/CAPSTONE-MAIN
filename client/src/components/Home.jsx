@@ -6,16 +6,32 @@ import DrinkCard from "./DrinkCard";
 export default function Home() {
 	const [musicInput, setMusicInput] = useState("");
 	const [musicChoice, setMusicChoice] = useState("");
+	const [isClicked, setIsClicked] = useState(false);
 
-	const handleKeyDown = (event) => {
-		console.log("event.key", event.key);
+	// const handleKeyDown = (event) => {
+	// 	console.log("event.key", event.key);
+	// 	setMusicChoice("");
+	// 	setIsClicked(false);
 
-		if (event.key === "Enter") {
-			event.preventDefault();
-			setMusicChoice(musicInput);
+	// 	if (event.key === "Enter") {
+	// 		event.preventDefault();
+	// 		setMusicChoice(musicInput);
+	// 	}
+	// };
+	// console.log("music choice", musicChoice);
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setMusicChoice(musicInput);
+		// console.log("musicChoice", musicChoice);
+
+		if (musicChoice) {
+			console.log("entering handleSubmit");
+			setIsClicked(!isClicked);
+		} else {
+			console.log("can't get drink choice");
 		}
 	};
-	console.log("music choice", musicChoice);
 
 	return (
 		<div id="home-container">
@@ -25,12 +41,14 @@ export default function Home() {
 				<input
 					type="text"
 					name="search"
-					placeholder="Enter music Input here"
+					placeholder="Enter music choice here"
 					onChange={(event) => setMusicInput(event.target.value)}
-					onKeyDown={handleKeyDown}
+					// onKeyDown={handleKeyDown}
 				/>
 			</form>
-			<div>{musicChoice && <DrinkCard musicChoice={musicChoice} />}</div>
+			<br />
+			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
+			{musicChoice && <DrinkCard musicChoice={musicChoice} />}
 		</div>
 	);
 }
