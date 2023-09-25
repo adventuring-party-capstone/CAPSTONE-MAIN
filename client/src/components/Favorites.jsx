@@ -1,86 +1,93 @@
 // this component renders drink favorites
 
 import { useEffect, useState } from "react";
-import { fetchAllUsersDrinks, fetchAllDrinks } from "../../fetching/local";
+import { fetchAllDrinks, fetchUsersDrinksByUserId } from "../../fetching/local";
 
 export default function Favorites() {
-	const [usersFavorites, setUsersFavorites] = useState([]);
-	const [drinks, setDrinks] = useState([]);
+     const [usersFavorites, setUsersFavorites] = useState([]);
+     const [drinks, setDrinks] = useState([]);
 
-	// grabbing all users' favorites from users_drinks junction table
-	useEffect(() => {
-		async function getAllUsersDrinks() {
-			const response = await fetchAllUsersDrinks();
-			console.log("response inside get all users drinks: ", response);
+     const users_id = 1;
 
-			try {
-				if (response) {
-					setUsersFavorites(response);
-				}
-			} catch (error) {
-				console.error("can't get all favorites", error);
-			}
-		}
-		getAllUsersDrinks();
-	}, []);
+     // grabbing all users' favorites from users_drinks junction table
+     useEffect(() => {
+          async function getAllUserDrinks() {
+               const response = await fetchUsersDrinksByUserId(users_id);
+               console.log("response inside get all users drinks: ", response);
 
-	// grab all drinks from drinks table
-	useEffect(() => {
-		async function getAllDrinks() {
-			const response = await fetchAllDrinks();
-			console.log("response inside get all drinks ", response);
+               try {
+                    if (response) {
+                         setUsersFavorites(response);
+                    }
+               } catch (error) {
+                    console.error("can't get all favorites", error);
+               }
+          }
+          getAllUserDrinks();
+     }, []);
 
-			try {
-				if (response) {
-					setDrinks(response);
-				}
-			} catch (error) {
-				console.error("can't get all drinks", error);
-			}
-		}
-		getAllDrinks();
-	}, []);
+     // grab all drinks from drinks table
+     useEffect(() => {
+          async function getAllDrinks() {
+               const response = await fetchAllDrinks();
+               console.log("response inside get all drinks ", response);
 
-	// mapping through drinks to match with the ones that are favorited
-	const usersFavoriteDrinksId = [];
-	// drinks.filter((drink) => {
-	// 	usersFavorites.map((userFavorite) => {
-	// 		userFavorite.drinks_id;
-	// 	});
-	// });
+               try {
+                    if (response) {
+                         setDrinks(response);
+                    }
+               } catch (error) {
+                    console.error("can't get all drinks", error);
+               }
+          }
+          getAllDrinks();
+     }, []);
 
-	usersFavorites.map((userFavorite) => {
-		usersFavoriteDrinksId.push(userFavorite.drinks_id);
-	})
+     // mapping through drinks to match with the ones that are favorited
+     const usersFavoriteDrinksId = [];
+     // drinks.filter((drink) => {
+     // 	usersFavorites.map((userFavorite) => {
+     // 		userFavorite.drinks_id;
+     // 	});
+     // });
 
-	// map through usersFavorites 
-	// push usersFavorites.drinks_id into usersFavoriteDrinksId array
-	// in the return statement, then map over drinks
-	// if the drinks.drinks_id is inside usersFavoriteDrinksId
-	// then display drink.drinks_name etc
+     usersFavorites.map((userFavorite) => {
+          usersFavoriteDrinksId.push(userFavorite.drinks_id);
+     });
 
-	// map through drinks array
-	// also map through users favorites at the same time?
-	// for each drink, if drinks.drinks_id == usersFavorites.drinks_id
-	// push drinks.drink into usersFavoritesDrinks (currently an empty array);
+     // map through usersFavorites
+     // push usersFavorites.drinks_id into usersFavoriteDrinksId array
+     // in the return statement, then map over drinks
+     // if the drinks.drinks_id is inside usersFavoriteDrinksId
+     // then display drink.drinks_name etc
 
-	return (
-		<section>
-			<div>
-				<h1>FAVORITES</h1>
-			</div>
-			<div>
-				{drinks
-					.filter((drink) =>
-						usersFavoriteDrinksId.includes(drink.drinks_id))
-					.map((drink) => {
-						return (
-							<div key={drink.drinks_id}>
-								<p>{drink.drinks_name}</p>
-							</div>
-						);
-					})}
-			</div>
-		</section>
-	);
+     // map through drinks array
+     // also map through users favorites at the same time?
+     // for each drink, if drinks.drinks_id == usersFavorites.drinks_id
+     // push drinks.drink into usersFavoritesDrinks (currently an empty array);
+
+     return (
+          <section>
+               <div>
+                    <h1>FAVORITES</h1>
+               </div>
+               <div>
+                    {drinks
+                         .filter((drink) =>
+                              usersFavoriteDrinksId.includes(drink.drinks_id)
+                         )
+                         .map((drink) => {
+                              return (
+                                   <div key={drink.drinks_id}>
+                                        <p>{drink.drinks_name}</p>
+                                        <img
+                                             src={drink.image}
+                                             alt={drink.drinks_name}
+                                        ></img>
+                                   </div>
+                              );
+                         })}
+               </div>
+          </section>
+     );
 }
