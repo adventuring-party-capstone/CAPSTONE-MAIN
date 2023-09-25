@@ -42,12 +42,22 @@ export default function Favorites() {
 	}, []);
 
 	// mapping through drinks to match with the ones that are favorited
-	const usersFavoriteDrinks = [];
-	drinks.filter((drink) => {
-		usersFavorites.map((userFavorite) => {
-			userFavorite.drinks_id;
-		});
-	});
+	const usersFavoriteDrinksId = [];
+	// drinks.filter((drink) => {
+	// 	usersFavorites.map((userFavorite) => {
+	// 		userFavorite.drinks_id;
+	// 	});
+	// });
+
+	usersFavorites.map((userFavorite) => {
+		usersFavoriteDrinksId.push(userFavorite.drinks_id);
+	})
+
+	// map through usersFavorites 
+	// push usersFavorites.drinks_id into usersFavoriteDrinksId array
+	// in the return statement, then map over drinks
+	// if the drinks.drinks_id is inside usersFavoriteDrinksId
+	// then display drink.drinks_name etc
 
 	// map through drinks array
 	// also map through users favorites at the same time?
@@ -60,13 +70,16 @@ export default function Favorites() {
 				<h1>FAVORITES</h1>
 			</div>
 			<div>
-				{usersFavorites.map((favorite) => {
-					return (
-						<div key={favorite.users_drinks_id}>
-							<p>{favorite.drinks_id}</p>
-						</div>
-					);
-				})}
+				{drinks
+					.filter((drink) =>
+						usersFavoriteDrinksId.includes(drink.drinks_id))
+					.map((drink) => {
+						return (
+							<div key={drink.drinks_id}>
+								<p>{drink.drinks_name}</p>
+							</div>
+						);
+					})}
 			</div>
 		</section>
 	);
