@@ -7,6 +7,7 @@ export default function NavBar() {
 		<div id="navbar-container">
 			<Link to="/">Home</Link>
 			<Link to="/drinks">Drinks</Link>
+			<Link to="/favorites">Favorites</Link>
 		</div>
 	);
 }
