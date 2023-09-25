@@ -73,3 +73,23 @@ export const fetchUsersDrinksByUserId = async (users_id) => {
           );
      }
 };
+
+export const createNewFavorite = async (users_id, drinks_id) => {
+     try {
+          console.log('...starting to post')
+          const response = await fetch(`${base_url}/users_drinks`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+               users_id: users_id,
+               drinks_id: drinks_id
+              })
+          });
+          const result = await response.json();
+          return result;
+      } catch (error) {
+          console.error("Cannot post favorite drink", error);
+      }
+  };

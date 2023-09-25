@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 import {
 	fetchAllDrinks,
 	fetchAllGenresIngredients,
 	fetchAllIngredients,
 	fetchAllGenres,
 } from "../../fetching/local";
+import FavoriteButton from "./FavoriteButton";
 
 export default function DrinkCard({ musicChoice }) {
 	const [drinks, setDrinks] = useState([]);
@@ -13,6 +14,8 @@ export default function DrinkCard({ musicChoice }) {
 	const [junctionGenresIngredients, setJunctionGenresIngredients] = useState(
 		[]
 	);
+
+	const userId = 3;
 
 	// get all drinks
 	useEffect(() => {
@@ -86,6 +89,11 @@ export default function DrinkCard({ musicChoice }) {
 			});
 		}
 	});
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		let drinks_id = drinkId
+		console.log("drinks id", drinks_id)
+	}
 
 	return (
 		<>
@@ -97,11 +105,13 @@ export default function DrinkCard({ musicChoice }) {
 						filtered_ingredients_names.includes(drink.ingredients)
 					)
 					.map((drink) => {
+						const drinkId = drink.drinks_id
 						return (
 							<>
-								<div id="each-drink">
+								<div id="each-drink" key={drink.drinks_id}>
 									<h3>{drink.drinks_name}</h3>
 									<img src={drink.image}></img>
+									<FavoriteButton drinkId={drinkId} userId={userId}/>
 								</div>
 							</>
 						);

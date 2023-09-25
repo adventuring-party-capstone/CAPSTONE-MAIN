@@ -7,7 +7,7 @@ export default function Favorites() {
      const [usersFavorites, setUsersFavorites] = useState([]);
      const [drinks, setDrinks] = useState([]);
 
-     const users_id = 1;
+     const users_id = 3;
 
      // grabbing all users' favorites from users_drinks junction table
      useEffect(() => {
