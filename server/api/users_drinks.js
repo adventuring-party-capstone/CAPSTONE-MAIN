@@ -3,8 +3,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllUsersDrinks, getUsersDrinksByUserId } = require("../db/helpers/users_drinks");
-
+const {
+	getAllUsersDrinks,
+	getUsersDrinksByUserId,
+	createUserDrink,
+} = require("../db/helpers/users_drinks");
 
 // GET - /api/users_drinks - get all users drinks
 router.get("/", async (req, res, next) => {
@@ -23,8 +26,19 @@ router.get("/", async (req, res, next) => {
 router.get("/:users_id", async (req, res, next) => {
 	try {
 		console.log("entering api/users_drinks/:users_id router");
+		console.log("param id ", req.params.users_id);
 		const favorites = await getUsersDrinksByUserId(req.params.users_id);
 		res.send(favorites);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// POST - /api/users_drinks - create a new users drinks (user's favorite)
+router.post("/", async (req, res, next) => {
+	try {
+		const userDrink = await createUserDrink(req.body);
+		res.send(userDrink);
 	} catch (error) {
 		next(error);
 	}
