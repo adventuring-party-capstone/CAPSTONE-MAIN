@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import DrinkCard from "./DrinkCard";
 import Register from "./Register";
+import Login from "./Login";
 
 export default function Home() {
 	const [musicInput, setMusicInput] = useState("");
@@ -44,13 +45,14 @@ export default function Home() {
 					name="search"
 					placeholder="Enter music choice here"
 					onChange={(event) => setMusicInput(event.target.value)}
-				// onKeyDown={handleKeyDown}
+					// onKeyDown={handleKeyDown}
 				/>
 			</form>
 			<br />
 			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
 			{musicChoice && <DrinkCard musicChoice={musicChoice} />}
 			<Register />
+			<Login />
 		</div>
 	);
 }
