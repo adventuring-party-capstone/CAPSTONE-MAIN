@@ -76,7 +76,7 @@ router.post("/register", async (req, res, next) => {
 
 		delete user.password;
 		// res.cookie(COOKIE_SECRET);
-		res.send({ user });
+		res.send({ token, user });
 	} catch (error) {
 		next(error);
 	}
