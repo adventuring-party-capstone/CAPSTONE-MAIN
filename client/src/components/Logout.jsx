@@ -9,8 +9,8 @@ export default function Logout({ token, setToken }) {
 
 	useEffect(() => {
 		logout();
-		localStorage.removeItem("token");
+		// localStorage.removeItem("token");
 		setToken(null);
-		nav("/home");
+		nav("/");
 	}, []);
 }
