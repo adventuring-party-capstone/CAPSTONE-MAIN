@@ -1,7 +1,7 @@
 // This component is the login function
 
 import { useState } from "react";
-import { login } from "../../../../../Unit4/Fullstack-Review-Proj/client/fetching";
+import { login } from "../../fetching/local";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({
