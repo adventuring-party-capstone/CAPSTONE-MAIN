@@ -6,7 +6,7 @@ import Register from "./Register";
 import Login from "./Login";
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Home({ token, setToken }) {
      const [musicInput, setMusicInput] = useState("");
      const [musicChoice, setMusicChoice] = useState("");
      const [isClicked, setIsClicked] = useState(false);
@@ -55,7 +55,7 @@ export default function Home() {
                </button>
                {musicChoice && <DrinkCard musicChoice={musicChoice} />}
                {/* <Register /> */}
-               <Login />
+               <Login token={token} setToken={setToken} />
                <Link to={"/register"}>Create New Account</Link>
           </div>
      );
