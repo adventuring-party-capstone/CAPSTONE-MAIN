@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAllUsers } from "../../fetching";
 
 const API_URL = `http://localhost:8080/api`;
 
@@ -25,7 +24,7 @@ export default function Register() {
 
 		try {
 			console.log("entering try in handleSubmit");
-			if ({ username }.username.length >= 3) {
+			if (username.length >= 3) {
 				const response = await fetch(`${API_URL}/users/register`, {
 					method: "POST",
 					body: JSON.stringify(userObj),
@@ -34,7 +33,7 @@ export default function Register() {
 				await response.json();
 				setSuccessMessage("Sign up successful");
 				alert("Sign up successful!");
-				navigate("/profile");
+				// navigate("/profile");
 			} else {
 				alert("Username too short. Please enter at least 3 characters.");
 				setUsername("");
@@ -45,17 +44,17 @@ export default function Register() {
 		}
 	}
 
-	useEffect(() => {
-		async function getAllUsers() {
-			const APIResponse = await fetchAllUsers();
-			if (APIResponse) {
-				setUsers(APIResponse);
-			} else {
-				console.error("Problem fetching all users");
-			}
-		}
-		getAllUsers();
-	}, []);
+	// useEffect(() => {
+	// 	async function getAllUsers() {
+	// 		const APIResponse = await fetchAllUsers();
+	// 		if (APIResponse) {
+	// 			setUsers(APIResponse);
+	// 		} else {
+	// 			console.error("Problem fetching all users");
+	// 		}
+	// 	}
+	// 	getAllUsers();
+	// }, []);
 	return (
 		<div>
 			<div>
