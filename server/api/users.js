@@ -42,14 +42,14 @@ router.get("/:userId", async (req, res, next) => {
 	}
 });
 
-// GET - /api/users/:username - get user by username
+// GET - /api/users/user/:username - get user by username
 // router.get("/api/")
 
 
-router.get("/users/:username", async (req, res, next) => {
+router.get("/user/:username", async (req, res, next) => {
 	try {
-		const {username} = await getUserByUsername(req.params);
-		res.send(username);
+		const user = await getUserByUsername(req.params.username);
+		res.send(user);
 	} catch (error) {
 		next(error);
 	}
