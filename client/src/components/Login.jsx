@@ -21,7 +21,7 @@ export default function Login({ token, setToken }) {
                     "response.token in Login function: ",
                     response.token
                );
-               localStorage.setItem("token", token);
+               localStorage.setItem("token", response.token);
                // localStorage.setItem("currentUser", currentUser);
                // setCurrentUser(response.user.username);
                console.log("response in handle submit", response);
