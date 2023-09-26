@@ -4,57 +4,61 @@ import { useState, useEffect } from "react";
 import DrinkCard from "./DrinkCard";
 import Register from "./Register";
 import Login from "./Login";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-	const [musicInput, setMusicInput] = useState("");
-	const [musicChoice, setMusicChoice] = useState("");
-	const [isClicked, setIsClicked] = useState(false);
+     const [musicInput, setMusicInput] = useState("");
+     const [musicChoice, setMusicChoice] = useState("");
+     const [isClicked, setIsClicked] = useState(false);
 
-	// const handleKeyDown = (event) => {
-	// 	console.log("event.key", event.key);
-	// 	setMusicChoice("");
-	// 	setIsClicked(false);
+     // const handleKeyDown = (event) => {
+     // 	console.log("event.key", event.key);
+     // 	setMusicChoice("");
+     // 	setIsClicked(false);
 
-	// 	if (event.key === "Enter") {
-	// 		event.preventDefault();
-	// 		setMusicChoice(musicInput);
-	// 	}
-	// };
-	// console.log("music choice", musicChoice);
+     // 	if (event.key === "Enter") {
+     // 		event.preventDefault();
+     // 		setMusicChoice(musicInput);
+     // 	}
+     // };
+     // console.log("music choice", musicChoice);
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		setMusicChoice(musicInput);
-		// console.log("musicChoice", musicChoice);
+     const handleSubmit = async (event) => {
+          event.preventDefault();
+          setMusicChoice(musicInput);
+          // console.log("musicChoice", musicChoice);
 
-		if (musicChoice) {
-			console.log("entering handleSubmit");
-			setIsClicked(!isClicked);
-		} else {
-			console.log("can't get drink choice");
-		}
-	};
+          if (musicChoice) {
+               console.log("entering handleSubmit");
+               setIsClicked(!isClicked);
+          } else {
+               console.log("can't get drink choice");
+          }
+     };
 
-	return (
-		<div id="home-container">
-			<h1>HOMEPAGE HERE</h1>
-			<form action="">
-				<label htmlFor="Search">Enter Genre </label>
-				<input
-					type="text"
-					name="search"
-					placeholder="Enter music choice here"
-					onChange={(event) => setMusicInput(event.target.value)}
-					// onKeyDown={handleKeyDown}
-				/>
-			</form>
-			<br />
-			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
-			{musicChoice && <DrinkCard musicChoice={musicChoice} />}
-			<Register />
-			<Login />
-		</div>
-	);
+     return (
+          <div id="home-container">
+               <h1>HOMEPAGE HERE</h1>
+               <form action="">
+                    <label htmlFor="Search">Enter Genre </label>
+                    <input
+                         type="text"
+                         name="search"
+                         placeholder="Enter music choice here"
+                         onChange={(event) => setMusicInput(event.target.value)}
+                         // onKeyDown={handleKeyDown}
+                    />
+               </form>
+               <br />
+               <button onClick={(event) => handleSubmit(event)}>
+                    Suggest Drink
+               </button>
+               {musicChoice && <DrinkCard musicChoice={musicChoice} />}
+               {/* <Register /> */}
+               <Login />
+               <Link to={"/register"}>Create New Account</Link>
+          </div>
+     );
 }
 
 // need a search bar
