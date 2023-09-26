@@ -14,17 +14,17 @@ export default function Login({ token, setToken }) {
           console.log("entering handle submit");
           // console.log(username, password);
           try {
-               const register = await login(username, password);
-               setToken(register.token);
+               const response = await login(username, password);
+               setToken(response.token);
 
                console.log(
-                    "register.token in Login function: ",
-                    register.token
+                    "response.token in Login function: ",
+                    response.token
                );
                // localStorage.setItem("token", token);
                // localStorage.setItem("currentUser", currentUser);
-               // setCurrentUser(register.user.username);
-               console.log("register in handle submit", register);
+               // setCurrentUser(response.user.username);
+               console.log("response in handle submit", response);
                nav("/drinks");
           } catch (error) {
                console.error("can't login", error);
