@@ -78,60 +78,78 @@ export const createNewFavorite = async (users_id, drinks_id) => {
      try {
           console.log('...starting to post')
           const response = await fetch(`${base_url}/users_drinks`, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-               users_id: users_id,
-               drinks_id: drinks_id
-              })
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json"
+               },
+               body: JSON.stringify({
+                    users_id: users_id,
+                    drinks_id: drinks_id
+               })
           });
           const result = await response.json();
           return result;
-      } catch (error) {
+     } catch (error) {
           console.error("Cannot post favorite drink", error);
-      }
-  };
-
-  // REGISTER
-  export const register = async (userObj) => {
-     try {
-         const response = await fetch(
-             `${base_url}/users/register`, {
-             method: "POST",
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(
-                 userObj
-             )
-         });
-         const result = await response.json();
-         console.log(result)
-         return result
-     } catch (err) {
-         console.error(err);
      }
- }
+};
 
-  // LOGIN
+// REGISTER
+export const register = async (userObj) => {
+     try {
+          const response = await fetch(
+               `${base_url}/users/register`, {
+               method: "POST",
+               headers: {
+                    'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(
+                    userObj
+               )
+          });
+          const result = await response.json();
+          console.log(result)
+          return result
+     } catch (err) {
+          console.error(err);
+     }
+}
+
+// LOGIN
 export const login = async (username, password) => {
      try {
-      const response = await fetch(`${base_url}/users/login`, {
-       method: "POST",
-       headers: {
-        "Content-Type": "application/json",
-       },
-       body: JSON.stringify({
-        username: username,
-        password: password,
-       }),
-      });
-      const result = await response.json();
-      // console.log("result from login fn", result);
-      return result;
+          const response = await fetch(`${base_url}/users/login`, {
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                    username: username,
+                    password: password,
+               }),
+          });
+          const result = await response.json();
+          // console.log("result from login fn", result);
+          return result;
      } catch (err) {
-      console.error(err);
+          console.error(err);
      }
-    };
+};
+
+// LOGOUT
+
+export const logout = async () => {
+     try {
+          const response = await fetch(`${base_url}/users/logout`, {
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json",
+               },
+          });
+          const result = await response.json();
+          console.log('successfully logged out...');
+          return result;
+     } catch (error) {
+          console.error(error);
+     }
+};
