@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { register } from "../../fetching/local"
 
 const API_URL = `http://localhost:8080/api`;
 
@@ -25,15 +26,10 @@ export default function Register() {
 		try {
 			console.log("entering try in handleSubmit");
 			if (username.length >= 3) {
-				const response = await fetch(`${API_URL}/users/register`, {
-					method: "POST",
-					body: JSON.stringify(userObj),
-					headers: { "content-type": "application/json" },
-				});
-				await response.json();
+				const response = await register(userObj);
 				setSuccessMessage("Sign up successful");
 				alert("Sign up successful!");
-				// navigate("/profile");
+				navigate("/login");
 			} else {
 				alert("Username too short. Please enter at least 3 characters.");
 				setUsername("");

@@ -93,3 +93,45 @@ export const createNewFavorite = async (users_id, drinks_id) => {
           console.error("Cannot post favorite drink", error);
       }
   };
+
+  // REGISTER
+  export const register = async (userObj) => {
+     try {
+         const response = await fetch(
+             `${base_url}/users/register`, {
+             method: "POST",
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(
+                 userObj
+             )
+         });
+         const result = await response.json();
+         console.log(result)
+         return result
+     } catch (err) {
+         console.error(err);
+     }
+ }
+
+  // LOGIN
+export const login = async (username, password) => {
+     try {
+      const response = await fetch(`${base_url}/users/login`, {
+       method: "POST",
+       headers: {
+        "Content-Type": "application/json",
+       },
+       body: JSON.stringify({
+        username: username,
+        password: password,
+       }),
+      });
+      const result = await response.json();
+      // console.log("result from login fn", result);
+      return result;
+     } catch (err) {
+      console.error(err);
+     }
+    };
