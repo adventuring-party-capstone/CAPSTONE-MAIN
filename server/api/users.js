@@ -6,15 +6,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET, COOKIE_SECRET } = require("../secrets");
 const SALT_ROUNDS = 10;
-const { authRequired } = require("./utils");
+// const { authRequired } = require("./utils");
 
 const {
 	getAllUsers,
 	getUserById,
 	getUserByUsername,
 	createUser,
-	updateUser,
-	deleteUser,
+	// updateUser,
+	// deleteUser,
 } = require("../db/helpers/users");
 
 // GET - /api/users - get all users
@@ -37,6 +37,19 @@ router.get("/:userId", async (req, res, next) => {
 	try {
 		const user = await getUserById(req.params.userId);
 		res.send(user);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// GET - /api/users/:username - get user by username
+// router.get("/api/")
+
+
+router.get("/users/:username", async (req, res, next) => {
+	try {
+		const {username} = await getUserByUsername(req.params);
+		res.send(username);
 	} catch (error) {
 		next(error);
 	}

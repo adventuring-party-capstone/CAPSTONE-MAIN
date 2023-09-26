@@ -23,4 +23,7 @@ router.use("/genres_ingredients", require("./genres_ingredients"));
 // ROUTER: /api/users_drinks
 router.use("/users_drinks", require("./users_drinks"));
 
+//ROUTER: /api/users
+router.use("/users", require("./users"));
+
 module.exports = router;
