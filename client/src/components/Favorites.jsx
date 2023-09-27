@@ -55,6 +55,8 @@ export default function Favorites({ token }) {
 	// then display drink.drinks_name etc
 
 	return (
+
+		// remember to Number() the userId we are getting from localStorage
 		<section>
 			<div>
 				<h1>FAVORITES</h1>
