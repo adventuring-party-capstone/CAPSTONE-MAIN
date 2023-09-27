@@ -58,21 +58,31 @@ export default function Favorites({ token, userId }) {
 	return (
 		// remember to Number() the userId we are getting from localStorage
 		<section>
-			<div>
-				<h1>FAVORITES</h1>
-			</div>
-			<div>
-				{drinks
-					.filter((drink) => usersFavoriteDrinksId.includes(drink.drinks_id))
-					.map((drink) => {
-						return (
-							<div key={drink.drinks_id}>
-								<p>{drink.drinks_name}</p>
-								<img src={drink.image} alt={drink.drinks_name} />
-							</div>
-						);
-					})}
-			</div>
+			{token && (
+				<div>
+					<div>
+						<h1>FAVORITES</h1>
+					</div>
+					<div>
+						{drinks
+							.filter((drink) =>
+								usersFavoriteDrinksId.includes(drink.drinks_id)
+							)
+							.map((drink) => {
+								return (
+									<div key={drink.drinks_id}>
+										<p>{drink.drinks_name}</p>
+										<img
+											src={drink.image}
+											alt={drink.drinks_name}
+											id="images"
+										/>
+									</div>
+								);
+							})}
+					</div>
+				</div>
+			)}
 		</section>
 	);
 }
