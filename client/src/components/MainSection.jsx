@@ -6,43 +6,50 @@ import Logout from "./Logout";
 import { Routes, Route } from "react-router-dom";
 import Register from "./Register";
 
-export default function MainSection({ token, setToken, userId }) {
-     console.log("userId in main section", userId);
+export default function MainSection({ token, setToken, userId, setUserId }) {
+	console.log("userId in main section", userId);
 
-     return (
-          <div id="main-section-container">
-               <Routes>
-                    <Route
-                         path="/"
-                         element={
-                              <Home
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                              />
-                         }
-                    ></Route>
-                    <Route path="/drinks" element={<AllDrinks />}></Route>
-                    <Route
-                         path="/favorites"
-                         element={<Favorites token={token} userId={userId} />}
-                    ></Route>
-                    <Route path="/register" element={<Register />}></Route>
-                    <Route
-                         path="/login"
-                         element={
-                              <Login
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                              />
-                         }
-                    />
-                    <Route
-                         path="/logout"
-                         element={<Logout token={token} setToken={setToken} />}
-                    />
-               </Routes>
-          </div>
-     );
+	return (
+		<div id="main-section-container">
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Home
+							token={token}
+							setToken={setToken}
+							userId={userId}
+							setUserId={setUserId}
+						/>
+					}
+				></Route>
+				<Route
+					path="/all_drinks"
+					element={<AllDrinks token={token} userId={userId} />}
+				></Route>
+				<Route
+					path="/favorites"
+					element={
+						<Favorites token={token} userId={userId} setUserId={setUserId} />
+					}
+				></Route>
+				<Route path="/register" element={<Register />}></Route>
+				<Route
+					path="/login"
+					element={
+						<Login
+							token={token}
+							setToken={setToken}
+							userId={userId}
+							setUserId={setUserId}
+						/>
+					}
+				/>
+				<Route
+					path="/logout"
+					element={<Logout token={token} setToken={setToken} />}
+				/>
+			</Routes>
+		</div>
+	);
 }
