@@ -31,7 +31,7 @@ export default function Favorites({ token, userId }) {
       }
     }
     getSingleUserDrinks();
-  }, []);
+  }, [userId]);
 
   // grab all drinks from drinks table
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function Favorites({ token, userId }) {
       }
     }
     getSingleUserProfile();
-  }, []);
+  }, [userId]);
 
   // mapping through drinks to match with the ones that are favorited
   const usersFavoriteDrinksId = [];
@@ -103,7 +103,7 @@ export default function Favorites({ token, userId }) {
                       alt={drink.drinks_name}
                       id="images"
                     />
-                    <DeleteFavorite drinks_id={drink.drinks_id} />;
+                    <DeleteFavorite drinks_id={drink.drinks_id} />
                   </div>
                 );
               })}
