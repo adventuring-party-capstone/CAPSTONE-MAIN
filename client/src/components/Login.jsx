@@ -21,8 +21,9 @@ export default function Login({ token, setToken }) {
                     "response.token in Login function: ",
                     response.token
                );
-               // localStorage.setItem("token", token);
-               // localStorage.setItem("currentUser", currentUser);
+               console.log("response", response);
+               localStorage.setItem("token", response.token);
+               localStorage.setItem("userId", response.user.users_id);
                // setCurrentUser(response.user.username);
                console.log("response in handle submit", response);
                nav("/drinks");
