@@ -6,11 +6,12 @@ import Register from "./Register";
 import Login from "./Login";
 import { Link } from "react-router-dom";
 
-export default function Home({ token, setToken }) {
+export default function Home({ token, setToken, userId }) {
      const [musicInput, setMusicInput] = useState("");
      const [musicChoice, setMusicChoice] = useState("");
      const [isClicked, setIsClicked] = useState(false);
 
+     console.log("userId in home: ", userId);
      // const handleKeyDown = (event) => {
      // 	console.log("event.key", event.key);
      // 	setMusicChoice("");
@@ -53,7 +54,9 @@ export default function Home({ token, setToken }) {
                <button onClick={(event) => handleSubmit(event)}>
                     Suggest Drink
                </button>
-               {musicChoice && <DrinkCard musicChoice={musicChoice} />}
+               {musicChoice && (
+                    <DrinkCard musicChoice={musicChoice} userId={userId} />
+               )}
                {/* <Register /> */}
                <Login token={token} setToken={setToken} />
                <Link to={"/register"}>Create New Account</Link>
