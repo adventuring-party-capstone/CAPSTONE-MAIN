@@ -49,4 +49,20 @@ const getUsersDrinksByUserId = async (users_id) => {
 	}
 };
 
-module.exports = { createUserDrink, getAllUsersDrinks, getUsersDrinksByUserId };
+const deleteUserDrink = async (users_drinks_id) => {
+	try {
+		console.log( "deleting users drinks by users drinks id")
+		const {rows} = await client.query(
+			`
+			DELETE FROM users_drinks
+			WHERE users_drinks_id = ${users_drinks_id}
+			RETURNING *;
+			`
+		)
+		console.log("Delete successful")
+	} catch (error) {
+		throw error;
+	}
+};
+
+module.exports = { createUserDrink, getAllUsersDrinks, getUsersDrinksByUserId, deleteUserDrink };
