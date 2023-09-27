@@ -1,11 +1,18 @@
 // this component renders drink favorites
 
 import { useEffect, useState } from "react";
-import { fetchUsersDrinksByUserId, fetchAllDrinks } from "../../fetching/local";
+import {
+	fetchUsersDrinksByUserId,
+	fetchAllDrinks,
+	fetchSingleUser,
+} from "../../fetching/local";
 
 export default function Favorites({ token, userId }) {
 	const [usersFavorites, setUsersFavorites] = useState([]);
 	const [drinks, setDrinks] = useState([]);
+	const [username, setUsername] = useState("");
+
+	console.log("userId in favorites", userId);
 
 	// grabbing logged in users' favorites from users_drinks junction table
 	useEffect(() => {
@@ -42,6 +49,24 @@ export default function Favorites({ token, userId }) {
 		getAllDrinks();
 	}, []);
 
+	// grab user info (get user object by user id)
+	useEffect(() => {
+		async function getSingleUserProfile() {
+			console.log("entering GSUP");
+			const response = await fetchSingleUser(userId);
+			console.log("response in GSUP", response);
+
+			try {
+				if (response) {
+					setUsername(response.username);
+				}
+			} catch (error) {
+				console.error("can't get user info", error);
+			}
+		}
+		getSingleUserProfile();
+	}, []);
+
 	// mapping through drinks to match with the ones that are favorited
 	const usersFavoriteDrinksId = [];
 
@@ -61,7 +86,7 @@ export default function Favorites({ token, userId }) {
 			{token && (
 				<div>
 					<div>
-						<h1>FAVORITES</h1>
+						<h1>{username}'s FAVORITES</h1>
 					</div>
 					<div>
 						{drinks
