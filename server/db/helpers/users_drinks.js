@@ -49,13 +49,13 @@ const getUsersDrinksByUserId = async (users_id) => {
 	}
 };
 
-const deleteUserDrink = async (users_drinks_id) => {
+const deleteUserDrink = async (drinks_id) => {
 	try {
-		console.log( "deleting users drinks by users drinks id")
+		console.log( "deleting users drinks by drinks id")
 		const {rows} = await client.query(
 			`
 			DELETE FROM users_drinks
-			WHERE users_drinks_id = ${users_drinks_id}
+			WHERE drinks_id = ${drinks_id}
 			RETURNING *;
 			`
 		)

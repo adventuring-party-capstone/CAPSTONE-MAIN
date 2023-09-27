@@ -45,10 +45,10 @@ router.post("/", async (req, res, next) => {
 	}
 });
 
-// DELETE - /api/users_drinks/:users_drinks_id deletes users fav drink
-router.delete("/:users_drinks_id", async (req, res, next) => {
+// DELETE - /api/users_drinks/:drinks_id deletes users fav drink
+router.delete("/:drinks_id", async (req, res, next) => {
 	try {
-		const userDrink = await deleteUserDrink(req.params.users_drinks_id);
+		const userDrink = await deleteUserDrink(req.params.drinks_id);
 		res.send(userDrink);
 	} catch (error) {
 		next(error);

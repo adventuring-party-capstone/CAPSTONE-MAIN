@@ -163,3 +163,19 @@ export const logout = async () => {
 		console.error(error);
 	}
 };
+
+// DELETE FAVORITE
+
+export const deleteUserDrink = async (drinks_id) => {
+	try {
+		console.log("...removing favorite drink");
+		const response = await fetch (`${base_url}/users_drinks/${drinks_id}`,{
+			method: "DELETE",
+		});
+		const result = await response.json();
+		console.log("I never want to see that drink again >:( good riddance")
+		return result;
+	} catch (error) {
+		console.log(error);
+	}
+};
