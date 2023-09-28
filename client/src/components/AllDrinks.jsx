@@ -10,22 +10,9 @@ import { fetchAllDrinks } from "../../fetching/local";
 
 export default function AllDrinks({ token, userId }) {
 	const [allDrinks, setAllDrinks] = useState([]);
-	const [localArray, setLocalArray] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
+	const [localArray, setLocalArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
-
-	// Alcohol toggle
-	const PinkSwitch = styled(Switch)(({ theme }) => ({
-		"& .MuiSwitch-switchBase.Mui-checked": {
-			color: pink[600],
-			"&:hover": {
-				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
-			},
-		},
-		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-			backgroundColor: pink[600],
-		},
-	}));
 
 	useEffect(() => {
 		async function getAllDrinks() {
@@ -47,6 +34,19 @@ export default function AllDrinks({ token, userId }) {
 		setIsToggled(event.target.checked);
 	}
 
+	// Alcohol toggle
+	const PinkSwitch = styled(Switch)(({ theme }) => ({
+		"& .MuiSwitch-switchBase.Mui-checked": {
+			color: pink[600],
+			"&:hover": {
+				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
+			},
+		},
+		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+			backgroundColor: pink[600],
+		},
+	}));
+
 	// local DB array splitting alcoholic/non-alcoholic
 	const nonAlcArray = [];
 	useEffect(() => {
@@ -60,9 +60,6 @@ export default function AllDrinks({ token, userId }) {
 				setLocalArray(nonAlcArray);
 			}
 		});
-		console.log("filterArrray", localArray);
-		console.log("isToggled currently", isToggled);
-		console.log(typeof isToggled);
 	}, [allDrinks, isToggled]);
 
 	const drinksToDisplay = searchParam
