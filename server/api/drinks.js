@@ -6,7 +6,7 @@ const router = express.Router();
 const {
      getAllDrinks,
      getDrinkById,
-     getDrinksIfAlcoholic,
+     getDrinksByAlcoholic,
 } = require("../db/helpers/drinks");
 
 // GET - /api/drinks - get all drinks
@@ -37,7 +37,7 @@ router.get("/:drink_id", async (req, res, next) => {
 router.get("/drinks/:alcoholic", async (req, res, next) => {
      try {
           console.log("entering api/drinks/:alcoholic router");
-          const drink = await getDrinksIfAlcoholic(req.params.alcoholic);
+          const drink = await getDrinksByAlcoholic(req.params.alcoholic);
           res.send(drink);
      } catch (error) {
           next(error);
