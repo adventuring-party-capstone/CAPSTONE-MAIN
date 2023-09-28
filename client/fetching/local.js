@@ -75,6 +75,7 @@ export const fetchAllUsersDrinks = async () => {
 // grabs specific user's favorites
 export const fetchUsersDrinksByUserId = async (users_id) => {
 	try {
+		console.log("user_id in fetchUsersDrinksByUserId ", users_id);
 		const response = await fetch(`${base_url}/users_drinks/${users_id}`);
 		const result = await response.json();
 		console.log("result from fetchUsersDrinksByUserId ", result);
@@ -95,10 +96,7 @@ export const fetchDrinksByAlcoholic = async (alcoholic) => {
 		console.log("result from fetchDrinksByAlcoholic ", result);
 		return result;
 	} catch (error) {
-		console.error(
-			"there was an error fetching these drinks :(",
-			error
-		);
+		console.error("there was an error fetching these drinks :(", error);
 	}
 };
 
@@ -184,11 +182,11 @@ export const logout = async () => {
 export const deleteUserDrink = async (drinks_id) => {
 	try {
 		console.log("...removing favorite drink");
-		const response = await fetch (`${base_url}/users_drinks/${drinks_id}`,{
+		const response = await fetch(`${base_url}/users_drinks/${drinks_id}`, {
 			method: "DELETE",
 		});
 		const result = await response.json();
-		console.log("I never want to see that drink again >:( good riddance")
+		console.log("I never want to see that drink again >:( good riddance");
 		return result;
 	} catch (error) {
 		console.log(error);
