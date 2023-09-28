@@ -21,7 +21,25 @@ export default function Favorites({ token, userId }) {
 	const [localArray, setLocalArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
 
-	console.log("userId in favorites", userId);
+	// console.log("userId in favorites", userId);
+
+	// grab all drinks from drinks table
+	useEffect(() => {
+		async function getAllDrinks() {
+			const response = await fetchAllDrinks();
+			console.log("response inside get all drinks ", response);
+
+			try {
+				if (response) {
+					setDrinks(response);
+				}
+			} catch (error) {
+				console.error("can't get all drinks", error);
+			}
+		}
+		getAllDrinks();
+		console.log("drinks in GAD", drinks);
+	}, []);
 
 	// grabbing logged in users' favorites from users_drinks junction table
 	useEffect(() => {
@@ -40,23 +58,6 @@ export default function Favorites({ token, userId }) {
 		}
 		getSingleUserDrinks();
 	}, [userId]);
-
-	// grab all drinks from drinks table
-	useEffect(() => {
-		async function getAllDrinks() {
-			const response = await fetchAllDrinks();
-			console.log("response inside get all drinks ", response);
-
-			try {
-				if (response) {
-					setDrinks(response);
-				}
-			} catch (error) {
-				console.error("can't get all drinks", error);
-			}
-		}
-		getAllDrinks();
-	}, []);
 
 	// grab user info (get user object by user id)
 	useEffect(() => {
@@ -120,6 +121,7 @@ export default function Favorites({ token, userId }) {
 				setLocalArray(nonAlcArray);
 			}
 		});
+		console.log("local array in use effect ", localArray);
 	}, [drinks, isToggled]);
 
 	return (
@@ -141,6 +143,7 @@ export default function Favorites({ token, userId }) {
 							label="Show alcoholic drinks"
 						/>
 					</FormGroup>
+
 					<div id="favorites-gallery">
 						{localArray
 							.filter((drink) =>
