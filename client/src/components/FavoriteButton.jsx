@@ -17,7 +17,7 @@ export default function FavoriteButton({ drinkId, userId }) {
           } catch (error) {
                console.error(error);
           }
-     }
+     };
      return (
           <div>
                <button onClick={handleSubmit} id="favorite-button">

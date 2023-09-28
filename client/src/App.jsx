@@ -15,8 +15,18 @@ function App() {
 	return (
 		<div id="app-container">
 			<h1>let;s get this money</h1>
-			<NavBar token={token} setToken={setToken} userId={userId} />
-			<MainSection token={token} setToken={setToken} userId={userId} />
+			<NavBar
+				token={token}
+				setToken={setToken}
+				userId={userId}
+				setUserId={setUserId}
+			/>
+			<MainSection
+				token={token}
+				setToken={setToken}
+				userId={userId}
+				setUserId={setUserId}
+			/>
 		</div>
 	);
 }

@@ -7,6 +7,7 @@ const {
 	getAllUsersDrinks,
 	getUsersDrinksByUserId,
 	createUserDrink,
+	deleteUserDrink,
 } = require("../db/helpers/users_drinks");
 
 // GET - /api/users_drinks - get all users drinks
@@ -38,6 +39,16 @@ router.get("/:users_id", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
 	try {
 		const userDrink = await createUserDrink(req.body);
+		res.send(userDrink);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// DELETE - /api/users_drinks/:drinks_id deletes users fav drink
+router.delete("/:drinks_id", async (req, res, next) => {
+	try {
+		const userDrink = await deleteUserDrink(req.params.drinks_id);
 		res.send(userDrink);
 	} catch (error) {
 		next(error);
