@@ -87,6 +87,21 @@ export const fetchUsersDrinksByUserId = async (users_id) => {
 	}
 };
 
+// grabs alcoholic or non-alcoholic drinks
+export const fetchDrinksByAlcoholic = async (alcoholic) => {
+	try {
+		const response = await fetch(`${base_url}/drinks/drinks/${alcoholic}`);
+		const result = await response.json();
+		console.log("result from fetchDrinksByAlcoholic ", result);
+		return result;
+	} catch (error) {
+		console.error(
+			"there was an error fetching these drinks :(",
+			error
+		);
+	}
+};
+
 export const createNewFavorite = async (users_id, drinks_id) => {
 	try {
 		console.log("...starting to post");
