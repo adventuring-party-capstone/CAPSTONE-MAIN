@@ -64,7 +64,7 @@ const getDrinkById = async (drink_id) => {
      }
 };
 
-const getDrinksIfAlcoholic = async (alcoholic) => {
+const getDrinksByAlcoholic = async (alcoholic) => {
      try {
           console.log("entering get drinks if alcoholic");
           const { rows } = await client.query(
@@ -82,5 +82,5 @@ module.exports = {
      createDrink,
      getAllDrinks,
      getDrinkById,
-     getDrinksIfAlcoholic,
+     getDrinksByAlcoholic,
 };
