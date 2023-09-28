@@ -6,6 +6,12 @@ import {
 	fetchAllGenres,
 } from "../../fetching/local";
 import FavoriteButton from "./FavoriteButton";
+import * as React from "react";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import { alpha, styled } from "@mui/material/styles";
+import { pink } from "@mui/material/colors";
 
 export default function DrinkCard({ musicChoice, userId }) {
 	console.log("userId in DrinkCard: ", userId);
@@ -16,6 +22,8 @@ export default function DrinkCard({ musicChoice, userId }) {
 	const [junctionGenresIngredients, setJunctionGenresIngredients] = useState(
 		[]
 	);
+	const [localArray, setLocalArray] = useState([]);
+	const [isToggled, setIsToggled] = useState(false);
 
 	// get all drinks
 	useEffect(() => {
@@ -90,12 +98,56 @@ export default function DrinkCard({ musicChoice, userId }) {
 		}
 	});
 
+	// TOGGLE LOGIC
+	function handleSwitch(event) {
+		setIsToggled(event.target.checked);
+	}
+
+	// Alcohol toggle
+	const PinkSwitch = styled(Switch)(({ theme }) => ({
+		"& .MuiSwitch-switchBase.Mui-checked": {
+			color: pink[600],
+			"&:hover": {
+				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
+			},
+		},
+		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+			backgroundColor: pink[600],
+		},
+	}));
+
+	// local DB array splitting alcoholic/non-alcoholic
+	const nonAlcArray = [];
+	useEffect(() => {
+		drinks.filter((drink) => {
+			// filtering alcoholic drinks
+			if (drink.alcoholic && isToggled) {
+				setLocalArray(drinks);
+			} else if (!drink.alcoholic && !isToggled) {
+				nonAlcArray.push(drink);
+				console.log("nonAlcArray", nonAlcArray);
+				setLocalArray(nonAlcArray);
+			}
+		});
+	}, [drinks, isToggled]);
+
 	return (
 		<>
 			<div id="drink-card">
 				<h1>DRINK CARD</h1>
 				<h1>INGREDIENT {filtered_ingredients_names}</h1>
-				{drinks
+				<FormGroup>
+					<FormControlLabel
+						control={
+							<PinkSwitch
+								checked={isToggled}
+								onChange={(event) => handleSwitch(event)}
+							/>
+						}
+						label="Show alcoholic drinks"
+					/>
+				</FormGroup>
+				{localArray
 					.filter((drink) =>
 						filtered_ingredients_names.includes(drink.ingredients)
 					)
