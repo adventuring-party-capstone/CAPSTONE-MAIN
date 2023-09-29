@@ -16,7 +16,7 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
-export default function Spotify({ userId }) {
+export default function Spotify({ musicChoice, userId }) {
 	const [drinks, setDrinks] = useState([]);
 	const [localGenres, setLocalGenres] = useState([]);
 	const [artistGenres, setArtistGenres] = useState([]);
@@ -58,7 +58,7 @@ export default function Spotify({ userId }) {
 		async function getSpotifyGenre() {
 			console.log("entering getSpotifyGenres");
 			try {
-				const APIArtistGenre = await fetchArtistSearch("beyonce");
+				const APIArtistGenre = await fetchArtistSearch(musicChoice);
 				setArtistGenres(APIArtistGenre);
 			} catch (error) {
 				console.error("can't get all genres ", error);

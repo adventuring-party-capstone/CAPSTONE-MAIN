@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import DrinkCard from "./DrinkCard";
+import Spotify from "./Spotify";
 import Register from "./Register";
 import Login from "./Login";
 import { Link } from "react-router-dom";
@@ -41,7 +42,7 @@ export default function Home({ token, setToken, userId, setUserId }) {
 			</form>
 			<br />
 			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
-			{musicChoice && <DrinkCard musicChoice={musicChoice} userId={userId} />}
+			{musicChoice && <Spotify musicChoice={musicChoice} userId={userId} />}
 			{!token && (
 				<div>
 					<Login
