@@ -3,6 +3,7 @@ import Home from "./Home";
 import Favorites from "./Favorites";
 import Login from "./Login";
 import Logout from "./Logout";
+import Spotify from "./Spotify";
 import { Routes, Route } from "react-router-dom";
 import Register from "./Register";
 
@@ -49,6 +50,7 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
 					path="/logout"
 					element={<Logout token={token} setToken={setToken} />}
 				/>
+				<Route path="/spotify" element={<Spotify />} />
 			</Routes>
 		</div>
 	);
