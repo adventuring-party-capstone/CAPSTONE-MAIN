@@ -6,6 +6,7 @@ import Spotify from "./Spotify";
 import Register from "./Register";
 import Login from "./Login";
 import { Link } from "react-router-dom";
+import CocktailDBDrinkCard from "./CocktailDBDrinkCard";
 
 export default function Home({ token, setToken, userId, setUserId }) {
      const [musicInput, setMusicInput] = useState("");
@@ -44,6 +45,7 @@ export default function Home({ token, setToken, userId, setUserId }) {
                <button onClick={(event) => handleSubmit(event)}>
                     Suggest Drink
                </button>
+               <CocktailDBDrinkCard />
                {musicChoice && (
                     <Spotify musicChoice={musicChoice} userId={userId} />
                )}

@@ -13,14 +13,15 @@ export default function CocktailDBDrinkCard() {
      useEffect(() => {
           async function getAllAlcDrinks() {
                const response = await fetchAllAlcDrinks();
-               console.log(
-                    "response in getAllAlcDrinks on CDB Drink Card ",
-                    response
-               );
+               //    console.log(
+               //         "response in getAllAlcDrinks on CDB Drink Card ",
+               //         response
+               //    );
                setAlcDrinks(response.drinks);
                //    console.log("alc drinks in the useEffect", alcDrinks);
           }
-          getAllAlcDrinks();
+          //   getAllAlcDrinks();
+          //COMMENTED OUT FOR SIMPLICITY OF TESTING
      }, []);
 
      useEffect(() => {
@@ -34,19 +35,39 @@ export default function CocktailDBDrinkCard() {
           }
           getAllNonAlcDrinks();
      }, []);
-     console.log("nonAlcDrinks after useEffect", nonAlcDrinks);
+     console.log("All nonAlcDrinks in API", nonAlcDrinks);
+
+     //Make an array of idDrink values from all NonAlc
+     //Make an array of idDrink values from Milk
+     //Compare those arratys to see which nonAlcs have Milk
+
+     const nonAlcArray = [];
+     nonAlcDrinks.map((nonAlcDrink) => {
+          nonAlcArray.push(nonAlcDrink.idDrink);
+     });
+     console.log("nonAlcArray ", nonAlcArray);
+
+     const ingredientDrinksAPI = [];
+     byIngredient.map((ingredientDrink) => {
+          ingredientDrinksAPI.push(ingredientDrink.idDrink);
+     });
+     console.log("ingredientDrinkAPI", ingredientDrinksAPI);
+
+     const NonAlcIngredientArray = [];
+     for (let i = 0; i <= nonAlcArray.length; i++) {
+          if (ingredientDrinksAPI.includes(nonAlcArray[i])) {
+               NonAlcIngredientArray.push(nonAlcArray[i]);
+          }
+     }
+     console.log("NonAlcIngredientArray", NonAlcIngredientArray);
 
      //  TEMPORARY HARD-CODED INGREDIENT VARIABLE
-
      const ingredient = "Milk";
 
      useEffect(() => {
           async function getCocktailsByIngredient() {
                const response = await fetchCocktailsByIngredient(ingredient);
-               console.log(
-                    "response in getCocktailsByIngredient on CDB Drink Card",
-                    response
-               );
+               //    console.log("all milk drinks in API", response.drinks);
                setByIngredient(response.drinks);
           }
           getCocktailsByIngredient();
@@ -55,10 +76,10 @@ export default function CocktailDBDrinkCard() {
 
      return (
           <section>
-               {nonAlcDrinks.map((drink) => {
+               {NonAlcIngredientArray.map((drink) => {
                     return (
                          <section>
-                              <p>{drink.strDrink}</p>
+                              <p>{drink}</p>
                          </section>
                     );
                })}
