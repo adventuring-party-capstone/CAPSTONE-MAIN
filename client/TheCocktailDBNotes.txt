@@ -1,0 +1,142 @@
+External api references: puppy bowl, strangers things, puppy bowl react?
+
+you can use the test API key "1" during development of your app
+
+//COCKTAIL DB NOTES
+////Search ingredent by name 
+
+{
+  "ingredients": [
+    {
+      "idIngredient": "1",
+      "strIngredient": "Vodka",
+      "strDescription": "Vodka is a distilled beverage composed primarily of water and ethanol, sometimes with traces of impurities and flavorings. Traditionally, vodka is made by the distillation of ....."
+      "strType": "Vodka",
+      "strAlcohol": "Yes",
+      "strABV": "40"
+    }
+  ]
+}
+/////Search individual cocktail: margarita
+    -gives us everything with marg in the name
+    -ingredients that are empty are null; do logic to skip over those on rendering
+    -instructions are in multiple languages
+    -has strIngredient but not idIngredient
+
+{
+  "drinks": [
+    {
+      "idDrink": "11007",
+      "strDrink": "Margarita",
+      "strDrinkAlternate": null,
+      "strTags": "IBA,ContemporaryClassic",
+      "strVideo": null,
+      "strCategory": "Ordinary Drink",
+      "strIBA": "Contemporary Classics",
+      "strAlcoholic": "Alcoholic",
+      "strGlass": "Cocktail glass",
+      "strInstructions": "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
+      "strInstructionsES": null,
+      "strInstructionsDE": "Reiben Sie den Rand des Glases mit der Limettenscheibe, damit das Salz daran haftet. Achten Sie darauf, dass nur der äußere Rand angefeuchtet wird und streuen Sie das Salz darauf. Das Salz sollte sich auf den Lippen des Genießers befinden und niemals in den Cocktail einmischen. Die anderen Zutaten mit Eis schütteln und vorsichtig in das Glas geben.",
+      "strInstructionsFR": null,
+      "strInstructionsIT": "Strofina il bordo del bicchiere con la fetta di lime per far aderire il sale.\r\nAvere cura di inumidire solo il bordo esterno e cospargere di sale.\r\nIl sale dovrebbe presentarsi alle labbra del bevitore e non mescolarsi mai al cocktail.\r\nShakerare gli altri ingredienti con ghiaccio, quindi versarli delicatamente nel bicchiere.",
+      "strInstructionsZH-HANS": null,
+      "strInstructionsZH-HANT": null,
+      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
+      "strIngredient1": "Tequila",
+      "strIngredient2": "Triple sec",
+      "strIngredient3": "Lime juice",
+      "strIngredient4": "Salt",
+
+      "strMeasure1": "1 1/2 oz ",
+      "strMeasure2": "1/2 oz ",
+      "strMeasure3": "1 oz ",
+
+      "strImageSource": "https://commons.wikimedia.org/wiki/File:Klassiche_Margarita.jpg",
+      "strImageAttribution": "Cocktailmarler",
+      "strCreativeCommonsConfirmed": "Yes",
+      "dateModified": "2015-08-18 14:42:59"
+    },
+      "idDrink": "11118",
+      "strDrink": "Blue Margarita",
+
+    {
+      "idDrink": "17216",
+      "strDrink": "Tommy's Margarita",
+      
+    {
+      "idDrink": "16158",
+      "strDrink": "Whitecap Margarita",
+     
+      "idDrink": "178332",
+      "strDrink": "Smashed Watermelon Margarita",
+     
+////Lookup ingredient by ID:
+    {
+  "ingredients": [
+    {
+      "idIngredient": "552",
+      "strIngredient": "Elderflower cordial",
+      "strDescription": "Elderflower cordial is a soft drink made largely from a refined sugar and water solution and uses the flowers of the European elderberry. Historically the cordial has been popular in North Western Europe where it has a strong Victorian heritage.",
+      "strType": "Cordial",
+      "strAlcohol": "No",
+      "strABV": null
+    }
+  ]
+}
+
+
+
+//APP THOUGHTS
+Our app connects drinks to music by associating an ingredient with a genre  
+What we need from our thecocktaildb info is: which drinks have x ingredient so we can continue matching genres and ingredients
+We also need the idIngredient of each ingredient (liquors and nonalc components)
+    52 is elderflower; how do we get vodka or rum?
+    Each ingredeitn has an id and also strIngredient
+
+    Can we sort the cocktails using strIngredent?
+    The idIngredient isn't on the individual cocktail
+
+//FILTER BY MULTI INGREDIENT!
+
+//10 RANDOM COCKTAILS 
+
+
+//SEARCH BY INGREDIENT 
+www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
+-gives us all of the gin ones
+-the only thing that changes with this address is the endpoint after the equals (Gin, Rum, Lime_Juice)
+
+//FILTER BY ALCHOLIC/NONALCOHOLIC
+- gives us the first 100 by alphabet
+-hopefully within an hour it's the whole DB
+
+If our ingredient is lime juice:
+1. User puts in genre that we matched with lime juice
+2. Depending on the toggle - we get all the drinks either from:
+    a.  nonalcoholic end point
+    b.  BOTH nonalc and alc end points
+    c.  the return data includes strDrink and idDrink
+3. Use the search by ingredient endponit to get all Lime Juice drinks
+
+4. Compare: 
+
+    what idDrinks are on the lime juice list and ALSO the nonalc list? If they match, then that's what we render. 
+
+    When the alc toggle is on, we compare the lime juice list to BOTH alc and nonalc and render the ones whose idDrinks match
+    
+4b. Once we render, the nonalc/alc end points provide a thumbnail but not details
+
+5. Make a details button: OnClick on a specific drink we fetch the info from the the search cocktail by name or id endpoints and give all of the details 
+
+//REACH out if we have questions! Because we're ~*patrons*~ now.
+
+//FILTER BY MULTI INGREDIENT!
+
+//10 RANDOM COCKTAILS 
+
+//POPULAR COCKTAILS
+
+//LATEST
+
+
