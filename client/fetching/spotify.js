@@ -1,5 +1,5 @@
 const base_url = "https://api.spotify.com/v1/search?q=";
-const spotifyToken = "BQBaypYnPnYKwR3-HlucTEDCggH2uDe4I5Sy6yhPJ2jY5JfHcddEtbNXb7svknT0erZrbVFeBzfgalaZkVcIVb6xTmw91lK6eIymonTjPrl85zqqKZ0";
+const spotifyToken = "BQD6zKgZG6xQlYRVsbxbcUIjfbwIEhS2HVJcYIiDtOcaOroFJ4TxI8WWJVFQdtfb4iKOH7DYCTIJ1_Ep6YTy1lkutZSTvcB_sRYd7rlkqpFrEMkEzes";
 
 // grabs artist object from spotify search endpoint
 export const fetchArtistSearch = async (artistInput) => {
@@ -13,6 +13,7 @@ export const fetchArtistSearch = async (artistInput) => {
             }
         });
         const result = await response.json();
+        console.log("result", result);
         // console.log("result.artists.items", result.artists.items);
         const genreArray = result.artists.items[0].genres;
         console.log("genreArray", genreArray);
@@ -20,7 +21,7 @@ export const fetchArtistSearch = async (artistInput) => {
             ele.includes('r')
         );
         console.log("foundGenre", foundGenre);
-        return result;
+        return genreArray;
     } catch (error) {
         console.error("Cannot fetch artistSearch", error);
     }

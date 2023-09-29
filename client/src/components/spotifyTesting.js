@@ -1,3 +1,11 @@
 import { fetchArtistSearch } from "../../fetching/spotify.js";
 
-fetchArtistSearch("beyonce");
+import { fetchAllGenres } from "../../fetching/local.js";
+
+
+const localDatabaseGenre = fetchAllGenres();
+console.log("localDatabaseGenre", localDatabaseGenre);
+
+const artistGenre = fetchArtistSearch("beyonce");
+console.log("artistGenre", artistGenre);
+
