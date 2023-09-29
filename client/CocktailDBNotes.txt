@@ -136,18 +136,18 @@ ARRAY 3
 ]
 -how do we see what matches between two arrays?
 
--if we start at [0] of the first array, and loop over the second array to see if there's a match (if/else)
--then go to [1] in the first array, etc. until array is done
+                    -if we start at [0] of the first array, and loop over the second array to see if there's a match (if/else)
+                    -then go to [1] in the first array, etc. until array is done
 
-for (let i = 0; i <= array.length; i++) {
-    if (array1[i] === array2[i])  //this one compares [0] to [0], [1] to [1], etc.
-    array3.push();
+                    for (let i = 0; i <= array.length; i++) {
+                        if (array1[i] === array2[i])  //this one compares [0] to [0], [1] to [1], etc.
+                        array3.push();
 
-    for (let j=0; j <= array.length; j++) && (let k = 1; k <= array.length; k++)
-         if (array1[j] === array2[j+k]) {
-            array3.push();
-     }
-} 
+                        for (let j=0; j <= array.length; j++) && (let k = 1; k <= array.length; k++)
+                            if (array1[j] === array2[j+k]) {
+                                array3.push();
+                        }
+                    } 
 
 for (let i = 0; i <= array.length; i++) {
     if array2.includes(array1[i]) {
