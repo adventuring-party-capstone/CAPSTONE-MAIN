@@ -177,6 +177,8 @@ export default function Spotify({ musicChoice, userId }) {
 		});
 	}, [drinks, isToggled]);
 
+	// hello
+
 	return (
 		<div>
 			{matchedGenres && <h1>Found genre: {matchedGenres.genres_name}</h1>}
