@@ -53,7 +53,7 @@ export const fetchSingleUser = async (users_id) => {
 	try {
 		const response = await fetch(`${base_url}/users/${users_id}`);
 		const result = await response.json();
-		console.log("result from fetchSingleUser ", result);
+		console.log("result from fetchSingleUser", result);
 		return result;
 	} catch (error) {
 		console.error("there was an error fetching this user", error);
