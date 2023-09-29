@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
      fetchAllAlcDrinks,
      fetchAllNonAlcDrinks,
-     fetchCocktailsByIngredient
+     fetchCocktailsByIngredient,
 } from "../../fetching/cocktaildb";
 
 export default function CocktailDBDrinkCard() {
@@ -35,28 +35,33 @@ export default function CocktailDBDrinkCard() {
           getAllNonAlcDrinks();
      }, []);
      console.log("nonAlcDrinks after useEffect", nonAlcDrinks);
+
+     //  TEMPORARY HARD-CODED INGREDIENT VARIABLE
+
      const ingredient = "Milk";
 
      useEffect(() => {
           async function getCocktailsByIngredient() {
                const response = await fetchCocktailsByIngredient(ingredient);
-               console.log("response in getCocktailsByIngredient on CDB Drink Card", response);
+               console.log(
+                    "response in getCocktailsByIngredient on CDB Drink Card",
+                    response
+               );
                setByIngredient(response.drinks);
           }
           getCocktailsByIngredient();
      }, []);
      console.log("byIngredient after useEffect", byIngredient);
 
-     return <section>
-          {nonAlcDrinks.map((drink) => {
-               return (
-                    <section>
-                         <p>
-                              {drink.strDrink}
-                         </p>
-                    </section>
-               )
-          })}
-
-     </section>;
+     return (
+          <section>
+               {nonAlcDrinks.map((drink) => {
+                    return (
+                         <section>
+                              <p>{drink.strDrink}</p>
+                         </section>
+                    );
+               })}
+          </section>
+     );
 }
