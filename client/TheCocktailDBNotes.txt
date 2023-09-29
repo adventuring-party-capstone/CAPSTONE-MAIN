@@ -118,8 +118,15 @@ If our ingredient is lime juice:
     b.  BOTH nonalc and alc end points
     c.  the return data includes strDrink and idDrink
 3. Use the search by ingredient endponit to get all Lime Juice drinks
-4. Compare: what strDrinks/idDrinks are on both the allDrinks AND the Lime Juice? If they match, then that's what we want. The nonalc/alc end points provide a thumbnail but not details
-    -we have all of the lime juice drinks
+
+4. Compare: 
+
+    what idDrinks are on the lime juice list and ALSO the nonalc list? If they match, then that's what we render. 
+
+    When the alc toggle is on, we compare the lime juice list to BOTH alc and nonalc and render the ones whose idDrinks match
+    
+4b. Once we render, the nonalc/alc end points provide a thumbnail but not details
+
 5. Make a details button: OnClick on a specific drink we fetch the info from the the search cocktail by name or id endpoints and give all of the details 
 
 //REACH out if we have questions! Because we're ~*patrons*~ now.
@@ -131,3 +138,5 @@ If our ingredient is lime juice:
 //POPULAR COCKTAILS
 
 //LATEST
+
+
