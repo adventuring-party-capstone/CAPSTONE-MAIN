@@ -1,5 +1,3 @@
-import { fetchAllIngredients } from "./local";
-
 const base_url = "https://www.thecocktaildb.com/api/json/v2/9973533";
 
 // grabs all alc drinks from Cocktail database
@@ -15,7 +13,6 @@ export const fetchAllAlcDrinks = async () => {
 };
 
 // grabs all non-alcoholic drinks from Cocktail database
-
 export const fetchAllNonAlcDrinks = async () => {
      try {
           const response = await fetch(
@@ -41,4 +38,14 @@ export const fetchAllCocktailDBIngredients = async () => {
      }
 };
 
-//
+// grabs cocktail by ingredient
+export const fetchCocktailsByIngredient = async (ingredient) => {
+    try {
+        const response = await fetch (`${base_url}/filter.php?i=${ingredient}`);
+        const result = await response.json();
+        console.log("result from fetchCocktailsByIngredient", result);
+        return result;
+    } catch (error) {
+        console.error("there was an error fetching cocktails by its ingredient", error);   
+    }
+};
