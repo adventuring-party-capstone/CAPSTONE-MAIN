@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
 import {
+<<<<<<< HEAD
+	fetchAllAlcDrinks,
+	fetchAllNonAlcDrinks,
+	fetchCocktailsByIngredient,
+	fetchCocktailById,
+=======
      fetchAllAlcDrinks,
      fetchAllNonAlcDrinks,
      fetchCocktailsByIngredient,
      fetchCocktailById,
+>>>>>>> main
 } from "../../fetching/cocktaildb";
+import DetailsButton from "./DetailsButton";
 
 export default function CocktailDBDrinkCard({ ingredientName }) {
+<<<<<<< HEAD
+	const [alcDrinks, setAlcDrinks] = useState([]);
+	const [nonAlcDrinks, setNonAlcDrinks] = useState([]);
+	const [byIngredient, setByIngredient] = useState([]);
+	// const [ingredName, setIngredName] = useState("");
+	const [alcArrayToShow, setAlcArrayToShow] = useState([]);
+	const [drinkToRender, setDrinkToRender] = useState(null);
+=======
      const [alcDrinks, setAlcDrinks] = useState([]);
      const [nonAlcDrinks, setNonAlcDrinks] = useState([]);
      const [byIngredient, setByIngredient] = useState([]);
@@ -14,6 +30,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
      const [alcArrayToShow, setAlcArrayToShow] = useState([]);
      const [chosenDrinkId, setChosenDrinkId] = useState(null);
      const [drinkToRender, setDrinkToRender] = useState([]);
+>>>>>>> main
 
      const ingredName = ingredientName;
      const chosenId = chosenDrinkId;
@@ -88,6 +105,55 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
      //Use the ingredient array we already made
      //Compare those arrays to see which Alcs have Milk
 
+<<<<<<< HEAD
+	const alcArray = [];
+	const alcIngredientArray = [];
+	useEffect(() => {
+		alcDrinks.map((alcDrink) => {
+			alcArray.push(alcDrink.idDrink);
+		});
+		// console.log("alcArray", alcArray);
+		byIngredient.map((ingredientDrink) => {
+			ingredientDrinksAPI.push(ingredientDrink.idDrink);
+		});
+		for (let i = 0; i <= alcArray.length; i++) {
+			if (ingredientDrinksAPI.includes(alcArray[i])) {
+				alcIngredientArray.push(alcArray[i]);
+				setAlcArrayToShow(alcIngredientArray);
+			}
+		}
+		console.log("alcIngredientArray", alcIngredientArray);
+		setDrinkToRender(alcIngredientArray[0]);
+		console.log("Drink to render", drinkToRender);
+	}, [alcDrinks, byIngredient]);
+
+	//Take a number from nonAlc or alc ingredient arrays
+	//Pass that number into getDrinkById
+	//To display chosen drink by id
+
+	return (
+		<section>
+			<h1>HELLO</h1>
+			{console.log("alcArrayToShow below Hello", alcArrayToShow)}
+			{alcArrayToShow ? (
+				alcArrayToShow.map((drink) => {
+					console.log("mapping");
+					return (
+						// eslint-disable-next-line react/jsx-key
+						<section>
+							<p>{drink}</p>
+							<DetailsButton drink={drink} />
+						</section>
+					);
+				})
+			) : (
+				<>
+					<h1>OH NO!!!</h1>
+				</>
+			)}
+		</section>
+	);
+=======
      const alcArray = [];
      const alcIngredientArray = [];
      useEffect(() => {
@@ -152,4 +218,5 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
                )} */}
           </section>
      );
+>>>>>>> main
 }
