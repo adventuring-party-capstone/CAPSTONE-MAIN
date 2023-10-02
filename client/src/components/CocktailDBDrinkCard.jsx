@@ -13,14 +13,14 @@ export default function CocktailDBDrinkCard() {
      useEffect(() => {
           async function getAllAlcDrinks() {
                const response = await fetchAllAlcDrinks();
-               //    console.log(
-               //         "response in getAllAlcDrinks on CDB Drink Card ",
-               //         response
-               //    );
+                  console.log(
+                       "response in getAllAlcDrinks on CDB Drink Card ",
+                       response
+                  );
                setAlcDrinks(response.drinks);
-               //    console.log("alc drinks in the useEffect", alcDrinks);
           }
-          //   getAllAlcDrinks();
+          getAllAlcDrinks();
+          console.log("alc drinks in the useEffect", alcDrinks);
           //COMMENTED OUT FOR SIMPLICITY OF TESTING
      }, []);
 
@@ -35,7 +35,7 @@ export default function CocktailDBDrinkCard() {
           }
           getAllNonAlcDrinks();
      }, []);
-     console.log("All nonAlcDrinks in API", nonAlcDrinks);
+     //console.log("All nonAlcDrinks in API", nonAlcDrinks);
 
      //Make an array of idDrink values from all NonAlc
      //Make an array of idDrink values from Milk
@@ -45,7 +45,7 @@ export default function CocktailDBDrinkCard() {
      nonAlcDrinks.map((nonAlcDrink) => {
           nonAlcArray.push(nonAlcDrink.idDrink);
      });
-     console.log("nonAlcArray ", nonAlcArray);
+     //console.log("nonAlcArray ", nonAlcArray);
 
      const ingredientDrinksAPI = [];
      byIngredient.map((ingredientDrink) => {
@@ -59,7 +59,27 @@ export default function CocktailDBDrinkCard() {
                NonAlcIngredientArray.push(nonAlcArray[i]);
           }
      }
-     console.log("NonAlcIngredientArray", NonAlcIngredientArray);
+     //console.log("NonAlcIngredientArray", NonAlcIngredientArray);
+
+     //Make an array of idDrink values from all Alc
+     //Use the ingredient array we already made
+     //Compare those arrays to see which Alcs have Milk
+
+     const alcArray = [];
+     alcDrinks.map((alcDrink) => {
+          alcArray.push(alcDrink.idDrink);
+     });
+
+     console.log("alcArray", alcArray);
+
+     const alcIngredientArray = [];
+     for (let i = 0; i <= alcArray.length; i++){
+          if(ingredientDrinksAPI.includes(alcArray[i]))
+          {
+               alcIngredientArray.push(alcArray[i]);
+          }
+     }
+     console.log("alcIngredientArray", alcIngredientArray);
 
      //  TEMPORARY HARD-CODED INGREDIENT VARIABLE
      const ingredient = "Milk";
@@ -72,11 +92,11 @@ export default function CocktailDBDrinkCard() {
           }
           getCocktailsByIngredient();
      }, []);
-     console.log("byIngredient after useEffect", byIngredient);
+     //console.log("byIngredient after useEffect", byIngredient);
 
      return (
           <section>
-               {NonAlcIngredientArray.map((drink) => {
+               {alcIngredientArray.map((drink) => {
                     return (
                          <section>
                               <p>{drink}</p>
