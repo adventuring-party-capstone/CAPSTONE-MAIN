@@ -1,6 +1,6 @@
 const base_url = "https://api.spotify.com/v1/search?q=";
 const spotifyToken =
-	"BQD6zKgZG6xQlYRVsbxbcUIjfbwIEhS2HVJcYIiDtOcaOroFJ4TxI8WWJVFQdtfb4iKOH7DYCTIJ1_Ep6YTy1lkutZSTvcB_sRYd7rlkqpFrEMkEzes";
+	"BQBxMEcvT-VEvuby14wKZx94K_2b2bZcIdaLr3t9_XEdct5y4g-o9TOJ0IULwS6vJ4Vsj8qF_al_2nNFNcFRlHAxkancfmuZQGhx9SholRWJU2k1v6A";
 
 // grabs artist object from spotify search endpoint
 export const fetchArtistSearch = async (artistInput) => {
