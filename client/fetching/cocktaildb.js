@@ -54,3 +54,15 @@ export const fetchCocktailsByIngredient = async (ingredient) => {
 		);
 	}
 };
+
+// grabs cocktail by id
+export const fetchCocktailById = async (idDrink) => {
+	try {
+		const response = await fetch (`${base_url}/lookup.php?i=${idDrink}`);
+		const result = await response.json();
+		console.log("result from fetchCocktailById", result);
+		return result;
+	} catch (error) {
+		console.error("there was an error fetching cocktail by its id", error);
+	}
+};
