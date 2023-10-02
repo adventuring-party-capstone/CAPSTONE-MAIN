@@ -43,6 +43,7 @@ export const fetchArtistSearch = async (artistInput, spotifyToken) => {
 		console.error("Cannot fetch artistSearch", error);
 	}
 };
+// hello test
 
 // return genreArray from fetchArtistSearch
 
