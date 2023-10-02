@@ -3,6 +3,7 @@ import {
 	fetchAllAlcDrinks,
 	fetchAllNonAlcDrinks,
 	fetchCocktailsByIngredient,
+     fetchCocktailById
 } from "../../fetching/cocktaildb";
 
 export default function CocktailDBDrinkCard({ ingredientName }) {
@@ -11,6 +12,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	const [byIngredient, setByIngredient] = useState([]);
 	// const [ingredName, setIngredName] = useState("");
 	const [alcArrayToShow, setAlcArrayToShow] = useState([]);
+     const [drinkToRender, setDrinkToRender] = useState(null);
 
 	const ingredName = ingredientName;
 
@@ -108,7 +110,14 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			}
 		}
 		console.log("alcIngredientArray", alcIngredientArray);
+          setDrinkToRender(alcIngredientArray[0]);
+          console.log("Drink to render", drinkToRender);
 	}, [alcDrinks, byIngredient]);
+
+     //Take a number from nonAlc or alc ingredient arrays
+     //Pass that number into getDrinkById
+     //To display chosen drink by id
+
 
 	return (
 		<section>
