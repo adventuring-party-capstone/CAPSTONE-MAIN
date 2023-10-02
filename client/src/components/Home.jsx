@@ -5,63 +5,63 @@ import DrinkCard from "./DrinkCard";
 import Spotify from "./Spotify";
 import Register from "./Register";
 import Login from "./Login";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CocktailDBDrinkCard from "./CocktailDBDrinkCard";
 
 export default function Home({ token, setToken, userId, setUserId }) {
-     const [musicInput, setMusicInput] = useState("");
-     const [musicChoice, setMusicChoice] = useState("");
-     const [isClicked, setIsClicked] = useState(false);
+	const [musicInput, setMusicInput] = useState("");
+	const [musicChoice, setMusicChoice] = useState("");
+	const [isClicked, setIsClicked] = useState(false);
 
-     console.log("userId in home: ", userId);
+	// const navigate = useNavigate();
 
-     const handleSubmit = async (event) => {
-          event.preventDefault();
-          setMusicChoice(musicInput);
-          // console.log("musicChoice", musicChoice);
+	console.log("userId in home: ", userId);
 
-          if (musicChoice) {
-               console.log("entering handleSubmit");
-               setIsClicked(!isClicked);
-          } else {
-               console.log("can't get drink choice");
-          }
-     };
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setMusicChoice(musicInput);
+		// console.log("musicChoice", musicChoice);
 
-     return (
-          <div id="home-container">
-               <h1>ENTER MUSIC CHOICE</h1>
-               <form action="">
-                    <label htmlFor="Search">Enter Genre </label>
-                    <input
-                         type="text"
-                         name="search"
-                         placeholder="Enter music choice here"
-                         onChange={(event) => setMusicInput(event.target.value)}
-                         // onKeyDown={handleKeyDown}
-                    />
-               </form>
-               <br />
-               <button onClick={(event) => handleSubmit(event)}>
-                    Suggest Drink
-               </button>
-               <CocktailDBDrinkCard />
-               {musicChoice && (
-                    <Spotify musicChoice={musicChoice} userId={userId} />
-               )}
-               {!token && (
-                    <div>
-                         <Login
-                              token={token}
-                              setToken={setToken}
-                              setUserId={setUserId}
-                              userId={userId}
-                         />
-                         <Link to={"/register"}>Create New Account</Link>
-                    </div>
-               )}
-          </div>
-     );
+		if (musicChoice) {
+			console.log("entering handleSubmit");
+			setIsClicked(!isClicked);
+			// navigate(0);
+			// setMusicChoice("");
+		} else {
+			console.log("can't get drink choice");
+		}
+	};
+
+	return (
+		<div id="home-container">
+			<h1>ENTER MUSIC CHOICE</h1>
+			<form action="">
+				<label htmlFor="Search">Enter Genre </label>
+				<input
+					type="text"
+					name="search"
+					placeholder="Enter music choice here"
+					onChange={(event) => setMusicInput(event.target.value)}
+					// onKeyDown={handleKeyDown}
+				/>
+			</form>
+			<br />
+			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
+			{/* <CocktailDBDrinkCard /> */}
+			{musicChoice && <Spotify musicChoice={musicChoice} userId={userId} />}
+			{!token && (
+				<div>
+					<Login
+						token={token}
+						setToken={setToken}
+						setUserId={setUserId}
+						userId={userId}
+					/>
+					<Link to={"/register"}>Create New Account</Link>
+				</div>
+			)}
+		</div>
+	);
 }
 
 // need a search bar
