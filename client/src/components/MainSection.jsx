@@ -6,7 +6,6 @@ import Logout from "./Logout";
 import Spotify from "./Spotify";
 import { Routes, Route } from "react-router-dom";
 import Register from "./Register";
-import SpotifyRefactor from "./SpotifyRefactor";
 
 export default function MainSection({ token, setToken, userId, setUserId }) {
 	console.log("userId in main section", userId);
@@ -52,7 +51,6 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
 					element={<Logout token={token} setToken={setToken} />}
 				/>
 				<Route path="/spotify" element={<Spotify />} />
-				<Route path="/spotify-refactor" element={<SpotifyRefactor />} />
 			</Routes>
 		</div>
 	);
