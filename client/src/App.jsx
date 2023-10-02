@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
 	//get tokens where other components can use them
+	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
 	useEffect(() => {
@@ -26,6 +27,8 @@ function App() {
 				setToken={setToken}
 				userId={userId}
 				setUserId={setUserId}
+				spotifyToken={spotifyToken}
+				setSpotifyToken={setSpotifyToken}
 			/>
 		</div>
 	);

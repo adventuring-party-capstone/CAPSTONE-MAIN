@@ -8,7 +8,7 @@ import Login from "./Login";
 import { Link, useNavigate } from "react-router-dom";
 import CocktailDBDrinkCard from "./CocktailDBDrinkCard";
 
-export default function Home({ token, setToken, userId, setUserId }) {
+export default function Home({ token, setToken, userId, setUserId, spotifyToken, setSpotifyToken }) {
      const [musicInput, setMusicInput] = useState("");
      const [musicChoice, setMusicChoice] = useState("");
      const [isClicked, setIsClicked] = useState(false);
@@ -59,7 +59,7 @@ export default function Home({ token, setToken, userId, setUserId }) {
                <br />
                <button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
                {/* <CocktailDBDrinkCard /> */}
-               {musicChoice && <Spotify musicChoice={musicChoice} userId={userId} />}
+               {musicChoice && <Spotify musicChoice={musicChoice} userId={userId} spotifyToken={spotifyToken} setSpotifyToken={setSpotifyToken} />}
                {!token && (
                     <div>
                          <Login
