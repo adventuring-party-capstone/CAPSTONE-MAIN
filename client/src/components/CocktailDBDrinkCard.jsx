@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import {
-	fetchAllAlcDrinks,
-	fetchAllNonAlcDrinks,
-	fetchCocktailsByIngredient,
+     fetchAllAlcDrinks,
+     fetchAllNonAlcDrinks,
+     fetchCocktailsByIngredient,
+     fetchCocktailById
 } from "../../fetching/cocktaildb";
 
 export default function CocktailDBDrinkCard({ ingredientName }) {
@@ -11,6 +12,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	const [byIngredient, setByIngredient] = useState([]);
 	// const [ingredName, setIngredName] = useState("");
 	const [alcArrayToShow, setAlcArrayToShow] = useState([]);
+     const [drinkToRender, setDrinkToRender] = useState(null);
 
 	const ingredName = ingredientName;
 
