@@ -1,27 +1,30 @@
 const base_url = "https://api.spotify.com/v1/search?q=";
 const spotifyToken =
-	"BQA5JdJ-c0E6zVcaRWWGJjkAiqiwr5LWqPIG82_7wJbIN4jGmqqvpfwJYvpGg1qiShKa5kxA4zKiZ5v7Qf9iPBdN0fuARQT2jUOmDVD2VNqvHbzcZRM";
+     "BQDGhGh6jyAlmA4DntivL60vXjrPpxBsT1Wk2YthdpGpOw_PvPgqpanyuygS3Ejg4bQIKrB5FZtbROfylagJionkA4i6lTx0nqOiLL-uN4T5bC_KX-g";
 
 // grabs artist object from spotify search endpoint
 export const fetchArtistSearch = async (artistInput) => {
-	try {
-		console.log("...starting to fetch artist");
-		const response = await fetch(`${base_url}${artistInput}&type=artist`, {
-			method: "GET",
-			headers: {
-				// "Content-Type": "application/json",
-				Authorization: `Bearer ${spotifyToken}`,
-			},
-		});
-		const result = await response.json();
-		// console.log("result", result);
-		// console.log("result.artists.items", result.artists.items);
-		const genreArray = result.artists.items[0].genres;
-		console.log("genreArray", genreArray);
-		return genreArray;
-	} catch (error) {
-		console.error("Cannot fetch artistSearch", error);
-	}
+     try {
+          console.log("...starting to fetch artist");
+          const response = await fetch(
+               `${base_url}${artistInput}&type=artist`,
+               {
+                    method: "GET",
+                    headers: {
+                         // "Content-Type": "application/json",
+                         Authorization: `Bearer ${spotifyToken}`,
+                    },
+               }
+          );
+          const result = await response.json();
+          // console.log("result", result);
+          // console.log("result.artists.items", result.artists.items);
+          const genreArray = result.artists.items[0].genres;
+          console.log("genreArray", genreArray);
+          return genreArray;
+     } catch (error) {
+          console.error("Cannot fetch artistSearch", error);
+     }
 };
 
 // return genreArray from fetchArtistSearch
