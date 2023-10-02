@@ -33,7 +33,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 			{cocktail && (
 				<div>
 					<h3>Name: {cocktail.strDrink}</h3>
-					<img src={cocktail.strImageSource} alt={cocktail.strDrink} />
+					<img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
 					<h4>
 						Ingredients:{cocktail.strMeasure1} {cocktail.strIngredient1},
 						{cocktail.strMeasure2} {cocktail.strIngredient2}
