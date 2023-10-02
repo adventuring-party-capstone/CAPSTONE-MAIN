@@ -12,6 +12,7 @@ function App() {
 	useEffect(() => {
 		setToken(window.localStorage.getItem("token"));
 		setUserId(window.localStorage.getItem("userId"));
+		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
 	return (
 		<div id="app-container">
