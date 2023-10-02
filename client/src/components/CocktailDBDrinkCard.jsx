@@ -112,6 +112,9 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		console.log("alcIngredientArray", alcIngredientArray);
 	}, [alcDrinks, byIngredient]);
 
+     setDrinkToRender(alcIngredientArray[0]);
+     console.log("drink to render set", drinkToRender);
+
 	return (
 		<section>
 			<h1>HELLO</h1>
