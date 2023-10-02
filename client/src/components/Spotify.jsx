@@ -1,7 +1,7 @@
 // This component grabs data from spotify for use on front end
 
 import { useEffect, useState } from "react";
-import { fetchArtistSearch } from "../../fetching/spotify.js";
+import { fetchArtistSearch, fetchToken } from "../../fetching/spotify.js";
 import {
 	fetchAllDrinks,
 	fetchAllGenres,
@@ -10,14 +10,9 @@ import {
 } from "../../fetching/local.js";
 import FavoriteButton from "./FavoriteButton.jsx";
 import * as React from "react";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import { alpha, styled } from "@mui/material/styles";
-import { pink } from "@mui/material/colors";
 import CocktailDBDrinkCard from "./CocktailDBDrinkCard.jsx";
 
-export default function Spotify({ musicChoice, userId }) {
+export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyToken }) {
 	const [drinks, setDrinks] = useState([]);
 	const [localGenres, setLocalGenres] = useState([]);
 	const [artistGenres, setArtistGenres] = useState([]);
@@ -26,9 +21,21 @@ export default function Spotify({ musicChoice, userId }) {
 		[]
 	);
 	const [ingredients, setIngredients] = useState([]);
-	const [localArray, setLocalArray] = useState([]);
-	const [isToggled, setIsToggled] = useState(false);
 	const [filteredIngredNames, setFilteredIngredNames] = useState([]);
+
+	// get token
+	useEffect(() => {
+		async function getToken() {
+			const response = await fetchToken();
+			if (response) {
+				console.log('spotify token fetched', response.access_token);
+				setSpotifyToken(response.access_token);
+			} else {
+				console.log("...you're not authorized")
+			}
+		}
+		getToken();
+	}, [])
 
 	// get all drinks
 	useEffect(() => {
@@ -60,14 +67,14 @@ export default function Spotify({ musicChoice, userId }) {
 		async function getSpotifyGenre() {
 			console.log("entering getSpotifyGenres");
 			try {
-				const APIArtistGenre = await fetchArtistSearch(musicChoice);
+				const APIArtistGenre = await fetchArtistSearch(musicChoice, spotifyToken);
 				setArtistGenres(APIArtistGenre);
 			} catch (error) {
 				console.error("can't get all genres ", error);
 			}
 		}
 		getSpotifyGenre();
-	}, []);
+	}, [spotifyToken]);
 
 	function compareGenres() {
 		// grab first genre from the spotify genre array for the artist
@@ -150,59 +157,12 @@ export default function Spotify({ musicChoice, userId }) {
 				});
 
 				setFilteredIngredNames(filtered_ingredients_names);
-				// console.log("filtered ingred names", filtered_ingredients_names);
-				// console.log("bourbon?", filtered_ingredients_names[0]);
 			}
 		});
 	}, [matchedGenres]);
 
-	// TOGGLE LOGIC
-	function handleSwitch(event) {
-		setIsToggled(event.target.checked);
-	}
-
-	// Alcohol toggle
-	const PinkSwitch = styled(Switch)(({ theme }) => ({
-		"& .MuiSwitch-switchBase.Mui-checked": {
-			color: pink[600],
-			"&:hover": {
-				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
-			},
-		},
-		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-			backgroundColor: pink[600],
-		},
-	}));
-
-	// local DB array splitting alcoholic/non-alcoholic
-	const nonAlcArray = [];
-	useEffect(() => {
-		drinks.filter((drink) => {
-			// filtering alcoholic drinks
-			if (drink.alcoholic && isToggled) {
-				setLocalArray(drinks);
-			} else if (!drink.alcoholic && !isToggled) {
-				nonAlcArray.push(drink);
-				setLocalArray(nonAlcArray);
-			}
-		});
-		console.log("localArray ", localArray);
-	}, [drinks, isToggled]);
-
 	return (
 		<div>
-			{/* {matchedGenres && <h1>Found genre: {matchedGenres.genres_name}</h1>} */}
-			{/* <FormGroup>
-				<FormControlLabel
-					control={
-						<PinkSwitch
-							checked={isToggled}
-							onChange={(event) => handleSwitch(event)}
-						/>
-					}
-					label="Show alcoholic drinks"
-				/>
-			</FormGroup> */}
 			{filteredIngredNames && (
 				<CocktailDBDrinkCard ingredientName={filteredIngredNames[0]} />
 			)}
@@ -210,23 +170,3 @@ export default function Spotify({ musicChoice, userId }) {
 	);
 }
 
-// {filtered_ingredients_names && (
-//     <div>
-//         {localArray
-//             .filter((drink) =>
-//                 filtered_ingredients_names.includes(drink.ingredients)
-//             )
-//             .map((drink) => {
-//                 const drinkId = drink.drinks_id;
-//                 return (
-//                     <>
-//                         <div id="each-drink" key={drink.drinks_id}>
-//                             <h3>{drink.drinks_name}</h3>
-//                             <img src={drink.image}></img>
-//                             <FavoriteButton drinkId={drinkId} userId={userId} />
-//                         </div>
-//                     </>
-//                 );
-//             })}
-//     </div>
-// )}

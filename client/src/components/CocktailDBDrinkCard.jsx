@@ -130,6 +130,8 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 						// eslint-disable-next-line react/jsx-key
 						<section>
 							<p>{drink}</p>
+
+							{/* <SingleDrinkDetails drink={drink} /> */}
 						</section>
 					);
 				})

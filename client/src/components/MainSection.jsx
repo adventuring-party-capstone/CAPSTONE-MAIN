@@ -7,7 +7,7 @@ import Spotify from "./Spotify";
 import { Routes, Route } from "react-router-dom";
 import Register from "./Register";
 
-export default function MainSection({ token, setToken, userId, setUserId }) {
+export default function MainSection({ token, setToken, userId, setUserId, spotifyToken, setSpotifyToken }) {
 	console.log("userId in main section", userId);
 
 	return (
@@ -21,6 +21,8 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
 							setToken={setToken}
 							userId={userId}
 							setUserId={setUserId}
+							spotifyToken={spotifyToken}
+							setSpotifyToken={setSpotifyToken}
 						/>
 					}
 				></Route>
