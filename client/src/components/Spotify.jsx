@@ -12,7 +12,12 @@ import FavoriteButton from "./FavoriteButton.jsx";
 import * as React from "react";
 import CocktailDBDrinkCard from "./CocktailDBDrinkCard.jsx";
 
-export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyToken }) {
+export default function Spotify({
+	musicChoice,
+	userId,
+	spotifyToken,
+	setSpotifyToken,
+}) {
 	const [drinks, setDrinks] = useState([]);
 	const [localGenres, setLocalGenres] = useState([]);
 	const [artistGenres, setArtistGenres] = useState([]);
@@ -28,14 +33,14 @@ export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyT
 		async function getToken() {
 			const response = await fetchToken();
 			if (response) {
-				console.log('spotify token fetched', response.access_token);
+				console.log("spotify token fetched", response.access_token);
 				setSpotifyToken(response.access_token);
 			} else {
-				console.log("...you're not authorized")
+				console.log("...you're not authorized");
 			}
 		}
 		getToken();
-	}, [])
+	}, []);
 
 	// get all drinks
 	useEffect(() => {
@@ -67,14 +72,17 @@ export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyT
 		async function getSpotifyGenre() {
 			console.log("entering getSpotifyGenres");
 			try {
-				const APIArtistGenre = await fetchArtistSearch(musicChoice, spotifyToken);
+				const APIArtistGenre = await fetchArtistSearch(
+					musicChoice,
+					spotifyToken
+				);
 				setArtistGenres(APIArtistGenre);
 			} catch (error) {
 				console.error("can't get all genres ", error);
 			}
 		}
 		getSpotifyGenre();
-	}, [spotifyToken]);
+	}, [musicChoice, spotifyToken]);
 
 	function compareGenres() {
 		// grab first genre from the spotify genre array for the artist
@@ -159,6 +167,7 @@ export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyT
 				setFilteredIngredNames(filtered_ingredients_names);
 			}
 		});
+		// console.log("filteredIngredientNames in UE", filteredIngredNames);
 	}, [matchedGenres]);
 
 	return (
@@ -169,4 +178,3 @@ export default function Spotify({ musicChoice, userId, spotifyToken, setSpotifyT
 		</div>
 	);
 }
-

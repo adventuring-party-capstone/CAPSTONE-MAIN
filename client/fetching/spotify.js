@@ -9,18 +9,14 @@ export const fetchToken = async () => {
 				"Content-Type": "application/x-www-form-urlencoded",
 			},
 			body: "grant_type=client_credentials&client_id=4dccf830e7fd42239b9a886f1fb2d848&client_secret=af5d14643f0f4eaeab32b2f0b93c71fa",
-			body: "grant_type=client_credentials&client_id=4dccf830e7fd42239b9a886f1fb2d848&client_secret=af5d14643f0f4eaeab32b2f0b93c71fa",
 		});
 		console.log("response from fetch token", response);
-		console.log("response from fetch token", response);
 		const result = await response.json();
-		console.log("result from fetch token", result);
 		console.log("result from fetch token", result);
 		return result;
 	} catch (error) {
 		console.error("Cannot get token!");
 	}
-};
 };
 
 fetchToken();
