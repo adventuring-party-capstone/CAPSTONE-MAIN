@@ -163,6 +163,12 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
      // 	);
      // }, [isToggled, localArray, nonAlcIngredientArray]);
 
+     //HANDLECLICK FOR SUGGEST ANOTHER
+     function handleClick() {
+          //also run the concat randomizer in here once it's working?
+          //   setChosenDrinkId();
+     }
+
      useEffect(() => {
           // console.log("randomIndexAlc in UE", randomIndexAlc);
           // console.log("randomIndexNonAlc", randomIndexNonAlc);
@@ -193,7 +199,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 
      console.log("drink to render above return", drinkToRender);
      return (
-          <section>
+          <section id="drink-card">
                <FormGroup>
                     <FormControlLabel
                          control={
@@ -210,6 +216,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
                {drinkToRender && <img src={drinkToRender.strDrinkThumb} />}
                <br />
                {<DetailsButton drink={chosenDrinkId} />}
+               <button onClick={handleClick}>Suggest Another Drink</button>
           </section>
      );
 }
