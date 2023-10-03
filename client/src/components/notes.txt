@@ -1,0 +1,73 @@
+// combine API alc & API nonalc drinks (useEffect)
+useEffect(()=>{
+    const combinedAPIArray = alcArray.concat(nonAlcArray);
+},[alcArray, nonAlcArray])
+
+
+// local DB array based on toggle behavior
+
+const nonAlcArray = [];
+useEffect(() => {
+    allDrinks.filter((drink) => {
+        // filtering alcoholic drinks
+        if (drink.alcoholic && isToggled) {
+            setLocalArray(allDrinks);
+        } else if (!drink.alcoholic && !isToggled) {
+            nonAlcArray.push(drink);
+            console.log("nonAlcArray", nonAlcArray);
+            setLocalArray(nonAlcArray);
+        }
+    });
+}, [allDrinks, isToggled]);
+
+// API array based on the toggle behavior
+useEffect(()=>{
+    if (isToggled) {
+        setAPIArray(combinedAPIArray);
+    } else if (!isToggled) {
+        setAPIArray(nonAlcArray)
+    };
+},[localArray, combinedAPIArray])
+
+const drinksToDisplay = searchParam
+		? (localArray.filter(
+			(drink) =>
+					drink.drinks_name.toLowerCase().includes(searchParam) 
+        ));
+		: localArray
+
+const drinksToDisplayAPI = searchParam
+        ? (APIArray.filter(
+        (drink) =>
+                drink.strDrink.toLowerCase().includes(searchParam)
+        ));
+        : APIArray
+
+return(
+    <section>
+        {drinksToDisplay.map((drink) => {
+            return (
+                <div key={drink.drinks_id}>
+                    <h2>{drink.drinks_name}</h2>
+                    <img src={drink.image} alt={drink.drinks_name} id="images" />
+                    <br />
+                    {token && (
+                        <FavoriteButton drinkId={drink.drinks_id} userId={userId} />
+                    )}
+                </div>
+            );
+        })}
+        {drinksToDisplayAPI.map((drink) => {
+            return (
+                <div key={drink.idDrink}>
+                    <h2>{drink.strDrink}</h2>
+                    <img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+                    <br />
+                    {token && (
+                        <FavoriteButton drinkId={drink.idDrink} userId={userId} />
+                    )}
+                </div>
+            );
+        })}
+    </section>
+)
