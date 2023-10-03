@@ -16,7 +16,8 @@ export default function AllDrinks({ token, userId }) {
 	const [allNonAlcDrinks, setAllNonAlcDrinks] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
 	const [localArray, setLocalArray] = useState([]);
-	const [apiArray, setApiArray] = useState([]);
+	const [APIArrayBig, setAPIArrayBig] = useState([]);
+	const [combinedArray, setCombinedArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
 
 	useEffect(() => {
@@ -42,9 +43,7 @@ export default function AllDrinks({ token, userId }) {
 			console.log("alc drinks", drinks);
 			//can also be a try/catch for more detailed error reporting
 			if (drinks) {
-				setAllAlcDrinks(drinks);
-
-				return drinks;
+				setAllAlcDrinks(drinks.drinks);
 			} else {
 				console.log("error fetching alcoholic drinks");
 			}
@@ -59,9 +58,7 @@ export default function AllDrinks({ token, userId }) {
 			console.log("non alc drinks", drinks);
 			//can also be a try/catch for more detailed error reporting
 			if (drinks) {
-				setAllNonAlcDrinks(drinks);
-
-				return drinks;
+				setAllNonAlcDrinks(drinks.drinks);
 			} else {
 				console.log("error fetching non-alcoholic drinks");
 			}
@@ -69,11 +66,19 @@ export default function AllDrinks({ token, userId }) {
 		getAllNonAlcDrinks();
 	}, []);
 
+	// combining API alcoholic & nonalcoholic to get all API drinks
 	useEffect(() => {
-		const combinedArray = (allAlcDrinks.concat(allNonAlcDrinks));
-		console.log("all alc drinks", allAlcDrinks)
-
-	}, []);
+		console.log("allAlcDrinks in UE", allAlcDrinks);
+		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
+		console.log("twoArrays", twoArrays);
+		setCombinedArray(twoArrays);
+		// if (allAlcDrinks.length > 0 && allNonAlcDrinks.length > 0) {
+		// } else {
+		// 	console.log("can't combine arrays");
+		// }
+		// console.log("all alc drinks in UE", allAlcDrinks);
+	}, [allAlcDrinks, allNonAlcDrinks]);
 
 	function handleSwitch(event) {
 		setIsToggled(event.target.checked);
@@ -107,6 +112,24 @@ export default function AllDrinks({ token, userId }) {
 		});
 	}, [allDrinks, isToggled]);
 
+	// API array based on the toggle behavior
+	const APIArray = [];
+	useEffect(() => {
+		console.log("combinedArray in UE", combinedArray);
+		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+		// console.log("APIArray in UE", APIArray);
+		// setAPIArray(nonAlcArray);
+		if (isToggled) {
+			APIArray.push(combinedArray);
+			setAPIArrayBig(APIArray[0]);
+			console.log("APIArray if isToggled", APIArray);
+		} else if (!isToggled) {
+			APIArray.push(allNonAlcDrinks);
+			setAPIArrayBig(APIArray[0]);
+			console.log("APIArray if !isToggled", APIArray);
+		}
+	}, [combinedArray, isToggled, allNonAlcDrinks]);
+
 	const drinksToDisplay = searchParam
 		? localArray.filter(
 				(drink) =>
@@ -114,6 +137,12 @@ export default function AllDrinks({ token, userId }) {
 					drink.ingredients.toLowerCase().includes(searchParam)
 		  )
 		: localArray;
+
+	const drinksToDisplayAPI = searchParam
+		? APIArrayBig.filter((drink) =>
+				drink.strDrink.toLowerCase().includes(searchParam)
+		  )
+		: APIArrayBig;
 
 	return (
 		<section id="all-drinks-container">
@@ -148,6 +177,18 @@ export default function AllDrinks({ token, userId }) {
 							<br />
 							{token && (
 								<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
+							)}
+						</div>
+					);
+				})}
+				{drinksToDisplayAPI.map((drink) => {
+					return (
+						<div key={drink.idDrink}>
+							<h2>{drink.strDrink}</h2>
+							<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+							<br />
+							{token && (
+								<FavoriteButton drinkId={drink.idDrink} userId={userId} />
 							)}
 						</div>
 					);
