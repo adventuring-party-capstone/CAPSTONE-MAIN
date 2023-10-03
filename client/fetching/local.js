@@ -110,10 +110,12 @@ export const createNewFavorite = async (users_id, drinks_id) => {
 			},
 			body: JSON.stringify({
 				users_id: users_id,
-				drinks_id: drinks_id,
+				drinks_id: null,
+				api_drinks_id: 15346
 			}),
 		});
 		const result = await response.json();
+		console.log('result from createNewFavorite', result);
 		return result;
 	} catch (error) {
 		console.error("Cannot post favorite drink", error);
