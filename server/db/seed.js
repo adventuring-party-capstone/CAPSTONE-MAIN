@@ -58,7 +58,8 @@ const createTables = async () => {
         CREATE TABLE users_drinks(
             users_drinks_id SERIAL PRIMARY KEY,
             users_id INTEGER REFERENCES users(users_id),
-            drinks_id INTEGER REFERENCES drinks(drinks_id)
+            drinks_id INTEGER REFERENCES drinks(drinks_id),
+            api_drinks_id varchar(255)
         );
         CREATE TABLE genres(
             genres_id SERIAL PRIMARY KEY,

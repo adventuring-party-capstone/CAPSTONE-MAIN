@@ -160,16 +160,19 @@ const users_drinks = [
           users_drinks_id: 1,
           users_id: 1,
           drinks_id: 1,
+          api_drinks_id: null
      },
      {
           users_drinks_id: 2,
           users_id: 2,
           drinks_id: 2,
+          api_drinks_id: null
      },
      {
           users_drinks_id: 3,
           users_id: 3,
           drinks_id: 3,
+          api_drinks_id: null
      },
 ];
 
