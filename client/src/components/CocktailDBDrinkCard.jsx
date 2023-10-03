@@ -25,6 +25,9 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	const [localArray, setLocalArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
 
+	// const [randomIndexAlc, setRandomIndexAlc] = useState(null);
+	// const [randomIndexNonAlc, setRandomIndexNonAlc] = useState(null);
+
 	const ingredName = ingredientName;
 
 	// TOGGLE LOGIC
@@ -144,7 +147,22 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 
 	//concatenate the alcDrinkIngredient and nonAlcDrinkIngredient Arrays
 	//conditionally setChosenDrinkId based on whether it's from non or concat array
+	// let randomIndexAlc = Math.floor(Math.random() * localArray.length);
+	// let randomIndexNonAlc = Math.floor(
+	// 	Math.random() * nonAlcIngredientArray.length
+	// );
+
+	// randomizing indexes
+	// useEffect(() => {
+	// 	setRandomIndexAlc(Math.floor(Math.random() * localArray.length));
+	// 	setRandomIndexNonAlc(
+	// 		Math.floor(Math.random() * nonAlcIngredientArray.length)
+	// 	);
+	// }, [isToggled, localArray, nonAlcIngredientArray]);
+
 	useEffect(() => {
+		// console.log("randomIndexAlc in UE", randomIndexAlc);
+		// console.log("randomIndexNonAlc", randomIndexNonAlc);
 		if (isToggled) {
 			setChosenDrinkId(localArray[0]);
 		} else if (!isToggled && nonAlcIngredientArray.length > 0) {
@@ -156,6 +174,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 
 	// fetching cocktail by id from API
 	useEffect(() => {
+		console.log("chosenDrinkId in UE", chosenDrinkId);
 		const chosenId = chosenDrinkId;
 		async function getCocktailById() {
 			const response = await fetchCocktailById(chosenId);
@@ -167,7 +186,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			}
 		}
 		getCocktailById();
-	}, [chosenDrinkId]);
+	}, [chosenDrinkId, isToggled]);
 
 	console.log("drink to render above return", drinkToRender);
 	return (
