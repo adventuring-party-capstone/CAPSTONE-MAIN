@@ -24,7 +24,6 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	const [drinkToRender, setDrinkToRender] = useState([]);
 	const [localArray, setLocalArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
-	const [toggleArray, setToggleArray] = useState([]);
 
 	const ingredName = ingredientName;
 
@@ -93,7 +92,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	//console.log("nonAlcArray ", nonAlcArray);
 
 	const ingredientDrinksAPI = [];
-	const NonAlcIngredientArray = [];
+	const nonAlcIngredientArray = [];
 	useEffect(() => {
 		nonAlcDrinks.map((nonAlcDrink) => {
 			nonAlcArray.push(nonAlcDrink.idDrink);
@@ -104,7 +103,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 
 		for (let i = 0; i <= nonAlcArray.length; i++) {
 			if (ingredientDrinksAPI.includes(nonAlcArray[i])) {
-				NonAlcIngredientArray.push(nonAlcArray[i]);
+				nonAlcIngredientArray.push(nonAlcArray[i]);
 			}
 		}
 		// console.log("ingredientDrinkAPI", ingredientDrinksAPI);
@@ -135,6 +134,9 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			}
 		}
 		console.log("alcIngredientArray", alcIngredientArray);
+		const bothArrays = alcIngredientArray.concat(nonAlcIngredientArray);
+		setLocalArray(bothArrays);
+		console.log("bothArrays in line 139", bothArrays);
 		//alcoholic drinks that include the chosen ingredient
 
 		//concat with the nonalc drinks that include the ingredient
@@ -143,28 +145,18 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	//concatenate the alcDrinkIngredient and nonAlcDrinkIngredient Arrays
 	//conditionally setChosenDrinkId based on whether it's from non or concat array
 	useEffect(() => {
-		const toggleOnArray = alcIngredientArray.concat(NonAlcIngredientArray);
-		console.log("toggleOnArray above if/then", toggleOnArray);
-		if (isToggled && alcIngredientArray) {
-			setChosenDrinkId(toggleOnArray[0]);
-			console.log(
-				"we are in the toggled side and here's the array:",
-				toggleOnArray
-			);
-		} else if (!isToggled && NonAlcIngredientArray.length > 0) {
-			console.log("nonAlcIngredArray in first else if", NonAlcIngredientArray);
-			setChosenDrinkId(NonAlcIngredientArray[0]);
-		} else if (!isToggled && NonAlcIngredientArray.length == 0) {
+		if (isToggled) {
+			setChosenDrinkId(localArray[0]);
+		} else if (!isToggled && nonAlcIngredientArray.length > 0) {
+			setChosenDrinkId(nonAlcIngredientArray[0]);
+		} else if (!isToggled && nonAlcIngredientArray.length == 0) {
 			setChosenDrinkId(12698); //mango lassi ID
 		}
-	}, [alcIngredientArray, NonAlcIngredientArray, isToggled]);
+	}, [localArray, nonAlcIngredientArray, isToggled]);
 
+	// fetching cocktail by id from API
 	useEffect(() => {
-		console.log("entering fetch cocktail by id");
-		console.log("chosenDrinkId in 163", chosenDrinkId);
 		const chosenId = chosenDrinkId;
-		console.log("chosenId in the get by id useEffect", chosenId);
-		// setTimeout(1000);
 		async function getCocktailById() {
 			const response = await fetchCocktailById(chosenId);
 			console.log("response from getCocktailById", response);
