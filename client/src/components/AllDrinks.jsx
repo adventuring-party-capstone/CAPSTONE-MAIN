@@ -7,11 +7,16 @@ import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 import { useState, useEffect } from "react";
 import { fetchAllDrinks } from "../../fetching/local";
+import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
+import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
 
 export default function AllDrinks({ token, userId }) {
 	const [allDrinks, setAllDrinks] = useState([]);
+	const [allAlcDrinks, setAllAlcDrinks] = useState([]);
+	const [allNonAlcDrinks, setAllNonAlcDrinks] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
 	const [localArray, setLocalArray] = useState([]);
+	const [apiArray, setApiArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
 
 	useEffect(() => {
@@ -28,6 +33,46 @@ export default function AllDrinks({ token, userId }) {
 			}
 		}
 		getAllDrinks();
+	}, []);
+
+	// getting all alc drinks from Cocktail DB
+	useEffect(() => {
+		async function getAllAlcDrinks() {
+			const drinks = await fetchAllAlcDrinks();
+			console.log("alc drinks", drinks);
+			//can also be a try/catch for more detailed error reporting
+			if (drinks) {
+				setAllAlcDrinks(drinks);
+
+				return drinks;
+			} else {
+				console.log("error fetching alcoholic drinks");
+			}
+		}
+		getAllAlcDrinks();
+	}, []);
+
+	// getting all non alc drinks from Cocktail DB
+	useEffect(() => {
+		async function getAllNonAlcDrinks() {
+			const drinks = await fetchAllNonAlcDrinks();
+			console.log("non alc drinks", drinks);
+			//can also be a try/catch for more detailed error reporting
+			if (drinks) {
+				setAllNonAlcDrinks(drinks);
+
+				return drinks;
+			} else {
+				console.log("error fetching non-alcoholic drinks");
+			}
+		}
+		getAllNonAlcDrinks();
+	}, []);
+
+	useEffect(() => {
+		const combinedArray = (allAlcDrinks.concat(allNonAlcDrinks));
+		console.log("all alc drinks", allAlcDrinks)
+
 	}, []);
 
 	function handleSwitch(event) {
