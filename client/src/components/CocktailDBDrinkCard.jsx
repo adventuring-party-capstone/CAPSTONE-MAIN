@@ -110,7 +110,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		console.log("Drink to render", chosenDrinkId);
 	}, [alcDrinks, byIngredient]);
 
-	console.log("chosenId outside the useEffect", chosenId);
+	// console.log("chosenId outside the useEffect", chosenId);
 
 	//currently, this useEffect fires when chosenId changes
 	//chosenId is set inside the function that sets AlcIngredientArray
@@ -120,11 +120,15 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	useEffect(() => {
 		console.log("entering cocktail by id");
 		console.log("chosenId in the get by id useEffect", chosenId);
-		setTimeout(1000);
+		// setTimeout(1000);
 		async function getCocktailById() {
 			const response = await fetchCocktailById(chosenId);
-			console.log("response from getCocktailById", response.drinks);
-			setDrinkToRender(response.drinks);
+			console.log("response from getCocktailById", response);
+			if (response) {
+				setDrinkToRender(response.drinks[0]);
+			} else {
+				console.log("can't get single drink to render");
+			}
 		}
 		getCocktailById();
 	}, [chosenId]);
@@ -134,9 +138,9 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		<section>
 			<h1>HELLO</h1>
 			{/* {console.log("alcArrayToShow below Hello", alcArrayToShow)} */}
-			{/* {drinkToRender && <h1>{drinkToRender[0].strDrink}</h1>} */}
-			{/* {drinkToRender && <img src={drinkToRender[0].strDrinkThumb} />} */}
-			{alcArrayToShow ? (
+			{drinkToRender && <h1>{drinkToRender.strDrink}</h1>}
+			{drinkToRender && <img src={drinkToRender.strDrinkThumb} />}
+			{/* {alcArrayToShow ? (
 				alcArrayToShow.map((drink) => {
 					console.log("mapping");
 					return (
@@ -151,7 +155,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 				<>
 					<h1>OH NO!!!</h1>
 				</>
-			)}
+			)} */}
 		</section>
 	);
 }

@@ -35,6 +35,7 @@ export default function Spotify({
 			if (response) {
 				console.log("spotify token fetched", response.access_token);
 				setSpotifyToken(response.access_token);
+				localStorage.setItem("spotifyToken", response.access_token);
 			} else {
 				console.log("...you're not authorized");
 			}
@@ -71,10 +72,11 @@ export default function Spotify({
 	useEffect(() => {
 		async function getSpotifyGenre() {
 			console.log("entering getSpotifyGenres");
+			let spotifyTokenSG = localStorage.getItem("spotifyToken");
 			try {
 				const APIArtistGenre = await fetchArtistSearch(
 					musicChoice,
-					spotifyToken
+					spotifyTokenSG
 				);
 				setArtistGenres(APIArtistGenre);
 			} catch (error) {
@@ -163,7 +165,7 @@ export default function Spotify({
 						filtered_ingredients_names.push(ingredient.ingredients_name);
 					}
 				});
-
+				console.log("filtered_ingredient_names", filtered_ingredients_names);
 				setFilteredIngredNames(filtered_ingredients_names);
 			}
 		});
