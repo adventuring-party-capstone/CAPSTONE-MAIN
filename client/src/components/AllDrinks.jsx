@@ -64,10 +64,10 @@ export default function AllDrinks({ token, userId }) {
 
 	const drinksToDisplay = searchParam
 		? localArray.filter(
-				(drink) =>
-					drink.drinks_name.toLowerCase().includes(searchParam) ||
-					drink.ingredients.toLowerCase().includes(searchParam)
-		  )
+			(drink) =>
+				drink.drinks_name.toLowerCase().includes(searchParam) ||
+				drink.ingredients.toLowerCase().includes(searchParam)
+		)
 		: localArray;
 
 	return (
@@ -102,7 +102,7 @@ export default function AllDrinks({ token, userId }) {
 							<img src={drink.image} alt={drink.drinks_name} id="images" />
 							<br />
 							{token && (
-								<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
+								<FavoriteButton drinkId={drink.drinks_id} userId={userId} api_drinks_id={drink.api_drinks_id} />
 							)}
 						</div>
 					);
