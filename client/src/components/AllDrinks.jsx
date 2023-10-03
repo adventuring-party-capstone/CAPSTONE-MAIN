@@ -176,7 +176,7 @@ export default function AllDrinks({ token, userId }) {
 							<img src={drink.image} alt={drink.drinks_name} id="images" />
 							<br />
 							{token && (
-								<FavoriteButton drinkId={drink.drinks_id} userId={userId} api_drinks_id={drink.api_drinks_id} />
+								<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
 							)}
 						</div>
 					);

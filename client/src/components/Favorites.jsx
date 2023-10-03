@@ -79,10 +79,17 @@ export default function Favorites({ token, userId }) {
 
 	// mapping through drinks to match with the ones that are favorited
 	const usersFavoriteDrinksId = [];
+	const usersFavoritesDrinksIdAPI = [];
 
 	usersFavorites.map((userFavorite) => {
 		usersFavoriteDrinksId.push(userFavorite.drinks_id);
 	});
+
+	usersFavorites.map((userFavorite) => {
+		usersFavoriteDrinksId.push(userFavorite.api_drinks_id);
+	});
+
+	console.log("usersFavoritesDrinksIdAPI", usersFavoritesDrinksIdAPI)
 
 	// map through usersFavorites
 	// push usersFavorites.drinks_id into usersFavoriteDrinksId array
