@@ -12,35 +12,35 @@ import { useEffect, useState } from "react";
 import { fetchCocktailById } from "../../fetching/cocktaildb";
 
 export default function SingleDrinkDetails({ drinkId }) {
-	const [cocktail, setCocktail] = useState([]);
+     const [cocktail, setCocktail] = useState([]);
 
-	useEffect(() => {
-		async function getCocktailById() {
-			const response = await fetchCocktailById(drinkId);
-			console.log("response from FCBI", response);
-			if (response) {
-				setCocktail(response.drinks[0]);
-			} else {
-				console.log("can't get single drink details");
-			}
-		}
-		getCocktailById();
-	}, [drinkId]);
+     useEffect(() => {
+          async function getCocktailById() {
+               const response = await fetchCocktailById(drinkId);
+               console.log("response from FCBI", response);
+               if (response) {
+                    setCocktail(response.drinks[0]);
+               } else {
+                    console.log("can't get single drink details");
+               }
+          }
+          getCocktailById();
+     }, [drinkId]);
 
-	return (
-		<section>
-			<h2>DETAILS HERE</h2>
-			{cocktail && (
-				<div>
-					<h3>Name: {cocktail.strDrink}</h3>
-					<img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-					<h4>
-						Ingredients:{cocktail.strMeasure1} {cocktail.strIngredient1},
-						{cocktail.strMeasure2} {cocktail.strIngredient2}
-					</h4>
-					<p>Instructions: {cocktail.strInstructions}</p>
-				</div>
-			)}
-		</section>
-	);
+     return (
+          <section>
+               {cocktail && (
+                    <div>
+                         {/* <h3>Name: {cocktail.strDrink}</h3>
+					<img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} /> */}
+                         <h4>
+                              Ingredients:{cocktail.strMeasure1}{" "}
+                              {cocktail.strIngredient1},{cocktail.strMeasure2}{" "}
+                              {cocktail.strIngredient2}
+                         </h4>
+                         <p>Instructions: {cocktail.strInstructions}</p>
+                    </div>
+               )}
+          </section>
+     );
 }
