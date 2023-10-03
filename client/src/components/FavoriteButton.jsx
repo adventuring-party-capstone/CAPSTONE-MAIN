@@ -3,7 +3,7 @@
 import { useNavigate } from "react-router-dom";
 import { createNewFavorite } from "../../fetching/local";
 
-export default function FavoriteButton({ drinkId, userId }) {
+export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
 	console.log("userId in FavoriteButton: ", userId);
 
 	//  const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function FavoriteButton({ drinkId, userId }) {
 
 		try {
 			// await createNewFavorite(userId, drinkId);
-			await createNewFavorite(userId, drinkId, 15346) // HARDCODE
+			await createNewFavorite(userId, drinkId, api_drinks_id) // HARDCODE
 			alert("Added to Favorites :D");
 		} catch (error) {
 			console.error(error);
