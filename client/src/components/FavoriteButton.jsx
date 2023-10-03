@@ -12,7 +12,8 @@ export default function FavoriteButton({ drinkId, userId }) {
 		event.preventDefault();
 
 		try {
-			await createNewFavorite(userId, drinkId);
+			// await createNewFavorite(userId, drinkId);
+			await createNewFavorite(userId, drinkId, 15346) // HARDCODE
 			alert("Added to Favorites :D");
 		} catch (error) {
 			console.error(error);

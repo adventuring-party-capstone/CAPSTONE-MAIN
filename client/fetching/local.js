@@ -110,7 +110,7 @@ export const createNewFavorite = async (users_id, drinks_id) => {
 			},
 			body: JSON.stringify({
 				users_id: users_id,
-				drinks_id: null,
+				drinks_id: drinks_id,
 				api_drinks_id: 15346
 			}),
 		});
