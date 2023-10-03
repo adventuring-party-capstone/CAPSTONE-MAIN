@@ -275,7 +275,7 @@ export default function Favorites({ token, userId }) {
 									<div key={drink.idDrink} id="drink-card">
 										<h2>{drink.strDrink}</h2>
 										<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
-										<DeleteFavorite drinks_id={drink.idDrink} />
+										<DeleteFavorite api_drinks_id={drink.idDrink} />
 									</div>
 								);
 							})}
