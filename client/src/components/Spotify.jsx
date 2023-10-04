@@ -175,7 +175,10 @@ export default function Spotify({
 	return (
 		<div>
 			{filteredIngredNames && (
-				<CocktailDBDrinkCard ingredientName={filteredIngredNames[0]} />
+				<CocktailDBDrinkCard
+					alcIngredientName={filteredIngredNames[1]}
+					nonAlcIngredientName={filteredIngredNames[0]}
+				/>
 			)}
 		</div>
 	);

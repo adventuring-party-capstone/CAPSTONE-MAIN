@@ -14,12 +14,14 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
-export default function CocktailDBDrinkCard({ ingredientName }) {
+export default function CocktailDBDrinkCard({
+	alcIngredientName,
+	nonAlcIngredientName,
+}) {
 	const [alcDrinks, setAlcDrinks] = useState([]);
 	const [nonAlcDrinks, setNonAlcDrinks] = useState([]);
-	const [byIngredient, setByIngredient] = useState([]);
-	// const [ingredName, setIngredName] = useState("");
-	//  const [alcArrayToShow, setAlcArrayToShow] = useState([]);
+	const [byAlcIngredient, setByAlcIngredient] = useState([]);
+	const [byNonAlcIngredient, setByNonAlcIngredient] = useState([]);
 	const [chosenDrinkId, setChosenDrinkId] = useState(null);
 	const [drinkToRender, setDrinkToRender] = useState([]);
 	const [localArray, setLocalArray] = useState([]);
@@ -28,7 +30,8 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 	const [randomIndexAlc, setRandomIndexAlc] = useState(null);
 	const [randomIndexNonAlc, setRandomIndexNonAlc] = useState(null);
 
-	const ingredName = ingredientName;
+	const alcIngredName = alcIngredientName;
+	const nonAlcIngredName = nonAlcIngredientName;
 
 	// TOGGLE LOGIC
 	function handleSwitch(event) {
@@ -48,7 +51,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		},
 	}));
 
-	console.log("ingredient name at top", ingredientName);
+	// console.log("ingredient name at top", ingredientName);
 
 	// grabbing alcoholic drinks from CocktailDB API
 	useEffect(() => {
@@ -69,18 +72,26 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		getAllNonAlcDrinks();
 	}, []);
 
-	// grabbing cocktails by ingredient (associated with genre) from CocktailDB API
+	// grabbing cocktails by alc ingredient (associated with genre) from CocktailDB API
 	useEffect(() => {
 		//   console.log("ingredientName in UE", ingredientName);
 		//   console.log("ingredNamein UE", ingredName);
 		//   setTimeout(function, 1000);
 		async function getCocktailsByIngredient() {
-			const response = await fetchCocktailsByIngredient(ingredName);
-			setByIngredient(response.drinks);
+			const response = await fetchCocktailsByIngredient(alcIngredName);
+			setByAlcIngredient(response.drinks);
 		}
 		getCocktailsByIngredient();
-		//   console.log("byIngredient after useEffect", byIngredient);
-	}, [ingredName]);
+	}, [alcIngredName]);
+
+	// grabbing cocktails by non alc ingredient (associated with genre) from CocktailDB API
+	useEffect(() => {
+		async function getCocktailsByIngredient() {
+			const response = await fetchCocktailsByIngredient(nonAlcIngredName);
+			setByNonAlcIngredient(response.drinks);
+		}
+		getCocktailsByIngredient();
+	}, [nonAlcIngredName]);
 
 	// adding all nonalc drinks that fit an ingredient into a single array
 	const nonAlcArray = [];
@@ -90,7 +101,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		nonAlcDrinks.map((nonAlcDrink) => {
 			nonAlcArray.push(nonAlcDrink.idDrink);
 		});
-		byIngredient.map((ingredientDrink) => {
+		byNonAlcIngredient.map((ingredientDrink) => {
 			ingredientDrinksAPI.push(ingredientDrink.idDrink);
 		});
 
@@ -99,7 +110,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 				nonAlcIngredientArray.push(nonAlcArray[i]);
 			}
 		}
-	}, [byIngredient, nonAlcArray]);
+	}, [byNonAlcIngredient, nonAlcArray]);
 
 	// adding all alc drinks that fit an ingredient into a single array
 	const alcArray = [];
@@ -109,7 +120,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			//strips down to [id numbers of alc drinks]
 			alcArray.push(alcDrink.idDrink);
 		});
-		byIngredient.map((ingredientDrink) => {
+		byAlcIngredient.map((ingredientDrink) => {
 			//strips down to [id numbers of drinks w/ ingredient]
 			ingredientDrinksAPI.push(ingredientDrink.idDrink);
 		});
@@ -125,7 +136,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 		// console.log("bothArrays in line 139", bothArrays);
 
 		randomizeIndices(); // If we want randomization on the first load, then comment it in
-	}, [alcDrinks, byIngredient]);
+	}, [alcDrinks, byAlcIngredient]);
 
 	// concatenate the alcDrinkIngredient and nonAlcDrinkIngredient Arrays
 	// conditionally setChosenDrinkId based on whether it's from non or concat array
@@ -156,8 +167,6 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			setChosenDrinkId(localArray[randomIndexAlc]);
 		} else if (!isToggled && nonAlcIngredientArray.length > 0) {
 			setChosenDrinkId(nonAlcIngredientArray[randomIndexNonAlc]);
-		} else if (!isToggled && nonAlcIngredientArray.length == 0) {
-			setChosenDrinkId(12698); //mango lassi ID
 		}
 	}, [localArray, nonAlcIngredientArray, isToggled]);
 
