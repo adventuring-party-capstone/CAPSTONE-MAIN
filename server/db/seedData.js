@@ -40,7 +40,7 @@ const genres = [
      },
      {
           genres_id: 5,
-          genres_name: "EDM",
+          genres_name: "Electronic",
      },
      {
           genres_id: 6,
@@ -52,7 +52,7 @@ const genres = [
      },
      {
           genres_id: 8,
-          genres_name: "Kpop",
+          genres_name: "World",
      },
      {
           genres_id: 9,
@@ -161,12 +161,12 @@ const genres_ingredients = [
      {
           genres_ingredients_id: 1,
           genres_id: 1,
-          ingredients_id: 1,
+          ingredients_id: 11,
      },
      {
           genres_ingredients_id: 2,
           genres_id: 1,
-          ingredients_id: 11,
+          ingredients_id: 1,
      },
      {
           genres_ingredients_id: 3,
@@ -176,22 +176,22 @@ const genres_ingredients = [
      {
           genres_ingredients_id: 4,
           genres_id: 3,
-          ingredients_id: 3,
+          ingredients_id: 12,
      },
      {
           genres_ingredients_id: 5,
           genres_id: 3,
-          ingredients_id: 12,
+          ingredients_id: 3,
      },
      {
           genres_ingredients_id: 6,
           genres_id: 4,
-          ingredients_id: 4,
+          ingredients_id: 8,
      },
      {
           genres_ingredients_id: 7,
           genres_id: 4,
-          ingredients_id: 8,
+          ingredients_id: 4,
      },
      {
           genres_ingredients_id: 8,
@@ -201,22 +201,22 @@ const genres_ingredients = [
      {
           genres_ingredients_id: 9,
           genres_id: 6,
-          ingredients_id: 6,
+          ingredients_id: 11,
      },
      {
           genres_ingredients_id: 10,
           genres_id: 6,
-          ingredients_id: 11,
+          ingredients_id: 6,
      },
      {
           genres_ingredients_id: 11,
           genres_id: 7,
-          ingredients_id: 7,
+          ingredients_id: 11,
      },
      {
           genres_ingredients_id: 12,
           genres_id: 7,
-          ingredients_id: 11,
+          ingredients_id: 7,
      },
      {
           genres_ingredients_id: 13,
@@ -226,12 +226,12 @@ const genres_ingredients = [
      {
           genres_ingredients_id: 14,
           genres_id: 9,
-          ingredients_id: 9,
+          ingredients_id: 12,
      },
      {
           genres_ingredients_id: 15,
           genres_id: 9,
-          ingredients_id: 12,
+          ingredients_id: 9,
      },
      {
           genres_ingredients_id: 16,
