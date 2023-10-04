@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchCocktailById } from "../../fetching/cocktaildb";
 import { fetchSingleDrink } from "../../fetching/local";
+import { fetchSingleDrink } from "../../fetching/local";
 
 export default function SingleDrinkDetails({ drinkId }) {
 	const [cocktail, setCocktail] = useState([]);
@@ -44,7 +45,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 	useEffect(() => {
 		async function getLocalDrinkById() {
 			if (APIDrinkIdSDD) {
-				// case 1 - seedData
+				// case 1
 				const response = await fetchCocktailById(APIDrinkIdSDD);
 				// console.log("response from FCBI in getLocalDrinkbyId", response);
 				if (response) {
@@ -53,7 +54,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 					console.log("can't get single local drink from cocktail API");
 				}
 			} else {
-				// case 2 - user created drink
+				// case 2
 				const response = await fetchSingleDrink(localDrinkIdSDD);
 				// console.log("response from FSD", response);
 				if (response) {
@@ -101,8 +102,6 @@ export default function SingleDrinkDetails({ drinkId }) {
 						{cocktail.strMeasure8 && cocktail.strMeasure8}
 						{cocktail.strIngredient8 && cocktail.strIngredient8} {""}
 					</p>
-					<h4>Glass: </h4>
-					<p>{cocktail.strGlass}</p>
 					<h4>Instructions:</h4> <p>{cocktail.strInstructions}</p>
 				</div>
 			)}
