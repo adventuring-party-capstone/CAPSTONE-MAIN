@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SingleDrinkDetails from "./SingleDrinkDetails";
 
-export default function DetailsButton({ drink }) {
+export default function DetailsButton({ drinkId }) {
 	const [isOpen, setIsOpen] = useState(false);
 	function handleClick() {
 		setIsOpen(!isOpen);
@@ -14,7 +14,9 @@ export default function DetailsButton({ drink }) {
 			<button onClick={handleClick}>
 				{!isOpen ? "See Drink Details" : "Close details"}
 			</button>
-			<div>{isOpen && <SingleDrinkDetails key={drink} drinkId={drink} />}</div>
+			<div>
+				{isOpen && <SingleDrinkDetails key={drinkId} drinkId={drinkId} />}
+			</div>
 		</>
 	);
 }

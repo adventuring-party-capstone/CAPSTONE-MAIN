@@ -11,6 +11,8 @@ import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
 import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
 import RandomDrinkButton from "./RandomDrinkButton";
 
+import DetailsButton from "./DetailsButton";
+
 export default function AllDrinks({ token, userId }) {
 	const [allDrinks, setAllDrinks] = useState([]);
 	const [allAlcDrinks, setAllAlcDrinks] = useState([]);
@@ -74,11 +76,6 @@ export default function AllDrinks({ token, userId }) {
 		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
 		console.log("twoArrays", twoArrays);
 		setCombinedArray(twoArrays);
-		// if (allAlcDrinks.length > 0 && allNonAlcDrinks.length > 0) {
-		// } else {
-		// 	console.log("can't combine arrays");
-		// }
-		// console.log("all alc drinks in UE", allAlcDrinks);
 	}, [allAlcDrinks, allNonAlcDrinks]);
 
 	function handleSwitch(event) {
@@ -133,16 +130,16 @@ export default function AllDrinks({ token, userId }) {
 
 	const drinksToDisplay = searchParam
 		? localArray.filter(
-			(drink) =>
-				drink.drinks_name.toLowerCase().includes(searchParam) ||
-				drink.ingredients.toLowerCase().includes(searchParam)
-		)
+				(drink) =>
+					drink.drinks_name.toLowerCase().includes(searchParam) ||
+					drink.ingredients.toLowerCase().includes(searchParam)
+		  )
 		: localArray;
 
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
-			drink.strDrink.toLowerCase().includes(searchParam)
-		)
+				drink.strDrink.toLowerCase().includes(searchParam)
+		  )
 		: APIArrayBig;
 
 	return (
@@ -172,6 +169,7 @@ export default function AllDrinks({ token, userId }) {
 			</label>
 			<div id="all-drinks-gallery">
 				{drinksToDisplay.map((drink) => {
+					const localDrinkId = drink.drinks_id;
 					return (
 						<div key={drink.drinks_id}>
 							<h2>{drink.drinks_name}</h2>
@@ -180,10 +178,12 @@ export default function AllDrinks({ token, userId }) {
 							{token && (
 								<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
 							)}
+							<DetailsButton drinkId={localDrinkId} />
 						</div>
 					);
 				})}
 				{drinksToDisplayAPI.map((drink) => {
+					const APIDrinkId = drink.idDrink;
 					return (
 						<div key={drink.idDrink}>
 							<h2>{drink.strDrink}</h2>
@@ -192,6 +192,7 @@ export default function AllDrinks({ token, userId }) {
 							{token && (
 								<FavoriteButton api_drinks_id={drink.idDrink} userId={userId} />
 							)}
+							<DetailsButton drinkId={APIDrinkId} />
 						</div>
 					);
 				})}
