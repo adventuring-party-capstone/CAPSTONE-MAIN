@@ -13,8 +13,6 @@ import RandomDrinkButton from "./RandomDrinkButton";
 
 import DetailsButton from "./DetailsButton";
 
-import DetailsButton from "./DetailsButton";
-
 export default function AllDrinks({ token, userId }) {
 	const [allDrinks, setAllDrinks] = useState([]);
 	const [allAlcDrinks, setAllAlcDrinks] = useState([]);
