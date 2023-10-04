@@ -1,15 +1,15 @@
 const client = require("../client");
 
-const createUserDrink = async ({ users_id, drinks_id }) => {
+const createUserDrink = async ({ users_id, drinks_id, api_drinks_id }) => {
 	try {
 		const {
 			rows: [user_drink],
 		} = await client.query(
-			`INSERT INTO users_drinks(users_id, drinks_id)
-                VALUES ($1, $2)
+			`INSERT INTO users_drinks(users_id, drinks_id, api_drinks_id)
+                VALUES ($1, $2, $3)
                 RETURNING *;
                 `,
-			[users_id, drinks_id]
+			[users_id, drinks_id, api_drinks_id]
 		);
 		return user_drink;
 	} catch (error) {
@@ -51,8 +51,8 @@ const getUsersDrinksByUserId = async (users_id) => {
 
 const deleteUserDrink = async (drinks_id) => {
 	try {
-		console.log( "deleting users drinks by drinks id")
-		const {rows} = await client.query(
+		console.log("deleting users drinks by drinks id")
+		const { rows } = await client.query(
 			`
 			DELETE FROM users_drinks
 			WHERE drinks_id = ${drinks_id}

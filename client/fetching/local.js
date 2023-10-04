@@ -100,7 +100,7 @@ export const fetchDrinksByAlcoholic = async (alcoholic) => {
 	}
 };
 
-export const createNewFavorite = async (users_id, drinks_id) => {
+export const createNewFavorite = async (users_id, drinks_id, api_drinks_id) => {
 	try {
 		console.log("...starting to post");
 		const response = await fetch(`${base_url}/users_drinks`, {
@@ -111,9 +111,12 @@ export const createNewFavorite = async (users_id, drinks_id) => {
 			body: JSON.stringify({
 				users_id: users_id,
 				drinks_id: drinks_id,
+				api_drinks_id: api_drinks_id
 			}),
 		});
 		const result = await response.json();
+		console.log('result from createNewFavorite', result);
+		console.log("api_drinks_id", api_drinks_id);
 		return result;
 	} catch (error) {
 		console.error("Cannot post favorite drink", error);

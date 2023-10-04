@@ -6,6 +6,8 @@ import {
 	fetchAllDrinks,
 	fetchSingleUser,
 } from "../../fetching/local";
+import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
+import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
 import DeleteFavorite from "./DeleteFavorite";
 import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
@@ -14,11 +16,17 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
+
 export default function Favorites({ token, userId }) {
 	const [usersFavorites, setUsersFavorites] = useState([]);
 	const [drinks, setDrinks] = useState([]);
+	const [allAlcDrinks, setAllAlcDrinks] = useState([]);
+	const [allNonAlcDrinks, setAllNonAlcDrinks] = useState([]);
 	const [username, setUsername] = useState("");
+	const [searchParam, setSearchParam] = useState("");
 	const [localArray, setLocalArray] = useState([]);
+	const [APIArrayBig, setAPIArrayBig] = useState([]);
+	const [combinedArray, setCombinedArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
 
 	// console.log("userId in favorites", userId);
@@ -40,6 +48,50 @@ export default function Favorites({ token, userId }) {
 		getAllDrinks();
 		console.log("drinks in GAD", drinks);
 	}, []);
+
+	// getting all alc drinks from Cocktail DB
+	useEffect(() => {
+		async function getAllAlcDrinks() {
+			const drinks = await fetchAllAlcDrinks();
+			console.log("alc drinks", drinks);
+			//can also be a try/catch for more detailed error reporting
+			if (drinks) {
+				setAllAlcDrinks(drinks.drinks);
+			} else {
+				console.log("error fetching alcoholic drinks");
+			}
+		}
+		getAllAlcDrinks();
+	}, []);
+
+	// getting all non alc drinks from Cocktail DB
+	useEffect(() => {
+		async function getAllNonAlcDrinks() {
+			const drinks = await fetchAllNonAlcDrinks();
+			console.log("non alc drinks", drinks);
+			//can also be a try/catch for more detailed error reporting
+			if (drinks) {
+				setAllNonAlcDrinks(drinks.drinks);
+			} else {
+				console.log("error fetching non-alcoholic drinks");
+			}
+		}
+		getAllNonAlcDrinks();
+	}, []);
+
+	// combining API alcoholic & nonalcoholic to get all API drinks
+	useEffect(() => {
+		console.log("allAlcDrinks in UE", allAlcDrinks);
+		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
+		console.log("twoArrays", twoArrays);
+		setCombinedArray(twoArrays);
+		// if (allAlcDrinks.length > 0 && allNonAlcDrinks.length > 0) {
+		// } else {
+		// 	console.log("can't combine arrays");
+		// }
+		// console.log("all alc drinks in UE", allAlcDrinks);
+	}, [allAlcDrinks, allNonAlcDrinks]);
 
 	// grabbing logged in users' favorites from users_drinks junction table
 	useEffect(() => {
@@ -79,10 +131,19 @@ export default function Favorites({ token, userId }) {
 
 	// mapping through drinks to match with the ones that are favorited
 	const usersFavoriteDrinksId = [];
+	const usersFavoritesDrinksIdAPI = [];
 
 	usersFavorites.map((userFavorite) => {
-		usersFavoriteDrinksId.push(userFavorite.drinks_id);
+		userFavorite.drinks_id &&
+			usersFavoriteDrinksId.push(userFavorite.drinks_id);
 	});
+
+	usersFavorites.map((userFavorite) => {
+		userFavorite.api_drinks_id &&
+			usersFavoritesDrinksIdAPI.push(userFavorite.api_drinks_id);
+	});
+
+	console.log("usersFavoritesDrinksIdAPI", usersFavoritesDrinksIdAPI)
 
 	// map through usersFavorites
 	// push usersFavorites.drinks_id into usersFavoriteDrinksId array
@@ -124,6 +185,38 @@ export default function Favorites({ token, userId }) {
 		console.log("local array in use effect ", localArray);
 	}, [drinks, isToggled]);
 
+	// API array based on the toggle behavior
+	const APIArray = [];
+	useEffect(() => {
+		console.log("combinedArray in UE", combinedArray);
+		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+		// console.log("APIArray in UE", APIArray);
+		// setAPIArray(nonAlcArray);
+		if (isToggled) {
+			APIArray.push(combinedArray);
+			setAPIArrayBig(APIArray[0]);
+			console.log("APIArray if isToggled", APIArray);
+		} else if (!isToggled) {
+			APIArray.push(allNonAlcDrinks);
+			setAPIArrayBig(APIArray[0]);
+			console.log("APIArray if !isToggled", APIArray);
+		}
+	}, [combinedArray, isToggled, allNonAlcDrinks]);
+
+	const drinksToDisplay = searchParam
+		? localArray.filter(
+			(drink) =>
+				drink.drinks_name.toLowerCase().includes(searchParam) ||
+				drink.ingredients.toLowerCase().includes(searchParam)
+		)
+		: localArray;
+
+	const drinksToDisplayAPI = searchParam
+		? APIArrayBig.filter((drink) =>
+			drink.strDrink.toLowerCase().includes(searchParam)
+		)
+		: APIArrayBig;
+
 	return (
 		// remember to Number() the userId we are getting from localStorage
 		<section>
@@ -143,9 +236,20 @@ export default function Favorites({ token, userId }) {
 							label="Show alcoholic drinks"
 						/>
 					</FormGroup>
+					<label>
+						Search:{" "}
+						<input
+							id="search"
+							className="inputField"
+							type="text"
+							placeholder="Search"
+							onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
+						/>
+					</label>
 
 					<div id="favorites-gallery">
-						{localArray
+						{console.log("drinksToDisplayAPI", drinksToDisplayAPI)}
+						{drinksToDisplay
 							.filter((drink) =>
 								usersFavoriteDrinksId.includes(drink.drinks_id)
 							)
@@ -162,6 +266,20 @@ export default function Favorites({ token, userId }) {
 									</div>
 								);
 							})}
+						{drinksToDisplayAPI
+							.filter((drink) =>
+								usersFavoritesDrinksIdAPI.includes(Number(drink.idDrink))
+							)
+							.map((drink) => {
+								return (
+									<div key={drink.idDrink} id="drink-card">
+										<h2>{drink.strDrink}</h2>
+										<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+										<DeleteFavorite api_drinks_id={drink.idDrink} />
+									</div>
+								);
+							})}
+
 					</div>
 				</div>
 			)}
