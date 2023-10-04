@@ -240,13 +240,13 @@ export const createDrink = async (cocktails_db_drinks_id,
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				cocktails_db_drinks_id: 2,
-				drinks_name: "winniesDrink",
-				ingredients: "bubbles",
-				recipe: "something",
-				image: "something else",
-				glass: "glass",
-				alcoholic: true
+				cocktails_db_drinks_id: cocktails_db_drinks_id,
+				drinks_name: drinks_name,
+				ingredients: ingredients,
+				recipe: recipe,
+				image: image,
+				glass: glass,
+				alcoholic: alcoholic
 			})
 		});
 		const result = await response.json();

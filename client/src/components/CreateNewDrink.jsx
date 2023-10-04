@@ -33,7 +33,7 @@ export default function CreateNewDrink() {
             <h2>Create your own drink</h2>
             <form onSubmit={handleSubmit}>
                 <input
-                    id="title"
+                    id="formInput"
                     className="inputField"
                     value={drinksName}
                     type="text"
@@ -42,7 +42,7 @@ export default function CreateNewDrink() {
                     onChange={(e) => setDrinksName(e.target.value)}
                 /><br />
                 <input
-                    id="image"
+                    id="formInput"
                     className="inputField"
                     value={image}
                     type="text"
@@ -67,7 +67,7 @@ export default function CreateNewDrink() {
                     onChange={(e) => setRecipe(e.target.value)}
                 /><br />
                 <input
-                    id="glass"
+                    id="formInput"
                     className="inputField"
                     value={glass}
                     type="text"
