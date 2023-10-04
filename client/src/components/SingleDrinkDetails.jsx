@@ -102,6 +102,8 @@ export default function SingleDrinkDetails({ drinkId }) {
 						{cocktail.strMeasure8 && cocktail.strMeasure8}
 						{cocktail.strIngredient8 && cocktail.strIngredient8} {""}
 					</p>
+					<h4>Glass: </h4>
+					<p>{cocktail.strGlass}</p>
 					<h4>Instructions:</h4> <p>{cocktail.strInstructions}</p>
 				</div>
 			)}
