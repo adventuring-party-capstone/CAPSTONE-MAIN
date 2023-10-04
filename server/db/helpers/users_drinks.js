@@ -65,4 +65,20 @@ const deleteUserDrink = async (drinks_id) => {
 	}
 };
 
-module.exports = { createUserDrink, getAllUsersDrinks, getUsersDrinksByUserId, deleteUserDrink };
+const deleteUserDrinkAPI = async (api_drinks_id) => {
+	try {
+		console.log("deleting users drinks by drinks id")
+		const { rows } = await client.query(
+			`
+			DELETE FROM users_drinks
+			WHERE api_drinks_id = ${api_drinks_id}
+			RETURNING *;
+			`
+		)
+		console.log("Delete successful")
+	} catch (error) {
+		throw error;
+	}
+};
+
+module.exports = { createUserDrink, getAllUsersDrinks, getUsersDrinksByUserId, deleteUserDrink, deleteUserDrinkAPI };
