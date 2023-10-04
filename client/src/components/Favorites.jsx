@@ -9,6 +9,7 @@ import {
 import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
 import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
 import DeleteFavorite from "./DeleteFavorite";
+import DetailsButton from "./DetailsButton";
 import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -254,6 +255,7 @@ export default function Favorites({ token, userId }) {
 								usersFavoriteDrinksId.includes(drink.drinks_id)
 							)
 							.map((drink) => {
+								const localDrinkId = drink.drinks_id;
 								return (
 									<div key={drink.drinks_id} id="drink-card">
 										<p>{drink.drinks_name}</p>
@@ -262,6 +264,7 @@ export default function Favorites({ token, userId }) {
 											alt={drink.drinks_name}
 											id="images"
 										/>
+										<div><DetailsButton drinkId={localDrinkId} /></div>
 										<DeleteFavorite drinks_id={drink.drinks_id} />
 									</div>
 								);
@@ -271,10 +274,12 @@ export default function Favorites({ token, userId }) {
 								usersFavoritesDrinksIdAPI.includes(Number(drink.idDrink))
 							)
 							.map((drink) => {
+								const APIDrinkId = drink.idDrink;
 								return (
 									<div key={drink.idDrink} id="drink-card">
 										<h2>{drink.strDrink}</h2>
 										<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+										<div><DetailsButton drinkId={APIDrinkId} /></div>
 										<DeleteFavorite api_drinks_id={drink.idDrink} />
 									</div>
 								);
