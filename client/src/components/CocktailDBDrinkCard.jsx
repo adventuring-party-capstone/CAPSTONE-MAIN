@@ -25,8 +25,8 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
      const [localArray, setLocalArray] = useState([]);
      const [isToggled, setIsToggled] = useState(false);
 
-     // const [randomIndexAlc, setRandomIndexAlc] = useState(null);
-     // const [randomIndexNonAlc, setRandomIndexNonAlc] = useState(null);
+     const [randomIndexAlc, setRandomIndexAlc] = useState(null);
+     const [randomIndexNonAlc, setRandomIndexNonAlc] = useState(null);
 
      const ingredName = ingredientName;
 
@@ -145,8 +145,13 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
           console.log("bothArrays in line 139", bothArrays);
           //alcoholic drinks that include the chosen ingredient
 
+          // If we want randomization on the first load, then comment it in
+          randomizeIndices();
+
           //concat with the nonalc drinks that include the ingredient
      }, [alcDrinks, byIngredient]);
+
+     // if there are items in dependency, it's going to rerun this useEffects if it detects changes in those properties, so if it's empty it will only run once
 
      //concatenate the alcDrinkIngredient and nonAlcDrinkIngredient Arrays
      //conditionally setChosenDrinkId based on whether it's from non or concat array
@@ -161,21 +166,36 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
      // 	setRandomIndexNonAlc(
      // 		Math.floor(Math.random() * nonAlcIngredientArray.length)
      // 	);
-     // }, [isToggled, localArray, nonAlcIngredientArray]);
+     //      
+     // }, []);
+
+     function randomizeIndices(){
+          const alcIndex = (Math.floor(Math.random() * localArray.length));
+     	const nonAlcIndex = (
+     		Math.floor(Math.random() * nonAlcIngredientArray.length)
+     	);
+          setRandomIndexAlc(alcIndex)
+          setRandomIndexNonAlc(nonAlcIndex)
+     };
 
      //HANDLECLICK FOR SUGGEST ANOTHER
      function handleClick() {
-          //also run the concat randomizer in here once it's working?
-          //   setChosenDrinkId();
-     }
+          randomizeIndices();
+          
+          if(isToggled){
+               setChosenDrinkId(localArray[randomIndexAlc]);
+          } else {
+               setChosenDrinkId(localArray[randomIndexNonAlc]);
+          }
+     };
 
      useEffect(() => {
           // console.log("randomIndexAlc in UE", randomIndexAlc);
           // console.log("randomIndexNonAlc", randomIndexNonAlc);
           if (isToggled) {
-               setChosenDrinkId(localArray[0]);
+               setChosenDrinkId(localArray[randomIndexAlc]);
           } else if (!isToggled && nonAlcIngredientArray.length > 0) {
-               setChosenDrinkId(nonAlcIngredientArray[0]);
+               setChosenDrinkId(nonAlcIngredientArray[randomIndexNonAlc]);
           } else if (!isToggled && nonAlcIngredientArray.length == 0) {
                setChosenDrinkId(12698); //mango lassi ID
           }
