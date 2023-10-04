@@ -8,7 +8,7 @@ export const fetchRandomDrink = async () => {
         const response = await fetch(`${randomDrinkAPI}/drinks`)
         const result = await response.json();
         const randomDrink = result.drinks;
-        console.log("loading random drink...", result);
+        console.log("loading random drink...");
         console.log("Here is your random drink!", randomDrink)
         await randomDrink.drinks
         return result;

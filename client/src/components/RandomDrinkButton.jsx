@@ -21,7 +21,6 @@ import RandomDrink from "./RandomDrink";
 // };
 export default function RandomDrinkButton() {
   async function newRandomDrink() {
-    // event.preventDefault();
     // this works and grabs the object info!! V
     try {
       await RandomDrink();
@@ -41,5 +40,4 @@ export default function RandomDrinkButton() {
       </div>
     </>
   );
-}
-//   onClick={newRandomDrink}
+};

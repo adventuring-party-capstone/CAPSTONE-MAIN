@@ -7,7 +7,6 @@
 // API route for random drink (changes on click)
 import { useEffect, useState } from "react";
 import { fetchRandomDrink } from "../../fetching/randomdrink";
-
 // const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 export default function RandomDrink() {
@@ -15,15 +14,16 @@ export default function RandomDrink() {
   const [randomDrink, setRandomDrink] = useState([]);
 
   useEffect(() => {
-    async function propRandomDrink(){
-        try {
-            const response = await  fetchRandomDrink();
-            setRandomDrink(response)
-        } catch (error) {
-            console.error("Random drink comonent err", error)
-        }
 
-    }propRandomDrink();
+    // async function propRandomDrink(){
+    //     try {
+    //         const response = await  fetchRandomDrink();
+    //         setRandomDrink(response)
+    //     } catch (error) {
+    //         console.error("Random drink comonent err", error)
+    //     }
+
+    // }propRandomDrink();
     const getRandomDrink = async () => {
       const response = await fetch(
         `https://www.thecocktaildb.com/api/json/v1/1/random.php/drink`
