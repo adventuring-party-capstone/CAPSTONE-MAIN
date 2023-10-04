@@ -44,7 +44,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 	useEffect(() => {
 		async function getLocalDrinkById() {
 			if (APIDrinkIdSDD) {
-				// case 1
+				// case 1 - seedData
 				const response = await fetchCocktailById(APIDrinkIdSDD);
 				// console.log("response from FCBI in getLocalDrinkbyId", response);
 				if (response) {
@@ -53,7 +53,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 					console.log("can't get single local drink from cocktail API");
 				}
 			} else {
-				// case 2
+				// case 2 - user created drink
 				const response = await fetchSingleDrink(localDrinkIdSDD);
 				// console.log("response from FSD", response);
 				if (response) {
