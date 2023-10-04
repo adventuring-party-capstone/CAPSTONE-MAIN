@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { fetchAllDrinks } from "../../fetching/local";
 import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
 import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
+import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function AllDrinks({ token, userId }) {
 	const [allDrinks, setAllDrinks] = useState([]);
@@ -147,6 +148,7 @@ export default function AllDrinks({ token, userId }) {
 	return (
 		<section id="all-drinks-container">
 			<h1>All Dranks</h1>
+			<RandomDrinkButton/>
 			<FormGroup>
 				<FormControlLabel
 					control={
