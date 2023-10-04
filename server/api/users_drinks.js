@@ -8,6 +8,7 @@ const {
 	getUsersDrinksByUserId,
 	createUserDrink,
 	deleteUserDrink,
+	deleteUserDrinkAPI
 } = require("../db/helpers/users_drinks");
 
 // GET - /api/users_drinks - get all users drinks
@@ -45,10 +46,21 @@ router.post("/", async (req, res, next) => {
 	}
 });
 
-// DELETE - /api/users_drinks/:drinks_id deletes users fav drink
+// DELETE - /api/users_drinks/:drinks_id deletes users fav drink from local
 router.delete("/:drinks_id", async (req, res, next) => {
 	try {
 		const userDrink = await deleteUserDrink(req.params.drinks_id);
+		res.send(userDrink);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// DELETE - /api/users_drinks/users_drinks/:api_drinks_id deletes users fav drink from API
+
+router.delete("/users_drinks/:api_drinks_id", async (req, res, next) => {
+	try {
+		const userDrink = await deleteUserDrinkAPI(req.params.api_drinks_id);
 		res.send(userDrink);
 	} catch (error) {
 		next(error);
