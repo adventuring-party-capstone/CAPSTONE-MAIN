@@ -180,16 +180,32 @@ export const logout = async () => {
 	}
 };
 
-// DELETE FAVORITE
+// DELETE FAVORITE LOCAL
 
 export const deleteUserDrink = async (drinks_id) => {
 	try {
-		console.log("...removing favorite drink");
+		console.log("...removing favorite drink local");
 		const response = await fetch(`${base_url}/users_drinks/${drinks_id}`, {
 			method: "DELETE",
 		});
 		const result = await response.json();
 		console.log("I never want to see that drink again >:( good riddance");
+		return result;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+// DELETE FAVORITE API
+
+export const deleteUserDrinkAPI = async (api_drinks_id) => {
+	try {
+		console.log("...removing favorite drink API");
+		const response = await fetch(`${base_url}/users_drinks/users_drinks/${api_drinks_id}`, {
+			method: "DELETE",
+		});
+		const result = await response.json();
+		console.log("I never want to see that API drink again >:( good riddance");
 		return result;
 	} catch (error) {
 		console.log(error);
