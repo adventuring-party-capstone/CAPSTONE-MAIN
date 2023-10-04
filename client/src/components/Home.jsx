@@ -61,7 +61,7 @@ export default function Home({
                          name="search"
                          placeholder="Enter music choice here"
                          onChange={(event) => setMusicInput(event.target.value)}
-                         // onKeyDown={handleKeyDown}
+                    // onKeyDown={handleKeyDown}
                     />
                </form>
                <br />

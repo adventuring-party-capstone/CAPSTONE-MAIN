@@ -211,3 +211,35 @@ export const deleteUserDrinkAPI = async (api_drinks_id) => {
 		console.log(error);
 	}
 };
+
+// CREATE NEW DRINK
+export const createDrink = async (cocktails_db_drinks_id,
+	drinks_name,
+	ingredients,
+	recipe,
+	image,
+	glass,
+	alcoholic) => {
+	try {
+		console.log('...starting to create drink')
+		const response = await fetch(`${base_url}/drinks`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				cocktails_db_drinks_id: 2,
+				drinks_name: "winniesDrink",
+				ingredients: "bubbles",
+				recipe: "something",
+				image: "something else",
+				glass: "glass",
+				alcoholic: true
+			})
+		});
+		const result = await response.json();
+		return result;
+	} catch (error) {
+		console.error("Cannot post drink", error);
+	}
+}
