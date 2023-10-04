@@ -6,6 +6,7 @@ import Logout from "./Logout";
 import Spotify from "./Spotify";
 import { Routes, Route } from "react-router-dom";
 import Register from "./Register";
+import CreateNewDrink from "./CreateNewDrink";
 
 export default function MainSection({
 	token,
@@ -44,6 +45,7 @@ export default function MainSection({
 					}
 				></Route>
 				<Route path="/register" element={<Register />}></Route>
+				<Route path="/createDrink" element={<CreateNewDrink />}></Route>
 				<Route
 					path="/login"
 					element={

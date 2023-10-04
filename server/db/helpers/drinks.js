@@ -14,8 +14,8 @@ const createDrink = async ({
                rows: [drink],
           } = await client.query(
                `INSERT INTO drinks(cocktails_db_drinks_id, drinks_name, ingredients, recipe, image, glass, alcoholic)
-            VALUES ($1,$2,$3,$4,$5,$6,$7)
-            RETURNING *;
+               VALUES ($1,$2,$3,$4,$5,$6,$7)
+               RETURNING *;
             `,
                [
                     cocktails_db_drinks_id,

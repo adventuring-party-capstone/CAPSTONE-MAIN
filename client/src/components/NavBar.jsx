@@ -13,6 +13,7 @@ export default function NavBar({ token, setToken }) {
 			{token ? (
 				<>
 					<Link to="/favorites">Favorites</Link>
+					<Link to="/createDrink">Mixologist</Link>
 					<Link to="/logout">Logout</Link>
 				</>
 			) : (

@@ -7,6 +7,7 @@ const {
      getAllDrinks,
      getDrinkById,
      getDrinksByAlcoholic,
+     createDrink,
 } = require("../db/helpers/drinks");
 
 // GET - /api/drinks - get all drinks
@@ -33,7 +34,7 @@ router.get("/:drink_id", async (req, res, next) => {
      }
 });
 
-//GET - /api/drinks/drinks/:alcoholic
+// GET - /api/drinks/drinks/:alcoholic
 router.get("/drinks/:alcoholic", async (req, res, next) => {
      try {
           console.log("entering api/drinks/:alcoholic router");
@@ -43,5 +44,16 @@ router.get("/drinks/:alcoholic", async (req, res, next) => {
           next(error);
      }
 });
+
+// POST - /api/drinks - create a new drink
+router.post('/', async (req, res, next) => {
+     try {
+          console.log("entering api/drinks create new drink router");
+          const newDrink = await createDrink(req.body);
+          res.send(newDrink);
+     } catch (error) {
+          next(error);
+     }
+})
 
 module.exports = router;

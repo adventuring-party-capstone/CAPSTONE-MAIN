@@ -71,3 +71,15 @@ return(
         })}
     </section>
 )
+
+
+	// case 1 - using seededData from DB
+	// do this one if cocktails_db_drinks_id isn't null in the local db
+	// need to tackle getting rid of rendering duplicates between the local data and the cocktail API
+	// fetch cocktail from cocktail API using cocktails_db_drinks_id
+
+	// case 2 - using a user created new posted drink
+	// do this one if cocktails_db_drinks_id is null in the local db (someone created a drink)
+	// from local database, fetch cocktail using getDrinkById () (helper function drinks.js)
+
+	// depending on the result from the two cases, return a new div in the below <section> to render local drink info
