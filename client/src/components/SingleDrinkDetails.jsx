@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchCocktailById } from "../../fetching/cocktaildb";
 import { fetchSingleDrink } from "../../fetching/local";
-import { fetchSingleDrink } from "../../fetching/local";
+
 
 export default function SingleDrinkDetails({ drinkId }) {
 	const [cocktail, setCocktail] = useState([]);
