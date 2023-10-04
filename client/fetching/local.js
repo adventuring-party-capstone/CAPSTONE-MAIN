@@ -12,6 +12,18 @@ export const fetchAllDrinks = async () => {
 	}
 };
 
+// grab single drink from LOCAL database
+export const fetchSingleDrink = async (drink_id) => {
+	try {
+		const response = await fetch(`${base_url}/drinks/${drink_id}`);
+		const result = await response.json();
+		console.log("result from fetchSingleDrink", result);
+		return result;
+	} catch (error) {
+		console.error("there was an error fetching this drink", error);
+	}
+};
+
 // grabs all ingredients from LOCAL database
 export const fetchAllIngredients = async () => {
 	try {
@@ -111,11 +123,11 @@ export const createNewFavorite = async (users_id, drinks_id, api_drinks_id) => {
 			body: JSON.stringify({
 				users_id: users_id,
 				drinks_id: drinks_id,
-				api_drinks_id: api_drinks_id
+				api_drinks_id: api_drinks_id,
 			}),
 		});
 		const result = await response.json();
-		console.log('result from createNewFavorite', result);
+		console.log("result from createNewFavorite", result);
 		console.log("api_drinks_id", api_drinks_id);
 		return result;
 	} catch (error) {
