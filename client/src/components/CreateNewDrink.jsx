@@ -3,21 +3,21 @@ import { createDrink } from "../../fetching/local";
 import { useNavigate } from "react-router-dom";
 import { Input, Select, MenuItem } from "@mui/material";
 
-export default function CreateNewDrink({ userId }) {
-    // const [cocktails_db_drinks_id, setCookingTime] = useState("");
-    // const [description, setDescription] = useState("")
-    // const [is_vegetarian, setIsVegetarian] = useState(false);
-    // const [portions, setPortions] = useState("")
-    // const [title, setTitle] = useState(null);
-    // // const [userId, setUserId] = useState(null);
-    // const [video, setVideo] = useState(null);
+export default function CreateNewDrink() {
+    const [drinksName, setDrinksName] = useState("")
+    const [ingredients, setIngredients] = useState("");
+    const [recipe, setRecipe] = useState("")
+    const [image, setImage] = useState("");
+    const [glass, setGlass] = useState("");
+    const [alcoholic, setAlcoholic] = useState("");
+
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
         try {
             e.preventDefault();
             console.log("..entering create drink handle submit")
-            const createDrinkResult = await createDrink(3, "winnie", "bubbles", "something", "something else", "something", true);
+            const createDrinkResult = await createDrink(null, drinksName, ingredients, recipe, image, glass, alcoholic);
             console.log("API Data", createDrinkResult);
         } catch (error) {
             console.error(error);
@@ -25,71 +25,71 @@ export default function CreateNewDrink({ userId }) {
     }
 
     const handleChange = (e) => {
-        setIsVegetarian(e.target.value);
+        setAlcoholic(e.target.value);
     };
 
     return (
         <div className="formGroup">
             <h2>Create your own drink</h2>
-            <form onSubmit={handleSubmit} >
-                <button>Submit</button>
-            </form>
-            {/* <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     id="title"
                     className="inputField"
-                    value={title}
+                    value={drinksName}
                     type="text"
                     name="title"
-                    placeholder="title of recipe"
-                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Drink name"
+                    onChange={(e) => setDrinksName(e.target.value)}
                 /><br />
-                <div>Cooking Time?</div><Input
+                <input
+                    id="image"
                     className="inputField"
-                    value={cookingTime}
-                    type="number"
-                    name="cookingTime"
-                    onChange={(e) => setCookingTime(e.target.value)}
+                    value={image}
+                    type="text"
+                    name="title"
+                    placeholder="Image"
+                    onChange={(e) => setImage(e.target.value)}
                 /><br />
                 <textarea cols={30} rows={10}
                     className="inputField"
-                    value={portions}
+                    value={ingredients}
                     type="text"
-                    name="portions"
-                    placeholder="ingredients needed"
-                    onChange={(e) => setPortions(e.target.value)}
+                    name="ingredients"
+                    placeholder="Ingredients"
+                    onChange={(e) => setIngredients(e.target.value)}
                 /><br />
                 <textarea cols={30} rows={10}
                     className="inputField"
-                    value={description}
+                    value={recipe}
                     type="text"
-                    name="description"
-                    placeholder="description"
-                    onChange={(e) => setDescription(e.target.value)}
+                    name="recipe"
+                    placeholder="Recipe"
+                    onChange={(e) => setRecipe(e.target.value)}
                 /><br />
-                <div>Vegetarian?</div>
+                <input
+                    id="glass"
+                    className="inputField"
+                    value={glass}
+                    type="text"
+                    name="glass"
+                    placeholder="Glass"
+                    onChange={(e) => setGlass(e.target.value)}
+                /><br />
+                <div>Alcoholic?</div>
                 <Select
                     className="inputField"
-                    value={is_vegetarian}
+                    value={alcoholic}
                     type="text"
-                    name="is_vegetarian"
-                    placeholder="is_vegetarian"
+                    name="alcoholic"
+                    placeholder="alcoholic"
                     onChange={handleChange}
                 >
                     <MenuItem value={false}>No</MenuItem>
                     <MenuItem value={true}>Yes</MenuItem>
                 </Select><br />
-                <input
-                    className="inputField"
-                    value={video}
-                    type="text"
-                    name="video"
-                    placeholder="video"
-                    onChange={(e) => setVideo(e.target.value)}
-                /><br />
                 <br />
                 <button>Submit</button>
-            </form> */}
+            </form>
         </div>
     );
 }
