@@ -146,7 +146,7 @@ const genres = [
      },
      {
           genres_id: 9,
-          genres_name: "Dance pop",
+          genres_name: "Soundtrack",
      },
      {
           genres_id: 10,
@@ -160,19 +160,19 @@ const users_drinks = [
           users_drinks_id: 1,
           users_id: 1,
           drinks_id: 1,
-          api_drinks_id: null
+          api_drinks_id: null,
      },
      {
           users_drinks_id: 2,
           users_id: 2,
           drinks_id: 2,
-          api_drinks_id: null
+          api_drinks_id: null,
      },
      {
           users_drinks_id: 3,
           users_id: 3,
           drinks_id: 3,
-          api_drinks_id: null
+          api_drinks_id: null,
      },
 ];
 
@@ -215,8 +215,8 @@ const ingredients = [
      },
      {
           ingredients_id: 8,
-          cocktails_db_ingredients_id: 308,
-          ingredients_name: "Lime juice",
+          cocktails_db_ingredients_id: 513,
+          ingredients_name: "Water",
      },
      {
           ingredients_id: 9,
@@ -227,6 +227,22 @@ const ingredients = [
           ingredients_id: 10,
           cocktails_db_ingredients_id: 28,
           ingredients_name: "Apple juice",
+     },
+     {
+          ingredients_id: 11,
+          cocktails_db_ingredients_id: 476,
+          ingredients_name: "Sugar",
+     },
+     {
+          ingredients_id: 12,
+          cocktails_db_ingredients_id: 533,
+          ingredients_name: "Yoghurt",
+     },
+
+     {
+          ingredients_id: 13,
+          cocktails_db_ingredients_id: 352,
+          ingredients_name: "Orange juice",
      },
 ];
 
@@ -239,46 +255,76 @@ const genres_ingredients = [
      },
      {
           genres_ingredients_id: 2,
+          genres_id: 1,
+          ingredients_id: 11,
+     },
+     {
+          genres_ingredients_id: 3,
           genres_id: 2,
           ingredients_id: 2,
      },
      {
-          genres_ingredients_id: 3,
+          genres_ingredients_id: 4,
           genres_id: 3,
           ingredients_id: 3,
      },
      {
-          genres_ingredients_id: 4,
+          genres_ingredients_id: 5,
+          genres_id: 3,
+          ingredients_id: 12,
+     },
+     {
+          genres_ingredients_id: 6,
           genres_id: 4,
           ingredients_id: 4,
      },
      {
-          genres_ingredients_id: 5,
+          genres_ingredients_id: 7,
+          genres_id: 4,
+          ingredients_id: 8,
+     },
+     {
+          genres_ingredients_id: 8,
           genres_id: 5,
           ingredients_id: 5,
      },
      {
-          genres_ingredients_id: 6,
+          genres_ingredients_id: 9,
           genres_id: 6,
           ingredients_id: 6,
      },
      {
-          genres_ingredients_id: 7,
+          genres_ingredients_id: 10,
+          genres_id: 6,
+          ingredients_id: 11,
+     },
+     {
+          genres_ingredients_id: 11,
           genres_id: 7,
           ingredients_id: 7,
      },
      {
-          genres_ingredients_id: 8,
+          genres_ingredients_id: 12,
+          genres_id: 7,
+          ingredients_id: 11,
+     },
+     {
+          genres_ingredients_id: 13,
           genres_id: 8,
           ingredients_id: 8,
      },
      {
-          genres_ingredients_id: 9,
+          genres_ingredients_id: 14,
           genres_id: 9,
           ingredients_id: 9,
      },
      {
-          genres_ingredients_id: 10,
+          genres_ingredients_id: 15,
+          genres_id: 9,
+          ingredients_id: 12,
+     },
+     {
+          genres_ingredients_id: 16,
           genres_id: 10,
           ingredients_id: 10,
      },
