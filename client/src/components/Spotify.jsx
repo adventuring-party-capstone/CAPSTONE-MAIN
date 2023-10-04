@@ -118,7 +118,11 @@ export default function Spotify({
 		async function compareArtistGenres() {
 			try {
 				const foundGenre = compareGenres();
-				setMatchedGenres(foundGenre);
+				if (foundGenre) {
+					setMatchedGenres(foundGenre);
+				} else {
+					setMatchedGenres([]);
+				}
 				console.log("found genre in UE", foundGenre);
 			} catch (error) {
 				console.error(error);
@@ -165,6 +169,10 @@ export default function Spotify({
 						filtered_ingredients_names.push(ingredient.ingredients_name);
 					}
 				});
+				console.log("filtered_ingredient_names", filtered_ingredients_names);
+				setFilteredIngredNames(filtered_ingredients_names);
+			} else if (matchedGenres.length == 0) {
+				filtered_ingredients_names.push("Water");
 				console.log("filtered_ingredient_names", filtered_ingredients_names);
 				setFilteredIngredNames(filtered_ingredients_names);
 			}
