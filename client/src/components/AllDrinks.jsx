@@ -132,16 +132,16 @@ export default function AllDrinks({ token, userId }) {
 
 	const drinksToDisplay = searchParam
 		? localArray.filter(
-				(drink) =>
-					drink.drinks_name.toLowerCase().includes(searchParam) ||
-					drink.ingredients.toLowerCase().includes(searchParam)
-		  )
+			(drink) =>
+				drink.drinks_name.toLowerCase().includes(searchParam) ||
+				drink.ingredients.toLowerCase().includes(searchParam)
+		)
 		: localArray;
 
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
-				drink.strDrink.toLowerCase().includes(searchParam)
-		  )
+			drink.strDrink.toLowerCase().includes(searchParam)
+		)
 		: APIArrayBig;
 
 	return (
@@ -188,7 +188,7 @@ export default function AllDrinks({ token, userId }) {
 							<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
 							<br />
 							{token && (
-								<FavoriteButton drinkId={drink.idDrink} userId={userId} />
+								<FavoriteButton api_drinks_id={drink.idDrink} userId={userId} />
 							)}
 						</div>
 					);
