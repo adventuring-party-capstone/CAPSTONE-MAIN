@@ -195,7 +195,7 @@ export default function CocktailDBDrinkCard({ ingredientName }) {
 			{drinkToRender && <h1>{drinkToRender.strDrink}</h1>}
 			{drinkToRender && <img src={drinkToRender.strDrinkThumb} />}
 			<br />
-			{<DetailsButton drink={chosenDrinkId} />}
+			{<DetailsButton drinkId={chosenDrinkId} />}
 			<button onClick={handleClick}>Suggest Another Drink</button>
 		</section>
 	);
