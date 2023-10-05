@@ -9,28 +9,43 @@ export default function DarkModeToggle({
 	setAppClass,
 	eleId,
 	setEleId,
+	isDark,
+	setIsDark,
 }) {
-	// const [isDark, setIsDark] = useColorScheme();
-	const [isDark, setIsDark] = useState(true);
+	// const [isDark, setIsDark] = useState(true);
+	// const [isDark2, setIsDark2] = useState(true);
 
-	function handleToggle() {
-		setIsDark(!isDark);
-	}
+	// useEffect(() => {
+	// 	localStorage.setItem("isDark", isDark);
+	// }, [isDark]);
 
 	useEffect(() => {
-		// console.log("eleId inside UE", eleId);
 		const toggle = document.getElementById("mode-toggle");
 
-		// const classList = eleId.classList;
 		if (isDark && eleId) {
 			toggle.addEventListener("click", function handleClick() {
-				eleId.classList.add("dark-mode-screen");
+				console.log("isDark in handleToggle 1", isDark);
+				eleId.classList.add("light-mode");
+				// localStorage.setItem("isDark", isDark);
+				setIsDark(!isDark);
+				localStorage.setItem("isDark", isDark);
+
+				// setIsDark(JSON.parse(localStorage.getItem("isDark")));
 			});
 		} else if (!isDark && eleId) {
-			// console.log("eleId in else if", eleId);
 			toggle.addEventListener("click", function handleClick() {
-				eleId.classList.remove("dark-mode-screen");
-				eleId.classList.add("");
+				console.log("isDark in handleToggle 2", isDark);
+
+				eleId.classList.remove("light-mode");
+				setIsDark(!isDark);
+				localStorage.setItem("isDark", isDark);
+
+				// localStorage.setItem("isDark", isDark);
+
+				// console.log("JSONparse", JSON.parse(localStorage.getItem("isDark")));
+
+				// setIsDark(JSON.parse(localStorage.getItem("isDark")));
+				// eleId.classList.add("");
 			});
 		}
 	}, [eleId, isDark, setAppClass, setEleId]);
@@ -38,7 +53,7 @@ export default function DarkModeToggle({
 	return (
 		<Toggle
 			checked={isDark}
-			onChange={({ target }) => setIsDark(target.checked) && handleToggle()}
+			onChange={({ target }) => setIsDark(target.checked)}
 			icons={{ checked: "🌙", unchecked: "🔆" }}
 			aria-label="Dark mode toggle"
 			id="mode-toggle"

@@ -26,19 +26,20 @@ body {
      background-color: #242424;
 }
 
-.dark-mode-screen {
+.light-mode {
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     background: white;
-    mix-blend-mode: difference;
+    color: black;
+    /* mix-blend-mode: difference; */
 }
 
-.light-mode{
+/* .light-mode{
     background: goldenrod;
-}
+} */
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark){

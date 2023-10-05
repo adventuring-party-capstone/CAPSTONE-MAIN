@@ -12,12 +12,22 @@ function App() {
 	const [userId, setUserId] = useState(null);
 	const [appClass, setAppClass] = useState("");
 	const [eleId, setEleId] = useState("");
+	const [isDark, setIsDark] = useState(
+		localStorage.getItem("isDark") === "true"
+	);
 
 	useEffect(() => {
 		setToken(window.localStorage.getItem("token"));
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
+		setIsDark(window.localStorage.getItem("isDark"));
 	}, []);
+
+	console.log("isDark in App", isDark);
+	console.log(
+		"windowLocalStorage in App",
+		window.localStorage.getItem("isDark")
+	);
 
 	const appDiv = document.getElementById("app-container");
 
@@ -47,6 +57,8 @@ function App() {
 				setAppClass={setAppClass}
 				eleId={eleId}
 				setEleId={setEleId}
+				isDark={isDark}
+				setIsDark={setIsDark}
 			/>
 		</div>
 	);
