@@ -1,43 +1,29 @@
+import { useState, useEffect } from "react";
 import { fetchRandomDrink } from "../../fetching/randomdrink";
-import RandomDrink from "./RandomDrink";
 
-// export default function RandomDrinkButton() {
-//   async function newRandomDrink(event) {
-//     event.preventDefault();
-//     try {
-//       await RandomDrink();
-//     } catch (error) {
-//       console.error("well ya darn messed up", error);
-//     }
-//   }
-//   return (
-//     <>
-//       <div className="random">{RandomDrink.strId}</div>
-//       <div className="Random-Button">
-//         <button onClick={newRandomDrink}>Random Drink! :3</button>
-//       </div>
-//     </>
-//   );
-// };
 export default function RandomDrinkButton() {
-  async function newRandomDrink() {
-    // this works and grabs the object info!! V
-    try {
-      await RandomDrink();
-    //   RandomDrink();
-    } catch (error) {
-      console.error("well ya darn messed up", error);
-    }
+  const [randomDrink, setRandomDrink] = useState([]);
+  const getRandomDrink = async () => {
+    const response = await fetchRandomDrink();
+    console.log("response from fetchRandomDrink in getRandomDrink", response);
+    //   const result = await response.json();
+    setRandomDrink(response.drinks[0]);
+  };
+
+  function handleClick() {
+    getRandomDrink();
   }
-  newRandomDrink();
   //   KEEP THIS
+  console.log("is this from my random drink component?", randomDrink);
   return (
     <>
-      {/* Button */}
-      <div className="random">{RandomDrink.strId}</div>
+      <div className="random">{randomDrink.strId}</div>
+      <button onClick={handleClick}>Random Drink! :3</button>
       <div className="Random-Button">
-        <button onClick={fetchRandomDrink}>Random Drink! :3</button>
+        {/* {isOpen && <RandomDrink/>} */}
+        {randomDrink && <img src={randomDrink.strDrinkThumb} />}
+        {randomDrink && <h1>{randomDrink.strDrink}</h1>}
       </div>
     </>
   );
-};
+}

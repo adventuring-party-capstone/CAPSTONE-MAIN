@@ -1,11 +1,10 @@
 const randomDrinkAPI = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // const randomDrinkId = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-// NOT IN USE ATM
 // fetch drink orrrrrrr
 export const fetchRandomDrink = async () => {
     try {
         console.log("...looking for random drink")
-        const response = await fetch(`${randomDrinkAPI}/drinks`)
+        const response = await fetch(`${randomDrinkAPI}`)
         const result = await response.json();
         const randomDrink = result.drinks;
         console.log("loading random drink...");
