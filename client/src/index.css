@@ -32,7 +32,7 @@ body {
         --color-background: maroon;
         --color-text: goldenrod;
     }
-    body{
+    body.dark{
         background-color: var(--color-background);
         color: var(--color-text)
     }

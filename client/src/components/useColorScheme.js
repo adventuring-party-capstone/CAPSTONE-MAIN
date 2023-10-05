@@ -25,6 +25,9 @@ export function useColorScheme() {
 		}
 	}, [value]);
 
+	// requires global to exist
+	window.global = window;
+
 	return {
 		isDark: value,
 		setIsDark,
