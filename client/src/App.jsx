@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
+import DarkModeToggle from "./components/DarkModeToggle";
 
 function App() {
 	//get tokens where other components can use them
@@ -31,6 +32,7 @@ function App() {
 				spotifyToken={spotifyToken}
 				setSpotifyToken={setSpotifyToken}
 			/>
+			<DarkModeToggle />
 		</div>
 	);
 }
