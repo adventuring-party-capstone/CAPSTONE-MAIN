@@ -10,13 +10,23 @@ function App() {
 	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
+	const [appClass, setAppClass] = useState("");
+	const [eleId, setEleId] = useState("");
+
 	useEffect(() => {
 		setToken(window.localStorage.getItem("token"));
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
+
+	const appDiv = document.getElementById("app-container");
+
+	useEffect(() => {
+		setEleId(appDiv);
+	}, [appDiv]);
+
 	return (
-		<div id="app-container">
+		<div id="app-container" className={appClass}>
 			<h1>let;s get this money</h1>
 			<NavBar
 				token={token}
@@ -32,7 +42,12 @@ function App() {
 				spotifyToken={spotifyToken}
 				setSpotifyToken={setSpotifyToken}
 			/>
-			<DarkModeToggle />
+			<DarkModeToggle
+				appClass={appClass}
+				setAppClass={setAppClass}
+				eleId={eleId}
+				setEleId={setEleId}
+			/>
 		</div>
 	);
 }
