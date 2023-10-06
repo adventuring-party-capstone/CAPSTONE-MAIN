@@ -31,7 +31,7 @@ function App() {
 	return (
 		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
 			<h1>let;s get this money</h1>
-			<SideNav />
+			<SideNav mode={dark} />
 			<NavBar
 				token={token}
 				setToken={setToken}
