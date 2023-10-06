@@ -9,87 +9,87 @@ import { Link, useNavigate } from "react-router-dom";
 import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function Home({
-  token,
-  setToken,
-  userId,
-  setUserId,
-  spotifyToken,
-  setSpotifyToken,
+	token,
+	setToken,
+	userId,
+	setUserId,
+	spotifyToken,
+	setSpotifyToken,
 }) {
-  const [musicInput, setMusicInput] = useState("");
-  const [musicChoice, setMusicChoice] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+	const [musicInput, setMusicInput] = useState("");
+	const [musicChoice, setMusicChoice] = useState("");
+	const [isClicked, setIsClicked] = useState(false);
 
-  // const navigate = useNavigate();
+	// const navigate = useNavigate();
 
-  console.log("userId in home: ", userId);
-  console.log("spotifyToken in Home", spotifyToken);
+	console.log("userId in home: ", userId);
+	console.log("spotifyToken in Home", spotifyToken);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const realMusicInput = handleInput(musicInput);
-    console.log("real music input", realMusicInput);
-    setMusicChoice(realMusicInput);
-    // console.log("musicChoice", musicChoice);
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const realMusicInput = handleInput(musicInput);
+		console.log("real music input", realMusicInput);
+		setMusicChoice(realMusicInput);
+		// console.log("musicChoice", musicChoice);
 
-    if (musicChoice) {
-      console.log("entering handleSubmit");
-      setIsClicked(!isClicked);
-      // navigate(0);
-      // setMusicChoice("");
-    } else {
-      console.log("can't get drink choice");
-    }
-  };
+		if (musicChoice) {
+			console.log("entering handleSubmit");
+			setIsClicked(!isClicked);
+			// navigate(0);
+			// setMusicChoice("");
+		} else {
+			console.log("can't get drink choice");
+		}
+	};
 
-  const handleInput = (musicInput) => {
-    // if musicInput has space, then replace the space with a plus symbol
-    // else return music input
-    if (/\s/.test(musicInput)) {
-      return musicInput.replace(" ", "+");
-    } else {
-      return musicInput;
-    }
-  };
-  return (
-    <div id="home-container">
-      <h1>ENTER MUSIC CHOICE</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Search">Enter Artist </label>
-        <input
-          type="text"
-          name="search"
-          placeholder="Enter music choice here"
-          onChange={(event) => setMusicInput(event.target.value)}
-          // onKeyDown={handleKeyDown}
-        />
-      </form>
-      <br />
-      <button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
-      {/* <CocktailDBDrinkCard /> */}
-      {musicChoice && (
-        <Spotify
-          musicChoice={musicChoice}
-          userId={userId}
-          spotifyToken={spotifyToken}
-          setSpotifyToken={setSpotifyToken}
-        />
-      )}
-      {!token && (
-        <div>
-          <Login
-            token={token}
-            setToken={setToken}
-            setUserId={setUserId}
-            userId={userId}
-          />
-          <Link to={"/register"}>Create New Account</Link>
-        </div>
-      )}
-      <h1>Random Drink!!</h1>
-      <RandomDrinkButton />
-    </div>
-  );
+	const handleInput = (musicInput) => {
+		// if musicInput has space, then replace the space with a plus symbol
+		// else return music input
+		if (/\s/.test(musicInput)) {
+			return musicInput.replace(" ", "+");
+		} else {
+			return musicInput;
+		}
+	};
+	return (
+		<div id="home-container">
+			<h1>ENTER MUSIC CHOICE</h1>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="Search">Enter Artist </label>
+				<input
+					type="text"
+					name="search"
+					placeholder="Enter music choice here"
+					onChange={(event) => setMusicInput(event.target.value)}
+					// onKeyDown={handleKeyDown}
+				/>
+			</form>
+			<br />
+			<button onClick={(event) => handleSubmit(event)}>Suggest Drink</button>
+			{/* <CocktailDBDrinkCard /> */}
+			{musicChoice && (
+				<Spotify
+					musicChoice={musicChoice}
+					userId={userId}
+					spotifyToken={spotifyToken}
+					setSpotifyToken={setSpotifyToken}
+				/>
+			)}
+			{!token && (
+				<div>
+					<Login
+						token={token}
+						setToken={setToken}
+						setUserId={setUserId}
+						userId={userId}
+					/>
+					<Link to={"/register"}>Create New Account</Link>
+				</div>
+			)}
+			<h1>Random Drink!!</h1>
+			<RandomDrinkButton userId={userId} />
+		</div>
+	);
 }
 
 // need a search bar
