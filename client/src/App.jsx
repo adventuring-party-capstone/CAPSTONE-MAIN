@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
+import SideNav from "./components/SideNav";
 
 function App() {
 	//get tokens where other components can use them
@@ -19,7 +20,6 @@ function App() {
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
 
-
 	useEffect(() => {
 		localStorage.setItem("dark-mode", dark);
 	}, [dark]);
@@ -31,6 +31,7 @@ function App() {
 	return (
 		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
 			<h1>let;s get this money</h1>
+			<SideNav mode={dark} />
 			<NavBar
 				token={token}
 				setToken={setToken}
