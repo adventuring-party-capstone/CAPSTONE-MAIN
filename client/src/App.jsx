@@ -15,19 +15,24 @@ function App() {
 	const [userId, setUserId] = useState(null);
 	// const [appClass, setAppClass] = useState("");
 	// const [eleId, setEleId] = useState("");
-	const [isDark, setIsDark] = useState(true);
+	// const [isDark, setIsDark] = useState(true);
+	const [dark, setDark] = useState(
+		window.localStorage.getItem("dark-mode") === "true"
+	);
 
 	useEffect(() => {
 		setToken(window.localStorage.getItem("token"));
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
-		setIsDark(window.localStorage.getItem("dark-mode"));
+		// setIsDark(window.localStorage.getItem("dark-mode"));
+		// setIsDark(window.localStorage.getItem("isDark"));
 	}, []);
 
 	// DARK MODE CODE
-	let darkMode = localStorage.getItem("dark-mode");
+	// let darkMode = localStorage.getItem("dark-mode");
+	// let darkMode = localStorage.getItem("isDark");
 
-	console.log("isDark in App", isDark);
+	// console.log("isDark in App", isDark);
 	// console.log("darkMode in App", darkMode);
 	// console.log("dark-mode in app", window.localStorage.getItem("dark-mode"));
 
@@ -37,32 +42,44 @@ function App() {
 	// 	setEleId(appDiv);
 	// }, [appDiv]);
 
-	const toggle = document.getElementById("mode-toggle");
+	// const toggle = document.getElementById("mode-toggle");
+	// useEffect(() => {
+	// 	function enableDarkMode() {
+	// 		appDiv.classList.add("light-mode");
+	// 		// localStorage.setItem("dark-mode", "enabled");
+	// 		localStorage.setItem("isDark", "true");
+	// 	}
+
+	// 	function disableDarkMode() {
+	// 		appDiv.classList.remove("light-mode");
+	// 		// localStorage.setItem("dark-mode", "disabled")
+	// 		setIsDark(JSON.parse(localStorage.setItem("isDark", "false")));
+	// 	}
+
+	// 	if (toggle) {
+	// 		toggle.addEventListener("click", (event) => {
+	// 			// darkMode = localStorage.getItem("isDark"); // update isDark when clicked
+	// 			if (isDark === false) {
+	// 				enableDarkMode();
+	// 			} else if (isDark) {
+	// 				disableDarkMode();
+	// 			}
+	// 		});
+	// 	}
+	// }, [appDiv, toggle]);
+
+	// TESTING NEW CODE
+
 	useEffect(() => {
-		function enableDarkMode() {
-			appDiv.classList.add("light-mode");
-			localStorage.setItem("dark-mode", "enabled");
-		}
+		localStorage.setItem("dark-mode", dark);
+	}, [dark]);
 
-		function disableDarkMode() {
-			appDiv.classList.remove("light-mode");
-			localStorage.setItem("dark-mode", "disabled");
-		}
-
-		if (toggle) {
-			toggle.addEventListener("click", (event) => {
-				darkMode = localStorage.getItem("dark-mode"); // update darkMode when clickced
-				if (darkMode === "disabled") {
-					enableDarkMode();
-				} else {
-					disableDarkMode();
-				}
-			});
-		}
-	}, [appDiv, toggle]);
+	function toggleDarkMode() {
+		setDark(!dark);
+	}
 
 	return (
-		<div id="app-container">
+		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
 			<h1>let;s get this money</h1>
 			<NavBar
 				token={token}
@@ -86,13 +103,16 @@ function App() {
 				isDark={isDark}
 				setIsDark={setIsDark}
 			/> */}
-			<Toggle
+			{/* <Toggle
 				checked={isDark}
 				onChange={({ target }) => setIsDark(target.checked)}
 				icons={{ checked: "🌙", unchecked: "🔆" }}
 				aria-label="Dark mode toggle"
 				id="mode-toggle"
-			/>
+			/> */}
+			<button className="dark-mode-toggle" onClick={toggleDarkMode}>
+				Enable Dark Mode
+			</button>
 		</div>
 	);
 }
