@@ -3,10 +3,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
-// import DarkModeToggle from "./components/DarkModeToggle";
-import Toggle from "react-toggle";
-import "react-toggle/style.css";
-// import { useColorScheme } from "./useColorScheme";
 
 function App() {
 	//get tokens where other components can use them

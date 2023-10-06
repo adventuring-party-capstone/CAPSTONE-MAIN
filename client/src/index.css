@@ -37,10 +37,6 @@ body {
     /* mix-blend-mode: difference; */
 }
 
-/* .light-mode{
-    background: goldenrod;
-} */
-
 /* CHECKBOX SIMULATING TOGGLE */
 .switch {
     position: relative;
@@ -102,17 +98,6 @@ body {
     border-radius: 50%;
   }
 
-/* DARK MODE */
-@media (prefers-color-scheme: dark){
-    :root{
-        --color-background: maroon;
-        --color-text: goldenrod;
-    }
-    body.dark{
-        background-color: var(--color-background);
-        color: var(--color-text)
-    }
-}
 
 #app-container {
      border: 1px solid red;
