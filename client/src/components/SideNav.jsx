@@ -10,10 +10,10 @@ export default function SideNav({ mode }) {
 		function sideNavBG() {
 			if (mode) {
 				// darkmode on
-				setBgmode("bg-[#FFA100]");
+				setBgmode("bg-[#16154D]");
 			} else {
 				// darkmode off
-				setBgmode("bg-[#16154D]");
+				setBgmode("bg-[#FFA100]");
 			}
 		}
 		sideNavBG();
@@ -37,8 +37,9 @@ export default function SideNav({ mode }) {
 				>
 					<li className="relative">
 						<a
-							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[1.5rem] text-inherit outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 							data-te-sidenav-link-ref
+							href="/"
 						>
 							<span className="mr-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-gray-400 dark:[&>svg]:text-gray-300">
 								<svg
@@ -56,12 +57,12 @@ export default function SideNav({ mode }) {
 									/>
 								</svg>
 							</span>
-							<span>Link 1</span>
+							Home
 						</a>
 					</li>
 					<li className="relative">
 						<a
-							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[1.5rem] text-inherit outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 							data-te-sidenav-link-ref
 						>
 							<span className="mr-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-gray-400 dark:[&>svg]:text-gray-300">
@@ -78,7 +79,6 @@ export default function SideNav({ mode }) {
 									/>
 								</svg>
 							</span>
-							<span>Category 1</span>
 							<span
 								className="absolute right-0 ml-auto mr-[0.8rem] transition-transform duration-300 ease-linear motion-reduce:transition-none [&>svg]:text-gray-600 dark:[&>svg]:text-gray-300"
 								data-te-sidenav-rotate-icon-ref
@@ -95,7 +95,9 @@ export default function SideNav({ mode }) {
 										clipRule="evenodd"
 									/>
 								</svg>
+								{/* ^above line is the collapsible arrow */}
 							</span>
+							Drinks
 						</a>
 						<ul
 							className="!visible relative m-0 hidden list-none p-0 data-[te-collapse-show]:block "
@@ -104,26 +106,30 @@ export default function SideNav({ mode }) {
 						>
 							<li className="relative">
 								<a
-									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[1rem] text-inherit outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 									data-te-sidenav-link-ref
+									href="/all_drinks"
 								>
-									Link 2
+									All Drinks
 								</a>
 							</li>
 							<li className="relative">
 								<a
-									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[1rem] text-inherit outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 									data-te-sidenav-link-ref
+									href="/favorites"
 								>
-									Link 3
+									Favorites
 								</a>
 							</li>
+							{/* ^these are the collapsed items currently hidden */}
 						</ul>
 					</li>
 					<li className="relative">
 						<a
-							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
+							className="flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[1.5rem] text-inherit outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 							data-te-sidenav-link-ref
+							href="/createDrink"
 						>
 							<span className="mr-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-gray-400 dark:[&>svg]:text-gray-300">
 								<svg
@@ -139,12 +145,12 @@ export default function SideNav({ mode }) {
 									/>
 								</svg>
 							</span>
-							<span>Category 2</span>
-							<span
+							<span>Mixologist</span>
+							{/* <span
 								className="absolute right-0 ml-auto mr-[0.8rem] transition-transform duration-300 ease-linear motion-reduce:transition-none [&>svg]:text-gray-600 dark:[&>svg]:text-gray-300"
 								data-te-sidenav-rotate-icon-ref
-							>
-								<svg
+							> */}
+							{/* <svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 20 20"
 									fill="currentColor"
@@ -155,30 +161,32 @@ export default function SideNav({ mode }) {
 										d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
 										clipRule="evenodd"
 									/>
-								</svg>
-							</span>
+								</svg> */}
+							{/* ^this is the collapsible arrow */}
+							{/* </span> */}
 						</a>
-						<ul
+						{/* <ul
 							className="show !visible relative m-0 hidden list-none p-0 data-[te-collapse-show]:block "
 							data-te-sidenav-collapse-ref
-						>
-							<li className="relative">
+						> */}
+						{/* <li className="relative">
 								<a
 									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 									data-te-sidenav-link-ref
 								>
 									Link 4
 								</a>
-							</li>
-							<li className="relative">
+							</li> */}
+						{/* <li className="relative">
 								<a
 									className="flex h-6 cursor-pointer items-center truncate rounded-[5px] py-4 pl-[3.4rem] pr-6 text-[0.78rem] text-gray-600 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10"
 									data-te-sidenav-link-ref
 								>
 									Link 5
 								</a>
-							</li>
-						</ul>
+							</li> */}
+						{/* ^collapsed categories currently hidden */}
+						{/* </ul> */}
 					</li>
 				</ul>
 			</nav>
