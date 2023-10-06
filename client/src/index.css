@@ -32,15 +32,9 @@ body {
      background-color: #242424;
 }
 
-.light-mode {
-    width: 100vw;
-    height: 100vh;
-    /* position: relative; */
-    top: 0;
-    left: 0;
+.light-mode {    
     background: white;
     color: black;
-    /* mix-blend-mode: difference; */
 }
 
 /* CHECKBOX SIMULATING TOGGLE */
