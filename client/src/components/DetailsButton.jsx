@@ -11,11 +11,12 @@ export default function DetailsButton({ drinkId }) {
 
 	return (
 		<>
-			<button onClick={handleClick}>
+			{/* <button onClick={handleClick}>
 				{!isOpen ? "See Drink Details" : "Close details"}
-			</button>
+			</button> */}
 			<div>
-				{isOpen && <SingleDrinkDetails key={drinkId} drinkId={drinkId} />}
+				{/* {isOpen && <SingleDrinkDetails key={drinkId} drinkId={drinkId} />} */}
+				<SingleDrinkDetails key={drinkId} drinkId={drinkId} />
 			</div>
 		</>
 	);
