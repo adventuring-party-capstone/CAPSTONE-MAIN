@@ -10,10 +10,10 @@ export default function SideNav({ mode }) {
 		function sideNavBG() {
 			if (mode) {
 				// darkmode on
-				setBgmode("bg-orange-500");
+				setBgmode("bg-[#FFA100]");
 			} else {
 				// darkmode off
-				setBgmode("bg-blue-950");
+				setBgmode("bg-[#16154D]");
 			}
 		}
 		sideNavBG();
