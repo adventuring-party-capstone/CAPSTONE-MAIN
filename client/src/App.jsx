@@ -9,13 +9,27 @@ function App() {
 	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
+
+	const [dark, setDark] = useState(
+		window.localStorage.getItem("dark-mode") === "true"
+	);
 	useEffect(() => {
 		setToken(window.localStorage.getItem("token"));
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
+
+
+	useEffect(() => {
+		localStorage.setItem("dark-mode", dark);
+	}, [dark]);
+
+	function toggleDarkMode() {
+		setDark(!dark);
+	}
+
 	return (
-		<div id="app-container">
+		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
 			<h1>let;s get this money</h1>
 			<NavBar
 				token={token}
@@ -31,6 +45,11 @@ function App() {
 				spotifyToken={spotifyToken}
 				setSpotifyToken={setSpotifyToken}
 			/>
+
+			<label className="switch">
+				<input type="checkbox" onClick={toggleDarkMode} />
+				<span className="slider round">Dark Mode</span>
+			</label>
 		</div>
 	);
 }
