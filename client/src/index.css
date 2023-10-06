@@ -5,6 +5,7 @@
 
      color-scheme: light dark;
      color: rgba(255, 255, 255, 0.87);
+     background-color: #242424;
 
      font-synthesis: none;
      text-rendering: optimizeLegibility;
@@ -23,34 +24,6 @@ body {
      place-items: center;
      min-width: 320px;
      min-height: 100vh;
-     background-color: #242424;
-}
-
-.light-mode {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: white;
-    color: black;
-    /* mix-blend-mode: difference; */
-}
-
-/* .light-mode{
-    background: goldenrod;
-} */
-
-/* DARK MODE */
-@media (prefers-color-scheme: dark){
-    :root{
-        --color-background: maroon;
-        --color-text: goldenrod;
-    }
-    body.dark{
-        background-color: var(--color-background);
-        color: var(--color-text)
-    }
 }
 
 #app-container {
