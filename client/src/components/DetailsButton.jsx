@@ -11,7 +11,7 @@ export default function DetailsButton({ drinkId }) {
 
 	return (
 		<>
-			<button onClick={handleClick} className="details-button">
+			<button onClick={handleClick} className="glow-on-hover">
 				{!isOpen ? "See Drink Details" : "Close details"}
 			</button>
 			<div>
