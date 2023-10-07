@@ -195,11 +195,13 @@ export default function AllDrinks({ token, userId }) {
                   <h2>{drink.strDrink}</h2>
                   <img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
                 </div>
-                <br />
                 {token && (
                   <FavoriteButton api_drinks_id={drink.idDrink} userId={userId} />
                 )}
-                <div id="flip-card-back"><DetailsButton drinkId={APIDrinkId} /></div>
+                <div id="flip-card-back">
+                  <DetailsButton drinkId={APIDrinkId} />
+                  <h1>{drink.strDrink}</h1>
+                </div>
               </div>
             </div>
           );
