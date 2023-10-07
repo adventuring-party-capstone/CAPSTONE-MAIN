@@ -110,11 +110,11 @@ input:checked+.slider:before {
      padding: 1rem;
 }
 
-/* #images {
+#images {
      width: 100%;
      height: 100%;
      border-radius: 10px;
-} */
+}
 
 #all-drinks-gallery {
      display: flex;
@@ -158,6 +158,7 @@ input:checked+.slider:before {
      transition: transform 0.8s;
      transform-style: preserve-3d;
 
+
 }
 
 #flip-card:hover #flip-card-inner {
@@ -185,6 +186,7 @@ input:checked+.slider:before {
      background-color: black;
      color: white;
      transform: rotateY(180deg);
+     overflow: auto;
 }
 
 #favorite-button {
