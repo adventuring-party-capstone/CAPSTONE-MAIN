@@ -48,7 +48,7 @@ function App() {
 			/>
 
 			<label className="switch">
-				<input type="checkbox" onClick={toggleDarkMode} />
+				<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
 				<span className="slider round">Dark Mode</span>
 			</label>
 		</div>
