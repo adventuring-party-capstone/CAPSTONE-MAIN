@@ -191,7 +191,7 @@ export default function AllDrinks({ token, userId }) {
             <div id="flip-card" key={drink.idDrink}>
               <div id="flip-card-inner">
                 <div id="flip-card-front">
-                  <h2>{drink.strDrink}</h2>
+                  <p>{drink.strDrink}</p>
                   <img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
                 </div>
                 <div id="flip-card-back">
