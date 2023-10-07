@@ -176,7 +176,6 @@ export default function AllDrinks({ token, userId }) {
                   <h2>{drink.drinks_name}</h2>
                   <img src={drink.image} alt={drink.drinks_name} id="images" />
                 </div>
-                <br />
                 {token && (
                   <FavoriteButton drinkId={drink.drinks_id} userId={userId} />
                 )}
@@ -193,14 +192,14 @@ export default function AllDrinks({ token, userId }) {
               <div id="flip-card-inner">
                 <div id="flip-card-front">
                   <h2>{drink.strDrink}</h2>
-                  <img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+                  <img src={drink.strDrinkThumb} alt={drink.strDrink} id="flip-images" />
                 </div>
                 {token && (
                   <FavoriteButton api_drinks_id={drink.idDrink} userId={userId} />
                 )}
                 <div id="flip-card-back">
-                  <DetailsButton drinkId={APIDrinkId} />
                   <h1>{drink.strDrink}</h1>
+                  <DetailsButton drinkId={APIDrinkId} />
                 </div>
               </div>
             </div>
