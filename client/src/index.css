@@ -150,6 +150,8 @@ input:checked+.slider:before {
      overflow: hidden;
      /* perspective: 1000px; */
      /* Remove this if you don't want the 3D effect */
+     margin-left: auto;
+     margin-right: auto;
 }
 
 #flip-card-inner {
