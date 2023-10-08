@@ -227,6 +227,12 @@ input:checked+.slider:before {
      border-radius: 10px;
 }
 
+#drink-gif {
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 10px;
+}
+
 .glow-on-hover {
      width: 220px;
      height: 50px;

@@ -39,7 +39,7 @@ function App() {
 
 	return (
 		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
-			<h1>let;s get this money</h1>
+			<h1>STUDIO DRINK</h1>
 			<SideNav mode={dark} />
 			<NavBar
 				token={token}

@@ -31,6 +31,8 @@ export default function CreateNewDrink() {
     return (
         <div className="formGroup">
             <h2>Create your own drink</h2>
+            <img id="drink-gif" src="https://i.pinimg.com/originals/1f/b3/8b/1fb38bda65bcc8600e048be51e4304a1.gif"></img>
+            <br />
             <form onSubmit={handleSubmit}>
                 <input
                     id="formInput"
