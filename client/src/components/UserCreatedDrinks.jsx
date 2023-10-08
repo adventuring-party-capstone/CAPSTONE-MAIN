@@ -129,7 +129,7 @@ export default function UserCreatedDrinks(userId) {
 						const localDrinkId = drink.drinks_id;
 						return (
 							<div key={drink.drinks_id} id="drink-card">
-								<h1>{drink.drinks_name}</h1>
+								<h1>{titleCase(drink.drinks_name)}</h1>
 								<img src={drink.image} alt={drink.drinks_name} id="images" />
 								<div>
 									<DetailsButton drinkId={localDrinkId} />

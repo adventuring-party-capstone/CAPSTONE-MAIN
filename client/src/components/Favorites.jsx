@@ -255,7 +255,7 @@ export default function Favorites({ token, userId }) {
 								const localDrinkId = drink.drinks_id;
 								return (
 									<div key={drink.drinks_id} id="drink-card">
-										<p>{drink.drinks_name}</p>
+										<h1>{titleCase(drink.drinks_name)}</h1>
 										<img
 											src={drink.image}
 											alt={drink.drinks_name}
@@ -276,7 +276,7 @@ export default function Favorites({ token, userId }) {
 								const APIDrinkId = drink.idDrink;
 								return (
 									<div key={drink.idDrink} id="drink-card">
-										<h2>{drink.strDrink}</h2>
+										<h1>{drink.strDrink}</h1>
 										<img
 											src={drink.strDrinkThumb}
 											alt={drink.strDrink}

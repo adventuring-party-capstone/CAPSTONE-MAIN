@@ -8,12 +8,7 @@ export default function Profile({ token, setToken, userId }) {
 	const [username, setUsername] = useState("");
 
 	// console.log("user id in profile", userId);
-	// const [toggleState, setToggleState] = useState(1);
-	// const toggleTab = (index) => {
-	// 	setToggleState(index);
-	// 	console.log("index", index);
-	// };
-	// onClick={() => toggleTab(1)}
+	const [toggleState, setToggleState] = useState(1);
 
 	// grab user info (get user object by user id)
 	useEffect(() => {
@@ -45,12 +40,18 @@ export default function Profile({ token, setToken, userId }) {
 	return (
 		<section>
 			<h1>Welcome, {titleCase(username)}</h1>
-			<div>
-				<Favorites token={token} userId={userId} />
-			</div>
-			<div>
-				<UserCreatedDrinks userId={userId} />
-			</div>
+			<button onClick={() => setToggleState(1)}>Favorites</button>
+			<button onClick={() => setToggleState(2)}>Created Drinks</button>
+			{toggleState === 1 && (
+				<div id="favorites-tab" className="tabContent">
+					<Favorites token={token} userId={userId} />
+				</div>
+			)}
+			{toggleState === 2 && (
+				<div id="created-drinks-tab" className="tabContent">
+					<UserCreatedDrinks userId={userId} />
+				</div>
+			)}
 		</section>
 	);
 }
