@@ -10,6 +10,15 @@ function App() {
 	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
+	const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+	const handleSnackbarOpen = () => {
+		setSnackbarOpen(true);
+	};
+
+	const handleSnackbarClose = () => {
+		setSnackbarOpen(false);
+	};
 
 	const [dark, setDark] = useState(
 		window.localStorage.getItem("dark-mode") === "true"
