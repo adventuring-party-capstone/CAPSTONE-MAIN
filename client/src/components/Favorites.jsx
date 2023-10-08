@@ -270,6 +270,7 @@ export default function Favorites({ token, userId }) {
 												</div>
 
 												<div id="flip-card-back">
+													<h2>{drink.drinks_name}</h2>
 													<DetailsButton drinkId={localDrinkId} />
 													<DeleteFavorite drinks_id={drink.drinks_id} />
 												</div>
@@ -295,6 +296,7 @@ export default function Favorites({ token, userId }) {
 													<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
 												</div>
 												<div id="flip-card-back">
+													<h2>{drink.strDrink}</h2>
 													<div><DetailsButton drinkId={APIDrinkId} /></div>
 													<DeleteFavorite api_drinks_id={drink.idDrink} />
 												</div>
