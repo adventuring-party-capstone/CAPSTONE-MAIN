@@ -4,7 +4,7 @@ import DetailsButton from "./DetailsButton";
 import FavoriteButton from "./FavoriteButton";
 
 export default function RandomDrinkButton({ userId }) {
-	const [randomDrink, setRandomDrink] = useState([]);
+	const [randomDrink, setRandomDrink] = useState(null);
 	const getRandomDrink = async () => {
 		const response = await fetchRandomDrink();
 		console.log("response from fetchRandomDrink in getRandomDrink", response);
@@ -21,7 +21,6 @@ export default function RandomDrinkButton({ userId }) {
 	console.log("is this from my random drink component?", randomDrink);
 	return (
 		<>
-			<div className="random">{randomDrink.strId}</div>
 			<button onClick={handleClick}>Random Drink! :3</button>
 			<div className="Random-Button">
 				{randomDrink ? (
