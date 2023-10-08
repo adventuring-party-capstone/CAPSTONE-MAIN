@@ -9,6 +9,7 @@ export default function NavBar({ token, setToken }) {
 		<div id="navbar-container">
 			<Link to="/">Home</Link>
 			<Link to="/all_drinks">All Drinks</Link>
+			<Link to="/profile">Profile</Link>
 			{token ? (
 				<>
 					<Link to="/favorites">Favorites</Link>

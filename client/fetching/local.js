@@ -5,7 +5,7 @@ export const fetchAllDrinks = async () => {
 	try {
 		const response = await fetch(`${base_url}/drinks`);
 		const result = await response.json();
-		console.log("result from fetchAllDrinks ", result);
+		// console.log("result from fetchAllDrinks ", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -17,10 +17,24 @@ export const fetchSingleDrink = async (drink_id) => {
 	try {
 		const response = await fetch(`${base_url}/drinks/${drink_id}`);
 		const result = await response.json();
-		console.log("result from fetchSingleDrink", result);
+		// console.log("result from fetchSingleDrink", result);
 		return result;
 	} catch (error) {
 		console.error("there was an error fetching this drink", error);
+	}
+};
+
+// grab user created drinks from LOCAL database
+export const fetchUserCreatedDrinks = async (user_id) => {
+	try {
+		const response = await fetch(
+			`${base_url}/drinks/created-drinks/users/${user_id}`
+		);
+		const result = await response.json();
+		// console.log("result from fetchUserCreatedDrinks", result);
+		return result;
+	} catch (error) {
+		console.error("can't fetch user created drinks", error);
 	}
 };
 
@@ -29,7 +43,7 @@ export const fetchAllIngredients = async () => {
 	try {
 		const response = await fetch(`${base_url}/ingredients`);
 		const result = await response.json();
-		console.log("result from fetchAllIngredients ", result);
+		// console.log("result from fetchAllIngredients ", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -41,7 +55,7 @@ export const fetchAllGenres = async () => {
 	try {
 		const response = await fetch(`${base_url}/genres`);
 		const result = await response.json();
-		console.log("result from fetchAllGenres ", result);
+		// console.log("result from fetchAllGenres ", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -53,7 +67,7 @@ export const fetchAllGenresIngredients = async () => {
 	try {
 		const response = await fetch(`${base_url}/genres_ingredients`);
 		const result = await response.json();
-		console.log("result from fetchAllGenresIngredients ", result);
+		// console.log("result from fetchAllGenresIngredients ", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -65,7 +79,7 @@ export const fetchSingleUser = async (users_id) => {
 	try {
 		const response = await fetch(`${base_url}/users/${users_id}`);
 		const result = await response.json();
-		console.log("result from fetchSingleUser", result);
+		// console.log("result from fetchSingleUser", result);
 		return result;
 	} catch (error) {
 		console.error("there was an error fetching this user", error);
@@ -77,7 +91,7 @@ export const fetchAllUsersDrinks = async () => {
 	try {
 		const response = await fetch(`${base_url}/users_drinks`);
 		const result = await response.json();
-		console.log("result from fetchAllUsersDrinks ", result);
+		// console.log("result from fetchAllUsersDrinks ", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -87,7 +101,7 @@ export const fetchAllUsersDrinks = async () => {
 // grabs specific user's favorites
 export const fetchUsersDrinksByUserId = async (users_id) => {
 	try {
-		console.log("user_id in fetchUsersDrinksByUserId ", users_id);
+		// console.log("user_id in fetchUsersDrinksByUserId ", users_id);
 		const response = await fetch(`${base_url}/users_drinks/${users_id}`);
 		const result = await response.json();
 		console.log("result from fetchUsersDrinksByUserId ", result);
@@ -105,7 +119,7 @@ export const fetchDrinksByAlcoholic = async (alcoholic) => {
 	try {
 		const response = await fetch(`${base_url}/drinks/drinks/${alcoholic}`);
 		const result = await response.json();
-		console.log("result from fetchDrinksByAlcoholic ", result);
+		// console.log("result from fetchDrinksByAlcoholic ", result);
 		return result;
 	} catch (error) {
 		console.error("there was an error fetching these drinks :(", error);
@@ -127,8 +141,8 @@ export const createNewFavorite = async (users_id, drinks_id, api_drinks_id) => {
 			}),
 		});
 		const result = await response.json();
-		console.log("result from createNewFavorite", result);
-		console.log("api_drinks_id", api_drinks_id);
+		// console.log("result from createNewFavorite", result);
+		// console.log("api_drinks_id", api_drinks_id);
 		return result;
 	} catch (error) {
 		console.error("Cannot post favorite drink", error);
@@ -146,7 +160,7 @@ export const register = async (userObj) => {
 			body: JSON.stringify(userObj),
 		});
 		const result = await response.json();
-		console.log(result);
+		// console.log(result);
 		return result;
 	} catch (err) {
 		console.error(err);
@@ -213,9 +227,12 @@ export const deleteUserDrink = async (drinks_id) => {
 export const deleteUserDrinkAPI = async (api_drinks_id) => {
 	try {
 		console.log("...removing favorite drink API");
-		const response = await fetch(`${base_url}/users_drinks/users_drinks/${api_drinks_id}`, {
-			method: "DELETE",
-		});
+		const response = await fetch(
+			`${base_url}/users_drinks/users_drinks/${api_drinks_id}`,
+			{
+				method: "DELETE",
+			}
+		);
 		const result = await response.json();
 		console.log("I never want to see that API drink again >:( good riddance");
 		return result;
@@ -225,19 +242,22 @@ export const deleteUserDrinkAPI = async (api_drinks_id) => {
 };
 
 // CREATE NEW DRINK
-export const createDrink = async (cocktails_db_drinks_id,
+export const createDrink = async (
+	cocktails_db_drinks_id,
 	drinks_name,
 	ingredients,
 	recipe,
 	image,
 	glass,
-	alcoholic) => {
+	alcoholic,
+	userId
+) => {
 	try {
-		console.log('...starting to create drink')
+		console.log("...starting to create drink");
 		const response = await fetch(`${base_url}/drinks`, {
 			method: "POST",
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
 				cocktails_db_drinks_id: cocktails_db_drinks_id,
@@ -246,12 +266,13 @@ export const createDrink = async (cocktails_db_drinks_id,
 				recipe: recipe,
 				image: image,
 				glass: glass,
-				alcoholic: alcoholic
-			})
+				alcoholic: alcoholic,
+				users_id: userId,
+			}),
 		});
 		const result = await response.json();
 		return result;
 	} catch (error) {
 		console.error("Cannot post drink", error);
 	}
-}
+};
