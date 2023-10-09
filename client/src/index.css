@@ -1,4 +1,4 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -32,15 +32,14 @@ body {
 }
 
 .dark-mode {
-     background-image: url('');
+     background-image: url("");
      background-repeat: no-repeat;
      background-size: 100%;
      background-position: center;
-
 }
 
 .light-mode {
-     background-image: url('');
+     background-image: url("");
      background-repeat: no-repeat;
      background-size: 100%;
      background-position: center;
@@ -71,8 +70,8 @@ body {
      right: 0;
      bottom: 0;
      background-color: #ccc;
-     -webkit-transition: .4s;
-     transition: .4s;
+     -webkit-transition: 0.4s;
+     transition: 0.4s;
 }
 
 .slider:before {
@@ -83,19 +82,19 @@ body {
      left: 4px;
      bottom: 4px;
      background-color: white;
-     -webkit-transition: .4s;
-     transition: .4s;
+     -webkit-transition: 0.4s;
+     transition: 0.4s;
 }
 
-input:checked+.slider {
-     background-color: #2196F3;
+input:checked + .slider {
+     background-color: #2196f3;
 }
 
-input:focus+.slider {
-     box-shadow: 0 0 1px #2196F3;
+input:focus + .slider {
+     box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
      -webkit-transform: translateX(26px);
      -ms-transform: translateX(26px);
      transform: translateX(26px);
@@ -174,8 +173,6 @@ input:checked+.slider:before {
      text-align: center;
      transition: transform 0.8s;
      transform-style: preserve-3d;
-
-
 }
 
 #flip-card:hover #flip-card-inner {
@@ -196,7 +193,6 @@ input:checked+.slider:before {
 #flip-card-front {
      background-color: black;
      color: white;
-
 }
 
 /* Style the back side */
@@ -205,7 +201,6 @@ input:checked+.slider:before {
      color: white;
      transform: rotateY(180deg);
      overflow-y: scroll;
-
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -234,7 +229,7 @@ input:checked+.slider:before {
 }
 
 .details-button {
-     background: #16154D;
+     background: #16154d;
      height: 20%;
      border-radius: 10px;
 }
@@ -260,8 +255,19 @@ input:checked+.slider:before {
 }
 
 .glow-on-hover:before {
-     content: '';
-     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+     content: "";
+     background: linear-gradient(
+          45deg,
+          #ff0000,
+          #ff7300,
+          #fffb00,
+          #48ff00,
+          #00ffd5,
+          #002bff,
+          #7a00ff,
+          #ff00c8,
+          #ff0000
+     );
      position: absolute;
      top: -2px;
      left: -2px;
@@ -272,12 +278,12 @@ input:checked+.slider:before {
      height: calc(100% + 4px);
      animation: glowing 20s linear infinite;
      opacity: 0;
-     transition: opacity .3s ease-in-out;
+     transition: opacity 0.3s ease-in-out;
      border-radius: 10px;
 }
 
 .glow-on-hover:active {
-     color: #f95555
+     color: #f95555;
 }
 
 .glow-on-hover:active:after {
@@ -290,7 +296,7 @@ input:checked+.slider:before {
 
 .glow-on-hover:after {
      z-index: -1;
-     content: '';
+     content: "";
      position: absolute;
      width: 100%;
      height: 100%;
@@ -301,40 +307,46 @@ input:checked+.slider:before {
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+     0% {
+          background-position: 0 0;
+     }
+     50% {
+          background-position: 400% 0;
+     }
+     100% {
+          background-position: 0 0;
+     }
 }
 
 /* TABS FOR PROFILE PAGE */
 /* Style tab links */
 .tablink {
-    background-color: #555;
-    color: white;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
-  }
-  
+     background-color: #555;
+     color: white;
+     float: left;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     padding: 14px 16px;
+     font-size: 17px;
+     width: 25%;
+}
+
 .tablink:hover {
-background-color: #777;
+     background-color: #777;
 }
 
-#favorites-tab{
-background-color: rgb(83, 26, 35);
+#favorites-tab {
+     background-color: rgb(83, 26, 35);
 }
 
-#created-drinks-tab{
-background-color:rgb(20, 83, 104);
+#created-drinks-tab {
+     background-color: rgb(20, 83, 104);
 }
 
 .tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-  }
+     color: white;
+     display: none;
+     padding: 100px 20px;
+     height: 100%;
+}
