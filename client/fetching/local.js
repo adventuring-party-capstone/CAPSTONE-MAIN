@@ -31,7 +31,7 @@ export const fetchUserCreatedDrinks = async (user_id) => {
 			`${base_url}/drinks/created-drinks/users/${user_id}`
 		);
 		const result = await response.json();
-		// console.log("result from fetchUserCreatedDrinks", result);
+		console.log("result from fetchUserCreatedDrinks", result);
 		return result;
 	} catch (error) {
 		console.error("can't fetch user created drinks", error);
