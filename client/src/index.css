@@ -48,6 +48,10 @@ body {
      color: black;
 }
 
+.iFrameStyle {
+     background-color: transparent;
+}
+
 /* CHECKBOX SIMULATING TOGGLE */
 .switch {
      position: relative;
@@ -85,6 +89,7 @@ body {
      -webkit-transition: 0.4s;
      transition: 0.4s;
 }
+
 
 input:checked + .slider {
      background-color: #2196f3;
@@ -256,6 +261,8 @@ input:checked + .slider:before {
 
 .glow-on-hover:before {
      content: "";
+
+     
      background: linear-gradient(
           45deg,
           #ff0000,
@@ -268,6 +275,7 @@ input:checked + .slider:before {
           #ff00c8,
           #ff0000
      );
+
      position: absolute;
      top: -2px;
      left: -2px;
@@ -310,6 +318,7 @@ input:checked + .slider:before {
      0% {
           background-position: 0 0;
      }
+
      50% {
           background-position: 400% 0;
      }
