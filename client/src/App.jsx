@@ -50,6 +50,8 @@ function App() {
 			<div className="iFrameStyle">
 				{<iframe style={{ "border-radius": "13px", "background-color": "black" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>}
 			</div>
+
+			<iframe style={{ "border-radius": "13px", "background-color": "black" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 			<MainSection
 				token={token}
 				setToken={setToken}
