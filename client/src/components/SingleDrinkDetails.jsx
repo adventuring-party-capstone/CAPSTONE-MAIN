@@ -67,7 +67,7 @@ export default function SingleDrinkDetails({ drinkId }) {
 	}, [APIDrinkIdSDD, localDrinkIdSDD]);
 
 	return (
-		<section>
+		<section id="drink-card-inner">
 			{cocktail && drinkId > 9000 && (
 				<div>
 					<h4>Ingredients:</h4>

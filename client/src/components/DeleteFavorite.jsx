@@ -10,7 +10,6 @@ export default function DeleteFavorite({ drinks_id, api_drinks_id }) {
         try {
             drinks_id && await deleteUserDrink(drinks_id);
             api_drinks_id && await deleteUserDrinkAPI(api_drinks_id);
-            alert("Removed from favorites >:( ");
             nav(0);
         } catch (error) {
             console.error(error);

@@ -11,10 +11,11 @@ export default function DetailsButton({ drinkId }) {
 
 	return (
 		<>
-			<button onClick={handleClick}>
+			<button onClick={handleClick} className="glow-on-hover">
 				{!isOpen ? "See Drink Details" : "Close details"}
 			</button>
 			<div>
+
 				{isOpen && <SingleDrinkDetails key={drinkId} drinkId={drinkId} />}
 			</div>
 		</>

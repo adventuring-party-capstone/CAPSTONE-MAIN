@@ -201,10 +201,19 @@ export default function CocktailDBDrinkCard({
 				/>
 			</FormGroup>
 			{/* {console.log("alcArrayToShow below Hello", alcArrayToShow)} */}
-			{drinkToRender && <h1>{drinkToRender.strDrink}</h1>}
-			{drinkToRender && <img src={drinkToRender.strDrinkThumb} />}
-			<br />
-			{<DetailsButton drinkId={chosenDrinkId} />}
+			<div id="flip-card">
+				<div id="flip-card-inner">
+					<div id="flip-card-front">
+						{drinkToRender && <h1>{drinkToRender.strDrink}</h1>}
+						{drinkToRender && <img src={drinkToRender.strDrinkThumb} />}
+					</div>
+					<div id="flip-card-back">
+						<h1>{drinkToRender.strDrink}</h1>
+						{<DetailsButton drinkId={chosenDrinkId} />}
+
+					</div>
+				</div>
+			</div>
 			<button onClick={handleClick}>Suggest Another Drink</button>
 		</section>
 	);
