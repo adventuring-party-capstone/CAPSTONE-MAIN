@@ -17,7 +17,6 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
-
 export default function Favorites({ token, userId }) {
 	const [usersFavorites, setUsersFavorites] = useState([]);
 	const [drinks, setDrinks] = useState([]);
@@ -36,7 +35,7 @@ export default function Favorites({ token, userId }) {
 	useEffect(() => {
 		async function getAllDrinks() {
 			const response = await fetchAllDrinks();
-			console.log("response inside get all drinks ", response);
+			// console.log("response inside get all drinks ", response);
 
 			try {
 				if (response) {
@@ -54,7 +53,7 @@ export default function Favorites({ token, userId }) {
 	useEffect(() => {
 		async function getAllAlcDrinks() {
 			const drinks = await fetchAllAlcDrinks();
-			console.log("alc drinks", drinks);
+			// console.log("alc drinks", drinks);
 			//can also be a try/catch for more detailed error reporting
 			if (drinks) {
 				setAllAlcDrinks(drinks.drinks);
@@ -69,7 +68,7 @@ export default function Favorites({ token, userId }) {
 	useEffect(() => {
 		async function getAllNonAlcDrinks() {
 			const drinks = await fetchAllNonAlcDrinks();
-			console.log("non alc drinks", drinks);
+			// console.log("non alc drinks", drinks);
 			//can also be a try/catch for more detailed error reporting
 			if (drinks) {
 				setAllNonAlcDrinks(drinks.drinks);
@@ -82,24 +81,19 @@ export default function Favorites({ token, userId }) {
 
 	// combining API alcoholic & nonalcoholic to get all API drinks
 	useEffect(() => {
-		console.log("allAlcDrinks in UE", allAlcDrinks);
-		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+		// console.log("allAlcDrinks in UE", allAlcDrinks);
+		// console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
 		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
-		console.log("twoArrays", twoArrays);
+		// console.log("twoArrays", twoArrays);
 		setCombinedArray(twoArrays);
-		// if (allAlcDrinks.length > 0 && allNonAlcDrinks.length > 0) {
-		// } else {
-		// 	console.log("can't combine arrays");
-		// }
-		// console.log("all alc drinks in UE", allAlcDrinks);
 	}, [allAlcDrinks, allNonAlcDrinks]);
 
 	// grabbing logged in users' favorites from users_drinks junction table
 	useEffect(() => {
 		async function getSingleUserDrinks() {
-			console.log("userId in get single user drinks ", userId);
+			// console.log("userId in get single user drinks ", userId);
 			const response = await fetchUsersDrinksByUserId(userId);
-			console.log("response inside get single user's drinks: ", response);
+			// console.log("response inside get single user's drinks: ", response);
 
 			try {
 				if (response) {
@@ -115,9 +109,9 @@ export default function Favorites({ token, userId }) {
 	// grab user info (get user object by user id)
 	useEffect(() => {
 		async function getSingleUserProfile() {
-			console.log("entering GSUP");
+			// console.log("entering GSUP");
 			const response = await fetchSingleUser(userId);
-			console.log("response in GSUP", response);
+			// console.log("response in GSUP", response);
 
 			try {
 				if (response) {
@@ -143,8 +137,6 @@ export default function Favorites({ token, userId }) {
 		userFavorite.api_drinks_id &&
 			usersFavoritesDrinksIdAPI.push(userFavorite.api_drinks_id);
 	});
-
-	console.log("usersFavoritesDrinksIdAPI", usersFavoritesDrinksIdAPI)
 
 	// map through usersFavorites
 	// push usersFavorites.drinks_id into usersFavoriteDrinksId array
@@ -179,44 +171,50 @@ export default function Favorites({ token, userId }) {
 				setLocalArray(drinks);
 			} else if (!drink.alcoholic && !isToggled) {
 				nonAlcArray.push(drink);
-				console.log("nonAlcArray", nonAlcArray);
 				setLocalArray(nonAlcArray);
 			}
 		});
-		console.log("local array in use effect ", localArray);
+		// console.log("local array in use effect ", localArray);
 	}, [drinks, isToggled]);
 
 	// API array based on the toggle behavior
 	const APIArray = [];
 	useEffect(() => {
-		console.log("combinedArray in UE", combinedArray);
-		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
-		// console.log("APIArray in UE", APIArray);
-		// setAPIArray(nonAlcArray);
+		// console.log("combinedArray in UE", combinedArray);
+		// console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
 		if (isToggled) {
 			APIArray.push(combinedArray);
 			setAPIArrayBig(APIArray[0]);
-			console.log("APIArray if isToggled", APIArray);
+			// console.log("APIArray if isToggled", APIArray);
 		} else if (!isToggled) {
 			APIArray.push(allNonAlcDrinks);
 			setAPIArrayBig(APIArray[0]);
-			console.log("APIArray if !isToggled", APIArray);
+			// console.log("APIArray if !isToggled", APIArray);
 		}
 	}, [combinedArray, isToggled, allNonAlcDrinks]);
 
 	const drinksToDisplay = searchParam
 		? localArray.filter(
-			(drink) =>
-				drink.drinks_name.toLowerCase().includes(searchParam) ||
-				drink.ingredients.toLowerCase().includes(searchParam)
-		)
+				(drink) =>
+					drink.drinks_name.toLowerCase().includes(searchParam) ||
+					drink.ingredients.toLowerCase().includes(searchParam)
+		  )
 		: localArray;
 
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
-			drink.strDrink.toLowerCase().includes(searchParam)
-		)
+				drink.strDrink.toLowerCase().includes(searchParam)
+		  )
 		: APIArrayBig;
+
+	// converts string to title case/sentence case for later display in rendering
+	function titleCase(str) {
+		str = str.toLowerCase().split(" ");
+		for (let i = 0; i < str.length; i++) {
+			str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+		}
+		return str.join(" ");
+	}
 
 	return (
 		// remember to Number() the userId we are getting from localStorage
@@ -224,7 +222,7 @@ export default function Favorites({ token, userId }) {
 			{token && (
 				<div>
 					<div>
-						<h1>{username}'s FAVORITES</h1>
+						<h1>{titleCase(username)}'s Favorites</h1>
 					</div>
 					<FormGroup>
 						<FormControlLabel
@@ -249,7 +247,6 @@ export default function Favorites({ token, userId }) {
 					</label>
 
 					<div id="favorites-gallery">
-						{console.log("drinksToDisplayAPI", drinksToDisplayAPI)}
 						{drinksToDisplay
 							.filter((drink) =>
 								usersFavoriteDrinksId.includes(drink.drinks_id)
@@ -277,8 +274,6 @@ export default function Favorites({ token, userId }) {
 											</div>
 										</div>
 									</div>
-
-
 								);
 							})}
 						{drinksToDisplayAPI
@@ -293,11 +288,17 @@ export default function Favorites({ token, userId }) {
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
 													<h2>{drink.strDrink}</h2>
-													<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
+													<img
+														src={drink.strDrinkThumb}
+														alt={drink.strDrink}
+														id="images"
+													/>
 												</div>
 												<div id="flip-card-back">
 													<h2>{drink.strDrink}</h2>
-													<div><DetailsButton drinkId={APIDrinkId} /></div>
+													<div>
+														<DetailsButton drinkId={APIDrinkId} />
+													</div>
 													<DeleteFavorite api_drinks_id={drink.idDrink} />
 												</div>
 											</div>
@@ -305,11 +306,9 @@ export default function Favorites({ token, userId }) {
 									</div>
 								);
 							})}
-
 					</div>
-				</div >
-			)
-			}
-		</section >
+				</div>
+			)}
+		</section>
 	);
 }

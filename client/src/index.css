@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
@@ -301,15 +301,40 @@ input:checked+.slider:before {
 }
 
 @keyframes glowing {
-     0% {
-          background-position: 0 0;
-     }
-
-     50% {
-          background-position: 400% 0;
-     }
-
-     100% {
-          background-position: 0 0;
-     }
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
+
+/* TABS FOR PROFILE PAGE */
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+  
+.tablink:hover {
+background-color: #777;
+}
+
+#favorites-tab{
+background-color: rgb(83, 26, 35);
+}
+
+#created-drinks-tab{
+background-color:rgb(20, 83, 104);
+}
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }

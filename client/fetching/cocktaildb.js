@@ -5,7 +5,7 @@ export const fetchAllAlcDrinks = async () => {
 	try {
 		const response = await fetch(`${base_url}/filter.php?a=Alcoholic`);
 		const result = await response.json();
-		console.log("result from fetchAllAlcDrinks", result);
+		// console.log("result from fetchAllAlcDrinks", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -17,7 +17,7 @@ export const fetchAllNonAlcDrinks = async () => {
 	try {
 		const response = await fetch(`${base_url}/filter.php?a=Non_Alcoholic`);
 		const result = await response.json();
-		console.log("result from fetchAllNonAlcDrinks", result);
+		// console.log("result from fetchAllNonAlcDrinks", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -29,7 +29,7 @@ export const fetchAllCocktailDBIngredients = async () => {
 	try {
 		const response = await fetch(`${base_url}/list.php?i=list`);
 		const result = await response.json();
-		console.log("result from fetchAllIngredients", result);
+		// console.log("result from fetchAllIngredients", result);
 		return result;
 	} catch (error) {
 		console.error(error);
@@ -43,9 +43,9 @@ export const fetchCocktailsByIngredient = async (ingredient) => {
 		const response = await fetch(
 			`${base_url}/filter.php?i=${ingredient.toLowerCase()}`
 		);
-		console.log("response from fetchCocktailsByIngredient", response);
+		// console.log("response from fetchCocktailsByIngredient", response);
 		const result = await response.json();
-		console.log("result from fetchCocktailsByIngredient", result);
+		// console.log("result from fetchCocktailsByIngredient", result);
 		return result;
 	} catch (error) {
 		console.error(
@@ -63,7 +63,7 @@ export const fetchCocktailById = async (idDrink) => {
 			header: "no-cors",
 		});
 		const result = await response.json();
-		console.log("result from fetchCocktailById", result);
+		// console.log("result from fetchCocktailById", result);
 		return result;
 	} catch (error) {
 		console.error("there was an error fetching cocktail by its id", error);
