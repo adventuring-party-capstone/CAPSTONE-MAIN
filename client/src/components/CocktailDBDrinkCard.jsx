@@ -208,9 +208,6 @@ export default function CocktailDBDrinkCard({
                <div id="flip-card">
                     <div id="flip-card-inner">
                          <div id="flip-card-front">
-                              {/* {drinkToRender && (
-                                   <h1>{drinkToRender.strDrink}</h1>
-                              )} */}
                               {drinkToRender &&
                               alcIds.includes(drinkToRender.idDrink) ? (
                                    <p>🍸{drinkToRender.strDrink}</p>
