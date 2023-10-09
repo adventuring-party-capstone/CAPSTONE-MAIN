@@ -11,6 +11,7 @@ export default function Logout({ token, setToken }) {
 		logout();
 		localStorage.removeItem("token");
 		localStorage.removeItem("userId");
+		localStorage.removeItem("genreSelect");
 		setToken(null);
 		nav("/");
 	}, []);
