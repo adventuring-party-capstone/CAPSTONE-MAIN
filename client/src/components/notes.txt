@@ -83,3 +83,8 @@ return(
 	// from local database, fetch cocktail using getDrinkById () (helper function drinks.js)
 
 	// depending on the result from the two cases, return a new div in the below <section> to render local drink info
+
+
+    //ANNALISA NOTES
+ 
+    -if an index number from combined array matches one in alc array, then that name should be rendered with an emoji
