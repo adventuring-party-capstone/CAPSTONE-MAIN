@@ -169,28 +169,47 @@ export default function AllDrinks({ token, userId }) {
 				{drinksToDisplay.map((drink) => {
 					const localDrinkId = drink.drinks_id;
 					return (
-						<div key={drink.drinks_id}>
-							<h2>{drink.drinks_name}</h2>
-							<img src={drink.image} alt={drink.drinks_name} id="images" />
-							<br />
-							{token && (
-								<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
-							)}
-							<DetailsButton drinkId={localDrinkId} />
+						<div id="flip-card" key={drink.drinks_id}>
+							<div id="flip-card-inner">
+								<div id="flip-card-front">
+									<h2>{drink.drinks_name}</h2>
+									<img src={drink.image} alt={drink.drinks_name} id="images" />
+								</div>
+								<div id="flip-card-back">
+									<h1>{drink.drinks_name}</h1>
+									{token && (
+										<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
+									)}
+									<DetailsButton drinkId={localDrinkId} />
+								</div>
+							</div>
 						</div>
 					);
 				})}
 				{drinksToDisplayAPI.map((drink) => {
 					const APIDrinkId = drink.idDrink;
 					return (
-						<div key={drink.idDrink}>
-							<h2>{drink.strDrink}</h2>
-							<img src={drink.strDrinkThumb} alt={drink.strDrink} id="images" />
-							<br />
-							{token && (
-								<FavoriteButton api_drinks_id={drink.idDrink} userId={userId} />
-							)}
-							<DetailsButton drinkId={APIDrinkId} />
+						<div id="flip-card" key={drink.idDrink}>
+							<div id="flip-card-inner">
+								<div id="flip-card-front">
+									<p>{drink.strDrink}</p>
+									<img
+										src={drink.strDrinkThumb}
+										alt={drink.strDrink}
+										id="images"
+									/>
+								</div>
+								<div id="flip-card-back">
+									<h1>{drink.strDrink}</h1>
+									{token && (
+										<FavoriteButton
+											api_drinks_id={drink.idDrink}
+											userId={userId}
+										/>
+									)}
+									<DetailsButton drinkId={APIDrinkId} />
+								</div>
+							</div>
 						</div>
 					);
 				})}

@@ -10,6 +10,15 @@ function App() {
 	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
+	const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+	const handleSnackbarOpen = () => {
+		setSnackbarOpen(true);
+	};
+
+	const handleSnackbarClose = () => {
+		setSnackbarOpen(false);
+	};
 
 	const [dark, setDark] = useState(
 		window.localStorage.getItem("dark-mode") === "true"
@@ -30,7 +39,7 @@ function App() {
 
 	return (
 		<div id="app-container" className={`${dark ? "dark-mode" : "light-mode"}`}>
-			<h1>let;s get this money</h1>
+			<h1>STUDIO DRINK</h1>
 			<SideNav mode={dark} />
 			<NavBar
 				token={token}

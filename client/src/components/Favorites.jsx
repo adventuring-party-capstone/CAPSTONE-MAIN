@@ -255,16 +255,24 @@ export default function Favorites({ token, userId }) {
 								const localDrinkId = drink.drinks_id;
 								return (
 									<div key={drink.drinks_id} id="drink-card">
-										<h1>{titleCase(drink.drinks_name)}</h1>
-										<img
-											src={drink.image}
-											alt={drink.drinks_name}
-											id="images"
-										/>
-										<div>
-											<DetailsButton drinkId={localDrinkId} />
+										<div id="flip-card">
+											<div id="flip-card-inner">
+												<div id="flip-card-front">
+													<p>{drink.drinks_name}</p>
+													<img
+														src={drink.image}
+														alt={drink.drinks_name}
+														id="images"
+													/>
+												</div>
+
+												<div id="flip-card-back">
+													<h2>{drink.drinks_name}</h2>
+													<DetailsButton drinkId={localDrinkId} />
+													<DeleteFavorite drinks_id={drink.drinks_id} />
+												</div>
+											</div>
 										</div>
-										<DeleteFavorite drinks_id={drink.drinks_id} />
 									</div>
 								);
 							})}
@@ -276,16 +284,25 @@ export default function Favorites({ token, userId }) {
 								const APIDrinkId = drink.idDrink;
 								return (
 									<div key={drink.idDrink} id="drink-card">
-										<h1>{drink.strDrink}</h1>
-										<img
-											src={drink.strDrinkThumb}
-											alt={drink.strDrink}
-											id="images"
-										/>
-										<div>
-											<DetailsButton drinkId={APIDrinkId} />
+										<div id="flip-card">
+											<div id="flip-card-inner">
+												<div id="flip-card-front">
+													<h2>{drink.strDrink}</h2>
+													<img
+														src={drink.strDrinkThumb}
+														alt={drink.strDrink}
+														id="images"
+													/>
+												</div>
+												<div id="flip-card-back">
+													<h2>{drink.strDrink}</h2>
+													<div>
+														<DetailsButton drinkId={APIDrinkId} />
+													</div>
+													<DeleteFavorite api_drinks_id={drink.idDrink} />
+												</div>
+											</div>
 										</div>
-										<DeleteFavorite api_drinks_id={drink.idDrink} />
 									</div>
 								);
 							})}
