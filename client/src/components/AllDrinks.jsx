@@ -13,207 +13,261 @@ import { fetchAllNonAlcDrinks } from "../../fetching/cocktaildb";
 import DetailsButton from "./DetailsButton";
 
 export default function AllDrinks({ token, userId }) {
-	const [allDrinks, setAllDrinks] = useState([]);
-	const [allAlcDrinks, setAllAlcDrinks] = useState([]);
-	const [allNonAlcDrinks, setAllNonAlcDrinks] = useState([]);
-	const [searchParam, setSearchParam] = useState("");
-	const [localArray, setLocalArray] = useState([]);
-	const [APIArrayBig, setAPIArrayBig] = useState([]);
-	const [combinedArray, setCombinedArray] = useState([]);
-	const [isToggled, setIsToggled] = useState(false);
+     const [allDrinks, setAllDrinks] = useState([]);
+     const [allAlcDrinks, setAllAlcDrinks] = useState([]);
+     const [allNonAlcDrinks, setAllNonAlcDrinks] = useState([]);
+     const [searchParam, setSearchParam] = useState("");
+     const [localArray, setLocalArray] = useState([]);
+     const [APIArrayBig, setAPIArrayBig] = useState([]);
+     const [combinedArray, setCombinedArray] = useState([]);
+     const [isToggled, setIsToggled] = useState(false);
+     const [alcIds, setAlcIds] = useState([]);
 
-	useEffect(() => {
-		async function getAllDrinks() {
-			const drinks = await fetchAllDrinks();
-			console.log("drinks ", drinks);
-			//can also be a try/catch for more detailed error reporting
-			if (drinks) {
-				setAllDrinks(drinks);
+     useEffect(() => {
+          async function getAllDrinks() {
+               const drinks = await fetchAllDrinks();
+               //    console.log("drinks ", drinks);
+               //can also be a try/catch for more detailed error reporting
+               if (drinks) {
+                    setAllDrinks(drinks);
 
-				return drinks;
-			} else {
-				console.log("error fetching drinks");
-			}
-		}
-		getAllDrinks();
-	}, []);
+                    return drinks;
+               } else {
+                    console.log("error fetching drinks");
+               }
+          }
+          getAllDrinks();
+     }, []);
 
-	// getting all alc drinks from Cocktail DB
-	useEffect(() => {
-		async function getAllAlcDrinks() {
-			const drinks = await fetchAllAlcDrinks();
-			console.log("alc drinks", drinks);
-			//can also be a try/catch for more detailed error reporting
-			if (drinks) {
-				setAllAlcDrinks(drinks.drinks);
-			} else {
-				console.log("error fetching alcoholic drinks");
-			}
-		}
-		getAllAlcDrinks();
-	}, []);
+     // getting all alc drinks from Cocktail DB
+     useEffect(() => {
+          async function getAllAlcDrinks() {
+               const drinks = await fetchAllAlcDrinks();
+               //    console.log("alc drinks", drinks);
+               //can also be a try/catch for more detailed error reporting
+               if (drinks) {
+                    setAllAlcDrinks(drinks.drinks);
+               } else {
+                    console.log("error fetching alcoholic drinks");
+               }
+          }
+          getAllAlcDrinks();
+     }, []);
 
-	// getting all non alc drinks from Cocktail DB
-	useEffect(() => {
-		async function getAllNonAlcDrinks() {
-			const drinks = await fetchAllNonAlcDrinks();
-			console.log("non alc drinks", drinks);
-			//can also be a try/catch for more detailed error reporting
-			if (drinks) {
-				setAllNonAlcDrinks(drinks.drinks);
-			} else {
-				console.log("error fetching non-alcoholic drinks");
-			}
-		}
-		getAllNonAlcDrinks();
-	}, []);
+     // getting all non alc drinks from Cocktail DB
+     useEffect(() => {
+          async function getAllNonAlcDrinks() {
+               const drinks = await fetchAllNonAlcDrinks();
+               //    console.log("non alc drinks", drinks);
+               //can also be a try/catch for more detailed error reporting
+               if (drinks) {
+                    setAllNonAlcDrinks(drinks.drinks);
+               } else {
+                    console.log("error fetching non-alcoholic drinks");
+               }
+          }
+          getAllNonAlcDrinks();
+     }, []);
 
-	// combining API alcoholic & nonalcoholic to get all API drinks
-	useEffect(() => {
-		console.log("allAlcDrinks in UE", allAlcDrinks);
-		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
-		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
-		console.log("twoArrays", twoArrays);
-		setCombinedArray(twoArrays);
-	}, [allAlcDrinks, allNonAlcDrinks]);
+     // combining API alcoholic & nonalcoholic to get all API drinks
+     useEffect(() => {
+          console.log("allAlcDrinks in UE", allAlcDrinks);
+          console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+          const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
+          //   console.log("twoArrays", twoArrays);
+          setCombinedArray(twoArrays);
+     }, [allAlcDrinks, allNonAlcDrinks]);
 
-	function handleSwitch(event) {
-		setIsToggled(event.target.checked);
-	}
+     function handleSwitch(event) {
+          setIsToggled(event.target.checked);
+     }
 
-	// Alcohol toggle
-	const PinkSwitch = styled(Switch)(({ theme }) => ({
-		"& .MuiSwitch-switchBase.Mui-checked": {
-			color: pink[600],
-			"&:hover": {
-				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
-			},
-		},
-		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-			backgroundColor: pink[600],
-		},
-	}));
+     // Alcohol toggle
+     const PinkSwitch = styled(Switch)(({ theme }) => ({
+          "& .MuiSwitch-switchBase.Mui-checked": {
+               color: pink[600],
+               "&:hover": {
+                    backgroundColor: alpha(
+                         pink[600],
+                         theme.palette.action.hoverOpacity
+                    ),
+               },
+          },
+          "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+               backgroundColor: pink[600],
+          },
+     }));
 
-	// local DB array splitting alcoholic/non-alcoholic
-	const nonAlcArray = [];
-	useEffect(() => {
-		allDrinks.filter((drink) => {
-			// filtering alcoholic drinks
-			if (drink.alcoholic && isToggled) {
-				setLocalArray(allDrinks);
-			} else if (!drink.alcoholic && !isToggled) {
-				nonAlcArray.push(drink);
-				console.log("nonAlcArray", nonAlcArray);
-				setLocalArray(nonAlcArray);
-			}
-		});
-	}, [allDrinks, isToggled]);
+     // local DB array splitting alcoholic/non-alcoholic
+     const nonAlcArray = [];
+     useEffect(() => {
+          allDrinks.filter((drink) => {
+               // filtering alcoholic drinks
+               if (drink.alcoholic && isToggled) {
+                    setLocalArray(allDrinks);
+               } else if (!drink.alcoholic && !isToggled) {
+                    nonAlcArray.push(drink);
+                    console.log("nonAlcArray", nonAlcArray);
+                    setLocalArray(nonAlcArray);
+               }
+          });
+     }, [allDrinks, isToggled]);
 
-	// API array based on the toggle behavior
-	const APIArray = [];
-	useEffect(() => {
-		console.log("combinedArray in UE", combinedArray);
-		console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
-		// console.log("APIArray in UE", APIArray);
-		// setAPIArray(nonAlcArray);
-		if (isToggled) {
-			APIArray.push(combinedArray);
-			setAPIArrayBig(APIArray[0]);
-			console.log("APIArray if isToggled", APIArray);
-		} else if (!isToggled) {
-			APIArray.push(allNonAlcDrinks);
-			setAPIArrayBig(APIArray[0]);
-			console.log("APIArray if !isToggled", APIArray);
-		}
-	}, [combinedArray, isToggled, allNonAlcDrinks]);
+     // API array based on the toggle behavior
+     const APIArray = [];
+     useEffect(() => {
+          //   console.log("combinedArray in UE", combinedArray);
+          //   console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
+          // console.log("APIArray in UE", APIArray);
+          // setAPIArray(nonAlcArray);
+          if (isToggled) {
+               APIArray.push(combinedArray);
+               setAPIArrayBig(APIArray[0]);
+               console.log("APIArray if isToggled", APIArray);
+          } else if (!isToggled) {
+               APIArray.push(allNonAlcDrinks);
+               setAPIArrayBig(APIArray[0]);
+               console.log("APIArray if !isToggled", APIArray);
+          }
+     }, [combinedArray, isToggled, allNonAlcDrinks]);
 
-	const drinksToDisplay = searchParam
-		? localArray.filter(
-				(drink) =>
-					drink.drinks_name.toLowerCase().includes(searchParam) ||
-					drink.ingredients.toLowerCase().includes(searchParam)
-		  )
-		: localArray;
+     console.log("all alc drinks line 134", allAlcDrinks);
+     //pushing the ids from the alc array into an id array
+     const alcIdArray = [];
+     useEffect(() => {
+          for (let i = 0; i < allAlcDrinks.length; i++) {
+               alcIdArray.push(allAlcDrinks[i].idDrink);
+          }
+          console.log("alcIdArray inside UE", alcIdArray);
+          setAlcIds(alcIdArray);
+     }, [allAlcDrinks]);
 
-	const drinksToDisplayAPI = searchParam
-		? APIArrayBig.filter((drink) =>
-				drink.strDrink.toLowerCase().includes(searchParam)
-		  )
-		: APIArrayBig;
+     const drinksToDisplay = searchParam
+          ? localArray.filter(
+                 (drink) =>
+                      drink.drinks_name.toLowerCase().includes(searchParam) ||
+                      drink.ingredients.toLowerCase().includes(searchParam)
+            )
+          : localArray;
 
-	return (
-		<section id="all-drinks-container">
-			<h1>All Dranks</h1>
-			<FormGroup>
-				<FormControlLabel
-					control={
-						<PinkSwitch
-							checked={isToggled}
-							onChange={(event) => handleSwitch(event)}
-						/>
-					}
-					label="Show alcoholic drinks"
-				/>
-			</FormGroup>
-			<label>
-				Search:{" "}
-				<input
-					id="search"
-					className="inputField"
-					type="text"
-					placeholder="Search"
-					onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
-				/>
-			</label>
-			<div id="all-drinks-gallery">
-				{drinksToDisplay.map((drink) => {
-					const localDrinkId = drink.drinks_id;
-					return (
-						<div id="flip-card" key={drink.drinks_id}>
-							<div id="flip-card-inner">
-								<div id="flip-card-front">
-									<h2>{drink.drinks_name}</h2>
-									<img src={drink.image} alt={drink.drinks_name} id="images" />
-								</div>
-								<div id="flip-card-back">
-									<h1>{drink.drinks_name}</h1>
-									{token && (
-										<FavoriteButton drinkId={drink.drinks_id} userId={userId} />
-									)}
-									<DetailsButton drinkId={localDrinkId} />
-								</div>
-							</div>
-						</div>
-					);
-				})}
-				{drinksToDisplayAPI.map((drink) => {
-					const APIDrinkId = drink.idDrink;
-					return (
-						<div id="flip-card" key={drink.idDrink}>
-							<div id="flip-card-inner">
-								<div id="flip-card-front">
-									<p>{drink.strDrink}</p>
-									<img
-										src={drink.strDrinkThumb}
-										alt={drink.strDrink}
-										id="images"
-									/>
-								</div>
-								<div id="flip-card-back">
-									<h1>{drink.strDrink}</h1>
-									{token && (
-										<FavoriteButton
-											api_drinks_id={drink.idDrink}
-											userId={userId}
-										/>
-									)}
-									<DetailsButton drinkId={APIDrinkId} />
-								</div>
-							</div>
-						</div>
-					);
-				})}
-			</div>
-		</section>
-	);
+     const drinksToDisplayAPI = searchParam
+          ? APIArrayBig.filter((drink) =>
+                 drink.strDrink.toLowerCase().includes(searchParam)
+            )
+          : APIArrayBig;
+
+     console.log("allAlcDrinks above return", allAlcDrinks);
+     console.log("drinks to display api", drinksToDisplayAPI);
+     return (
+          <section id="all-drinks-container">
+               <h1>All Dranks</h1>
+               <h3>🍸 Drink Contains Alcohol</h3>
+               <FormGroup>
+                    <FormControlLabel
+                         control={
+                              <PinkSwitch
+                                   checked={isToggled}
+                                   onChange={(event) => handleSwitch(event)}
+                              />
+                         }
+                         label="Show alcoholic drinks"
+                    />
+               </FormGroup>
+               <label>
+                    Search:{" "}
+                    <input
+                         id="search"
+                         className="inputField"
+                         type="text"
+                         placeholder="Search"
+                         onChange={(e) =>
+                              setSearchParam(e.target.value.toLowerCase())
+                         }
+                    />
+               </label>
+
+               <div id="all-drinks-gallery">
+                    {drinksToDisplay.map((drink) => {
+                         const localDrinkId = drink.drinks_id;
+                         return (
+                              <div id="flip-card" key={drink.drinks_id}>
+                                   <div id="flip-card-inner">
+                                        <div id="flip-card-front">
+                                             <h2>
+                                                  {drink.alcoholic == true ? (
+                                                       <text>
+                                                            🍸
+                                                            {drink.drinks_name}
+                                                       </text>
+                                                  ) : (
+                                                       <text>
+                                                            {drink.drinks_name}
+                                                       </text>
+                                                  )}
+                                             </h2>
+                                             <img
+                                                  src={drink.image}
+                                                  alt={drink.drinks_name}
+                                                  id="images"
+                                             />
+                                        </div>
+                                        <div id="flip-card-back">
+                                             <h1>{drink.drinks_name}</h1>
+                                             {token && (
+                                                  <FavoriteButton
+                                                       drinkId={drink.drinks_id}
+                                                       userId={userId}
+                                                  />
+                                             )}
+                                             <DetailsButton
+                                                  drinkId={localDrinkId}
+                                             />
+                                        </div>
+                                   </div>
+                              </div>
+                         );
+                    })}
+                    {drinksToDisplayAPI.map((drink) => {
+                         const APIDrinkId = drink.idDrink;
+                         return (
+                              <div id="flip-card" key={drink.idDrink}>
+                                   <div id="flip-card-inner">
+                                        <div id="flip-card-front">
+                                             <div id="name section">
+                                                  {alcIds.includes(
+                                                       drink.idDrink
+                                                  ) ? (
+                                                       <p>🍸{drink.strDrink}</p>
+                                                  ) : (
+                                                       <p>{drink.strDrink}</p>
+                                                  )}
+                                             </div>
+
+                                             <img
+                                                  src={drink.strDrinkThumb}
+                                                  alt={drink.strDrink}
+                                                  id="images"
+                                             />
+                                        </div>
+                                        <div id="flip-card-back">
+                                             <h1>{drink.strDrink}</h1>
+                                             {token && (
+                                                  <FavoriteButton
+                                                       api_drinks_id={
+                                                            drink.idDrink
+                                                       }
+                                                       userId={userId}
+                                                  />
+                                             )}
+                                             <DetailsButton
+                                                  drinkId={APIDrinkId}
+                                             />
+                                        </div>
+                                   </div>
+                              </div>
+                         );
+                    })}
+               </div>
+          </section>
+     );
 }
