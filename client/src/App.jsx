@@ -107,7 +107,7 @@ function App() {
 					)}
 					{genreSelect === 3 && (
 						<iframe
-							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQp9BVPsNVof1?utm_source=generator"
+							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQp9BVPsNVof1?utm_source=generator&theme=0"
 							width="100%"
 							height="152"
 							frameBorder="0"
@@ -140,7 +140,7 @@ function App() {
 					)}
 					{genreSelect === 6 && (
 						<iframe
-							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQncLwOalG3K7?utm_source=generator"
+							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQncLwOalG3K7?utm_source=generator&theme=0"
 							width="100%"
 							height="152"
 							frameBorder="0"
@@ -162,7 +162,7 @@ function App() {
 					)}
 					{genreSelect === 8 && (
 						<iframe
-							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator"
+							src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator&theme=0"
 							width="100%"
 							height="152"
 							frameBorder="0"
