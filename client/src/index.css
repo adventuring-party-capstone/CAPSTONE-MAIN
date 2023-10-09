@@ -1,5 +1,4 @@
 @tailwind base;
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -91,15 +90,16 @@ body {
      transition: 0.4s;
 }
 
-input:checked+.slider {
+
+input:checked + .slider {
      background-color: #2196f3;
 }
 
-input:focus+.slider {
+input:focus + .slider {
      box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
      -webkit-transform: translateX(26px);
      -ms-transform: translateX(26px);
      transform: translateX(26px);
@@ -261,16 +261,21 @@ input:checked+.slider:before {
 
 .glow-on-hover:before {
      content: "";
-     background: linear-gradient(45deg,
-               #ff0000,
-               #ff7300,
-               #fffb00,
-               #48ff00,
-               #00ffd5,
-               #002bff,
-               #7a00ff,
-               #ff00c8,
-               #ff0000);
+
+     
+     background: linear-gradient(
+          45deg,
+          #ff0000,
+          #ff7300,
+          #fffb00,
+          #48ff00,
+          #00ffd5,
+          #002bff,
+          #7a00ff,
+          #ff00c8,
+          #ff0000
+     );
+
      position: absolute;
      top: -2px;
      left: -2px;
@@ -317,7 +322,6 @@ input:checked+.slider:before {
      50% {
           background-position: 400% 0;
      }
-
      100% {
           background-position: 0 0;
      }
