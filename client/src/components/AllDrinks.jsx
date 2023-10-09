@@ -132,7 +132,8 @@ export default function AllDrinks({ token, userId }) {
      }, [combinedArray, isToggled, allNonAlcDrinks]);
 
      console.log("all alc drinks line 134", allAlcDrinks);
-     //pushing the ids from the alc array into an id array
+
+     //pushing the ids from alcoholic drinks into an array
      const alcIdArray = [];
      useEffect(() => {
           for (let i = 0; i < allAlcDrinks.length; i++) {
