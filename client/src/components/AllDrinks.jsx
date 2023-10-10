@@ -260,6 +260,7 @@ export default function AllDrinks({ token, userId }) {
 										)}
 									</div>
 
+
 									<img
 										src={drink.strDrinkThumb}
 										alt={drink.strDrink}
@@ -332,6 +333,65 @@ export default function AllDrinks({ token, userId }) {
 											<p>{drink.strDrink}</p>
 										)}
 									</div>
+
+               <div id="all-drinks-gallery">
+                    {drinksToDisplay.map((drink) => {
+                         const localDrinkId = drink.drinks_id;
+                         return (
+                              <div id="flip-card" key={drink.drinks_id}>
+                                   <div id="flip-card-inner">
+                                        <div id="flip-card-front">
+                                             <h2>
+                                                  {drink.alcoholic == true ? (
+                                                       <text>
+                                                            🍸
+                                                            {drink.drinks_name}
+                                                       </text>
+                                                  ) : (
+                                                       <text>
+                                                            {drink.drinks_name}
+                                                       </text>
+                                                  )}
+                                                  {/* conditionally render edit button if user id is == the creator's id */}
+                                             </h2>
+                                             <img
+                                                  src={drink.image}
+                                                  alt={drink.drinks_name}
+                                                  id="images"
+                                             />
+                                        </div>
+                                        <div id="flip-card-back">
+                                             <h1>{drink.drinks_name}</h1>
+                                             {token && (
+                                                  <FavoriteButton
+                                                       drinkId={drink.drinks_id}
+                                                       userId={userId}
+                                                  />
+                                             )}
+                                             <DetailsButton
+                                                  drinkId={localDrinkId}
+                                             />
+                                        </div>
+                                   </div>
+                              </div>
+                         );
+                    })}
+                    {drinksToDisplayAPI.map((drink) => {
+                         const APIDrinkId = drink.idDrink;
+                         return (
+                              <div id="flip-card" key={drink.idDrink}>
+                                   <div id="flip-card-inner">
+                                        <div id="flip-card-front">
+                                             <div id="name section">
+                                                  {alcIds.includes(
+                                                       drink.idDrink
+                                                  ) ? (
+                                                       <p>🍸{drink.strDrink}</p>
+                                                  ) : (
+                                                       <p>{drink.strDrink}</p>
+                                                  )}
+                                             </div>
+
 
 									<img
 										src={drink.strDrinkThumb}

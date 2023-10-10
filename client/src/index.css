@@ -275,7 +275,6 @@ input:checked + .slider:before {
 .glow-on-hover:before {
      content: "";
 
-     
      background: linear-gradient(
           45deg,
           #ff0000,
@@ -438,7 +437,8 @@ input:checked + .slider:before {
     border: 3px solid red;
     flex-grow: 1;
     margin: 0 1rem;
-  }
+}
+
 #pagination{
     display:grid;
     place-items: center;
@@ -446,3 +446,4 @@ input:checked + .slider:before {
     background-color: rgb(117, 156, 255);
     border-radius: 10px;
 }
+
