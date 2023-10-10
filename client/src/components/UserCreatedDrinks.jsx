@@ -7,6 +7,8 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 import DetailsButton from "./DetailsButton";
+import DeleteUserCreatedDrink from "./DeleteUserCreatedDrink";
+import EditUserDrink from "./EditUserCreatedDrink";
 
 export default function UserCreatedDrinks(userId) {
      const [createdDrinks, setCreatedDrinks] = useState([]);
@@ -59,7 +61,7 @@ export default function UserCreatedDrinks(userId) {
                     setLocalArray([]);
                }
           });
-          console.log("local array in use effect ", localArray);
+          // console.log("local array in use effect ", localArray);
      }, [createdDrinks, isToggled]);
 
      // search user created drinks
@@ -157,6 +159,12 @@ export default function UserCreatedDrinks(userId) {
                                         />
                                         <div>
                                              <DetailsButton
+                                                  drinkId={localDrinkId}
+                                             />
+                                             <DeleteUserCreatedDrink
+                                                  drinks_id={localDrinkId}
+                                             />
+                                             <EditUserDrink
                                                   drinkId={localDrinkId}
                                              />
                                         </div>
