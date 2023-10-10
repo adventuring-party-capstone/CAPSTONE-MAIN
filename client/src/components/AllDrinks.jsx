@@ -179,37 +179,63 @@ export default function AllDrinks({ token, userId }) {
 	// console.log("drinks to display api", drinksToDisplayAPI);
 
 	// Handles behavior of pagination for lazy loading
-	const handleChange = (event, value) => {
-		setPage(value);
-		console.log("page", value);
-		// if (APIArrayBig) {
-		console.log("APIArrayBig in function", APIArrayBig);
-		// const currentPageArrayLength = APIArrayBig.length / 5;
-		// page = 1, index = 0, 18 items per page
-		// increment start and end index by 18
-		console.log("APIArrayBig.length", APIArrayBig.length);
-		if (
-			startIndex < APIArrayBig.length - 18 &&
-			endIndex < APIArrayBig.length - 18
-		) {
-			setStartIndex(startIndex + 18);
-			setEndIndex(endIndex + 18);
+	const handleChange = (event, pageNum) => {
+		setPage(pageNum);
+		console.log("page", pageNum);
+		console.log("totalPages", totalPages);
+
+		// setStartIndex(0);
+		// setEndIndex(18);
+		// let currentPageArray = APIArrayBig.slice(startIndex, endIndex);
+		// console.log("APIArrayBig in function", APIArrayBig);
+		// console.log("APIArrayBig.length", APIArrayBig.length);
+
+		// 0 to 18
+		// 19 to 36
+		// 37 to 54
+		// 55 to 57
+
+		const totalLength = APIArrayBig.length;
+		console.log("totalLength", totalLength);
+		if (pageNum === 1) {
+			// start page 1
+			let currentPageArray = APIArrayBig.slice(0, perPage);
+			setAPIArrayBigToDisplay(currentPageArray);
 		} else if (
-			startIndex === APIArrayBig.length - 18 &&
-			endIndex === APIArrayBig.length + 1
+			// not close to the end of array and not page 1
+			pageNum < totalPages &&
+			pageNum !== 1
 		) {
-		} else {
-			setStartIndex(APIArrayBig.length - 18);
-			setEndIndex(APIArrayBig.length - 1);
+			console.log("startIndex at start of if", pageNum * perPage);
+			console.log("endIndex at start of if", perPage + pageNum * perPage);
+			// setStartIndex(pageNum * perPage);
+			// setEndIndex(perPage + pageNum * perPage);
+			let currentPageArray = APIArrayBig.slice(
+				(pageNum - 1) * perPage,
+				pageNum * perPage
+			);
+			setAPIArrayBigToDisplay(currentPageArray);
+		} else if (pageNum === totalPages) {
+			// end of array behavior
+			// 57 - 54 (3*18)
+			// console.log("startIndex at start of else", startIndex);
+			// console.log("endIndex at start of else", endIndex);
+			// setStartIndex(pageNum);
+			// setEndIndex(totalLength);
+			console.log("startIndex in else", (pageNum - 1) * perPage);
+			let currentPageArray = APIArrayBig.slice(
+				(pageNum - 1) * perPage,
+				totalLength
+			);
+			setAPIArrayBigToDisplay(currentPageArray);
 		}
 
-		console.log("startIndex", startIndex);
-		console.log("startIndex + 18", startIndex + 18);
-		const currentPageArray = APIArrayBig.slice(startIndex, endIndex);
-		// console.log("currentPageArrayLength", currentPageArrayLength);
-		console.log("currentPageArray", currentPageArray);
-		setAPIArrayBigToDisplay(currentPageArray);
-		// }
+		// console.log("startIndex outside if/else", startIndex);
+		// console.log("endIndex outside if/else", endIndex);
+		// currentPageArray = APIArrayBig.slice(startIndex, endIndex);
+		// console.log("currentPageArray", currentPageArray);
+		// setAPIArrayBigToDisplay(currentPageArray);
+		// console.log("currentPageArray", currentPageArray);
 	};
 
 	return (
