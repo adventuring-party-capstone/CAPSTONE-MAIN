@@ -51,55 +51,65 @@ export default function EditUserDrink({ drinkId }) {
                <button onClick={handleClick} id="edit-button">
                     Edit Drink
                </button>
-               <div>
-                    <h2>Edit Drink</h2>
-                    <form onSubmit={handleEdit}>
-                         <TextField
-                              autoFocus
-                              label="Drink Name"
-                              value={drinks_name}
-                              onChange={(e) => setDrinks_name(e.target.value)}
-                         />
-                         <TextField
-                              autoFocus
-                              label="Ingredients"
-                              value={ingredients}
-                              onChange={(e) => setIngredients(e.target.value)}
-                         />
-                         <TextField
-                              autoFocus
-                              label="Recipe"
-                              value={recipe}
-                              onChange={(e) => setRecipe(e.target.value)}
-                         />
-                         <TextField
-                              autoFocus
-                              label="Image URL"
-                              value={image}
-                              onChange={(e) => setImage(e.target.value)}
-                         />
-                         <TextField
-                              autoFocus
-                              label="Glass"
-                              value={glass}
-                              onChange={(e) => setGlass(e.target.value)}
-                         />
-                         <InputLabel></InputLabel>
-                         <div>Alcoholic?</div>
-                         <Select
-                              className="inputField"
-                              value={alcoholic}
-                              type="text"
-                              name="alcoholic"
-                              placeholder="alcoholic"
-                              onChange={handleChange}
-                         >
-                              <MenuItem value={false}>No</MenuItem>
-                              <MenuItem value={true}>Yes</MenuItem>
-                         </Select>
-                         <button type="submit">Submit</button>
-                    </form>
-               </div>
+               {isOpen && (
+                    <div>
+                         <h2>Edit Drink</h2>
+                         <form onSubmit={handleEdit}>
+                              <TextField
+                                   autoFocus
+                                   label="Drink Name"
+                                   value={drinks_name}
+                                   onChange={(e) =>
+                                        setDrinks_name(e.target.value)
+                                   }
+                              />
+                              <TextField
+                                   autoFocus
+                                   label="Ingredients"
+                                   value={ingredients}
+                                   onChange={(e) =>
+                                        setIngredients(e.target.value)
+                                   }
+                              />
+                              <br />
+                              <TextField
+                                   autoFocus
+                                   label="Recipe"
+                                   value={recipe}
+                                   onChange={(e) => setRecipe(e.target.value)}
+                              />
+                              <TextField
+                                   autoFocus
+                                   label="Image URL"
+                                   placeholder="Please re-enter URL"
+                                   value={image}
+                                   onChange={(e) => setImage(e.target.value)}
+                              />
+                              <br />
+                              <TextField
+                                   autoFocus
+                                   label="Glass"
+                                   value={glass}
+                                   onChange={(e) => setGlass(e.target.value)}
+                              />
+                              <br />
+                              <InputLabel></InputLabel>
+                              <div>Alcoholic?</div>
+                              <Select
+                                   className="inputField"
+                                   value={alcoholic}
+                                   type="text"
+                                   name="alcoholic"
+                                   placeholder="alcoholic"
+                                   onChange={handleChange}
+                              >
+                                   <MenuItem value={false}>No</MenuItem>
+                                   <MenuItem value={true}>Yes</MenuItem>
+                              </Select>
+                              <button type="submit">Submit</button>
+                         </form>
+                    </div>
+               )}
           </div>
      );
 }
