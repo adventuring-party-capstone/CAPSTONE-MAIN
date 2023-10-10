@@ -141,6 +141,39 @@ body {
                background-position: 0 0;
           }
      }
+
+     /* TABS FOR PROFILE PAGE */
+     /* Style tab links */
+     .tablink {
+          background-color: #555;
+          color: white;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          font-size: 17px;
+          width: 25%;
+     }
+
+     .tablink:hover {
+          background-color: #777;
+     }
+
+     #favorites-tab {
+          background-color: rgb(83, 26, 35);
+     }
+
+     #created-drinks-tab {
+          background-color: rgb(20, 83, 104);
+     }
+
+     .tabcontent {
+          color: white;
+          display: none;
+          padding: 100px 20px;
+          height: 100%;
+     }
 }
 
 .light-mode {
@@ -263,7 +296,7 @@ body {
      /* LIGHT MUSIC PLAYER */
      /* Style The Dropdown Button */
      .dropbtn {
-          background-color: #e76964;
+          background-color: #d06550;
           color: white;
           margin: 1rem;
           padding: 1rem;
@@ -311,6 +344,46 @@ body {
      /* Change the background color of the dropdown button when the dropdown content is shown */
      .dropdown:hover .dropbtn {
           background-color: #ebc0b7;
+     }
+
+     /* TABS FOR PROFILE PAGE */
+     /* Style tab links */
+     .tablink {
+          background-color: #555;
+          color: white;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          font-size: 17px;
+          width: 25%;
+     }
+
+     .tablink:hover {
+          background-color: #777;
+     }
+
+     #favorites-tab {
+          background-color: #d08350a1;
+          height: 20vw;
+     }
+
+     #created-drinks-tab {
+          background-color: #d27c1f85;
+          height: 20vw;
+     }
+
+     .tabcontent {
+          color: white;
+          display: none;
+          padding: 100px 20px;
+          height: 100%;
+     }
+
+     /* SEARCH BARS */
+     #search {
+          background-color: white;
      }
 }
 
@@ -489,39 +562,6 @@ input:checked + .slider:before {
 #favorites-gallery {
      display: flex;
      flex-wrap: wrap;
-}
-
-/* TABS FOR PROFILE PAGE */
-/* Style tab links */
-.tablink {
-     background-color: #555;
-     color: white;
-     float: left;
-     border: none;
-     outline: none;
-     cursor: pointer;
-     padding: 14px 16px;
-     font-size: 17px;
-     width: 25%;
-}
-
-.tablink:hover {
-     background-color: #777;
-}
-
-#favorites-tab {
-     background-color: rgb(83, 26, 35);
-}
-
-#created-drinks-tab {
-     background-color: rgb(20, 83, 104);
-}
-
-.tabcontent {
-     color: white;
-     display: none;
-     padding: 100px 20px;
-     height: 100%;
 }
 
 /* Style The Dropdown Button */
