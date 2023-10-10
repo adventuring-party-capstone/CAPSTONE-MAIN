@@ -53,7 +53,7 @@ export default function EditUserDrink({ drinkId }) {
                </button>
                {isOpen && (
                     <div>
-                         <h2>Edit Drink</h2>
+                         <h1>Edit Drink</h1>
                          <form onSubmit={handleEdit}>
                               <TextField
                                    autoFocus
