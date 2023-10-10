@@ -14,7 +14,18 @@ function App() {
 	const [genreSelect, setGenreSelect] = useState(
 		Number(window.localStorage.getItem("genreSelect"))
 	);
+	//get tokens where other components can use them
+	const [spotifyToken, setSpotifyToken] = useState(null);
+	const [token, setToken] = useState(null);
+	const [userId, setUserId] = useState(null);
+	const [snackbarOpen, setSnackbarOpen] = useState(false);
+	const [genreSelect, setGenreSelect] = useState(
+		Number(window.localStorage.getItem("genreSelect"))
+	);
 
+	const handleSnackbarOpen = () => {
+		setSnackbarOpen(true);
+	};
 	const handleSnackbarOpen = () => {
 		setSnackbarOpen(true);
 	};
@@ -22,7 +33,14 @@ function App() {
 	const handleSnackbarClose = () => {
 		setSnackbarOpen(false);
 	};
+	const handleSnackbarClose = () => {
+		setSnackbarOpen(false);
+	};
 
+	// MUSIC PLAYER
+	useEffect(() => {
+		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+	}, []);
 	// MUSIC PLAYER
 	useEffect(() => {
 		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
@@ -34,7 +52,17 @@ function App() {
 		window.localStorage.setItem("genreSelect", num);
 		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
 	}
+	// this function lets the genre persist between reloads (so the player stays present)
+	function genreSelector(num) {
+		console.log("num is ", num);
+		window.localStorage.setItem("genreSelect", num);
+		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+	}
 
+	// DARK MODE LOGIC --------------- //
+	const [dark, setDark] = useState(
+		window.localStorage.getItem("dark-mode") === "true"
+	);
 	// DARK MODE LOGIC --------------- //
 	const [dark, setDark] = useState(
 		window.localStorage.getItem("dark-mode") === "true"
@@ -45,11 +73,22 @@ function App() {
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
+	useEffect(() => {
+		setToken(window.localStorage.getItem("token"));
+		setUserId(window.localStorage.getItem("userId"));
+		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
+	}, []);
 
 	useEffect(() => {
 		localStorage.setItem("dark-mode", dark);
 	}, [dark]);
+	useEffect(() => {
+		localStorage.setItem("dark-mode", dark);
+	}, [dark]);
 
+	function toggleDarkMode() {
+		setDark(!dark);
+	}
 	function toggleDarkMode() {
 		setDark(!dark);
 	}
@@ -60,7 +99,7 @@ function App() {
 				id="app-container"
 				className={`${dark ? "dark-mode" : "light-mode"}`}
 			>
-				<h1>Studio Drink</h1>
+				<h1>STUDIO DRINK</h1>
 				<SideNav mode={dark} token={token} />
 				{/* <NavBar
                          token={token}
@@ -68,36 +107,26 @@ function App() {
                          userId={userId}
                          setUserId={setUserId}
                     /> */}
+				<label className="switch">
+					<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
+					<span className="slider round">Dark Mode</span>
+				</label>
 				<div id="music-player-container">
 					<div className="dropdown">
-						<label className="droplabel">
-							Listen to Music:{" "}
-						</label>
+						<label className="droplabel">Listen to Music: </label>
 						<br />
 						<button className="dropbtn">Choose Genre</button>
 						<div className="dropdown-content">
-							<a onClick={() => genreSelector(1)}>
-								Alternative Rock
-							</a>
-							<a onClick={() => genreSelector(2)}>
-								Classical
-							</a>
-							<a onClick={() => genreSelector(3)}>
-								Electronic
-							</a>
-							<a onClick={() => genreSelector(4)}>
-								Hip Hop
-							</a>
+							<a onClick={() => genreSelector(1)}>Alternative Rock</a>
+							<a onClick={() => genreSelector(2)}>Classical</a>
+							<a onClick={() => genreSelector(3)}>Electronic</a>
+							<a onClick={() => genreSelector(4)}>Hip Hop</a>
 							<a onClick={() => genreSelector(5)}>Jazz</a>
 							<a onClick={() => genreSelector(6)}>Pop</a>
 							<a onClick={() => genreSelector(7)}>R&B</a>
 							<a onClick={() => genreSelector(8)}>Rock</a>
-							<a onClick={() => genreSelector(9)}>
-								Soundtrack
-							</a>
-							<a onClick={() => genreSelector(10)}>
-								World
-							</a>
+							<a onClick={() => genreSelector(9)}>Soundtrack</a>
+							<a onClick={() => genreSelector(10)}>World</a>
 						</div>
 					</div>
 					<section id="music-player">
@@ -221,15 +250,11 @@ function App() {
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
 				/>
-				<label className="switch">
-					<input
-						type="checkbox"
-						checked={dark}
-						onClick={toggleDarkMode}
-					/>
-					<span className="slider round">Dark Mode</span>
-				</label>
 			</div>
+			<label className="switch">
+				<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
+				<span className="slider round">Dark Mode</span>
+			</label>
 		</div>
 	);
 }
