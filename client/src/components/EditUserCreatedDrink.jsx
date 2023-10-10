@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { editPhysInstr } from "../../fetching";
+import { editDrink } from "../../fetching/local";
 import { TextField, InputLabel, Select, MenuItem } from "@mui/material";
 
 export default function EditUserDrink({ drinkId }) {
@@ -39,7 +39,7 @@ export default function EditUserDrink({ drinkId }) {
           };
 
           try {
-               await editPhysInstr(drinkData, drink_id);
+               await editDrink(drinkData, drink_id);
                navigate(0);
           } catch (err) {
                console.error("can't edit drink", err);
