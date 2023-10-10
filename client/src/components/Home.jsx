@@ -57,6 +57,7 @@ export default function Home({
                <form onSubmit={handleSubmit}>
                     <label htmlFor="Search">Enter Artist </label>
                     <input
+                         id="musicChoice"
                          type="text"
                          name="search"
                          placeholder="Enter music choice here"
@@ -89,7 +90,7 @@ export default function Home({
                     </div>
                )}
                <p>🍸 Drink Contains Alcohol</p>
-               <h1>Random Drink!!</h1>
+               <h1>RANDOM DRINK</h1>
                <RandomDrinkButton userId={userId} />
           </div>
      );
