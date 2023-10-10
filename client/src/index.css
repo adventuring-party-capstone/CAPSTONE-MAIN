@@ -25,11 +25,17 @@ a {
 }
 
 h1 {
-     font-family: 'Great Vibes'
+     font-family: 'IM Fell Double Pica SC'
 }
 
 h2 {
      font-family: 'IM Fell Double Pica SC'
+}
+
+.studio-drink-header{
+    font-family: 'Great Vibes';
+    font-size: 5rem;
+    padding: 0;
 }
 
 body {
