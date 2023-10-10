@@ -64,7 +64,7 @@ export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
                     id="favorite-button"
                     className="glow-on-hover"
                >
-                    Add To Favorites
+                    Favorite
                </button>
                <div>
                     {/* <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
