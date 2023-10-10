@@ -8,6 +8,7 @@ import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 import DetailsButton from "./DetailsButton";
 import DeleteUserCreatedDrink from "./DeleteUserCreatedDrink";
+import EditUserDrink from "./EditUserCreatedDrink";
 
 export default function UserCreatedDrinks(userId) {
      const [createdDrinks, setCreatedDrinks] = useState([]);
@@ -162,6 +163,9 @@ export default function UserCreatedDrinks(userId) {
                                              />
                                              <DeleteUserCreatedDrink
                                                   drinks_id={localDrinkId}
+                                             />
+                                             <EditUserDrink
+                                                  drinkId={localDrinkId}
                                              />
                                         </div>
                                    </div>

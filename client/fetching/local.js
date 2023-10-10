@@ -1,5 +1,3 @@
-import { result } from "cypress/types/lodash";
-
 const base_url = "http://localhost:8080/api";
 
 // grabs all drinks from LOCAL database
