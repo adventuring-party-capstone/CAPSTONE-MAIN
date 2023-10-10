@@ -315,11 +315,11 @@ export default function Favorites({ token, userId }) {
                                                             </div>
 
                                                             <div id="flip-card-back">
-                                                                 <h2>
+                                                                 <h1>
                                                                       {
                                                                            drink.drinks_name
                                                                       }
-                                                                 </h2>
+                                                                 </h1>
                                                                  <DetailsButton
                                                                       drinkId={
                                                                            localDrinkId
@@ -381,11 +381,11 @@ export default function Favorites({ token, userId }) {
                                                                  />
                                                             </div>
                                                             <div id="flip-card-back">
-                                                                 <h2>
+                                                                 <h1>
                                                                       {
                                                                            drink.strDrink
                                                                       }
-                                                                 </h2>
+                                                                 </h1>
                                                                  <div>
                                                                       <DetailsButton
                                                                            drinkId={
