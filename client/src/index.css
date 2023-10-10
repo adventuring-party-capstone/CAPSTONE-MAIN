@@ -1,9 +1,12 @@
-@tailwind base;
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap');
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
-     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+     font-family: 'EB Garamond', sans-serif;
      line-height: 1.5;
      font-weight: 400;
 
@@ -21,12 +24,22 @@ a {
      padding: 0 1rem;
 }
 
+h1 {
+     font-family: 'Great Vibes'
+}
+
+h2 {
+     font-family: 'IM Fell Double Pica SC'
+}
+
 body {
      margin: 0;
      display: flex;
      place-items: center;
      min-width: 320px;
      min-height: 100vh;
+     font-family: 'EB Garamond';
+     background-color: #ffffff;
 }
 
 .dark-mode {
@@ -40,6 +53,7 @@ body {
           background-color: var(--dark-bg);
           color: white;
      }
+
      /* Change color of dropdown links on hover */
      .dropdown-content a:hover {
           background-color: rgb(1, 1, 39);
@@ -76,18 +90,16 @@ body {
      .glow-on-hover:before {
           content: "";
 
-          background: linear-gradient(
-               45deg,
-               #ff0000,
-               #ff7300,
-               #fffb00,
-               #48ff00,
-               #00ffd5,
-               #002bff,
-               #7a00ff,
-               #ff00c8,
-               #ff0000
-          );
+          background: linear-gradient(45deg,
+                    #ff0000,
+                    #ff7300,
+                    #fffb00,
+                    #48ff00,
+                    #00ffd5,
+                    #002bff,
+                    #7a00ff,
+                    #ff00c8,
+                    #ff0000);
 
           position: absolute;
           top: -2px;
@@ -135,6 +147,7 @@ body {
           50% {
                background-position: 400% 0;
           }
+
           100% {
                background-position: 0 0;
           }
@@ -242,18 +255,16 @@ body {
     .glow-on-hover:before {
          content: "";
 
-         background: linear-gradient(
-              45deg,
-              #ff0000,
-              #ff7300,
-              #fffb00,
-              #48ff00,
-              #00ffd5,
-              #002bff,
-              #7a00ff,
-              #ff00c8,
-              #ff0000
-         );
+          background: linear-gradient(45deg,
+                    #ff0000,
+                    #ff7300,
+                    #fffb00,
+                    #48ff00,
+                    #00ffd5,
+                    #002bff,
+                    #7a00ff,
+                    #ff00c8,
+                    #ff0000);
 
          position: absolute;
          top: -2px;
@@ -453,15 +464,15 @@ body {
      transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
      background-color: #2196f3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
      box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
      -webkit-transform: translateX(26px);
      -ms-transform: translateX(26px);
      transform: translateX(26px);
@@ -507,6 +518,7 @@ input:checked + .slider:before {
      margin: 1rem;
      padding: 1rem;
 }
+
 /* IMAGE DEFAULTS */
 #images {
      width: 70%;

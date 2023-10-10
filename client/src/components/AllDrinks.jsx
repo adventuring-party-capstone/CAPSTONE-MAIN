@@ -218,8 +218,8 @@ export default function AllDrinks({ token, userId }) {
      return (
           <>
                <section id="all-drinks-container">
-                    <h1>All Dranks</h1>
-                    <h3>🍸 Drink Contains Alcohol</h3>
+                    <h1>ALL DRINKS</h1>
+                    <p>🍸 Drink Contains Alcohol</p>
                     <FormGroup>
                          <FormControlLabel
                               control={
@@ -260,7 +260,7 @@ export default function AllDrinks({ token, userId }) {
                                    <div id="flip-card" key={drink.drinks_id}>
                                         <div id="flip-card-inner">
                                              <div id="flip-card-front">
-                                                  <h2>
+                                                  <p>
                                                        {drink.alcoholic ==
                                                        true ? (
                                                             <text>
@@ -277,7 +277,7 @@ export default function AllDrinks({ token, userId }) {
                                                             </text>
                                                        )}
                                                        {/* conditionally render edit button if user id is == the creator's id*/}
-                                                  </h2>
+                                                  </p>
                                                   <img
                                                        src={drink.image}
                                                        alt={drink.drinks_name}

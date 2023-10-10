@@ -14,7 +14,18 @@ function App() {
 	const [genreSelect, setGenreSelect] = useState(
 		Number(window.localStorage.getItem("genreSelect"))
 	);
+	//get tokens where other components can use them
+	const [spotifyToken, setSpotifyToken] = useState(null);
+	const [token, setToken] = useState(null);
+	const [userId, setUserId] = useState(null);
+	const [snackbarOpen, setSnackbarOpen] = useState(false);
+	const [genreSelect, setGenreSelect] = useState(
+		Number(window.localStorage.getItem("genreSelect"))
+	);
 
+	const handleSnackbarOpen = () => {
+		setSnackbarOpen(true);
+	};
 	const handleSnackbarOpen = () => {
 		setSnackbarOpen(true);
 	};
@@ -22,7 +33,14 @@ function App() {
 	const handleSnackbarClose = () => {
 		setSnackbarOpen(false);
 	};
+	const handleSnackbarClose = () => {
+		setSnackbarOpen(false);
+	};
 
+	// MUSIC PLAYER
+	useEffect(() => {
+		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+	}, []);
 	// MUSIC PLAYER
 	useEffect(() => {
 		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
@@ -34,7 +52,17 @@ function App() {
 		window.localStorage.setItem("genreSelect", num);
 		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
 	}
+	// this function lets the genre persist between reloads (so the player stays present)
+	function genreSelector(num) {
+		console.log("num is ", num);
+		window.localStorage.setItem("genreSelect", num);
+		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+	}
 
+	// DARK MODE LOGIC --------------- //
+	const [dark, setDark] = useState(
+		window.localStorage.getItem("dark-mode") === "true"
+	);
 	// DARK MODE LOGIC --------------- //
 	const [dark, setDark] = useState(
 		window.localStorage.getItem("dark-mode") === "true"
@@ -45,11 +73,22 @@ function App() {
 		setUserId(window.localStorage.getItem("userId"));
 		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
 	}, []);
+	useEffect(() => {
+		setToken(window.localStorage.getItem("token"));
+		setUserId(window.localStorage.getItem("userId"));
+		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
+	}, []);
 
 	useEffect(() => {
 		localStorage.setItem("dark-mode", dark);
 	}, [dark]);
+	useEffect(() => {
+		localStorage.setItem("dark-mode", dark);
+	}, [dark]);
 
+	function toggleDarkMode() {
+		setDark(!dark);
+	}
 	function toggleDarkMode() {
 		setDark(!dark);
 	}
