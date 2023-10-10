@@ -437,4 +437,13 @@ input:checked + .slider:before {
     border: 3px solid red;
     flex-grow: 1;
     margin: 0 1rem;
-  }
+}
+
+#pagination{
+    display:grid;
+    place-items: center;
+    margin: 1rem 20rem;
+    background-color: rgb(117, 156, 255);
+    border-radius: 10px;
+}
+
