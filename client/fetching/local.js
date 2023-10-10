@@ -1,3 +1,5 @@
+import { result } from "cypress/types/lodash";
+
 const base_url = "http://localhost:8080/api";
 
 // grabs all drinks from LOCAL database
@@ -294,6 +296,28 @@ export const deleteDrink = async (id) => {
      } catch (error) {
           alert(
                "We're sorry, there has been an error during deletion. Please try again later."
+          );
+     }
+};
+
+//Edit local drink
+
+export const editDrink = async (drinkData, drinkId) => {
+     try {
+          console.log("entering edit drink in local");
+          const response = await fetch(`${base_url}/drinks/${drinkId}`, {
+               method: "PUT",
+               headers: {
+                    "Content-Type": "application/json",
+               },
+               body: JSON.stringify(drinkData),
+          });
+          const result = await response.json();
+          alert("Successfully edited drink");
+          return result;
+     } catch (error) {
+          alert(
+               "We're sorry, there has been an error during edit. Please try again later."
           );
      }
 };
