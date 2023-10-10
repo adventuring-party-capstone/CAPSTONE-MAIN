@@ -10,6 +10,7 @@ const {
      createDrink,
      getDrinksByUserId,
      deleteDrink,
+     updateDrink,
 } = require("../db/helpers/drinks");
 
 // GET - /api/drinks - get all drinks
@@ -82,4 +83,16 @@ router.delete("/:id", async (req, res, next) => {
           next(error);
      }
 });
+
+//PUT - /api/drinks/:drinkid
+router.put("/:drinkId", async (req, res, next) => {
+     try {
+          console.log("entering put in api");
+          const drink = await updateDrink(req.params.drinkId, req.body);
+          res.send(drink);
+     } catch (error) {
+          next(error);
+     }
+});
+
 module.exports = router;

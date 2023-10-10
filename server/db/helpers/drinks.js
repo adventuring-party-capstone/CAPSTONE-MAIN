@@ -107,6 +107,34 @@ const deleteDrink = async (drinksId) => {
      }
 };
 
+const updateDrink = async (drinksId, body) => {
+     try {
+          console.log("entering update in db helpers");
+          const {
+               rows: [drink],
+          } = await client.query(
+               `
+          UPDATE drinks
+          SET cocktails_db_drinks_id = $1, drinks_name = $2, ingredients = $3, recipe = $4, image = $5, glass = $6, alcoholic = $7
+          WHERE drinks_id = ${drinksId}
+          RETURNING *;
+          `,
+               [
+                    body.cocktails_db_drinks_id,
+                    body.drinks_name,
+                    body.ingredients,
+                    body.recipe,
+                    body.image,
+                    body.glass,
+                    body.alcoholic,
+               ]
+          );
+          return drink;
+     } catch (error) {
+          throw error;
+     }
+};
+
 module.exports = {
      createDrink,
      getAllDrinks,
@@ -114,4 +142,5 @@ module.exports = {
      getDrinksByAlcoholic,
      getDrinksByUserId,
      deleteDrink,
+     updateDrink,
 };
