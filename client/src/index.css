@@ -6,10 +6,16 @@
 
 
 :root {
-     font-family: 'EB Garamond', sans-serif;
+    /* max-width: 100dvw; */
+    place-content: center;
+    text-align: center; 
+    margin: 0;
+    
+    font-family: 'EB Garamond', sans-serif;
      line-height: 1.5;
      font-weight: 400;
 
+     background-color: #242424;
      color-scheme: light dark;
      color: rgba(255, 255, 255, 0.87);
      /* background-color: #242424; */
@@ -35,25 +41,46 @@ h2 {
 .studio-drink-header{
     font-family: 'Great Vibes';
     font-size: 5rem;
-    padding: 0;
+    padding: 2rem 0 0 0;
+    margin: 0;
+    text-align: left;
 }
 
-body {
+#header-logo{
+    display:flex;
+    padding: 1rem;
+    margin: 0;
+    height: 10dvh;
+    /* justify-content: flex-start; */
+ }
+
+ #header-logo-switch{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 6rem;
+ }
+
+/* body {
      margin: 0;
      display: flex;
      place-items: center;
      min-width: 320px;
      min-height: 100vh;
      font-family: 'EB Garamond';
-     background-color: #ffffff;
-}
+} */
 
 .dark-mode {
-     background-image: url("");
-     background-repeat: no-repeat;
-     background-size: 100%;
-     background-position: center;
+     background: url("./assets/DarkMode.jpg") fixed;
+     background-repeat: repeat;
+     background-size: 110% auto contain;
      --dark-bg: #242424;
+     /* background-color:var(--dark-bg); */
+
+     #logo{
+        filter: invert(1);
+        transform: scale(120%);
+     }
 
      .dropdown-content {
           background-color: var(--dark-bg);
@@ -435,7 +462,7 @@ body {
 /* CHECKBOX SIMULATING TOGGLE */
 .switch {
      position: relative;
-     display: inline-block;
+     place-content: center;
      width: 60px;
      height: 34px;
 }
@@ -495,10 +522,8 @@ input:checked+.slider:before {
 
 /* CONTAINER BORDERS */
 #app-container {
-     border: 1px solid red;
-     margin: 1rem;
-     padding: 1rem;
-     width: 50vw;
+     width: 100%;
+     height: 100%;
 }
 
 #main-section-container {
