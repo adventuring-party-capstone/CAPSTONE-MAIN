@@ -218,7 +218,7 @@ export default function AllDrinks({ token, userId }) {
      return (
           <>
                <section id="all-drinks-container">
-                    <h1>ALL DRINKS</h1>
+                    <h1>All Drinks</h1>
                     <p>🍸 Drink Contains Alcohol</p>
                     <FormGroup>
                          <FormControlLabel
