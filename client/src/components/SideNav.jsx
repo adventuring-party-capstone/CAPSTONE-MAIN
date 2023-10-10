@@ -2,9 +2,9 @@ import { Sidenav, initTE } from "tw-elements";
 import { useState, useEffect } from "react";
 
 export default function SideNav({ mode }) {
+	// console.log("mode in sidenav", mode);
 	initTE({ Sidenav });
 	const [bgmode, setBgmode] = useState("bg-inherit");
-	console.log("mode in sidenav", mode);
 
 	useEffect(() => {
 		function sideNavBG() {
@@ -19,16 +19,19 @@ export default function SideNav({ mode }) {
 		sideNavBG();
 	}, [mode]);
 
-	console.log("bgmode is now", bgmode);
+	// console.log("bgmode is now", bgmode);
 
 	return (
 		<>
 			<nav
 				id="sidenav-1"
-				className={`absolute left-0 top-0 z-[1035] h-full w-60 -translate-x-full overflow-hidden ${bgmode} shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 dark:bg-zinc-800`}
+				className={`absolute left-0 top-0 z-[1035] h-full w-60 -translate-x-[0] overflow-hidden ${bgmode} shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-[0] dark:bg-zinc-800`}
 				data-te-sidenav-init
 				data-te-sidenav-hidden="false"
-				data-te-sidenav-position="absolute"
+				data-te-sidenav-mode="side"
+				data-te-sidenav-content="#content"
+				// data-te-sidenav-content-collapsed="true"
+				// data-te-sidenav-collapse-ref
 			>
 				<ul
 					className="relative m-0 list-none px-[0.2rem]"
@@ -101,7 +104,7 @@ export default function SideNav({ mode }) {
 						<ul
 							className="!visible relative m-0 hidden list-none p-0 data-[te-collapse-show]:block "
 							data-te-sidenav-collapse-ref
-							data-te-collapse-show
+							// data-te-collapse-show
 						>
 							<li className="relative">
 								<a
