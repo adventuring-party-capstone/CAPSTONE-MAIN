@@ -33,8 +33,8 @@ export default function SideNav({ mode, token }) {
                     data-te-sidenav-hidden="false"
                     data-te-sidenav-mode="side"
                     data-te-sidenav-content="#content"
-                    // data-te-sidenav-content-collapsed="true"
-                    // data-te-sidenav-collapse-ref
+               // data-te-sidenav-content-collapsed="true"
+               // data-te-sidenav-collapse-ref
                >
                     <ul
                          className="relative m-0 list-none px-[0.2rem]"
@@ -92,7 +92,7 @@ export default function SideNav({ mode, token }) {
                               <ul
                                    className="!visible relative m-0 hidden list-none p-0 data-[te-collapse-show]:block "
                                    data-te-sidenav-collapse-ref
-                                   // data-te-collapse-show
+                              // data-te-collapse-show
                               >
                                    {/* All drinks */}
                                    <li className="relative">
