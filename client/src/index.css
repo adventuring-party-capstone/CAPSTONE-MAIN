@@ -359,3 +359,11 @@ input:checked + .slider:before {
      padding: 100px 20px;
      height: 100%;
 }
+
+#pagination{
+    display:grid;
+    place-items: center;
+    margin: 1rem 20rem;
+    background-color: rgb(117, 156, 255);
+    border-radius: 10px;
+}

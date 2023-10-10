@@ -145,8 +145,10 @@ export default function AllDrinks({ token, userId }) {
 			console.log("APIArray if !isToggled", APIArray);
 		}
 
+		// set first render array
+		setAPIArrayBigToDisplay(APIArray[0].slice(0, perPage));
 		// set total pages for pagination in return
-		setTotalPages(Math.ceil(APIArrayBig.length / perPage));
+		setTotalPages(Math.ceil(APIArray[0].length / perPage));
 	}, [combinedArray, isToggled, allNonAlcDrinks]);
 
 	// console.log("all alc drinks line 134", allAlcDrinks);
@@ -178,27 +180,16 @@ export default function AllDrinks({ token, userId }) {
 	// console.log("allAlcDrinks above return", allAlcDrinks);
 	// console.log("drinks to display api", drinksToDisplayAPI);
 
-	// Handles behavior of pagination for lazy loading
+	// HANDLES PAGINATION BEHAVIOR FOR LAZY LOADING
 	const handleChange = (event, pageNum) => {
 		setPage(pageNum);
-		console.log("page", pageNum);
-		console.log("totalPages", totalPages);
-
-		// setStartIndex(0);
-		// setEndIndex(18);
-		// let currentPageArray = APIArrayBig.slice(startIndex, endIndex);
-		// console.log("APIArrayBig in function", APIArrayBig);
-		// console.log("APIArrayBig.length", APIArrayBig.length);
-
-		// 0 to 18
-		// 19 to 36
-		// 37 to 54
-		// 55 to 57
+		// console.log("page", pageNum);
+		// console.log("totalPages", totalPages);
 
 		const totalLength = APIArrayBig.length;
-		console.log("totalLength", totalLength);
+		// console.log("totalLength", totalLength);
 		if (pageNum === 1) {
-			// start page 1
+			// if page 1 is clicked
 			let currentPageArray = APIArrayBig.slice(0, perPage);
 			setAPIArrayBigToDisplay(currentPageArray);
 		} else if (
@@ -206,36 +197,19 @@ export default function AllDrinks({ token, userId }) {
 			pageNum < totalPages &&
 			pageNum !== 1
 		) {
-			console.log("startIndex at start of if", pageNum * perPage);
-			console.log("endIndex at start of if", perPage + pageNum * perPage);
-			// setStartIndex(pageNum * perPage);
-			// setEndIndex(perPage + pageNum * perPage);
 			let currentPageArray = APIArrayBig.slice(
 				(pageNum - 1) * perPage,
 				pageNum * perPage
 			);
 			setAPIArrayBigToDisplay(currentPageArray);
 		} else if (pageNum === totalPages) {
-			// end of array behavior
-			// 57 - 54 (3*18)
-			// console.log("startIndex at start of else", startIndex);
-			// console.log("endIndex at start of else", endIndex);
-			// setStartIndex(pageNum);
-			// setEndIndex(totalLength);
-			console.log("startIndex in else", (pageNum - 1) * perPage);
+			// behavior for the last page
 			let currentPageArray = APIArrayBig.slice(
 				(pageNum - 1) * perPage,
 				totalLength
 			);
-			setAPIArrayBigToDisplay(currentPageArray);
+			setAPIArrayBigToDisplay(currentPageArray); // allows search to still work
 		}
-
-		// console.log("startIndex outside if/else", startIndex);
-		// console.log("endIndex outside if/else", endIndex);
-		// currentPageArray = APIArrayBig.slice(startIndex, endIndex);
-		// console.log("currentPageArray", currentPageArray);
-		// setAPIArrayBigToDisplay(currentPageArray);
-		// console.log("currentPageArray", currentPageArray);
 	};
 
 	return (
@@ -263,10 +237,14 @@ export default function AllDrinks({ token, userId }) {
 					onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
 				/>
 			</label>
-			<Typography fontSize={20} align="center">
-				Page: {page}
-			</Typography>
-			<Pagination count={totalPages} page={page} onChange={handleChange} />
+			<div id="pagination">
+				<Pagination
+					count={totalPages}
+					page={page}
+					onChange={handleChange}
+					color="primary"
+				/>
+			</div>
 			<div id="all-drinks-gallery">
 				{drinksToDisplayAPI.map((drink) => {
 					const APIDrinkId = drink.idDrink;
@@ -302,6 +280,14 @@ export default function AllDrinks({ token, userId }) {
 						</div>
 					);
 				})}
+			</div>
+			<div id="pagination">
+				<Pagination
+					count={totalPages}
+					page={page}
+					onChange={handleChange}
+					color="primary"
+				/>
 			</div>
 			{/* <div id="all-drinks-gallery">
 				{drinksToDisplay.map((drink) => {
