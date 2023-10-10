@@ -53,7 +53,7 @@ export default function Home({
      };
      return (
           <div id="home-container">
-               <h1>ENTER MUSIC CHOICE</h1>
+               <h1>Enter music choice</h1>
                <form onSubmit={handleSubmit}>
                     <label htmlFor="Search">Enter Artist </label>
                     <input
@@ -61,7 +61,7 @@ export default function Home({
                          name="search"
                          placeholder="Enter music choice here"
                          onChange={(event) => setMusicInput(event.target.value)}
-                         // onKeyDown={handleKeyDown}
+                    // onKeyDown={handleKeyDown}
                     />
                </form>
                <br />
