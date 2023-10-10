@@ -205,6 +205,7 @@ export default function AllDrinks({ token, userId }) {
                                                             {drink.drinks_name}
                                                        </text>
                                                   )}
+                                                  {/* conditionally render edit button if user id is == the creator's id */}
                                              </h2>
                                              <img
                                                   src={drink.image}
