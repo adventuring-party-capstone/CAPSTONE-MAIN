@@ -90,3 +90,7 @@ return(
     -if an index number from combined array matches one in alc array, then that name should be rendered with an emoji
 
     if alcArrray.includes(drink.idDrink)
+
+    Pass token down into SideNav
+    -create route from MainSection into SideNav to pass props
+    -Copy over conditional rendering from NavBar to SideNav
