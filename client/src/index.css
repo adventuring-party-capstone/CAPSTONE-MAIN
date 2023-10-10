@@ -359,6 +359,7 @@ h2 {
          font-size: 1em;
          border: none;
          cursor: pointer;
+         font-family: 'EB Garamond'
     }
 
     .droplabel {
@@ -633,13 +634,15 @@ input:checked+.slider:before {
 
 /* Style The Dropdown Button */
 .dropbtn {
-     background-color: #4caf50;
+     background-color: #4a1313;
+     border-radius: 10px;
+     border: 1px solid white;
      color: white;
      margin: 1rem;
      padding: 1rem;
      font-size: 1em;
-     border: none;
      cursor: pointer;
+     font-family: 'EB Garamond'
 }
 
 .droplabel {
@@ -680,7 +683,7 @@ input:checked+.slider:before {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-     background-color: #3e8e41;
+     background-color: #762330;
 }
 
 #music-player-container {
@@ -701,6 +704,7 @@ input:checked+.slider:before {
      display: grid;
      place-items: center;
      margin: 1rem 5dvw;
-     background-color: rgb(117, 156, 255);
+     background-color: #4a1313;
      border-radius: 10px;
+     color: white;
 }
