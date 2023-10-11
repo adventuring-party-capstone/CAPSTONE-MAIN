@@ -4,6 +4,7 @@ import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
 import SideNav from "./components/SideNav";
+import logo from "./assets/Studio_drink_logo.svg";
 
 function App() {
 	//get tokens where other components can use them
@@ -60,18 +61,21 @@ function App() {
 				id="app-container"
 				className={`${dark ? "dark-mode" : "light-mode"}`}
 			>
-				<h1 className="studio-drink-header">Studio Drink</h1>
+				<div id="header-logo-switch">
+					<div id="header-logo">
+						<img src={logo} id="logo" />
+						<h1 className="studio-drink-header">Studio Drink</h1>
+					</div>
+					<div>
+						<label className="switch">
+							<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
+							<span className="slider round">{dark ? " " + "🌙" : "🌞"}</span>
+						</label>
+					</div>
+				</div>
 				<SideNav mode={dark} token={token} />
-				{/* <NavBar
-                         token={token}
-                         setToken={setToken}
-                         userId={userId}
-                         setUserId={setUserId}
-                    /> */}
-				<label className="switch">
-					<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-					<span className="slider round">Dark Mode</span>
-				</label>
+				<br />
+				<br />
 				<div id="music-player-container">
 					<div className="dropdown">
 						<label className="droplabel">Listen to Music: </label>
@@ -212,10 +216,6 @@ function App() {
 					setSpotifyToken={setSpotifyToken}
 				/>
 			</div>
-			<label className="switch">
-				<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-				<span className="slider round">Dark Mode</span>
-			</label>
 		</div>
 	);
 }

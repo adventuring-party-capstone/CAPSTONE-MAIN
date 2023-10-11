@@ -17,6 +17,7 @@ export default function Spotify({
 	userId,
 	spotifyToken,
 	setSpotifyToken,
+	token,
 }) {
 	const [drinks, setDrinks] = useState([]);
 	const [localGenres, setLocalGenres] = useState([]);
@@ -184,6 +185,8 @@ export default function Spotify({
 		<div>
 			{filteredIngredNames && (
 				<CocktailDBDrinkCard
+					userId={userId}
+					token={token}
 					alcIngredientName={filteredIngredNames[1]}
 					nonAlcIngredientName={filteredIngredNames[0]}
 				/>

@@ -40,6 +40,7 @@ export default function Profile({ token, setToken, userId }) {
 	return (
 		<section>
 			<h1>Welcome, {titleCase(username)}</h1>
+			<br />
 			<button id="tabLink1" onClick={() => setToggleState(1)}>
 				Favorites
 			</button>
@@ -47,6 +48,7 @@ export default function Profile({ token, setToken, userId }) {
 				Created Drinks
 			</button>
 			<br></br>
+			<br />
 			{toggleState === 1 && (
 				<div id="favorites-tab">
 					<Favorites token={token} userId={userId} />

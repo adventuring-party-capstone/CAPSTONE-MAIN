@@ -102,6 +102,7 @@ export default function UserCreatedDrinks(userId) {
 
 	return (
 		<section>
+			<br />
 			<h1>{titleCase(username)}'s Created Drinks</h1>
 			<div>
 				<FormGroup>
@@ -118,7 +119,7 @@ export default function UserCreatedDrinks(userId) {
 				<label>
 					Search:{" "}
 					<input
-						id="search"
+						id="formInput"
 						className="inputField"
 						type="text"
 						placeholder="Search created drinks"
