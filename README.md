@@ -1,7 +1,6 @@
 # STUDIO DRINK
 
-This repository contains the source code for the Studio DrinkApp.
-
+Studio Drink is a cutting-edge application designed to curate beverage recommendations tailored to your musical preferences. With the ability to cater to both alcoholic and non-alcoholic inclinations, our app offers a dynamic day/night mode to elevate your mood and enhance your overall experience.
 
 ## Running the app
 
