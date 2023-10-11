@@ -41,6 +41,20 @@ a {
      padding: 0 1rem;
 }
 
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+a.clicked{
+    color: goldenrod;
+}
+
 h1 {
      font-family: 'IM Fell Double Pica SC'
 }
@@ -88,15 +102,54 @@ h2 {
      --dark-bg: #242424;
      /* background-color:var(--dark-bg); */
 
+
+
      .slider.round {
           border-radius: 34px;
           text-align: left;
      }
 
-     #logo {
-          filter: invert(1);
-          transform: scale(120%);
+     #username{
+        background-color: white;
      }
+
+     #password{
+        background-color: white;
+     }
+
+     #musicChoice{
+        background-color: white;
+     }
+
+     #pink-button{
+        background-color: #612519;
+        border-radius: 10px;
+        color: white;
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 1em;
+        border: 1px solid white;
+        cursor: pointer;
+        font-family: 'EB Garamond'
+    }
+
+    #pink-button:hover{
+        background-color: #330900;
+    }
+
+    #logo {
+        filter: invert(1);
+        transform: scale(150%);
+   }
+
+   /* visited link */
+  /* a:visited {
+  color: rgb(255, 255, 255);
+  } */
+
+  #home-container{
+    padding: 10rem;
+  }
 
      .dropdown-content {
           background-color: var(--dark-bg);
@@ -107,9 +160,20 @@ h2 {
      .dropdown-content a:hover {
           background-color: rgb(1, 1, 39);
      }
+     
+     #flip-card-front {
+        background-color: rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        font-size: 1.5rem;
+        font-family: 'IM Fell Double Pica SC';
+        background: linear-gradient(to top, #3D0F1D, #000000);
+        border-radius: 10px;
+   }
+
 
      #flip-card-back {
           background-color: black;
+          background: linear-gradient(to top, #3D0F1D, #000000);
           color: white;
           transform: rotateY(180deg);
           overflow-y: scroll;
@@ -129,14 +193,34 @@ h2 {
           margin: 1rem;
           outline: none;
           color: #ffffff;
-          background: #ffffff97;
+          background: #00000097;
           cursor: pointer;
           position: relative;
           z-index: 0;
           border-radius: 10px;
+          font-family: 'EB Garamond'
      }
 
-     .glow-on-hover:before {
+     .glow-on-hover-home {
+        /* width: 220px; */
+        width: auto;
+        height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 1rem;
+        padding: 1rem;
+        outline: none;
+        color: #ffffff;
+        background: rgba(4, 35, 88, 0.623);
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,1);
+        border-radius: 10px;
+        font-size: 4rem;
+        font-family: 'Great Vibes';
+   }
+
+     .glow-on-hover:before, .glow-on-hover-home:before {
           content: "";
 
           background: linear-gradient(45deg,
@@ -153,7 +237,7 @@ h2 {
           position: absolute;
           top: -2px;
           left: -2px;
-          background-size: 400%;
+          background-size: 200%;
           z-index: -1;
           filter: blur(5px);
           width: calc(100% + 4px);
@@ -161,45 +245,44 @@ h2 {
           animation: glowing 20s linear infinite;
           opacity: 0;
           transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
+          border-radius: 10px;  
      }
 
-     .glow-on-hover:active {
+     @keyframes glowing {
+        0% {
+             background-position: 0 0;
+        }
+
+        50% {
+             background-position: 400% 0;
+        }
+
+        100% {
+             background-position: 0 0;
+        }
+   }
+     .glow-on-hover:active, .glow-on-hover-home:active {
           color: #f95555;
      }
 
-     .glow-on-hover:active:after {
+     .glow-on-hover:active:after, .glow-on-hover-home:active:after {
           background: transparent;
      }
 
-     .glow-on-hover:hover:before {
+     .glow-on-hover:hover:before, .glow-on-hover-home:hover:before {
           opacity: 1;
      }
 
-     .glow-on-hover:after {
+     .glow-on-hover:after, .glow-on-hover-home:after {
           z-index: -1;
           content: "";
           position: absolute;
           width: 100%;
           height: 100%;
-          background: #940e6165;
+          background: #ffffff0d;
           left: 0;
           top: 0;
           border-radius: 10px;
-     }
-
-     @keyframes glowing {
-          0% {
-               background-position: 0 0;
-          }
-
-          50% {
-               background-position: 400% 0;
-          }
-
-          100% {
-               background-position: 0 0;
-          }
      }
 
      /* TABS FOR PROFILE PAGE */
@@ -256,12 +339,49 @@ h2 {
      background-size: cover;
      background-color: white;
 
+     #logo {
+        transform: scale(150%);
+   }
+
+      /* visited link */
+        a:visited {
+        color: rgb(0,0,0);
+        };
+
      color: black;
      --light-bg: white;
 
      .slider.round {
           border-radius: 34px;
           text-align: right;
+     }
+
+     #username{
+        background-color: white;
+     }
+
+     #password{
+        background-color: white;
+     }
+
+     #musicChoice{
+        background-color: white;
+     }
+
+     #pink-button{
+            background-color: #d06550;
+            border-radius: 10px;
+            color: white;
+            margin: 1rem;
+            padding: 1rem;
+            font-size: 1em;
+            border: 1px solid white;
+            cursor: pointer;
+            font-family: 'EB Garamond'
+     }
+
+     #pink-button:hover{
+        background-color: #be4e37;
      }
 
      #pagination {
@@ -279,13 +399,13 @@ h2 {
      #flip-card-front {
           background-color: rgb(255, 255, 255);
           color: rgb(0, 0, 0);
-          background: linear-gradient(to top, #b0523d9f, #fedcd5a1);
+          background: linear-gradient(to top, #e28874da, #ffda75de);
           border-radius: 10px;
      }
 
      #flip-card-back {
           background-color: rgb(255, 255, 255);
-          background: linear-gradient(to bottom, #b0523d9f, #fedcd5a1) border-box;
+          background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
           color: rgb(0, 0, 0);
           transform: rotateY(180deg);
           overflow-y: scroll;
@@ -301,20 +421,43 @@ h2 {
      }
 
      .glow-on-hover {
-          width: 220px;
-          height: 50px;
-          border: none;
+          /* width: 220px; */
+          width: auto;
+          height: auto;
+          border: 1px solid rgb(255, 255, 255);
           margin: 1rem;
+          padding: 1rem;
           outline: none;
-          color: #000000;
-          background: #ffffff97;
+          color: black;
+          background: rgba(255, 255, 255, 0.321);
           cursor: pointer;
           position: relative;
           z-index: 0;
           border-radius: 10px;
+          font-size: 1rem;
+          font-family: 'EB Garamond';
      }
 
-     .glow-on-hover:before {
+     .glow-on-hover-home {
+        /* width: 220px; */
+        width: auto;
+        height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 1rem;
+        padding: 1rem;
+        outline: none;
+        color: #e7725b;
+        background: rgba(255, 255, 255, 0.321);
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,1);
+        border-radius: 10px;
+        font-size: 4rem;
+        font-family: 'Great Vibes';
+   }
+
+     .glow-on-hover:before, .glow-on-hover-home:before {
           content: "";
 
           background: linear-gradient(45deg,
@@ -331,7 +474,7 @@ h2 {
           position: absolute;
           top: -2px;
           left: -2px;
-          background-size: 400%;
+          background-size: 200%;
           z-index: -1;
           filter: blur(5px);
           width: calc(100% + 4px);
@@ -339,46 +482,47 @@ h2 {
           animation: glowing 20s linear infinite;
           opacity: 0;
           transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
+          border-radius: 10px;  
      }
 
-     .glow-on-hover:active {
+     @keyframes glowing {
+        0% {
+             background-position: 0 0;
+        }
+
+        50% {
+             background-position: 400% 0;
+        }
+
+        100% {
+             background-position: 0 0;
+        }
+   }
+     .glow-on-hover:active, .glow-on-hover-home:active {
           color: #f95555;
      }
 
-     .glow-on-hover:active:after {
+     .glow-on-hover:active:after, .glow-on-hover-home:active:after {
           background: transparent;
      }
 
-     .glow-on-hover:hover:before {
+     .glow-on-hover:hover:before, .glow-on-hover-home:hover:before {
           opacity: 1;
      }
 
-     .glow-on-hover:after {
+     .glow-on-hover:after, .glow-on-hover-home:after {
           z-index: -1;
           content: "";
           position: absolute;
           width: 100%;
           height: 100%;
-          background: #ffd17d60;
+          background: #ffffff0d;
           left: 0;
           top: 0;
           border-radius: 10px;
      }
 
-     @keyframes glowing {
-          0% {
-               background-position: 0 0;
-          }
-
-          50% {
-               background-position: 400% 0;
-          }
-
-          100% {
-               background-position: 0 0;
-          }
-     }
+     
 
      /* LIGHT MUSIC PLAYER */
      /* Style The Dropdown Button */
@@ -388,7 +532,7 @@ h2 {
           margin: 1rem;
           padding: 1rem;
           font-size: 1em;
-          border: none;
+          border: 1px solid white;
           cursor: pointer;
           font-family: 'EB Garamond'
      }
@@ -567,7 +711,7 @@ input:checked+.slider:before {
 #home-container {
      /* border: 1px solid cyan; */
      margin: 1rem;
-     padding: 1rem;
+     padding: 5rem;
 }
 
 #navbar-container {
@@ -577,7 +721,6 @@ input:checked+.slider:before {
 }
 
 #drink-card {
-     border: 1px solid violet;
      margin: 1rem;
      padding: 1rem;
 }
@@ -606,6 +749,7 @@ input:checked+.slider:before {
      /* overflow: hidden; */
      /* perspective: 1000px; */
      /* Remove this if you don't want the 3D effect */
+     margin-top: 1rem;
      margin-left: auto;
      margin-right: auto;
 }
@@ -655,6 +799,7 @@ input:checked+.slider:before {
      padding: 1rem;
      border-radius: 10px;
      font-size: 1rem;
+     font-family: inherit;
 }
 
 #favorites-gallery {
