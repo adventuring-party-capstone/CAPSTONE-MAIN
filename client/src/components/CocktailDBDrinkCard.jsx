@@ -206,9 +206,15 @@ export default function CocktailDBDrinkCard({
 				<div id="flip-card-inner">
 					<div id="flip-card-front">
 						{drinkToRender && alcIds.includes(drinkToRender.idDrink) ? (
-							<p>🍸{drinkToRender.strDrink}</p>
+							<div>
+								<br />
+								<h2>🍸{drinkToRender.strDrink}</h2>
+							</div>
 						) : (
-							<p>{drinkToRender.strDrink}</p>
+							<div>
+								<br />
+								<h2>{drinkToRender.strDrink}</h2>
+							</div>
 						)}
 						{drinkToRender && (
 							<img src={drinkToRender.strDrinkThumb} id="images" />
@@ -223,7 +229,10 @@ export default function CocktailDBDrinkCard({
 					</div>
 				</div>
 			</div>
-			<button onClick={handleClick}>Suggest Another Drink</button>
+			<br />
+			<button onClick={handleClick} id="pink-button">
+				Suggest Another Drink
+			</button>
 		</section>
 	);
 }

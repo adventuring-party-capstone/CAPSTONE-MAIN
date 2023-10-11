@@ -19,7 +19,7 @@ export default function DeleteFavorite({ drinks_id, api_drinks_id }) {
 		<div>
 			<button
 				onClick={handleSubmit}
-				id="details-button"
+				id="favorites-button"
 				className="glow-on-hover"
 			>
 				Remove From Favorites

@@ -229,12 +229,12 @@ export default function AllDrinks({ token, userId }) {
 					/>
 				</FormGroup>
 				<label>
-					Search:{" "}
+					<h2>Search: </h2>
 					<input
-						id="search"
+						id="formInput"
 						className="inputField"
 						type="text"
-						placeholder="Search"
+						placeholder="Search all drinks"
 						onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
 					/>
 				</label>

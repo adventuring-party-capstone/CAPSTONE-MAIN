@@ -35,7 +35,9 @@ export default function Login({ token, setToken, setUserId }) {
 				<h1>LOGIN</h1>
 				<form onSubmit={handleSubmit}>
 					<div id="login-text">
-						<label>Username: {""}</label>
+						<label>
+							<h2>Username: {""}</h2>
+						</label>
 						<input
 							id="username"
 							placeholder="enter username"
@@ -43,7 +45,9 @@ export default function Login({ token, setToken, setUserId }) {
 							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<br />
-						<label>Password: {""}</label>
+						<label>
+							<h2>Password: </h2>
+						</label>
 						<input
 							id="password"
 							type="password"

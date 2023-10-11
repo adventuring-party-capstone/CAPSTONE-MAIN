@@ -233,6 +233,7 @@ export default function Favorites({ token, userId }) {
 			{token && (
 				<div>
 					<div>
+						<br />
 						<h1>{titleCase(username)}'s Favorites</h1>
 					</div>
 					<FormGroup>
@@ -249,10 +250,10 @@ export default function Favorites({ token, userId }) {
 					<label>
 						Search:{" "}
 						<input
-							id="search"
+							id="formInput"
 							className="inputField"
 							type="text"
-							placeholder="Search"
+							placeholder="Search user favorites"
 							onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
 						/>
 					</label>
@@ -269,17 +270,17 @@ export default function Favorites({ token, userId }) {
 										<div id="flip-card">
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
-													<p>
+													<h1>
 														{drink.alcoholic == true ? (
-															<text>
+															<h2>
 																{" "}
 																🍸
 																{drink.drinks_name}
-															</text>
+															</h2>
 														) : (
-															<text> {drink.drinks_name}</text>
+															<h2> {drink.drinks_name}</h2>
 														)}
-													</p>
+													</h1>
 
 													<img
 														src={drink.image}
@@ -311,12 +312,18 @@ export default function Favorites({ token, userId }) {
 												<div id="flip-card-front">
 													<div id="name section">
 														{alcIds.includes(drink.idDrink) ? (
-															<p>
-																🍸
-																{drink.strDrink}
-															</p>
+															<div>
+																<br />
+																<h2>
+																	🍸
+																	{drink.strDrink}
+																</h2>
+															</div>
 														) : (
-															<p>{drink.strDrink}</p>
+															<div>
+																<br />
+																<h2>{drink.strDrink}</h2>
+															</div>
 														)}
 													</div>
 													<img

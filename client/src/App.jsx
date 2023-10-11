@@ -74,6 +74,8 @@ function App() {
 					</div>
 				</div>
 				<SideNav mode={dark} token={token} />
+				<br />
+				<br />
 				<div id="music-player-container">
 					<div className="dropdown">
 						<label className="droplabel">Listen to Music: </label>

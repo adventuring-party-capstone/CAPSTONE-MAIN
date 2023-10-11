@@ -55,7 +55,9 @@ export default function Home({
 		<div id="home-container">
 			<h1>Enter music choice</h1>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="Search">Enter Artist </label>
+				<label htmlFor="Search" id="music-label">
+					Enter Artist:{" "}
+				</label>
 				<input
 					id="musicChoice"
 					type="text"
@@ -90,12 +92,20 @@ export default function Home({
 						setUserId={setUserId}
 						userId={userId}
 					/>
-					<Link to={"/register"}>Create New Account</Link>
+					<h2>
+						<Link to={"/register"}>Create New Account</Link>
+					</h2>
 				</div>
 			)}
-			<p>🍸 Drink Contains Alcohol</p>
+			<br />
+			<br />
+			<br />
+			<h3>🍸 Drink Contains Alcohol</h3>
+			<br />
 			<h1>RANDOM DRINK</h1>
 			<RandomDrinkButton userId={userId} />
+			<br />
+			<br />
 		</div>
 	);
 }

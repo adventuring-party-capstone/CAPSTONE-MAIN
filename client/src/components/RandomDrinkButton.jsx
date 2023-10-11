@@ -48,7 +48,7 @@ export default function RandomDrinkButton({ userId }) {
 	return (
 		<>
 			<button onClick={handleClick} id="pink-button">
-				Random Drink! :3
+				Random Drink!
 			</button>
 			<div className="Random-Button">
 				{randomDrink ? (
