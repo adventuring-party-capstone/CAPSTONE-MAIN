@@ -11,10 +11,12 @@ Please fork this repo.
 Start both client and server with the following commands:
 
 ```bash
+npm i
 npm run dev
 ```
 
 ```bash
+npm i
 npm run seed
 npm run start
 ```
