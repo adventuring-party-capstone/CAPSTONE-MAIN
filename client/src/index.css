@@ -3,7 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  
 
 :root {
     /* max-width: 100dvw; */
@@ -58,7 +68,7 @@ h2 {
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 6rem;
+    padding-right: 10rem;
  }
 
 /* body {
@@ -72,11 +82,16 @@ h2 {
 
 .dark-mode {
      background: url("./assets/DarkMode.jpg") fixed;
-     background-repeat: repeat;
-     background-size: 110% auto contain;
+     background-repeat: no-repeat;
+     background-size: cover;
      --dark-bg: #242424;
      /* background-color:var(--dark-bg); */
 
+     .slider.round {
+        border-radius: 34px;
+        text-align: left;
+    }
+   
      #logo{
         filter: invert(1);
         transform: scale(120%);
@@ -234,14 +249,18 @@ h2 {
 }
 
 .light-mode {
-    background-image: url("");
+    background: url("./assets/LightMode.PNG") fixed;
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
+    background-size: cover;
     background-color: white;
 
     color: black;
     --light-bg: white;
+
+    .slider.round {
+        border-radius: 34px;
+        text-align: right;
+    }
 
     .dropdown-content {
          background-color: var(--light-bg);
@@ -253,7 +272,7 @@ h2 {
          background-color: rgb(255, 255, 255);
          color: rgb(0, 0, 0);
          background: linear-gradient(to top, #b0523d9f, #fedcd5a1);
-         border-radius: 10px;
+         border-radius: 20px;
     }
     #flip-card-back {
          background-color: rgb(255, 255, 255);
@@ -261,6 +280,7 @@ h2 {
          color: rgb(0, 0, 0);
          transform: rotateY(180deg);
          overflow-y: scroll;
+         border-radius: 20px;
          /* background: linear-gradient(to right, #f2846b9f, #ebc0b7a1) border-box; */
          /* border-radius: 10px; */
     }
@@ -462,7 +482,7 @@ h2 {
 
 /* CHECKBOX SIMULATING TOGGLE */
 .switch {
-     position: relative;
+     position: absolute;
      place-content: center;
      width: 60px;
      height: 34px;
@@ -470,8 +490,8 @@ h2 {
 
 .switch input {
      opacity: 0;
-     width: 0;
-     height: 0;
+     width: 10px;
+     height: 10px;
 }
 
 .slider {
@@ -568,8 +588,8 @@ input:checked+.slider:before {
 
 /* FLIP CARD */
 #flip-card { 
-     background-color: transparent;
-     border-radius: 30px;
+     /* background-color: transparent; */
+     /* border-radius: 30px; */
      width: 20vw;
      height: 20vw;
      overflow: hidden;
@@ -581,7 +601,7 @@ input:checked+.slider:before {
 
 #flip-card-inner {
      position: relative;
-     border-radius: 10%;
+     /* border-radius: 10%; */
      width: 100%;
      height: 100%;
      text-align: center;
@@ -596,7 +616,7 @@ input:checked+.slider:before {
 #flip-card-front,
 #flip-card-back {
      position: absolute;
-     border-radius: 10px;
+     /* border-radius: 10px; */
      width: 100%;
      height: 100%;
      -webkit-backface-visibility: hidden;

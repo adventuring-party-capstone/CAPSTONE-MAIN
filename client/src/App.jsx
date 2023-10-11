@@ -69,7 +69,7 @@ function App() {
 					<div>
 						<label className="switch">
 							<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-							<span className="slider round">Dark Mode</span>
+							<span className="slider round">{dark ? " " + "🌙" : "🌞"}</span>
 						</label>
 					</div>
 				</div>
@@ -215,7 +215,7 @@ function App() {
 				/>
 				<label className="switch">
 					<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-					<span className="slider round">Dark Mode</span>
+					<span className="slider round">🌙</span>
 				</label>
 			</div>
 		</div>
