@@ -6,6 +6,8 @@ For an optimal experience, we recommend creating an account and then signing in,
 
 ## Running the app
 
+Please fork this repo. 
+
 Start both client and server with the following commands:
 
 ```bash
