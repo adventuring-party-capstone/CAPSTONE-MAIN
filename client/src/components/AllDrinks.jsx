@@ -200,6 +200,9 @@ export default function AllDrinks({ token, userId }) {
 		console.log("page", pageNum);
 		console.log("totalPages", totalPages);
 
+		console.log("localArray in handleChange", localArray);
+		console.log("APIArrayBig in handleChange", APIArrayBig);
+
 		let localLength = localArray.length;
 		let localPages = Math.ceil(localLength / perPage); // number of the page where API & localArray begin to join
 		let APILength = APIArrayBig.length;
@@ -331,7 +334,7 @@ export default function AllDrinks({ token, userId }) {
 						color="primary"
 					/>
 				</div>
-				<div id="all-drinks-gallery">
+				{/* <div id="all-drinks-gallery">
 					{drinksToDisplay.map((drink) => {
 						const localDrinkId = drink.drinks_id;
 						return (
@@ -347,7 +350,6 @@ export default function AllDrinks({ token, userId }) {
 											) : (
 												<text>{drink.drinks_name}</text>
 											)}
-											{/* conditionally render edit button if user id is == the creator's id*/}
 										</p>
 										<img
 											src={drink.image}
@@ -369,7 +371,7 @@ export default function AllDrinks({ token, userId }) {
 							</div>
 						);
 					})}
-				</div>
+				</div> */}
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI.map((drink) => {
 						const APIDrinkId = drink.idDrink;
@@ -377,33 +379,64 @@ export default function AllDrinks({ token, userId }) {
 							<div id="flip-card" key={drink.idDrink}>
 								<div id="flip-card-inner">
 									<div id="flip-card-front">
-										<div id="name section">
-											{alcIds.includes(drink.idDrink) ? (
-												<p>
-													🍸
-													{drink.strDrink}
-												</p>
-											) : (
-												<p>{drink.strDrink}</p>
-											)}
-										</div>
+										{drink.strDrink && (
+											<div id="name section">
+												{alcIds.includes(drink.idDrink) ? (
+													<p>
+														🍸
+														{drink.strDrink}
+													</p>
+												) : (
+													<p>{drink.strDrink}</p>
+												)}
+											</div>
+										)}
+										{drink.drinks_name && (
+											<div id="name section">
+												{drink.alcoholic ? (
+													<p>🍸{drink.drinks_name}</p>
+												) : (
+													<p>{drink.drinks_name}</p>
+												)}
+											</div>
+										)}
 
-										<img
-											src={drink.strDrinkThumb}
-											alt={drink.strDrink}
-											id="images"
-										/>
-									</div>
-									<div id="flip-card-back">
-										<h1>{drink.strDrink}</h1>
-										{token && (
-											<FavoriteButton
-												api_drinks_id={drink.idDrink}
-												userId={userId}
+										{drink.strDrinkThumb && (
+											<img
+												src={drink.strDrinkThumb}
+												alt={drink.strDrink}
+												id="images"
 											/>
 										)}
-										<DetailsButton drinkId={APIDrinkId} />
+										{drink.image && (
+											<img
+												src={drink.image}
+												alt={drink.drinks_name}
+												id="images"
+											/>
+										)}
 									</div>
+									{drink.idDrink && (
+										<div id="flip-card-back">
+											<h1>{drink.strDrink}</h1>
+											{token && (
+												<FavoriteButton
+													api_drinks_id={drink.idDrink}
+													userId={userId}
+												/>
+											)}
+											<DetailsButton drinkId={APIDrinkId} />
+										</div>
+									)}
+									{drink.drinks_id && (
+										<div id="flip-card-back">
+											<h1>{drink.drinks_name}</h1>
+											{token && (
+												<FavoriteButton api_drinks_id={null} userId={userId} />
+											)}
+											<DetailsButton drinkId={drink.drinks_id} />
+										</div>
+									)}
 								</div>
 							</div>
 						);
