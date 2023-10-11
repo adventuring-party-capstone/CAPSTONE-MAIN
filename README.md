@@ -8,13 +8,20 @@ For an optimal experience, we recommend creating an account and then signing in,
 
 Please fork this repo. 
 
+Enter psql in your terminal. Type 
+```bash
+CREATE DATABASE studiodrink;
+```
 Start both client and server with the following commands:
 
 ```bash
+npm i
 npm run dev
 ```
 
 ```bash
+npm i
+npm run seed
 npm run start
 ```
 
