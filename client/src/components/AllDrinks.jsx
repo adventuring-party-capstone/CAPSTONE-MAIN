@@ -100,6 +100,18 @@ export default function AllDrinks({ token, userId }) {
 		setIsToggled(event.target.checked);
 	}
 
+	// calculating total pages
+	useEffect(() => {
+		console.log("APIArray in useEffect", APIArrayBig);
+		console.log("localArray in useEffect", localArray);
+
+		if (APIArrayBig && localArray) {
+			let totalBothLength = APIArrayBig.length + localArray.length;
+			console.log("API + local arrays length", totalBothLength);
+			setTotalPages(Math.ceil(totalBothLength / perPage));
+		}
+	}, [APIArrayBig, localArray]);
+
 	// Alcohol toggle
 	const PinkSwitch = styled(Switch)(({ theme }) => ({
 		"& .MuiSwitch-switchBase.Mui-checked": {
@@ -181,34 +193,107 @@ export default function AllDrinks({ token, userId }) {
 	// console.log("drinks to display api", drinksToDisplayAPI);
 
 	// HANDLES PAGINATION BEHAVIOR FOR LAZY LOADING
+	// const [APICounter, setAPICounter] = useState(0);
+	// const [localCounter, setLocalCounter] = useState(0);
 	const handleChange = (event, pageNum) => {
 		setPage(pageNum);
-		// console.log("page", pageNum);
-		// console.log("totalPages", totalPages);
+		console.log("page", pageNum);
+		console.log("totalPages", totalPages);
 
-		const totalLength = APIArrayBig.length;
+		let localLength = localArray.length;
+		let localPages = Math.ceil(localLength / perPage); // number of the page where API & localArray begin to join
+		let APILength = APIArrayBig.length;
+
+		console.log("localLength", localLength);
+		console.log("localPage", localPages);
+		console.log("APILength", APILength);
+
 		// console.log("totalLength", totalLength);
-		if (pageNum === 1) {
-			// if page 1 is clicked
-			let currentPageArray = APIArrayBig.slice(0, perPage);
-			setAPIArrayBigToDisplay(currentPageArray);
-		} else if (
-			// not close to the end of array and not page 1
-			pageNum < totalPages &&
-			pageNum !== 1
-		) {
-			let currentPageArray = APIArrayBig.slice(
-				(pageNum - 1) * perPage,
-				pageNum * perPage
-			);
-			setAPIArrayBigToDisplay(currentPageArray);
-		} else if (pageNum === totalPages) {
-			// behavior for the last page
-			let currentPageArray = APIArrayBig.slice(
-				(pageNum - 1) * perPage,
-				totalLength
-			);
-			setAPIArrayBigToDisplay(currentPageArray); // allows search to still work
+		if (pageNum === 1 && !isToggled) {
+			// page 1 behavior for toggle off
+			console.log("Case 0A");
+			if (localLength < perPage) {
+				// less than 18 local nonalc drinks
+				console.log("Case 0A1");
+				let currentLocalArray = localArray.slice(0, localLength);
+				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
+				let currentPageArray = currentLocalArray.concat(currentAPIArray);
+				console.log("currentPageArray case 0", currentPageArray);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (localLength > perPage) {
+				// more than 18 local nonalc drinks
+				console.log("Case 0A2");
+				let currentPageArray = localArray.slice(0, perPage);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
+		} else if (pageNum === 1 && isToggled) {
+			// page 1 behavior for toggle on
+			console.log("Case 0B");
+			if (localLength < perPage) {
+				// less than 18 local nonalc drinks
+				let currentLocalArray = localArray.slice(0, localLength);
+				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
+				let currentPageArray = currentLocalArray.concat(currentAPIArray);
+				console.log("currentPageArray case 0", currentPageArray);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (localLength > perPage) {
+				// more than 18 local nonalc drinks
+				let currentPageArray = localArray.slice(0, perPage);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
+		} else if (pageNum > 1 && pageNum < totalPages) {
+			// 1 < page < totalPages
+			if (pageNum < localPages) {
+				console.log("case 1");
+				// if still within localArray length
+				let currentPageArray = localArray.slice(
+					(pageNum - 1) * perPage,
+					pageNum * perPage
+				);
+				setAPIArrayBigToDisplay(currentPageArray);
+				// setLocalCounter(localLength - perPage);
+			} else if (pageNum === localPages) {
+				console.log("case 2");
+				// last page of localArray, start to join local drinks with API array drinks to be displayed
+				let currentArrayLocal = localArray.slice(
+					(pageNum - 1) * perPage,
+					localLength
+				);
+				let currentArrayAPI = APIArrayBig.slice(
+					0,
+					perPage - currentArrayLocal.length
+				);
+				let currentPageArray = currentArrayLocal.concat(currentArrayAPI);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (pageNum === localPages + 1) {
+				console.log("case 3");
+				// first full page of API array (no more localArrray)
+				let APIStartIndex = localLength % perPage;
+				let currentPageArray = APIArrayBig.slice(
+					APIStartIndex,
+					APIStartIndex + perPage
+				);
+				// setAPICounter(APICounter + perPage);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (pageNum > localPages) {
+				console.log("case 4");
+				// outside the bounds of the localArray by at least 1 page
+				let APIStartIndex =
+					(localLength % perPage) + (pageNum - localPages - 1) * perPage;
+				let APIEndIndex =
+					(localLength % perPage) + (pageNum - localPages) * perPage;
+				let currentPageArray = APIArrayBig.slice(APIStartIndex, APIEndIndex);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (pageNum === totalPages) {
+				console.log("case 5");
+				// behavior for the last page
+				let APIStartIndex =
+					APILength -
+					(localLength % perPage) +
+					(pageNum - localPages) * perPage;
+				let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
 		}
 	};
 
