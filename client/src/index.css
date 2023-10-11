@@ -528,13 +528,13 @@ input:checked+.slider:before {
 }
 
 #main-section-container {
-     border: 2px dotted goldenrod;
+     /* border: 2px dotted goldenrod; */
      margin: 1rem;
      padding: 1rem;
 }
 
 #home-container {
-     border: 1px solid cyan;
+     /* border: 1px solid cyan; */
      margin: 1rem;
      padding: 1rem;
 }
@@ -653,7 +653,7 @@ input:checked+.slider:before {
 .dropdown {
      position: relative;
      display: inline-block;
-     border: 1px dotted yellow;
+     /* border: 1px dotted yellow; */
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -687,7 +687,7 @@ input:checked+.slider:before {
 }
 
 #music-player-container {
-     border: 1px solid yellow;
+     /* border: 1px solid yellow; */
      margin: 1rem;
      padding: 1rem;
      display: flex;
@@ -695,7 +695,7 @@ input:checked+.slider:before {
 }
 
 #music-player {
-     border: 3px solid red;
+     /* border: 3px solid red; */
      flex-grow: 1;
      margin: 0 1rem;
 }
