@@ -23,7 +23,5 @@ npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
 
 ```
 
-Please make sure to create an account to be able to favorite drinks, make drinks, and have 
-
 
 
