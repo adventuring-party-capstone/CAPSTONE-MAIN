@@ -213,10 +213,6 @@ function App() {
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
 				/>
-				<label className="switch">
-					<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-					<span className="slider round">🌙</span>
-				</label>
 			</div>
 		</div>
 	);

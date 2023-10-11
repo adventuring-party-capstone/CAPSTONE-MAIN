@@ -262,6 +262,10 @@ h2 {
         text-align: right;
     }
 
+    #pagination{
+        background-color: rgb(250, 193, 193);
+    }
+
     .dropdown-content {
          background-color: var(--light-bg);
     }
