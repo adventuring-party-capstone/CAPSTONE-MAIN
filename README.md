@@ -15,6 +15,7 @@ npm run dev
 ```
 
 ```bash
+npm run seed
 npm run start
 ```
 
