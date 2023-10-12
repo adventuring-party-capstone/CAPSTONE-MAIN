@@ -175,38 +175,23 @@ export default function AllDrinks({ token, userId }) {
 	useEffect(() => {
 		let localLength = localArray.length;
 
-		if (page === 1 && !isToggled && localArray) {
-			// page 1 behavior for toggle off
-			if (localLength < perPage) {
-				// less than 18 local nonalc drinks
-				console.log("case UGH 1");
-				let currentLocalArray = localArray.slice(0, localLength);
-				console.log("currentLocalArray", currentLocalArray);
-				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
-				let currentPageArray = currentLocalArray.concat(currentAPIArray);
-				console.log("currentPageArray", currentPageArray);
-				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (localLength > perPage) {
-				// more than 18 local nonalc drinks
-				console.log("case UGH 2");
-				let currentPageArray = localArray.slice(0, perPage);
-				setAPIArrayBigToDisplay(currentPageArray);
-			}
-		} else if (page === 1 && isToggled && localArray) {
-			// page 1 behavior for toggle on
-			if (localLength < perPage) {
-				// less than 18 local nonalc drinks
-				let currentLocalArray = localArray.slice(0, localLength);
-				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
-				let currentPageArray = currentLocalArray.concat(currentAPIArray);
-				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (localLength > perPage) {
-				// more than 18 local nonalc drinks
-				let currentPageArray = localArray.slice(0, perPage);
-				setAPIArrayBigToDisplay(currentPageArray);
-			}
+		// page 1 behavior for toggle off
+		if (localLength < perPage) {
+			// less than 18 local nonalc drinks
+			console.log("case initial 1");
+			let currentLocalArray = localArray.slice(0, localLength);
+			// console.log("currentLocalArray", currentLocalArray);
+			let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
+			let currentPageArray = currentLocalArray.concat(currentAPIArray);
+			// console.log("currentPageArray", currentPageArray);
+			setAPIArrayBigToDisplay(currentPageArray);
+		} else if (localLength > perPage) {
+			// more than 18 local nonalc drinks
+			console.log("case initial 2");
+			let currentPageArray = localArray.slice(0, perPage);
+			setAPIArrayBigToDisplay(currentPageArray);
 		}
-	}, [localArray, APIArrayBig, isToggled]);
+	}, [localArray, APIArrayBig]);
 
 	//pushing the ids from alcoholic drinks into an array
 	const alcIdArray = [];
@@ -373,7 +358,7 @@ export default function AllDrinks({ token, userId }) {
 						count={totalPages}
 						page={page}
 						onChange={handleChange}
-						color="primary"
+						color="secondary"
 					/>
 				</div>
 
@@ -384,8 +369,7 @@ export default function AllDrinks({ token, userId }) {
 							<div id="flip-card" key={drink.idDrink}>
 								<div id="flip-card-inner">
 									<div id="flip-card-front">
-										{/* API drink name & image */}
-										{drink.strDrink && (
+										{drink.strDrink ? (
 											<div id="name section">
 												{alcIds.includes(drink.idDrink) ? (
 													<p>
@@ -396,30 +380,31 @@ export default function AllDrinks({ token, userId }) {
 													<p>{drink.strDrink}</p>
 												)}
 											</div>
+										) : (
+											drink.drinks_name && (
+												<div id="name section">
+													{drink.alcoholic ? (
+														<p>🍸{drink.drinks_name}</p>
+													) : (
+														<p>{drink.drinks_name}</p>
+													)}
+												</div>
+											)
 										)}
-										{drink.strDrinkThumb && (
+										{drink.strDrinkThumb ? (
 											<img
 												src={drink.strDrinkThumb}
 												alt={drink.strDrink}
 												id="images"
 											/>
-										)}
-										{/* local database drink & image */}
-										{drink.drinks_name && (
-											<div id="name section">
-												{drink.alcoholic ? (
-													<p>🍸{drink.drinks_name}</p>
-												) : (
-													<p>{drink.drinks_name}</p>
-												)}
-											</div>
-										)}
-										{drink.image && (
-											<img
-												src={drink.image}
-												alt={drink.drinks_name}
-												id="images"
-											/>
+										) : (
+											drink.image && (
+												<img
+													src={drink.image}
+													alt={drink.drinks_name}
+													id="images"
+												/>
+											)
 										)}
 									</div>
 									{/* API database drink */}
@@ -455,7 +440,7 @@ export default function AllDrinks({ token, userId }) {
 						count={totalPages}
 						page={page}
 						onChange={handleChange}
-						color="primary"
+						color="secondary"
 					/>
 				</div>
 			</section>

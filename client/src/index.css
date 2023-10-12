@@ -102,7 +102,24 @@ h2 {
      --dark-bg: #242424;
      /* background-color:var(--dark-bg); */
 
+     .MuiPaginationItem-root{
+        margin: 0.5rem 0.2rem;
+        color: white;
+        /* background-color: pink; */
+        font-size: 1.3rem;
+        font-family: inherit;
+    }
+/* 
+    .MuiPaginationItem-page{
+        background-color: pink; 
+    } */
 
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(115, 12, 29);
+    }
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover{
+        background-color: rgb(170, 59, 74);
+    }
 
      .slider.round {
           border-radius: 34px;
@@ -362,6 +379,25 @@ h2 {
         transform: scale(150%);
     }
 
+    .MuiPaginationItem-root{
+        margin: 0.5rem 0.2rem;
+        color: black;
+        /* background-color: pink; */
+        font-size: 1.3rem;
+        font-family: inherit;
+    }
+/* 
+    .MuiPaginationItem-page{
+        background-color: pink; 
+    } */
+
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(245, 49, 147);
+    }
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover{
+        background-color: rgb(196, 36, 116);
+    }
+
       /* visited link */
         a:visited {
         color: rgb(0,0,0);
@@ -411,10 +447,6 @@ h2 {
 
      #pink-button:hover{
         background-color: #be4e37;
-     }
-
-     #pagination {
-          background-color: rgb(250, 193, 193);
      }
 
      .dropdown-content {
@@ -929,7 +961,6 @@ input:checked+.slider:before {
      display: grid;
      place-items: center;
      margin: 1rem 5dvw;
-     background-color: #4a1313;
      border-radius: 10px;
      color: white;
 }
