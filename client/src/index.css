@@ -487,7 +487,7 @@ h2 {
      .dropdown-content a:hover {
           background-color: rgb(179, 179, 219);
      }
-
+     /* LIGHT FLIP CARDS */
      #flip-card-front {
           background-color: rgb(255, 255, 255);
           color: rgb(0, 0, 0);
@@ -505,79 +505,97 @@ h2 {
           /* background: linear-gradient(to right, #f2846b9f, #ebc0b7a1) border-box; */
      }
 
-     /* LIGHT DETAILS BUTTON */
-     .details-button {
-          background: #16154d;
-          height: 20%;
+     /* LIGHT EDIT FLIP CARDS */
+     #edit-flip-card-front {
+          background-color: rgb(255, 255, 255);
+          color: rgb(0, 0, 0);
+          background: linear-gradient(to top, #e28874da, #ffda75de);
           border-radius: 10px;
      }
 
-     .glow-on-hover {
-          /* width: 220px; */
-          width: auto;
-          height: auto;
-          border: 1px solid rgb(255, 255, 255);
-          margin: 1rem;
-          padding: 1rem;
-          outline: none;
-          color: black;
-          background: rgba(255, 255, 255, 0.321);
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
+     #edit-flip-card-back {
+          background-color: rgb(255, 255, 255);
+          background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
+          color: rgb(0, 0, 0);
+          transform: rotateY(180deg);
+          overflow-y: scroll;
           border-radius: 10px;
-          font-size: 1rem;
-          font-family: "EB Garamond";
-     }
+          /* background: linear-gradient(to right, #f2846b9f, #ebc0b7a1) border-box; */
 
-     .glow-on-hover-home {
-          /* width: 220px; */
-          width: auto;
-          height: auto;
-          border: 1px solid rgb(255, 255, 255);
-          margin: 1rem;
-          padding: 1rem;
-          outline: none;
-          color: #e7725b;
-          background: rgba(255, 255, 255, 0.321);
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
-          text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
-          border-radius: 10px;
-          font-size: 4rem;
-          font-family: "Great Vibes";
-     }
+          /* LIGHT DETAILS BUTTON */
+          .details-button {
+               background: #16154d;
+               height: 20%;
+               border-radius: 10px;
+          }
 
-     .glow-on-hover:before,
-     .glow-on-hover-home:before {
-          content: "";
+          .glow-on-hover {
+               /* width: 220px; */
+               width: auto;
+               height: auto;
+               border: 1px solid rgb(255, 255, 255);
+               margin: 1rem;
+               padding: 1rem;
+               outline: none;
+               color: black;
+               background: rgba(255, 255, 255, 0.321);
+               cursor: pointer;
+               position: relative;
+               z-index: 0;
+               border-radius: 10px;
+               font-size: 1rem;
+               font-family: "EB Garamond";
+          }
 
-          background: linear-gradient(
-               45deg,
-               #ff0000,
-               #ff7300,
-               #fffb00,
-               #48ff00,
-               #00ffd5,
-               #002bff,
-               #7a00ff,
-               #ff00c8,
-               #ff0000
-          );
+          .glow-on-hover-home {
+               /* width: 220px; */
+               width: auto;
+               height: auto;
+               border: 1px solid rgb(255, 255, 255);
+               margin: 1rem;
+               padding: 1rem;
+               outline: none;
+               color: #e7725b;
+               background: rgba(255, 255, 255, 0.321);
+               cursor: pointer;
+               position: relative;
+               z-index: 0;
+               text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+               border-radius: 10px;
+               font-size: 4rem;
+               font-family: "Great Vibes";
+          }
 
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          background-size: 200%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowing 20s linear infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
+          .glow-on-hover:before,
+          .glow-on-hover-home:before {
+               content: "";
+
+               background: linear-gradient(
+                    45deg,
+                    #ff0000,
+                    #ff7300,
+                    #fffb00,
+                    #48ff00,
+                    #00ffd5,
+                    #002bff,
+                    #7a00ff,
+                    #ff00c8,
+                    #ff0000
+               );
+
+               position: absolute;
+               top: -2px;
+               left: -2px;
+               background-size: 200%;
+               z-index: -1;
+               filter: blur(5px);
+               width: calc(100% + 4px);
+               height: calc(100% + 4px);
+               animation: glowing 20s linear infinite;
+               opacity: 0;
+               transition: opacity 0.3s ease-in-out;
+               border-radius: 10px;
+          }
      }
 
      @keyframes glowing {
@@ -692,12 +710,12 @@ h2 {
      }
 
      #tabLink2 {
-          background-color: #ffa100;
+          background-color: #ffbc48;
           color: white;
           float: left;
           border: none;
           border-radius: 5px 10px;
-          outline: 3px solid #ffa100;
+          outline: 3px solid #ffbc48;
           cursor: pointer;
           padding: 12px 16px;
           font-size: 1rem;
@@ -721,7 +739,7 @@ h2 {
      }
 
      #created-drinks-tab {
-          background-color: #ffa100;
+          background-color: #ffbc48;
           border-radius: 0 10px;
           font-family: "EB Garamond";
      }
@@ -907,6 +925,65 @@ input:checked + .slider:before {
      /* Firefox */
 }
 
+/* FAVORITES AND CREATED DRINKS GALLERIES  */
+#created-drinks-gallery,
+#favorites-gallery {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-evenly;
+}
+
+/* EDIT FLIP CARD */
+#edit-flip-card {
+     background-color: transparent;
+     border-radius: 10px;
+     width: 30vw;
+     height: 30vw;
+     /* overflow: hidden; */
+     /* perspective: 1000px; */
+     /* Remove this if you don't want the 3D effect */
+     margin-top: 1rem;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+#edit-flip-card-inner {
+     position: relative;
+     border-radius: 10px;
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     transition: transform 0.8s;
+     transform-style: preserve-3d;
+}
+
+#edit-flip-card:hover #edit-flip-card-inner {
+     transform: rotateY(180deg);
+}
+
+#edit-flip-card-front,
+#edit-flip-card-back {
+     position: absolute;
+     border-radius: 10%;
+     width: 100%;
+     height: 100%;
+     -webkit-backface-visibility: hidden;
+     /* Safari */
+     backface-visibility: hidden;
+     margin: 1rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#edit-flip-card-back::-webkit-scrollbar {
+     display: none;
+}
+
+#edit-flip-card-back {
+     -ms-overflow-style: none;
+     /* IE and Edge */
+     scrollbar-width: none;
+     /* Firefox */
+}
 /* FAVORITES AND BUTTONS */
 #favorite-button {
      width: 8rem;
