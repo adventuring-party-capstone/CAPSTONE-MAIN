@@ -145,9 +145,12 @@ export default function UserCreatedDrinks(userId) {
                          {drinksToDisplay.map((drink) => {
                               const localDrinkId = drink.drinks_id;
                               return (
-                                   <div key={drink.drinks_id} id="flip-card">
-                                        <div id="flip-card-inner">
-                                             <div id="flip-card-front">
+                                   <div
+                                        key={drink.drinks_id}
+                                        id="edit-flip-card"
+                                   >
+                                        <div id="edit-flip-card-inner">
+                                             <div id="edit-flip-card-front">
                                                   <h1>
                                                        {drink.alcoholic ==
                                                        true ? (
@@ -173,17 +176,26 @@ export default function UserCreatedDrinks(userId) {
                                                        id="images"
                                                   />
                                              </div>
-                                             <div id="flip-card-back">
-                                                  <DetailsButton
-                                                       drinkId={localDrinkId}
-                                                       id="pink-button"
-                                                  />
-                                                  <DeleteUserCreatedDrink
-                                                       drinks_id={localDrinkId}
-                                                  />
-                                                  <EditUserDrink
-                                                       drinkId={localDrinkId}
-                                                  />
+
+                                             <div id="edit-flip-card-back">
+                                                  <div>
+                                                       <DetailsButton
+                                                            drinkId={
+                                                                 localDrinkId
+                                                            }
+                                                            id="pink-button"
+                                                       />
+                                                       <DeleteUserCreatedDrink
+                                                            drinks_id={
+                                                                 localDrinkId
+                                                            }
+                                                       />
+                                                       <EditUserDrink
+                                                            drinkId={
+                                                                 localDrinkId
+                                                            }
+                                                       />
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
