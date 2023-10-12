@@ -19,12 +19,15 @@ export default function CocktailDBDrinkCard({
 	nonAlcIngredientName,
 	token,
 	userId,
+	oldInput,
+	musicChoice,
 }) {
 	const [alcDrinks, setAlcDrinks] = useState([]);
 	const [nonAlcDrinks, setNonAlcDrinks] = useState([]);
 	const [byAlcIngredient, setByAlcIngredient] = useState([]);
 	const [byNonAlcIngredient, setByNonAlcIngredient] = useState([]);
-	const [chosenDrinkId, setChosenDrinkId] = useState(null);
+	const [alcChosenDrinkId, setAlcChosenDrinkId] = useState(null);
+	const [nonAlcChosenDrinkId, setNonAlcChosenDrinkId] = useState(null);
 	const [drinkToRender, setDrinkToRender] = useState([]);
 	const [localArray, setLocalArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(false);
@@ -36,6 +39,8 @@ export default function CocktailDBDrinkCard({
 	const nonAlcIngredName = nonAlcIngredientName;
 
 	const [alcIds, setAlcIds] = useState([]);
+
+	console.log("oldInput in CDBDC", oldInput);
 
 	// TOGGLE LOGIC
 	function handleSwitch(event) {
@@ -155,35 +160,46 @@ export default function CocktailDBDrinkCard({
 		randomizeIndices();
 
 		if (isToggled) {
-			setChosenDrinkId(localArray[randomIndexAlc]);
+			setAlcChosenDrinkId(localArray[randomIndexAlc]);
 		} else {
-			setChosenDrinkId(localArray[randomIndexNonAlc]);
+			setNonAlcChosenDrinkId(localArray[randomIndexNonAlc]);
 		}
 	}
 
 	useEffect(() => {
 		if (isToggled) {
-			setChosenDrinkId(localArray[randomIndexAlc]);
+			setAlcChosenDrinkId(localArray[randomIndexAlc]);
 		} else if (!isToggled && nonAlcIngredientArray.length > 0) {
-			setChosenDrinkId(nonAlcIngredientArray[randomIndexNonAlc]);
+			setNonAlcChosenDrinkId(nonAlcIngredientArray[randomIndexNonAlc]);
 		}
 	}, [localArray, nonAlcIngredientArray, isToggled]);
 
 	// fetching cocktail by id from API
 	useEffect(() => {
-		console.log("chosenDrinkId in UE", chosenDrinkId);
-		const chosenId = chosenDrinkId;
+		// console.log("alcChosenDrinkId in UE", alcChosenDrinkId);
+		const alcChosenId = alcChosenDrinkId;
+		const nonAlcChosenId = nonAlcChosenDrinkId;
 		async function getCocktailById() {
-			const response = await fetchCocktailById(chosenId);
-			console.log("response from getCocktailById", response);
-			if (response) {
-				setDrinkToRender(response.drinks[0]);
-			} else {
-				console.log("can't get single drink to render");
+			if (isToggled && alcChosenId) {
+				const response = await fetchCocktailById(alcChosenId);
+				console.log("alc response from getCocktailById", response);
+				if (response) {
+					setDrinkToRender(response.drinks[0]);
+				} else {
+					console.log("can't get single drink to render");
+				}
+			} else if (!isToggled && nonAlcChosenId) {
+				const response = await fetchCocktailById(nonAlcChosenId);
+				console.log("nonAlc response from getCocktailById", response);
+				if (response) {
+					setDrinkToRender(response.drinks[0]);
+				} else {
+					console.log("can't get single drink to render");
+				}
 			}
 		}
 		getCocktailById();
-	}, [chosenDrinkId, isToggled]);
+	}, [alcChosenDrinkId, nonAlcChosenDrinkId, isToggled]);
 
 	console.log("drink to render above return", drinkToRender);
 	console.log("alcIds at 192", alcIds);
@@ -198,14 +214,21 @@ export default function CocktailDBDrinkCard({
 							onChange={(event) => handleSwitch(event)}
 						/>
 					}
-					label="Show alcoholic drinks"
+					label={
+						isToggled
+							? "Click to hide alcoholic drinks"
+							: "Click to show both alcoholic and nonalcoholic drinks"
+					}
 				/>
 			</FormGroup>
+			<h3>🍸 Drink Contains Alcohol</h3>
 			{/* if the drink to render.idDrink is in the alcIngredientArray*/}
 			<div id="flip-card">
 				<div id="flip-card-inner">
 					<div id="flip-card-front">
-						{drinkToRender && alcIds.includes(drinkToRender.idDrink) ? (
+						{drinkToRender &&
+						alcIds.includes(drinkToRender.idDrink) &&
+						isToggled ? (
 							<div>
 								<br />
 								<h2>🍸{drinkToRender.strDrink}</h2>
@@ -223,9 +246,20 @@ export default function CocktailDBDrinkCard({
 					<div id="flip-card-back">
 						<h1>{drinkToRender.strDrink}</h1>
 						{token && (
-							<FavoriteButton api_drinks_id={chosenDrinkId} userId={userId} />
+							<FavoriteButton
+								api_drinks_id={
+									alcChosenDrinkId ? alcChosenDrinkId : nonAlcChosenDrinkId
+								}
+								userId={userId}
+							/>
 						)}
-						{<DetailsButton drinkId={chosenDrinkId} />}
+						{
+							<DetailsButton
+								drinkId={
+									alcChosenDrinkId ? alcChosenDrinkId : nonAlcChosenDrinkId
+								}
+							/>
+						}
 					</div>
 				</div>
 			</div>

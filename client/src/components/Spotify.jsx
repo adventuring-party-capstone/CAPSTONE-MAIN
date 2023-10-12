@@ -18,6 +18,7 @@ export default function Spotify({
 	spotifyToken,
 	setSpotifyToken,
 	token,
+	oldInput,
 }) {
 	const [drinks, setDrinks] = useState([]);
 	const [localGenres, setLocalGenres] = useState([]);
@@ -189,6 +190,8 @@ export default function Spotify({
 					token={token}
 					alcIngredientName={filteredIngredNames[1]}
 					nonAlcIngredientName={filteredIngredNames[0]}
+					oldInput={oldInput}
+					musicChoice={musicChoice}
 				/>
 			)}
 		</div>
