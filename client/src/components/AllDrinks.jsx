@@ -39,7 +39,7 @@ export default function AllDrinks({ token, userId }) {
 	const [endIndex, setEndIndex] = useState(18);
 	const [totalPages, setTotalPages] = useState(1);
 	const [APIArrayBigToDisplay, setAPIArrayBigToDisplay] = useState([]);
-	const perPage = 18; // 18 items per page
+	const perPage = 20; // items per page
 
 	useEffect(() => {
 		async function getAllDrinks() {
@@ -143,7 +143,7 @@ export default function AllDrinks({ token, userId }) {
 				setLocalArray(allDrinks);
 			} else if (!drink.alcoholic && !isToggled) {
 				nonAlcArray.push(drink);
-				// console.log("nonAlcArray", nonAlcArray);
+				console.log("nonAlcArray", nonAlcArray);
 				setLocalArray(nonAlcArray);
 			}
 		});
@@ -203,12 +203,6 @@ export default function AllDrinks({ token, userId }) {
 		setAlcIds(alcIdArray);
 	}, [allAlcDrinks]);
 
-	// show the correct drinks on page 1 on first page render
-	// ||
-	// 	  localArray.filter((drink) =>
-	// 			drink.drinks_name.toLowerCase().includes(searchParam)
-	// 	  )
-
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
 				drink.strDrink.toLowerCase().includes(searchParam)
@@ -248,7 +242,7 @@ export default function AllDrinks({ token, userId }) {
 				let currentPageArray = currentLocalArray.concat(currentAPIArray);
 				// console.log("currentPageArray case 0", currentPageArray);
 				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (localLength > perPage) {
+			} else if (localLength >= perPage) {
 				// more than 18 local nonalc drinks
 				console.log("Case 0A2");
 				let currentPageArray = localArray.slice(0, perPage);
@@ -258,13 +252,13 @@ export default function AllDrinks({ token, userId }) {
 			// page 1 behavior for toggle on
 			console.log("Case 0B");
 			if (localLength < perPage) {
-				// less than 18 local nonalc drinks
+				// less than 18 local alc drinks
 				let currentLocalArray = localArray.slice(0, localLength);
 				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
 				let currentPageArray = currentLocalArray.concat(currentAPIArray);
 				// console.log("currentPageArray case 0", currentPageArray);
 				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (localLength > perPage) {
+			} else if (localLength >= perPage) {
 				// more than 18 local nonalc drinks
 				let currentPageArray = localArray.slice(0, perPage);
 				setAPIArrayBigToDisplay(currentPageArray);
@@ -297,6 +291,8 @@ export default function AllDrinks({ token, userId }) {
 				console.log("case 3");
 				// first full page of API array (no more localArrray)
 				let APIStartIndex = perPage - (localLength % perPage);
+				console.log("APIStartIndex in case 3", APIStartIndex);
+				console.log("APIEndIndex in case 3", APIStartIndex + perPage);
 				let currentPageArray = APIArrayBig.slice(
 					APIStartIndex,
 					APIStartIndex + perPage
@@ -306,20 +302,31 @@ export default function AllDrinks({ token, userId }) {
 			} else if (pageNum > localPages && pageNum != totalPages) {
 				console.log("case 4");
 				// outside the bounds of the localArray by at least 1 page
-				let APIStartIndex =
-					(localLength % perPage) + (pageNum - localPages - 1) * perPage;
-				let APIEndIndex =
-					(localLength % perPage) + (pageNum - localPages) * perPage;
+				let APIStartIndex = (pageNum - 1) * perPage - (localLength % perPage);
+				// console.log("APIStartIndex in case 4", APIStartIndex);
+				let APIEndIndex = APIStartIndex + perPage;
+				// console.log("APIEndIndex in case 4", APIEndIndex);
 				let currentPageArray = APIArrayBig.slice(APIStartIndex, APIEndIndex);
 				setAPIArrayBigToDisplay(currentPageArray);
 			}
 		} else if (pageNum == totalPages) {
 			console.log("case 5");
 			// behavior for the last page
-			let APIStartIndex = APILength - (APILength % perPage);
-			// console.log("APIStartIndex", APIStartIndex);
-			let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
-			setAPIArrayBigToDisplay(currentPageArray);
+			let APIStartIndex = (pageNum - 1) * perPage - (localLength % perPage);
+			console.log("APIStartIndex for case 5", APIStartIndex);
+			console.log("APIEndIndex for case 5", APILength);
+
+			if (APILength < APIStartIndex) {
+				setAPIArrayBigToDisplay([
+					{
+						drinks_name: "You've reached the end of the drinks.",
+						image: "https://i.ytimg.com/vi/pKGxY15P_d8/sddefault.jpg",
+					},
+				]);
+			} else {
+				let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
 		}
 	};
 

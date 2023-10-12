@@ -19,6 +19,8 @@ export default function CocktailDBDrinkCard({
 	nonAlcIngredientName,
 	token,
 	userId,
+	oldInput,
+	musicChoice,
 }) {
 	const [alcDrinks, setAlcDrinks] = useState([]);
 	const [nonAlcDrinks, setNonAlcDrinks] = useState([]);
@@ -37,6 +39,8 @@ export default function CocktailDBDrinkCard({
 	const nonAlcIngredName = nonAlcIngredientName;
 
 	const [alcIds, setAlcIds] = useState([]);
+
+	console.log("oldInput in CDBDC", oldInput);
 
 	// TOGGLE LOGIC
 	function handleSwitch(event) {

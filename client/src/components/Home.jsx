@@ -18,6 +18,7 @@ export default function Home({
 }) {
 	const [musicInput, setMusicInput] = useState("");
 	const [musicChoice, setMusicChoice] = useState("");
+	const [oldInput, setOldInput] = useState("");
 	const [isClicked, setIsClicked] = useState(false);
 
 	// const navigate = useNavigate();
@@ -29,12 +30,14 @@ export default function Home({
 		event.preventDefault();
 		const realMusicInput = handleInput(musicInput);
 		console.log("real music input", realMusicInput);
-		setMusicChoice(realMusicInput);
-		// console.log("musicChoice", musicChoice);
-
 		if (realMusicInput.length == 0) {
 			alert("Please enter a music choice to get a suggested drink.");
 		}
+
+		setMusicChoice(realMusicInput);
+
+		// console.log("musicChoice", musicChoice);
+		console.log("oldInput", oldInput);
 
 		if (musicChoice) {
 			console.log("entering handleSubmit");
@@ -71,6 +74,9 @@ export default function Home({
 					type="text"
 					name="search"
 					placeholder="Enter music choice here"
+					onFocus={(event) =>
+						setOldInput((event.target.oldvalue = event.target.value))
+					}
 					onChange={(event) => setMusicInput(event.target.value)}
 				/>
 			</form>
@@ -90,6 +96,7 @@ export default function Home({
 					token={token}
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
+					oldInput={oldInput}
 				/>
 			)}
 			{!token && (
