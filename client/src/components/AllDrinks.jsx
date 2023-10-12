@@ -172,36 +172,27 @@ export default function AllDrinks({ token, userId }) {
 		setTotalPages(Math.ceil(APIArray[0].length / perPage));
 	}, [combinedArray, isToggled, allNonAlcDrinks]);
 
-	// console.log("all alc drinks line 134", allAlcDrinks);
-
-	//pushing the ids from alcoholic drinks into an array
-	const alcIdArray = [];
-	useEffect(() => {
-		for (let i = 0; i < allAlcDrinks.length; i++) {
-			alcIdArray.push(allAlcDrinks[i].idDrink);
-		}
-		// console.log("alcIdArray inside UE", alcIdArray);
-		setAlcIds(alcIdArray);
-	}, [allAlcDrinks]);
-
-	// show the correct drinks on page 1 on first page render
 	useEffect(() => {
 		let localLength = localArray.length;
 
-		if (page === 1 && !isToggled) {
+		if (page === 1 && !isToggled && localArray) {
 			// page 1 behavior for toggle off
 			if (localLength < perPage) {
 				// less than 18 local nonalc drinks
+				console.log("case UGH 1");
 				let currentLocalArray = localArray.slice(0, localLength);
+				console.log("currentLocalArray", currentLocalArray);
 				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
 				let currentPageArray = currentLocalArray.concat(currentAPIArray);
+				console.log("currentPageArray", currentPageArray);
 				setAPIArrayBigToDisplay(currentPageArray);
 			} else if (localLength > perPage) {
 				// more than 18 local nonalc drinks
+				console.log("case UGH 2");
 				let currentPageArray = localArray.slice(0, perPage);
 				setAPIArrayBigToDisplay(currentPageArray);
 			}
-		} else if (page === 1 && isToggled) {
+		} else if (page === 1 && isToggled && localArray) {
 			// page 1 behavior for toggle on
 			if (localLength < perPage) {
 				// less than 18 local nonalc drinks
@@ -217,12 +208,29 @@ export default function AllDrinks({ token, userId }) {
 		}
 	}, [localArray, APIArrayBig, isToggled]);
 
+	//pushing the ids from alcoholic drinks into an array
+	const alcIdArray = [];
+	useEffect(() => {
+		for (let i = 0; i < allAlcDrinks.length; i++) {
+			alcIdArray.push(allAlcDrinks[i].idDrink);
+		}
+		// console.log("alcIdArray inside UE", alcIdArray);
+		setAlcIds(alcIdArray);
+	}, [allAlcDrinks]);
+
+	// show the correct drinks on page 1 on first page render
+	// ||
+	// 	  localArray.filter((drink) =>
+	// 			drink.drinks_name.toLowerCase().includes(searchParam)
+	// 	  )
+
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
 				drink.strDrink.toLowerCase().includes(searchParam)
-		  ) ||
-		  localArray.filter((drink) =>
-				drink.drinks_name.toLowerCase().includes(searchParam)
+		  ).concat(
+				localArray.filter((drink) =>
+					drink.drinks_name.toLowerCase().includes(searchParam)
+				)
 		  )
 		: APIArrayBigToDisplay;
 
@@ -244,7 +252,7 @@ export default function AllDrinks({ token, userId }) {
 		// console.log("APILength", APILength);
 
 		// console.log("totalLength", totalLength);
-		if (pageNum === 1 && !isToggled) {
+		if (pageNum === 1 && !isToggled && localArray) {
 			// page 1 behavior for toggle off
 			console.log("Case 0A");
 			if (localLength < perPage) {
@@ -261,7 +269,7 @@ export default function AllDrinks({ token, userId }) {
 				let currentPageArray = localArray.slice(0, perPage);
 				setAPIArrayBigToDisplay(currentPageArray);
 			}
-		} else if (pageNum === 1 && isToggled) {
+		} else if (pageNum === 1 && isToggled && localArray) {
 			// page 1 behavior for toggle on
 			console.log("Case 0B");
 			if (localLength < perPage) {
@@ -356,7 +364,7 @@ export default function AllDrinks({ token, userId }) {
 						id="formInput"
 						className="inputField"
 						type="text"
-						placeholder="Search all drinks"
+						placeholder="Search all drink names"
 						onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
 					/>
 				</label>
@@ -368,8 +376,9 @@ export default function AllDrinks({ token, userId }) {
 						color="primary"
 					/>
 				</div>
+
 				<div id="all-drinks-gallery">
-					{drinksToDisplayAPI.map((drink) => {
+					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;
 						return (
 							<div id="flip-card" key={drink.idDrink}>
