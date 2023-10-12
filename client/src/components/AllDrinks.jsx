@@ -184,8 +184,11 @@ export default function AllDrinks({ token, userId }) {
 		: localArray;
 
 	const drinksToDisplayAPI = searchParam
-		? APIArrayBigToDisplay.filter((drink) =>
+		? APIArrayBig.filter((drink) =>
 				drink.strDrink.toLowerCase().includes(searchParam)
+		  ) ||
+		  localArray.filter((drink) =>
+				drink.drinks_name.toLowerCase().includes(searchParam)
 		  )
 		: APIArrayBigToDisplay;
 
@@ -271,14 +274,14 @@ export default function AllDrinks({ token, userId }) {
 			} else if (pageNum === localPages + 1) {
 				console.log("case 3");
 				// first full page of API array (no more localArrray)
-				let APIStartIndex = localLength % perPage;
+				let APIStartIndex = perPage - (localLength % perPage);
 				let currentPageArray = APIArrayBig.slice(
 					APIStartIndex,
 					APIStartIndex + perPage
 				);
 				// setAPICounter(APICounter + perPage);
 				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (pageNum > localPages) {
+			} else if (pageNum > localPages && pageNum != totalPages) {
 				console.log("case 4");
 				// outside the bounds of the localArray by at least 1 page
 				let APIStartIndex =
@@ -287,16 +290,14 @@ export default function AllDrinks({ token, userId }) {
 					(localLength % perPage) + (pageNum - localPages) * perPage;
 				let currentPageArray = APIArrayBig.slice(APIStartIndex, APIEndIndex);
 				setAPIArrayBigToDisplay(currentPageArray);
-			} else if (pageNum === totalPages) {
-				console.log("case 5");
-				// behavior for the last page
-				let APIStartIndex =
-					APILength -
-					(localLength % perPage) +
-					(pageNum - localPages) * perPage;
-				let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
-				setAPIArrayBigToDisplay(currentPageArray);
 			}
+		} else if (pageNum == totalPages) {
+			console.log("case 5");
+			// behavior for the last page
+			let APIStartIndex = APILength - (APILength % perPage);
+			console.log("APIStartIndex", APIStartIndex);
+			let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
+			setAPIArrayBigToDisplay(currentPageArray);
 		}
 	};
 
@@ -334,44 +335,6 @@ export default function AllDrinks({ token, userId }) {
 						color="primary"
 					/>
 				</div>
-				{/* <div id="all-drinks-gallery">
-					{drinksToDisplay.map((drink) => {
-						const localDrinkId = drink.drinks_id;
-						return (
-							<div id="flip-card" key={drink.drinks_id}>
-								<div id="flip-card-inner">
-									<div id="flip-card-front">
-										<p>
-											{drink.alcoholic == true ? (
-												<text>
-													🍸
-													{drink.drinks_name}
-												</text>
-											) : (
-												<text>{drink.drinks_name}</text>
-											)}
-										</p>
-										<img
-											src={drink.image}
-											alt={drink.drinks_name}
-											id="images"
-										/>
-									</div>
-									<div id="flip-card-back">
-										<h1>{drink.drinks_name}</h1>
-										{token && (
-											<FavoriteButton
-												drinkId={drink.drinks_id}
-												userId={userId}
-											/>
-										)}
-										<DetailsButton drinkId={localDrinkId} />
-									</div>
-								</div>
-							</div>
-						);
-					})}
-				</div> */}
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI.map((drink) => {
 						const APIDrinkId = drink.idDrink;
@@ -379,6 +342,7 @@ export default function AllDrinks({ token, userId }) {
 							<div id="flip-card" key={drink.idDrink}>
 								<div id="flip-card-inner">
 									<div id="flip-card-front">
+										{/* API drink name & image */}
 										{drink.strDrink && (
 											<div id="name section">
 												{alcIds.includes(drink.idDrink) ? (
@@ -391,6 +355,14 @@ export default function AllDrinks({ token, userId }) {
 												)}
 											</div>
 										)}
+										{drink.strDrinkThumb && (
+											<img
+												src={drink.strDrinkThumb}
+												alt={drink.strDrink}
+												id="images"
+											/>
+										)}
+										{/* local database drink & image */}
 										{drink.drinks_name && (
 											<div id="name section">
 												{drink.alcoholic ? (
@@ -400,14 +372,6 @@ export default function AllDrinks({ token, userId }) {
 												)}
 											</div>
 										)}
-
-										{drink.strDrinkThumb && (
-											<img
-												src={drink.strDrinkThumb}
-												alt={drink.strDrink}
-												id="images"
-											/>
-										)}
 										{drink.image && (
 											<img
 												src={drink.image}
@@ -416,6 +380,7 @@ export default function AllDrinks({ token, userId }) {
 											/>
 										)}
 									</div>
+									{/* API database drink */}
 									{drink.idDrink && (
 										<div id="flip-card-back">
 											<h1>{drink.strDrink}</h1>
@@ -428,6 +393,7 @@ export default function AllDrinks({ token, userId }) {
 											<DetailsButton drinkId={APIDrinkId} />
 										</div>
 									)}
+									{/* local database drink */}
 									{drink.drinks_id && (
 										<div id="flip-card-back">
 											<h1>{drink.drinks_name}</h1>
