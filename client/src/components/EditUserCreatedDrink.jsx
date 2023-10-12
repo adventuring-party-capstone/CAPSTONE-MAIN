@@ -1,18 +1,12 @@
-// this component handles the editing of a physical instrument
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { editDrink } from "../../fetching/local";
+import { editDrink, fetchSingleDrink } from "../../fetching/local";
 import { TextField, InputLabel, Select, MenuItem } from "@mui/material";
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 export default function EditUserDrink({ drinkId }) {
      const [isOpen, setIsOpen] = useState(false);
-     const [drinks_name, setDrinks_name] = useState("");
-     const [ingredients, setIngredients] = useState("");
-     const [recipe, setRecipe] = useState("");
-     const [image, setImage] = useState("");
-     const [glass, setGlass] = useState("");
-     const [alcoholic, setAlcoholic] = useState(false);
+     const [drink, setDrink] = useState({});
 
      const navigate = useNavigate();
 
@@ -22,20 +16,28 @@ export default function EditUserDrink({ drinkId }) {
           setIsOpen(!isOpen);
      }
 
-     const handleChange = (e) => {
-          setAlcoholic(e.target.value);
-     };
+     useEffect(() => {
+          async function fetchDrinkData() {
+               try {
+                    const response = await fetchSingleDrink(drink_id);
+                    console.log("fetched drink data:", response);
+                    setDrink(response);
+               } catch (error) {
+                    console.error("error fetching drink:", error);
+               }
+          }
+          fetchDrinkData();
+     }, []);
 
-     async function handleEdit() {
+     async function handleEdit(event) {
           event.preventDefault();
 
           let drinkData = {
-               drinks_name: drinks_name,
-               ingredients: ingredients,
-               recipe: recipe,
-               image: image,
-               glass: glass,
-               alcoholic: alcoholic,
+               drinks_name: drink.drinks_name,
+               ingredients: drink.ingredients,
+               recipe: drink.recipe,
+               image: drink.image,
+               alcoholic: drink.alcoholic,
           };
 
           try {
@@ -48,7 +50,7 @@ export default function EditUserDrink({ drinkId }) {
 
      return (
           <div>
-               <button onClick={handleClick} id="edit-button">
+               <button onClick={handleClick} id="clear-button">
                     Edit Drink
                </button>
                {isOpen && (
@@ -58,55 +60,90 @@ export default function EditUserDrink({ drinkId }) {
                               <TextField
                                    autoFocus
                                    label="Drink Name"
-                                   value={drinks_name}
+                                   value={
+                                        drink.drinks_name
+                                             ? drink.drinks_name
+                                             : ""
+                                   }
                                    onChange={(e) =>
-                                        setDrinks_name(e.target.value)
+                                        setDrink({
+                                             ...drink,
+                                             drinks_name: e.target.value,
+                                        })
                                    }
                               />
+                              <br />
+                              <br />
+                              {/* find expanding field for ingredeints and recipes */}
+
                               <TextField
+                                   multiline
+                                   rows={4}
+                                   maxRows={6}
                                    autoFocus
                                    label="Ingredients"
-                                   value={ingredients}
+                                   value={drink.ingredients || ""}
                                    onChange={(e) =>
-                                        setIngredients(e.target.value)
+                                        setDrink({
+                                             ...drink,
+                                             ingredients: e.target.value,
+                                        })
                                    }
                               />
+                              <br />
                               <br />
                               <TextField
                                    autoFocus
                                    label="Recipe"
-                                   value={recipe}
-                                   onChange={(e) => setRecipe(e.target.value)}
+                                   multiline
+                                   rows={4}
+                                   maxRows={6}
+                                   value={drink.recipe || ""}
+                                   onChange={(e) =>
+                                        setDrink({
+                                             ...drink,
+                                             recipe: e.target.value,
+                                        })
+                                   }
                               />
-                              <TextField
-                                   autoFocus
-                                   label="Image URL"
-                                   placeholder="Please re-enter URL"
-                                   value={image}
-                                   onChange={(e) => setImage(e.target.value)}
-                              />
+                              <br />
                               <br />
                               <TextField
                                    autoFocus
-                                   label="Glass"
-                                   value={glass}
-                                   onChange={(e) => setGlass(e.target.value)}
+                                   label="Image URL"
+                                   placeholder="Image URL"
+                                   value={drink.image || ""}
+                                   onChange={(e) =>
+                                        setDrink({
+                                             ...drink,
+                                             image: e.target.value,
+                                        })
+                                   }
                               />
+
+                              <br />
                               <br />
                               <InputLabel></InputLabel>
                               <div>Alcoholic?</div>
                               <Select
                                    className="inputField"
-                                   value={alcoholic}
+                                   value={drink.alcoholic || false}
                                    type="text"
                                    name="alcoholic"
                                    placeholder="alcoholic"
-                                   onChange={handleChange}
+                                   onChange={(e) => {
+                                        setDrink({
+                                             ...drink,
+                                             alcoholic: e.target.value,
+                                        });
+                                   }}
                               >
                                    <MenuItem value={false}>No</MenuItem>
                                    <MenuItem value={true}>Yes</MenuItem>
                               </Select>
-                              <button type="submit">Submit</button>
+                              <button type="submit" id="clear-button">
+                                   Submit
+                              </button>
                          </form>
                     </div>
                )}
