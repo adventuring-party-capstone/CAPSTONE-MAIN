@@ -167,12 +167,18 @@ export default function CocktailDBDrinkCard({
 	}
 
 	useEffect(() => {
+		if (oldInput !== musicChoice) {
+			randomizeIndices();
+		}
+	}, [oldInput, musicChoice]);
+
+	useEffect(() => {
 		if (isToggled) {
 			setAlcChosenDrinkId(localArray[randomIndexAlc]);
 		} else if (!isToggled && nonAlcIngredientArray.length > 0) {
 			setNonAlcChosenDrinkId(nonAlcIngredientArray[randomIndexNonAlc]);
 		}
-	}, [localArray, nonAlcIngredientArray, isToggled]);
+	}, [localArray, nonAlcIngredientArray, isToggled, nonAlcChosenDrinkId]);
 
 	// fetching cocktail by id from API
 	useEffect(() => {
