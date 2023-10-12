@@ -244,7 +244,11 @@ export default function Favorites({ token, userId }) {
 									onChange={(event) => handleSwitch(event)}
 								/>
 							}
-							label="Show alcoholic drinks"
+							label={
+								isToggled
+									? "Click to hide alcoholic drinks"
+									: "Click to show both alcoholic and nonalcoholic drinks"
+							}
 						/>
 					</FormGroup>
 					<label>

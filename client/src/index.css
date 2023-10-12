@@ -102,7 +102,15 @@ h2 {
      --dark-bg: #242424;
      /* background-color:var(--dark-bg); */
 
-     .MuiPaginationItem-root{
+    /* MUI toggle formatting */
+    .css-ahj2mt-MuiTypography-root {
+        font-family: "EB Garamond";
+    }
+    .css-j204z7-MuiFormControlLabel-root {
+        place-content: center;
+    }
+
+    .MuiPaginationItem-root{
         margin: 0.5rem 0.2rem;
         color: white;
         /* background-color: pink; */
@@ -379,6 +387,15 @@ h2 {
         transform: scale(150%);
     }
 
+    /* MUI toggle formatting */
+    .css-ahj2mt-MuiTypography-root {
+        font-family: "EB Garamond";
+    }
+    .css-j204z7-MuiFormControlLabel-root {
+        place-content: center;
+    }
+
+    /* MUI pagination formatting */
     .MuiPaginationItem-root{
         margin: 0.5rem 0.2rem;
         color: black;
