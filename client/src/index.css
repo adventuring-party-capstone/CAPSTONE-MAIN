@@ -14,7 +14,7 @@ body {
 
 :root {
      /* max-width: 100dvw; */
-     place-content: center;
+     /* place-content: center; */
      text-align: center;
      margin: 0;
 
@@ -272,6 +272,7 @@ h2 {
 
      #home-container {
           padding: 2rem;
+          z-index: -1;
      }
 
      .dropdown-content {
@@ -468,10 +469,14 @@ h2 {
 }
 
 .light-mode {
-     background: url("./assets/LightMode.PNG") fixed;
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-color: white;
+     #with-background {
+          background: url("./assets/LightMode.PNG") fixed;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: white;
+     }
+
+     background-color: rgba(255, 255, 255, 0);
 
      #logo {
           transform: scale(150%);
@@ -1163,4 +1168,15 @@ input:checked + .slider:before {
      margin: 1rem 5dvw;
      border-radius: 10px;
      color: white;
+}
+
+#video-home {
+     position: fixed;
+     right: 0;
+     top: 0;
+     min-width: 100vw;
+     min-height: 100vh;
+     width: 100vw;
+     transform: scale(1);
+     z-index: -10;
 }
