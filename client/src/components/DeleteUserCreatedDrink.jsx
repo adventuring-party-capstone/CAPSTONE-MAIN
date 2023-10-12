@@ -16,7 +16,7 @@ export default function DeleteUserCreatedDrink({ drinks_id }) {
      }
      return (
           <div>
-               <button onClick={handleSubmit} id="pink-button">
+               <button onClick={handleSubmit} id="clear-button">
                     Delete Drink
                </button>
           </div>

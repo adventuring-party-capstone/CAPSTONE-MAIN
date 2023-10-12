@@ -1,18 +1,12 @@
-// this component handles the editing of a physical instrument
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editDrink, fetchSingleDrink } from "../../fetching/local";
 import { TextField, InputLabel, Select, MenuItem } from "@mui/material";
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 export default function EditUserDrink({ drinkId }) {
      const [isOpen, setIsOpen] = useState(false);
      const [drink, setDrink] = useState({});
-     // const [drinks_name, setDrinks_name] = useState("");
-     // const [ingredients, setIngredients] = useState("");
-     // const [recipe, setRecipe] = useState("");
-     // const [image, setImage] = useState("");
-     // const [alcoholic, setAlcoholic] = useState(false);
 
      const navigate = useNavigate();
 
@@ -21,10 +15,6 @@ export default function EditUserDrink({ drinkId }) {
      function handleClick() {
           setIsOpen(!isOpen);
      }
-
-     const handleChange = (e) => {
-          setAlcoholic(e.target.value);
-     };
 
      useEffect(() => {
           async function fetchDrinkData() {
@@ -60,7 +50,7 @@ export default function EditUserDrink({ drinkId }) {
 
      return (
           <div>
-               <button onClick={handleClick} id="pink-button">
+               <button onClick={handleClick} id="clear-button">
                     Edit Drink
                </button>
                {isOpen && (
@@ -87,6 +77,9 @@ export default function EditUserDrink({ drinkId }) {
                               {/* find expanding field for ingredeints and recipes */}
 
                               <TextField
+                                   multiline
+                                   rows={4}
+                                   maxRows={6}
                                    autoFocus
                                    label="Ingredients"
                                    value={drink.ingredients || ""}
@@ -102,6 +95,9 @@ export default function EditUserDrink({ drinkId }) {
                               <TextField
                                    autoFocus
                                    label="Recipe"
+                                   multiline
+                                   rows={4}
+                                   maxRows={6}
                                    value={drink.recipe || ""}
                                    onChange={(e) =>
                                         setDrink({
@@ -145,7 +141,7 @@ export default function EditUserDrink({ drinkId }) {
                                    <MenuItem value={false}>No</MenuItem>
                                    <MenuItem value={true}>Yes</MenuItem>
                               </Select>
-                              <button type="submit" id="pink-button">
+                              <button type="submit" id="clear-button">
                                    Submit
                               </button>
                          </form>
