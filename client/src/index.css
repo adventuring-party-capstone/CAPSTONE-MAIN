@@ -692,12 +692,12 @@ h2 {
      }
 
      #tabLink2 {
-          background-color: #ffa100;
+          background-color: #ffbc48;
           color: white;
           float: left;
           border: none;
           border-radius: 5px 10px;
-          outline: 3px solid #ffa100;
+          outline: 3px solid #ffbc48;
           cursor: pointer;
           padding: 12px 16px;
           font-size: 1rem;
@@ -721,7 +721,7 @@ h2 {
      }
 
      #created-drinks-tab {
-          background-color: #ffa100;
+          background-color: #ffbc48;
           border-radius: 0 10px;
           font-family: "EB Garamond";
      }

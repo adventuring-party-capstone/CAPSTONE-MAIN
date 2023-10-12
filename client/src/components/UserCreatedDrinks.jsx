@@ -138,41 +138,53 @@ export default function UserCreatedDrinks(userId) {
                          />
                     </label>
                     <p>🍸 Drink Contains Alcohol</p>
+
+                    {/* flip card */}
+
                     <div id="created-drinks-gallery">
                          {drinksToDisplay.map((drink) => {
                               const localDrinkId = drink.drinks_id;
                               return (
-                                   <div key={drink.drinks_id} id="drink-card">
-                                        <p>
-                                             {drink.alcoholic == true ? (
-                                                  <text>
-                                                       {" "}
-                                                       🍸
-                                                       {drink.drinks_name}
-                                                  </text>
-                                             ) : (
-                                                  <text>
-                                                       {" "}
-                                                       {drink.drinks_name}
-                                                  </text>
-                                             )}
-                                        </p>
-                                        <img
-                                             src={drink.image}
-                                             alt={drink.drinks_name}
-                                             id="images"
-                                        />
-                                        <div>
-                                             <DetailsButton
-                                                  drinkId={localDrinkId}
-                                                  id="pink-button"
-                                             />
-                                             <DeleteUserCreatedDrink
-                                                  drinks_id={localDrinkId}
-                                             />
-                                             <EditUserDrink
-                                                  drinkId={localDrinkId}
-                                             />
+                                   <div key={drink.drinks_id} id="flip-card">
+                                        <div id="flip-card-inner">
+                                             <div id="flip-card-front">
+                                                  <h1>
+                                                       {drink.alcoholic ==
+                                                       true ? (
+                                                            <text>
+                                                                 {" "}
+                                                                 🍸
+                                                                 {
+                                                                      drink.drinks_name
+                                                                 }
+                                                            </text>
+                                                       ) : (
+                                                            <text>
+                                                                 {" "}
+                                                                 {
+                                                                      drink.drinks_name
+                                                                 }
+                                                            </text>
+                                                       )}
+                                                  </h1>
+                                                  <img
+                                                       src={drink.image}
+                                                       alt={drink.drinks_name}
+                                                       id="images"
+                                                  />
+                                             </div>
+                                             <div id="flip-card-back">
+                                                  <DetailsButton
+                                                       drinkId={localDrinkId}
+                                                       id="pink-button"
+                                                  />
+                                                  <DeleteUserCreatedDrink
+                                                       drinks_id={localDrinkId}
+                                                  />
+                                                  <EditUserDrink
+                                                       drinkId={localDrinkId}
+                                                  />
+                                             </div>
                                         </div>
                                    </div>
                               );
