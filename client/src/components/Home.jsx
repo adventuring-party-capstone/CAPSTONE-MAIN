@@ -59,6 +59,11 @@ export default function Home({
 		}
 	};
 
+	function onChangeFunction(event) {
+		setMusicInput(event.target.value);
+		setOldInput((event.target.oldvalue = event.target.value));
+	}
+
 	const drinkCard = document.getElementById("drink-card");
 	const suggestButton = document.getElementsByClassName("glow-on-hover-home");
 
