@@ -22,14 +22,11 @@ export default function SideNav({ mode, token }) {
 				id="buttonX"
 				className="container"
 				onClick={() => myFunction(buttonX)}
-				// onClick={() => myFunction(buttonX)}
 			>
 				<div className="bar1"></div>
 				<div className="bar2"></div>
 				<div className="bar3"></div>
 			</div>
-			{isOpen && <h1>HI</h1>}
-
 			{!isOpen && (
 				<div>
 					<div id="mySidenav" className="sidenav">
