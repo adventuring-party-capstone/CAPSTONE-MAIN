@@ -92,8 +92,17 @@ export default function AllDrinks({ token, userId }) {
 		// console.log("allAlcDrinks in UE", allAlcDrinks);
 		// console.log("allNonAlcDrinks in UE", allNonAlcDrinks);
 		const twoArrays = allAlcDrinks.concat(allNonAlcDrinks);
+		const sortedArray = twoArrays.sort(function (a, b) {
+			if (a.strDrink < b.strDrink) {
+				return -1;
+			}
+			if (a.strDrink > b.strDrink) {
+				return 1;
+			}
+			return 0;
+		});
 		//   console.log("twoArrays", twoArrays);
-		setCombinedArray(twoArrays);
+		setCombinedArray(sortedArray);
 	}, [allAlcDrinks, allNonAlcDrinks]);
 
 	function handleSwitch(event) {
@@ -102,12 +111,12 @@ export default function AllDrinks({ token, userId }) {
 
 	// calculating total pages
 	useEffect(() => {
-		console.log("APIArray in useEffect", APIArrayBig);
-		console.log("localArray in useEffect", localArray);
+		// console.log("APIArray in useEffect", APIArrayBig);
+		// console.log("localArray in useEffect", localArray);
 
 		if (APIArrayBig && localArray) {
 			let totalBothLength = APIArrayBig.length + localArray.length;
-			console.log("API + local arrays length", totalBothLength);
+			// console.log("API + local arrays length", totalBothLength);
 			setTotalPages(Math.ceil(totalBothLength / perPage));
 		}
 	}, [APIArrayBig, localArray]);
@@ -175,13 +184,38 @@ export default function AllDrinks({ token, userId }) {
 		setAlcIds(alcIdArray);
 	}, [allAlcDrinks]);
 
-	const drinksToDisplay = searchParam
-		? localArray.filter(
-				(drink) =>
-					drink.drinks_name.toLowerCase().includes(searchParam) ||
-					drink.ingredients.toLowerCase().includes(searchParam)
-		  )
-		: localArray;
+	// show the correct drinks on page 1 on first page render
+	useEffect(() => {
+		let localLength = localArray.length;
+
+		if (page === 1 && !isToggled) {
+			// page 1 behavior for toggle off
+			if (localLength < perPage) {
+				// less than 18 local nonalc drinks
+				let currentLocalArray = localArray.slice(0, localLength);
+				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
+				let currentPageArray = currentLocalArray.concat(currentAPIArray);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (localLength > perPage) {
+				// more than 18 local nonalc drinks
+				let currentPageArray = localArray.slice(0, perPage);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
+		} else if (page === 1 && isToggled) {
+			// page 1 behavior for toggle on
+			if (localLength < perPage) {
+				// less than 18 local nonalc drinks
+				let currentLocalArray = localArray.slice(0, localLength);
+				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
+				let currentPageArray = currentLocalArray.concat(currentAPIArray);
+				setAPIArrayBigToDisplay(currentPageArray);
+			} else if (localLength > perPage) {
+				// more than 18 local nonalc drinks
+				let currentPageArray = localArray.slice(0, perPage);
+				setAPIArrayBigToDisplay(currentPageArray);
+			}
+		}
+	}, [localArray, APIArrayBig, isToggled]);
 
 	const drinksToDisplayAPI = searchParam
 		? APIArrayBig.filter((drink) =>
@@ -192,27 +226,22 @@ export default function AllDrinks({ token, userId }) {
 		  )
 		: APIArrayBigToDisplay;
 
-	// console.log("allAlcDrinks above return", allAlcDrinks);
-	// console.log("drinks to display api", drinksToDisplayAPI);
-
 	// HANDLES PAGINATION BEHAVIOR FOR LAZY LOADING
-	// const [APICounter, setAPICounter] = useState(0);
-	// const [localCounter, setLocalCounter] = useState(0);
 	const handleChange = (event, pageNum) => {
 		setPage(pageNum);
-		console.log("page", pageNum);
-		console.log("totalPages", totalPages);
+		// console.log("page", pageNum);
+		// console.log("totalPages", totalPages);
 
-		console.log("localArray in handleChange", localArray);
-		console.log("APIArrayBig in handleChange", APIArrayBig);
+		// console.log("localArray in handleChange", localArray);
+		// console.log("APIArrayBig in handleChange", APIArrayBig);
 
 		let localLength = localArray.length;
 		let localPages = Math.ceil(localLength / perPage); // number of the page where API & localArray begin to join
 		let APILength = APIArrayBig.length;
 
-		console.log("localLength", localLength);
-		console.log("localPage", localPages);
-		console.log("APILength", APILength);
+		// console.log("localLength", localLength);
+		// console.log("localPage", localPages);
+		// console.log("APILength", APILength);
 
 		// console.log("totalLength", totalLength);
 		if (pageNum === 1 && !isToggled) {
@@ -224,7 +253,7 @@ export default function AllDrinks({ token, userId }) {
 				let currentLocalArray = localArray.slice(0, localLength);
 				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
 				let currentPageArray = currentLocalArray.concat(currentAPIArray);
-				console.log("currentPageArray case 0", currentPageArray);
+				// console.log("currentPageArray case 0", currentPageArray);
 				setAPIArrayBigToDisplay(currentPageArray);
 			} else if (localLength > perPage) {
 				// more than 18 local nonalc drinks
@@ -240,7 +269,7 @@ export default function AllDrinks({ token, userId }) {
 				let currentLocalArray = localArray.slice(0, localLength);
 				let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
 				let currentPageArray = currentLocalArray.concat(currentAPIArray);
-				console.log("currentPageArray case 0", currentPageArray);
+				// console.log("currentPageArray case 0", currentPageArray);
 				setAPIArrayBigToDisplay(currentPageArray);
 			} else if (localLength > perPage) {
 				// more than 18 local nonalc drinks
@@ -295,7 +324,7 @@ export default function AllDrinks({ token, userId }) {
 			console.log("case 5");
 			// behavior for the last page
 			let APIStartIndex = APILength - (APILength % perPage);
-			console.log("APIStartIndex", APIStartIndex);
+			// console.log("APIStartIndex", APIStartIndex);
 			let currentPageArray = APIArrayBig.slice(APIStartIndex, APILength);
 			setAPIArrayBigToDisplay(currentPageArray);
 		}
@@ -305,7 +334,7 @@ export default function AllDrinks({ token, userId }) {
 		<>
 			<section id="all-drinks-container">
 				<h1>All Drinks</h1>
-				<p>🍸 Drink Contains Alcohol</p>
+				<h3>🍸 Drink Contains Alcohol</h3>
 				<FormGroup>
 					<FormControlLabel
 						control={
@@ -314,7 +343,11 @@ export default function AllDrinks({ token, userId }) {
 								onChange={(event) => handleSwitch(event)}
 							/>
 						}
-						label="Show alcoholic drinks"
+						label={
+							isToggled
+								? "Click to hide alcoholic drinks"
+								: "Click to show both alcoholic and nonalcoholic drinks"
+						}
 					/>
 				</FormGroup>
 				<label>
