@@ -11,86 +11,74 @@ import Profile from "./Profile";
 import SideNav from "./SideNav";
 
 export default function MainSection({
-     token,
-     setToken,
-     userId,
-     setUserId,
-     spotifyToken,
-     setSpotifyToken,
+	token,
+	setToken,
+	userId,
+	setUserId,
+	spotifyToken,
+	setSpotifyToken,
 }) {
-     console.log("userId in main section", userId);
+	console.log("userId in main section", userId);
 
-     return (
-          <div id="main-section-container">
-               <Routes>
-                    <Route
-                         path="/"
-                         element={
-                              <Home
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                                   setUserId={setUserId}
-                                   spotifyToken={spotifyToken}
-                                   setSpotifyToken={setSpotifyToken}
-                              />
-                         }
-                    ></Route>
-                    <Route
-                         path="/all_drinks"
-                         element={<AllDrinks token={token} userId={userId} />}
-                    ></Route>
-                    <Route
-                         path="/favorites"
-                         element={
-                              <Favorites
-                                   token={token}
-                                   userId={userId}
-                                   setUserId={setUserId}
-                              />
-                         }
-                    ></Route>
-                    <Route path="/register" element={<Register />}></Route>
-                    <Route
-                         path="/createDrink"
-                         element={<CreateNewDrink userId={userId} />}
-                    ></Route>
-                    <Route
-                         path="/login"
-                         element={
-                              <Login
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                                   setUserId={setUserId}
-                              />
-                         }
-                    />
-                    <Route
-                         path="/logout"
-                         element={<Logout token={token} setToken={setToken} />}
-                    />
-                    <Route
-                         path="profile"
-                         element={
-                              <Profile
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                              />
-                         }
-                    />
-                    <Route
-                         path="sidenav"
-                         element={
-                              <SideNav
-                                   token={token}
-                                   setToken={setToken}
-                                   userId={userId}
-                              />
-                         }
-                    />
-               </Routes>
-          </div>
-     );
+	return (
+		<div id="main-section-container">
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Home
+							token={token}
+							setToken={setToken}
+							userId={userId}
+							setUserId={setUserId}
+							spotifyToken={spotifyToken}
+							setSpotifyToken={setSpotifyToken}
+						/>
+					}
+				></Route>
+				<Route
+					path="/all_drinks"
+					element={<AllDrinks token={token} userId={userId} />}
+				></Route>
+				<Route
+					path="/favorites"
+					element={
+						<Favorites token={token} userId={userId} setUserId={setUserId} />
+					}
+				></Route>
+				<Route path="/register" element={<Register />}></Route>
+				<Route
+					path="/createDrink"
+					element={<CreateNewDrink userId={userId} />}
+				></Route>
+				<Route
+					path="/login"
+					element={
+						<Login
+							token={token}
+							setToken={setToken}
+							userId={userId}
+							setUserId={setUserId}
+						/>
+					}
+				/>
+				<Route
+					path="/logout"
+					element={<Logout token={token} setToken={setToken} />}
+				/>
+				<Route
+					path="/profile"
+					element={
+						<Profile token={token} setToken={setToken} userId={userId} />
+					}
+				/>
+				<Route
+					path="/sidenav"
+					element={
+						<SideNav token={token} setToken={setToken} userId={userId} />
+					}
+				/>
+			</Routes>
+		</div>
+	);
 }
