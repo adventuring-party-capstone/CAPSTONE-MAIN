@@ -5,7 +5,10 @@ import FavoriteButton from "./FavoriteButton";
 import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
 import SingleDrinkDetails from "./SingleDrinkDetails";
 
-export default function RandomDrinkButton({ userId }) {
+import LightMode from "../assets/day_mode_lemon.mp4";
+import DarkMode from "../assets/dark_mode_firey_red.mp4";
+
+export default function RandomDrinkButton({ userId, dark }) {
     const [randomDrink, setRandomDrink] = useState(null);
     const [alcArray, setAlcArray] = useState([]);
     const [alcIds, setAlcIds] = useState([]);
@@ -87,7 +90,7 @@ export default function RandomDrinkButton({ userId }) {
                                         <h3>{randomDrink.strDrink}</h3>
                                     )}
                                     {randomDrink.strDrinkThumb && (
-                                        <SingleDrinkDetails
+                                        <DetailsButton
                                             drinkId={randomDrink.idDrink}
                                         />
                                     )}
@@ -105,6 +108,20 @@ export default function RandomDrinkButton({ userId }) {
                     <></>
                 )}
             </div>
+            {dark ? (
+                <div id="video-home-dark">
+                    <h1></h1>
+                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
+                        <source src={DarkMode} type="video/mp4"></source>
+                    </video>
+                </div>
+            ) : (
+                <div id="video-home">
+                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
+                        <source src={LightMode} type="video/mp4"></source>
+                    </video>
+                </div>
+            )}
         </section>
     );
 }

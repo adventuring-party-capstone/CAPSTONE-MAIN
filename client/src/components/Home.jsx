@@ -1,5 +1,7 @@
 // This component renders the homepage
-import lemon from "../assets/day_mode_lemon.mp4";
+import LightMode from "../assets/day_mode_lemon.mp4";
+import DarkMode from "../assets/dark_mode_firey_red.mp4";
+
 import { useState, useEffect } from "react";
 
 import Spotify from "./Spotify";
@@ -9,13 +11,15 @@ import { Link, useNavigate } from "react-router-dom";
 import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function Home({
-	token,
-	setToken,
-	userId,
-	setUserId,
-	spotifyToken,
-	setSpotifyToken,
+    token,
+    setToken,
+    userId,
+    setUserId,
+    spotifyToken,
+    setSpotifyToken,
+    dark,
 }) {
+
 	const [musicInput, setMusicInput] = useState("");
 	const [musicChoice, setMusicChoice] = useState("");
 	const [oldInput, setOldInput] = useState("");
@@ -109,40 +113,8 @@ export default function Home({
 						oldInput={oldInput}
 					/>
 				)}
-
-				{/* {!token && (
-				<div>
-					<Login
-						token={token}
-						setToken={setToken}
-						setUserId={setUserId}
-						userId={userId}
-					/>
-					<h2>
-						<Link to={"/register"}>Create New Account</Link>
-					</h2>
-				</div>
-			)} */}
-				{/* <h3>🍸 Drink Contains Alcohol</h3>
-			<br />
-			<h1>RANDOM DRINK</h1>
-			<RandomDrinkButton userId={userId} /> */}
 			</div>
 		</section>
 	);
+
 }
-
-// need a search bar
-// when someone searches genre id
-// save that search param in a variable
-// look inside genres_ingredients junction table
-// get an array of ingredients matching that genre
-
-// localdb: get all drinks with ingredient matching ingredient_id in genres_ingredients junction table
-
-// render a single drink from the array of drinks matching ingredient on button click,
-// when someone clicks again it goes to the next drink
-
-// STRETCH GOALS
-// watch out! for duplicate drinks with external API
-// API: get all drinks with ingredient

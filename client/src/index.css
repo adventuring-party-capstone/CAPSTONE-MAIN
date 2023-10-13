@@ -22,7 +22,7 @@ body {
     line-height: 1.5;
     font-weight: 400;
 
-    background-color: #242424;
+    background-color: #0b0b0b;
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     font-synthesis: none;
@@ -93,7 +93,7 @@ h2 {
 .studio-drink-header {
     font-family: "Great Vibes";
     font-size: 5rem;
-    padding: 2rem 0 0 0;
+    padding: 0.25rem 0 0 0;
     margin: 0;
     text-align: left;
 }
@@ -148,6 +148,9 @@ h2 {
 
     & .studio-drink-header {
         font-size: 5rem;
+        padding: 0.25rem 0 0 0;
+        margin: 0;
+        text-align: left;
     }
 
     & #all-drinks-header {
@@ -211,6 +214,7 @@ h2 {
         margin-top: -5rem;
         margin-bottom: 5rem;
     }
+
     & #username {
         background-color: white;
         color: black;
@@ -252,6 +256,7 @@ h2 {
     }
 
     & #logo {
+        margin-left: 01.25rem;
         filter: invert(1);
         transform: scale(150%);
     }
@@ -329,16 +334,18 @@ h2 {
         background-color: rgb(255, 255, 255);
         color: rgb(255, 255, 255);
         font-family: "EB Garamond";
-        background: linear-gradient(to top, #3d0f1d, #000000);
+        background: linear-gradient(to top, #6e103f9a, #0000008a);
         border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.349);
     }
 
     & #flip-card-back {
         background-color: black;
-        background: linear-gradient(to top, #3d0f1d, #000000);
+        background: linear-gradient(to top, #3d0f1db4, #00000094);
         color: white;
         transform: rotateY(180deg);
         overflow-y: scroll;
+        border: 1px solid rgba(255, 255, 255, 0.349);
     }
 
     /* DARK DETAILS BUTTON STYLING START -------------------------------- */
@@ -570,13 +577,15 @@ h2 {
         top: 0;
         /* Stay at the top */
         left: 0;
+
         background: linear-gradient(
             218deg,
             rgba(0, 34, 64, 1) 0%,
             rgba(44, 11, 91, 1) 34%,
-            rgba(129, 30, 54, 1) 64%,
-            rgba(70, 6, 8, 1) 100%
+            rgba(129, 30, 54, 0.5) 64%,
+            rgba(70, 6, 8, 0.7) 100%
         );
+
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -634,7 +643,7 @@ h2 {
         color: black;
         font-family: inherit;
         font-size: 2rem;
-        width: auto;
+        width: 14.5em;
     }
     /* DARK MODE GENERAL STYLING END---------------------------- */
 }
@@ -727,13 +736,15 @@ h2 {
         top: 0;
         /* Stay at the top */
         left: 0;
+
         background: linear-gradient(
             225deg,
             rgba(255, 161, 0, 1) 0%,
             rgba(252, 225, 162, 1) 34%,
-            rgba(255, 120, 97, 1) 73%,
-            rgba(211, 76, 82, 1) 100%
+            rgba(255, 120, 97, 0.5) 73%,
+            rgba(211, 76, 82, 0.7) 100%
         );
+
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -909,6 +920,7 @@ h2 {
     }
 
     & #logo {
+        margin-left: 01.25rem;
         transform: scale(150%);
     }
     /* LIGHT DETAILS BUTTON END------------------------------- */
@@ -1521,15 +1533,25 @@ input:checked + .slider:before {
 }
 
 #music-player-container {
-    margin: 1rem;
-    padding: 1rem;
-    display: grid;
-    align-items: center;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100dvw;
+    align-items: left;
 }
 
 #music-player {
     flex-grow: 1;
     margin: 0 1rem;
+    /* border: 1px solid red; */
+    align-self: center;
+}
+
+.spotify {
+    height: 80px;
+    width: 100%;
+    /* border: 2px dotted cyan; */
+    border-radius: 12px;
 }
 
 /* MUSIC PLAYER GENERAL END ------------------------- */
@@ -1559,12 +1581,13 @@ input:checked + .slider:before {
 #video-home-dark {
     /* object-fit: cover; */
     position: fixed;
-    right: 0;
-    bottom: 0;
+    left: 0;
+    top: 0;
     min-width: 100dvw;
     min-height: 100dvh;
     width: 100dvw;
-    transform: scale(1);
+    transform: scale(1.4);
+
     z-index: -10;
 }
 

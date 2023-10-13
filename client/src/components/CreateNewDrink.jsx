@@ -8,17 +8,18 @@ import Slide from "@mui/material/Slide";
 import Grow from "@mui/material/Grow";
 import MuiAlert from "@mui/material/Alert";
 
+import LightMode from "../assets/day_mode_lemon.mp4";
+import DarkMode from "../assets/dark_mode_firey_red.mp4";
+
 function SlideTransition(props) {
-    return <Slide {...props} direction="up" />;
     return <Slide {...props} direction="up" />;
 }
 
 function GrowTransition(props) {
     return <Grow {...props} />;
-    return <Grow {...props} />;
 }
 
-export default function CreateNewDrink({ token, userId }) {
+export default function CreateNewDrink({ token, userId, dark }) {
     const [drinksName, setDrinksName] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [recipe, setRecipe] = useState("");
@@ -78,96 +79,112 @@ export default function CreateNewDrink({ token, userId }) {
     };
 
     return (
-        <div className="formGroup">
-            <h1>Create Your Own Drink</h1>
-            <br />
-            <form id="drink-form">
-                <input
-                    id="formInput"
-                    className="inputField"
-                    value={drinksName}
-                    type="text"
-                    name="title"
-                    placeholder="Drink name"
-                    onChange={(e) => setDrinksName(e.target.value)}
-                />
+        <section>
+            <div className="formGroup">
+                <h1>Create Your Own Drink</h1>
                 <br />
-                <input
-                    id="formInput"
-                    className="inputField"
-                    value={image}
-                    type="text"
-                    name="title"
-                    placeholder="Image URL"
-                    onChange={(e) => setImage(e.target.value)}
-                />
-                <br />
-                <textarea
-                    cols={50}
-                    rows={10}
-                    id="formInput"
-                    className="inputField"
-                    value={ingredients}
-                    type="text"
-                    name="ingredients"
-                    placeholder="Ingredients"
-                    onChange={(e) => setIngredients(e.target.value)}
-                />
-                <br />
-                <textarea
-                    cols={50}
-                    rows={10}
-                    id="formInput"
-                    className="inputField"
-                    value={recipe}
-                    type="text"
-                    name="recipe"
-                    placeholder="Recipe"
-                    onChange={(e) => setRecipe(e.target.value)}
-                />
-                <br />
-                <br />
+                <form id="drink-form">
+                    <input
+                        id="formInput"
+                        className="inputField"
+                        value={drinksName}
+                        type="text"
+                        name="title"
+                        placeholder="Drink name"
+                        onChange={(e) => setDrinksName(e.target.value)}
+                    />
+                    <br />
+                    <input
+                        id="formInput"
+                        className="inputField"
+                        value={image}
+                        type="text"
+                        name="title"
+                        placeholder="Image"
+                        onChange={(e) => setImage(e.target.value)}
+                    />
+                    <br />
+                    <textarea
+                        cols={50}
+                        rows={10}
+                        id="formInput"
+                        className="inputField"
+                        value={ingredients}
+                        type="text"
+                        name="ingredients"
+                        placeholder="Ingredients"
+                        onChange={(e) => setIngredients(e.target.value)}
+                    />
+                    <br />
+                    <textarea
+                        cols={50}
+                        rows={10}
+                        id="formInput"
+                        className="inputField"
+                        value={recipe}
+                        type="text"
+                        name="recipe"
+                        placeholder="Recipe"
+                        onChange={(e) => setRecipe(e.target.value)}
+                    />
+                    <br />
+                    <br />
+                    <div>
+                        <h2>Alcoholic?</h2>
+                    </div>
+                    <Select
+                        id="formInput"
+                        className="inputField"
+                        value={alcoholic}
+                        type="text"
+                        name="alcoholic"
+                        placeholder="alcoholic"
+                        onChange={handleChange}
+                    >
+                        <MenuItem value={false}>No</MenuItem>
+                        <MenuItem value={true}>Yes</MenuItem>
+                    </Select>
+                    <br />
+                    <br />
+                    <button
+                        onClick={(e) => {
+                            {
+                                handleSubmit(e);
+                                handleClick(GrowTransition)();
+                            }
+                        }}
+                        id="pink-button"
+                    >
+                        Submit
+                    </button>
+                </form>
                 <div>
-                    <h2>Alcoholic?</h2>
-                </div>
-                <Select
-                    id="formInput"
-                    className="inputField"
-                    value={alcoholic}
-                    type="text"
-                    name="alcoholic"
-                    placeholder="alcoholic"
-                    onChange={handleChange}
-                >
-                    <MenuItem value={false}>No</MenuItem>
-                    <MenuItem value={true}>Yes</MenuItem>
-                </Select>
-                <br />
-                <br />
-                <button
-                    onClick={(e) => {
-                        {
-                            handleSubmit(e);
-                            handleClick(GrowTransition)();
-                        }
-                    }}
-                    id="pink-button"
-                >
-                    Submit
-                </button>
-            </form>
-            <div>
-                {/* <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
+                    {/* <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
 				<Button onClick={handleClick(Fade)}>Fade Transition</Button>
 				<Button onClick={handleClick(SlideTransition)}>Slide Transition</Button> */}
-                <Snackbar
-                    open={state.open}
-                    onClose={handleClose}
-                    TransitionComponent={state.Transition}
-                    message="Congrats! You created a drink!"
-                    key={state.Transition.name}
-                />
+                    <Snackbar
+                        open={state.open}
+                        onClose={handleClose}
+                        TransitionComponent={state.Transition}
+                        message="Congrats! You created a drink!"
+                        key={state.Transition.name}
+                    />
+                </div>
             </div>
-        </div>
+            {dark ? (
+                <div id="video-home-dark">
+                    <h1></h1>
+                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
+                        <source src={DarkMode} type="video/mp4"></source>
+                    </video>
+                </div>
+            ) : (
+                <div id="video-home">
+                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
+                        <source src={LightMode} type="video/mp4"></source>
+                    </video>
+                </div>
+            )}
+        </section>
     );
 }
