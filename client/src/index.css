@@ -113,6 +113,16 @@ h2 {
     padding-left: 3rem;
 }
 
+#tag-line {
+    mix-blend-mode: overlay;
+    font-family: "IM Fell Double Pica SC";
+    font-size: 3rem;
+    text-align: center;
+    margin-top: -5rem;
+    margin-bottom: 5rem;
+    text-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 /* trying to get drop down menu in create drink to be font */
 .MuiSelect-root,
 .MuiSelect-nativeInput,
@@ -192,6 +202,15 @@ h2 {
     /* MUI COMPONENTS STYLING END ------------------------------------  */
 
     /* GENERAL COMPONENTS STYLING START------------------------------------  */
+    & #tag-line {
+        color: rgba(255, 255, 255, 0.75);
+        mix-blend-mode: screen;
+        font-family: "IM Fell Double Pica SC";
+        font-size: 3rem;
+        text-align: center;
+        margin-top: -5rem;
+        margin-bottom: 5rem;
+    }
     & #username {
         background-color: white;
         color: black;
