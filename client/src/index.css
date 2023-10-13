@@ -1,35 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Great+Vibes&display=swap");
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 :root {
-     /* max-width: 100dvw; */
-     /* place-content: center; */
-     text-align: center;
-     margin: 0;
+    /* max-width: 100dvw; */
+    /* place-content: center; */
+    text-align: center;
+    margin: 0;
 
-  font-family: "EB Garamond", sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: "EB Garamond", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-     background-color: #242424;
-     color-scheme: light dark;
-     color: rgba(255, 255, 255, 0.87);
-     font-synthesis: none;
-     text-rendering: optimizeLegibility;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     -webkit-text-size-adjust: 100%;
+    background-color: #242424;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 .iFrameStyle {
@@ -38,13 +38,13 @@ body {
 
 /* leave these outside the dark/light modes - animation components */
 @media screen and (max-height: 450px) {
-     .sidenav {
-          padding-top: 15px;
-     }
+    .sidenav {
+        padding-top: 15px;
+    }
 
-     .sidenav a {
-          font-size: 18px;
-     }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 @keyframes glowing {
@@ -114,11 +114,16 @@ h2 {
 }
 
 /* trying to get drop down menu in create drink to be font */
-.MuiSelect-root, .MuiSelect-nativeInput, .MuiSelect-select, .MuiMenuItem-root, .Mui-focusVisible
-.Mui-selected, .MuiInputBase-root, .MuiButtonBase-root{
+.MuiSelect-root,
+.MuiSelect-nativeInput,
+.MuiSelect-select,
+.MuiMenuItem-root,
+.Mui-focusVisible .Mui-selected,
+.MuiInputBase-root,
+.MuiButtonBase-root {
     font-family: "EB Garamond";
 }
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
     font-family: "EB Garamond";
 }
 
@@ -126,17 +131,16 @@ h2 {
 
 /* DARK MODE STYLING BEGIN --------------------------------------------------- */
 .dark-mode {
-
     & label {
         color: rgb(255, 255, 255);
-        font-size:1.3rem;
+        font-size: 1.3rem;
     }
 
-    & .studio-drink-header{
+    & .studio-drink-header {
         font-size: 5rem;
     }
 
-    & #all-drinks-header{
+    & #all-drinks-header {
         font-size: 2rem;
     }
 
@@ -144,11 +148,18 @@ h2 {
         font-size: 2rem;
     }
 
-    & h1, h2, h3, h4, h5, h6, p, a {
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a {
         color: white;
     }
 
-/* MUI COMPONENTS STYLING START------------------------------------  */
+    /* MUI COMPONENTS STYLING START------------------------------------  */
     /* MUI TOGGLE formatting */
     & .css-ahj2mt-MuiTypography-root {
         font-family: "EB Garamond";
@@ -178,9 +189,9 @@ h2 {
         border-radius: 34px;
         text-align: left;
     }
-/* MUI COMPONENTS STYLING END ------------------------------------  */
+    /* MUI COMPONENTS STYLING END ------------------------------------  */
 
-/* GENERAL COMPONENTS STYLING START------------------------------------  */
+    /* GENERAL COMPONENTS STYLING START------------------------------------  */
     & #username {
         background-color: white;
         color: black;
@@ -231,11 +242,11 @@ h2 {
         z-index: -1;
     }
 
-/* GENERAL COMPONENTS STYLING END ------------------------------------  */
+    /* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
-/* DARK MUSIC PLAYER STYLING START ----------------------------------------  */
+    /* DARK MUSIC PLAYER STYLING START ----------------------------------------  */
     & .dropdown-content {
-        background-color: #242424;;
+        background-color: #242424;
         color: white;
     }
 
@@ -263,29 +274,29 @@ h2 {
         cursor: pointer;
         font-family: "EB Garamond";
     }
-    
+
     & .droplabel {
         margin: 1rem;
     }
-    
+
     & .dropdown {
         position: relative;
         display: inline-block;
     }
-    
+
     /* Show the dropdown menu on hover */
     & .dropdown:hover .dropdown-content {
         display: block;
         text-decoration: none;
     }
-    
+
     /* Change the background color of the dropdown button when the dropdown content is shown */
     & .dropdown:hover .dropbtn {
         background-color: #762330;
         text-decoration: none;
     }
 
-/* MUSIC PLAYER STYLING END ----------------------------------------  */
+    /* MUSIC PLAYER STYLING END ----------------------------------------  */
     & #flip-card {
         background-color: transparent;
         border-radius: 10px;
@@ -311,7 +322,7 @@ h2 {
         overflow-y: scroll;
     }
 
-/* DARK DETAILS BUTTON STYLING START -------------------------------- */
+    /* DARK DETAILS BUTTON STYLING START -------------------------------- */
     & .details-button {
         background: #16154d;
         height: 20%;
@@ -354,7 +365,7 @@ h2 {
         font-family: "Great Vibes";
     }
 
-    & .glow-on-hover:before{
+    & .glow-on-hover:before {
         content: "";
 
         background: linear-gradient(
@@ -438,9 +449,9 @@ h2 {
         top: 0;
         border-radius: 10px;
     }
-/* DARK DETAILS BUTTON STYLING END ------------------------------------ */
+    /* DARK DETAILS BUTTON STYLING END ------------------------------------ */
 
-/* DARK PROFILE PAGE STYLING START ------------------------------------ */
+    /* DARK PROFILE PAGE STYLING START ------------------------------------ */
 
     /* TABS FOR PROFILE PAGE */
     /* Style tab links */
@@ -490,14 +501,13 @@ h2 {
         font-family: "EB Garamond";
     }
 
-/* SIDEBAR STYLING START --------------------------------- */
+    /* SIDEBAR STYLING START --------------------------------- */
     & .container {
         display: inline-block;
         cursor: pointer;
         z-index: 10;
     }
-        
-    
+
     & #buttonX {
         position: fixed;
         z-index: 10;
@@ -541,7 +551,13 @@ h2 {
         top: 0;
         /* Stay at the top */
         left: 0;
-        background: linear-gradient(218deg, rgba(0,34,64,1) 0%, rgba(44,11,91,1) 34%, rgba(129,30,54,1) 64%, rgba(70,6,8,1) 100%);
+        background: linear-gradient(
+            218deg,
+            rgba(0, 34, 64, 1) 0%,
+            rgba(44, 11, 91, 1) 34%,
+            rgba(129, 30, 54, 1) 64%,
+            rgba(70, 6, 8, 1) 100%
+        );
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -549,7 +565,7 @@ h2 {
         /* Place content 60px from the top */
         transition: 0.5s;
         /* 0.5 second transition effect to slide in the sidenav */
-        box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.5);
+        box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.5);
     }
 
     /* The navigation menu links */
@@ -577,9 +593,9 @@ h2 {
         margin-left: 50px;
     }
 
-/* END SIDEBAR STYLING--------------------------------- */
+    /* END SIDEBAR STYLING--------------------------------- */
 
-/* DARK MODE GENERAL STYLING START---------------------------- */
+    /* DARK MODE GENERAL STYLING START---------------------------- */
     & #username {
         background-color: white;
         color: black;
@@ -601,25 +617,32 @@ h2 {
         font-size: 2rem;
         width: auto;
     }
-/* DARK MODE GENERAL STYLING END---------------------------- */
+    /* DARK MODE GENERAL STYLING END---------------------------- */
 }
 /* DARK MODE STYLING END --------------------------------------------------- */
 
 /* START OF LIGHT MODE STYLING --------------------------------------------------------------- */
 
 .light-mode {
-/* LIGHT MODE GENERAL START ------------------------------ */
+    /* LIGHT MODE GENERAL START ------------------------------ */
     & label {
         color: black;
-        font-size:1.3rem;
+        font-size: 1.3rem;
     }
 
-    & .studio-drink-header{
+    & .studio-drink-header {
         color: black;
         font-size: 5rem;
     }
 
-    & h1, h2, h3, h4, h5, h6, p, a {
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a {
         color: black;
     }
 
@@ -631,13 +654,13 @@ h2 {
         font-size: 2rem;
     }
 
-    & #all-drinks-header{
+    & #all-drinks-header {
         font-size: 2rem;
     }
 
-/* LIGHT MODE GENERAL END ------------------------------ */
+    /* LIGHT MODE GENERAL END ------------------------------ */
 
-/* SIDEBAR STYLING START --------------------------------- */
+    /* SIDEBAR STYLING START --------------------------------- */
     & .container {
         display: inline-block;
         cursor: pointer;
@@ -685,7 +708,13 @@ h2 {
         top: 0;
         /* Stay at the top */
         left: 0;
-        background: linear-gradient(225deg, rgba(255,161,0,1) 0%, rgba(252,225,162,1) 34%, rgba(255,120,97,1) 73%, rgba(211,76,82,1) 100%);
+        background: linear-gradient(
+            225deg,
+            rgba(255, 161, 0, 1) 0%,
+            rgba(252, 225, 162, 1) 34%,
+            rgba(255, 120, 97, 1) 73%,
+            rgba(211, 76, 82, 1) 100%
+        );
         /* Black*/
         overflow-x: hidden;
         /* Disable horizontal scroll */
@@ -693,7 +722,7 @@ h2 {
         /* Place content 60px from the top */
         transition: 0.5s;
         /* 0.5 second transition effect to slide in the sidenav */
-        box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.5);
+        box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.5);
     }
 
     /* The navigation menu links */
@@ -719,57 +748,57 @@ h2 {
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
-    }   
-/* END SIDEBAR STYLING--------------------------------- */
+    }
+    /* END SIDEBAR STYLING--------------------------------- */
 
-/* LIGHT DETAILS BUTTON START-------------------------- */
+    /* LIGHT DETAILS BUTTON START-------------------------- */
     & .details-button {
-    background: #16154d;
-    height: 20%;
-    border-radius: 10px;
+        background: #16154d;
+        height: 20%;
+        border-radius: 10px;
     }
 
     & .glow-on-hover {
-    /* width: 220px; */
-    width: auto;
-    height: auto;
-    border: 1px solid rgb(255, 255, 255);
-    margin: 1rem;
-    padding: 1rem;
-    outline: none;
-    color: black;
-    background: rgba(255, 255, 255, 0.321);
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-family: "EB Garamond";
+        /* width: 220px; */
+        width: auto;
+        height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 1rem;
+        padding: 1rem;
+        outline: none;
+        color: black;
+        background: rgba(255, 255, 255, 0.321);
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: "EB Garamond";
     }
 
     & .glow-on-hover-home {
-    /* width: 220px; */
-    width: auto;
-    height: auto;
-    border: 1px solid rgb(255, 255, 255);
-    margin: 1rem;
-    padding: 1rem;
-    outline: none;
-    color: #e7725b;
-    background: rgba(255, 255, 255, 0.321);
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
-    border-radius: 10px;
-    font-size: 4rem;
-    font-family: "Great Vibes";
+        /* width: 220px; */
+        width: auto;
+        height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 1rem;
+        padding: 1rem;
+        outline: none;
+        color: #e7725b;
+        background: rgba(255, 255, 255, 0.321);
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+        border-radius: 10px;
+        font-size: 4rem;
+        font-family: "Great Vibes";
     }
 
-    & .glow-on-hover:before{
-    content: "";
+    & .glow-on-hover:before {
+        content: "";
 
-    background: linear-gradient(
+        background: linear-gradient(
             45deg,
             #ff0000,
             #ff7300,
@@ -782,24 +811,24 @@ h2 {
             #ff0000
         );
 
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 200%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 200%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 10px;
     }
 
     & .glow-on-hover-home:before {
-    content: "";
+        content: "";
 
-    background: linear-gradient(
+        background: linear-gradient(
             45deg,
             #ad3030,
             #e87a20,
@@ -809,20 +838,20 @@ h2 {
             #d89269,
             #af263b,
             #ff0000
-    );
+        );
 
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 200%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 200%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 10px;
     }
 
     & .glow-on-hover:active,
@@ -863,9 +892,9 @@ h2 {
     & #logo {
         transform: scale(150%);
     }
-/* LIGHT DETAILS BUTTON END------------------------------- */
+    /* LIGHT DETAILS BUTTON END------------------------------- */
 
-/* MUI COMPONENTS START ---------------------------------- */
+    /* MUI COMPONENTS START ---------------------------------- */
     /* MUI toggle formatting */
     & .css-ahj2mt-MuiTypography-root {
         font-family: "EB Garamond";
@@ -899,9 +928,9 @@ h2 {
         border-radius: 34px;
         text-align: right;
     }
-/* MUI FORMATTING END ------------------------------------- */
+    /* MUI FORMATTING END ------------------------------------- */
 
-/* MISC BUTTONS START ------------------------------------- */
+    /* MISC BUTTONS START ------------------------------------- */
     & #username {
         background-color: white;
         color: black;
@@ -954,9 +983,9 @@ h2 {
     & #pink-button:hover {
         background-color: #be4e37;
     }
-/* MISC BUTTONS END ------------------------------------- */
-    
-/* LIGHT FLIP CARDS START ------------------------------- */
+    /* MISC BUTTONS END ------------------------------------- */
+
+    /* LIGHT FLIP CARDS START ------------------------------- */
     /* FLIP CARD */
     & #flip-card {
         background-color: transparent;
@@ -1027,11 +1056,11 @@ h2 {
         color: rgb(0, 0, 0);
         transform: rotateY(180deg);
         overflow-y: scroll;
-        border-radius: 10px;      
+        border-radius: 10px;
     }
-/* LIGHT FLIP CARDS END ------------------------------- */
+    /* LIGHT FLIP CARDS END ------------------------------- */
 
-/* LIGHT MUSIC PLAYER START---------------------------- */
+    /* LIGHT MUSIC PLAYER START---------------------------- */
     /* Style The Dropdown Button */
     & .dropdown {
         position: relative;
@@ -1061,7 +1090,7 @@ h2 {
         text-decoration: none;
         display: block;
     }
-    
+
     & .dropdown-content a:hover {
         background-color: rgb(179, 179, 219);
         text-decoration: none;
@@ -1081,9 +1110,9 @@ h2 {
         background-color: #d08e81;
         color: black;
     }
-/* LIGHT MUSIC PLAYER END---------------------------- */
+    /* LIGHT MUSIC PLAYER END---------------------------- */
 
-/* TABS FOR PROFILE PAGE START ---------------------- */
+    /* TABS FOR PROFILE PAGE START ---------------------- */
     /* Style tab links */
     & #tabLink1 {
         background-color: #ff7961a9;
@@ -1182,13 +1211,13 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 /* Rounded sliders */
@@ -1204,13 +1233,13 @@ input:checked + .slider:before {
 
 /* CONTAINER BORDERS START ------------------------------------ */
 #app-container {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 #main-section-container {
-     margin: 1rem;
-     padding: 1rem;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 #home-container {
@@ -1218,17 +1247,17 @@ input:checked + .slider:before {
     padding: 20dvh 20dvw;
 }
 
-#created-drinks-container{
+#created-drinks-container {
     padding: 1rem;
 }
 
-#login-container{
+#login-container {
     padding: 20dvh;
     display: grid;
     place-content: center;
 }
 
-#random-drink-container{
+#random-drink-container {
     display: grid;
     margin: 2rem;
     place-content: center;
@@ -1236,7 +1265,7 @@ input:checked + .slider:before {
 
 #drink-gif {
     border-radius: 10px;
-    box-shadow: 2px 2px 7px 3px rgba(0,0,0,0.5)
+    box-shadow: 2px 2px 7px 3px rgba(0, 0, 0, 0.5);
 }
 
 #drink-form {
@@ -1256,8 +1285,8 @@ input:checked + .slider:before {
     font-size: 1.5rem;
 }
 
-#login-text{
-    display:grid;
+#login-text {
+    display: grid;
     text-align: right;
     place-content: center;
 }
@@ -1319,7 +1348,7 @@ input:checked + .slider:before {
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #flip-card-back::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 #flip-card-back {
@@ -1382,14 +1411,14 @@ input:checked + .slider:before {
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #edit-flip-card-back::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 #edit-flip-card-back {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 /* FAVORITES AND BUTTONS START --------------- */
@@ -1479,43 +1508,44 @@ input:checked + .slider:before {
 /* MISC GENERAL STYLING ----------------------------- */
 
 #pagination {
-  display: grid;
-  place-items: center;
-  margin: 1rem 5dvw;
-  border-radius: 10px;
-  color: white;
+    display: grid;
+    place-items: center;
+    margin: 1rem 5dvw;
+    border-radius: 10px;
+    color: white;
 }
 
 #video-home {
     /* object-fit: cover; */
-     position: fixed;
-     right: 0;
-     top: 0;
-     min-width: 100dvw;
-     min-height: 100dvh;
-     width: 100dvw;
-     transform: scale(1);
-     z-index: -10;
+    position: fixed;
+    right: 0;
+    top: 0;
+    min-width: 100dvw;
+    min-height: 100dvh;
+    width: 100dvw;
+    transform: scale(1);
+    z-index: -10;
 }
 
 #video-home-dark {
     /* object-fit: cover; */
-     position: fixed;
-     right: 0;
-     bottom: 0;
-     min-width: 100dvw;
-     min-height: 100dvh;
-     width: 100dvw;
-     transform: scale(1);
-     z-index: -10;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100dvw;
+    min-height: 100dvh;
+    width: 100dvw;
+    transform: scale(1);
+    z-index: -10;
 }
 
 /* ABOUT US STYLING START ---------------------------- */
-/* About us */
 .aboutus {
     background-color: #5d2c2c55;
-    grid-template-columns: 1;
+    margin-bottom: auto;
+    margin-top: auto;
 }
+/* Images */
 
 .picture {
     margin-top: auto;
@@ -1528,6 +1558,9 @@ input:checked + .slider:before {
     height: 200px;
     width: auto;
 }
+& .hali {
+    background: url("../src/assets/Hali.PNG");
+}
 
 .aboutsec {
     font-size: larger;
@@ -1539,6 +1572,8 @@ input:checked + .slider:before {
 .Individuals {
     display: flex;
     margin-bottom: auto;
+
+    justify-content: space-between;
 }
 
 .contactLinks {
@@ -1547,12 +1582,27 @@ input:checked + .slider:before {
 }
 
 .contacts {
-    align-items: center;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .aboutlogo {
     width: 100px;
     height: auto;
-    filter: invert(1);
+    /* filter: invert(1); */
+    justify-content: center;
+}
+.spotty {
+    background-color: #a13a3a;
+    border-radius: 12px;
+    border: none;
+    height: 80px;
+    /* border: #00ffd5;
+    border-style: dotted; */
+}
+.divider {
+    width: 40%;
+    height: auto%;
 }
