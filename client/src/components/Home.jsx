@@ -1,5 +1,7 @@
 // This component renders the homepage
-import lemon from "../assets/day_mode_lemon.mp4";
+import LightMode from "../assets/day_mode_lemon.mp4";
+import DarkMode from "../assets/dark_mode_firey_red.mp4";
+
 import { useState, useEffect } from "react";
 
 import Spotify from "./Spotify";
@@ -9,13 +11,15 @@ import { Link, useNavigate } from "react-router-dom";
 import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function Home({
-	token,
-	setToken,
-	userId,
-	setUserId,
-	spotifyToken,
-	setSpotifyToken,
+    token,
+    setToken,
+    userId,
+    setUserId,
+    spotifyToken,
+    setSpotifyToken,
+    dark,
 }) {
+
 	const [musicInput, setMusicInput] = useState("");
 	const [musicChoice, setMusicChoice] = useState("");
 	const [oldInput, setOldInput] = useState("");
@@ -112,4 +116,5 @@ export default function Home({
 			</div>
 		</section>
 	);
+
 }

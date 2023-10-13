@@ -8,6 +8,7 @@ import SideNav from "./components/SideNav";
 import logo from "./assets/Studio_drink_logo.svg";
 
 function App() {
+
 	//get tokens where other components can use them
 	const [spotifyToken, setSpotifyToken] = useState(null);
 	const [token, setToken] = useState(null);
@@ -18,37 +19,39 @@ function App() {
 		Number(window.localStorage.getItem("genreSelect"))
 	);
 
-	const handleSnackbarOpen = () => {
-		setSnackbarOpen(true);
-	};
 
-	const handleSnackbarClose = () => {
-		setSnackbarOpen(false);
-	};
+    const handleSnackbarOpen = () => {
+        setSnackbarOpen(true);
+    };
 
-	// MUSIC PLAYER
-	useEffect(() => {
-		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
-	}, []);
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
 
-	// DARK MODE LOGIC --------------- //
-	const [dark, setDark] = useState(
-		window.localStorage.getItem("dark-mode") === "true"
-	);
+    // MUSIC PLAYER
+    useEffect(() => {
+        setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+    }, []);
 
-	useEffect(() => {
-		setToken(window.localStorage.getItem("token"));
-		setUserId(window.localStorage.getItem("userId"));
-		setSpotifyToken(window.localStorage.getItem("spotifyToken"));
-	}, []);
+    // DARK MODE LOGIC --------------- //
+    const [dark, setDark] = useState(
+        window.localStorage.getItem("dark-mode") === "true"
+    );
 
-	useEffect(() => {
-		localStorage.setItem("dark-mode", dark);
-	}, [dark]);
+    useEffect(() => {
+        setToken(window.localStorage.getItem("token"));
+        setUserId(window.localStorage.getItem("userId"));
+        setSpotifyToken(window.localStorage.getItem("spotifyToken"));
+    }, []);
 
-	function toggleDarkMode() {
-		setDark(!dark);
-	}
+    useEffect(() => {
+        localStorage.setItem("dark-mode", dark);
+    }, [dark]);
+
+    function toggleDarkMode() {
+        setDark(!dark);
+    }
+
 
 	// MUSIC PLAYER
 	useEffect(() => {
@@ -249,6 +252,7 @@ function App() {
 				)}
 
 				{dark ? (
+
 					<div id="video-home-dark">
 						<h1></h1>
 						<video autoPlay loop muted style={{ minWidth: "100%" }}>
@@ -267,10 +271,10 @@ function App() {
 							></source>
 						</video>
 					</div>
-				)}
-			</div>
-		</div>
-	);
+				)} */}
+            </div>
+        </div>
+    );
 }
 
 export default App;
