@@ -136,9 +136,6 @@ h2 {
 
 /* DARK MODE STYLING BEGIN --------------------------------------------------- */
 .dark-mode {
-    background: url("./assets/DarkMode.jpg") fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
 
     & label {
         color: rgb(255, 255, 255);
@@ -1518,4 +1515,63 @@ input:checked + .slider:before {
      width: 100dvw;
      transform: scale(1);
      z-index: -10;
+}
+
+#video-home-dark {
+    /* object-fit: cover; */
+     position: fixed;
+     right: 0;
+     bottom: 0;
+     min-width: 100dvw;
+     min-height: 100dvh;
+     width: 100dvw;
+     transform: scale(1);
+     z-index: -10;
+}
+
+/* ABOUT US STYLING START ---------------------------- */
+/* About us */
+.aboutus {
+    background-color: #5d2c2c55;
+    grid-template-columns: 1;
+}
+
+.picture {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 8px;
+}
+
+.pfp {
+    border-radius: 50%;
+    height: 200px;
+    width: auto;
+}
+
+.aboutsec {
+    font-size: larger;
+    margin-bottom: auto;
+    margin-top: auto;
+    position: relative;
+}
+
+.Individuals {
+    display: flex;
+    margin-bottom: auto;
+}
+
+.contactLinks {
+    width: 60px;
+    height: auto;
+}
+
+.contacts {
+    align-items: center;
+    margin: auto;
+}
+
+.aboutlogo {
+    width: 100px;
+    height: auto;
+    filter: invert(1);
 }
