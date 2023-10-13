@@ -1271,6 +1271,7 @@ input:checked + .slider:before {
 #drink-form {
     padding: 1rem;
     text-align: left;
+    margin-left: 15vw;
 }
 
 #drink-card {
@@ -1285,6 +1286,8 @@ input:checked + .slider:before {
     color: black;
     font: inherit;
     font-size: 1.5rem;
+    width: 25vw;
+    border-radius: 10px;
 }
 
 #login-text {
@@ -1358,6 +1361,11 @@ input:checked + .slider:before {
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+}
+
+#flip-card-buttons {
+    display: inline-block;
+    justify-content: space-evenly;
 }
 
 /* FLIP CARD GENERAL END --------------------------------- */

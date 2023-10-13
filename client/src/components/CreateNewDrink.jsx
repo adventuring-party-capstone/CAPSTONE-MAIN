@@ -96,7 +96,7 @@ export default function CreateNewDrink({ token, userId }) {
                     value={image}
                     type="text"
                     name="title"
-                    placeholder="Image"
+                    placeholder="Image URL"
                     onChange={(e) => setImage(e.target.value)}
                 />
                 <br />
