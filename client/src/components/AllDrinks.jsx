@@ -333,8 +333,9 @@ export default function AllDrinks({ token, userId }) {
 	return (
 		<>
 			<section id="all-drinks-container">
-				<h1>All Drinks</h1>
-				<h3>🍸 Drink Contains Alcohol</h3>
+				<div id="all-drinks-header">
+					<h1>All Drinks</h1>
+				</div>
 				<FormGroup>
 					<FormControlLabel
 						control={
@@ -368,7 +369,7 @@ export default function AllDrinks({ token, userId }) {
 						color="secondary"
 					/>
 				</div>
-
+				<h3>🍸= Drink Contains Alcohol</h3>
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;

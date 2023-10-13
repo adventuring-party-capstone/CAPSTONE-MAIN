@@ -9,6 +9,7 @@ import Register from "./Register";
 import CreateNewDrink from "./CreateNewDrink";
 import Profile from "./Profile";
 import SideNav from "./SideNav";
+import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function MainSection({
 	token,
@@ -71,6 +72,10 @@ export default function MainSection({
 					element={
 						<Profile token={token} setToken={setToken} userId={userId} />
 					}
+				/>
+				<Route
+					path="/random_drink"
+					element={<RandomDrinkButton userId={userId} />}
 				/>
 				<Route
 					path="/sidenav"

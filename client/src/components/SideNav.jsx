@@ -51,7 +51,7 @@ export default function SideNav({ mode, token }) {
 				<a href="/random_drink">Drink Randomizer</a>
 				<a href="/spotify"></a>
 				<a href="/createDrink">Mixologist</a>
-				<a href="/about">About Us</a>
+				<a href="/aboutus">About Us</a>
 				{!token && <a href="/register">Register</a>}
 				{!token && <a href="/login">Login</a>}
 				{token && <a href="/logout">Logout</a>}
