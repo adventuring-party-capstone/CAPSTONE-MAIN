@@ -68,7 +68,9 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				alcoholic,
 				userIdCND
 			);
-			handleClick(GrowTransition)();
+			if (createDrinkResult) {
+				handleClick(GrowTransition)();
+			}
 			console.log("API Data", createDrinkResult);
 		} catch (error) {
 			console.error(error);
@@ -92,6 +94,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						type="text"
 						name="title"
 						placeholder="Drink name"
+						required
 						onChange={(e) => setDrinksName(e.target.value)}
 					/>
 					<br />
@@ -99,6 +102,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						id="formInput"
 						className="inputField"
 						value={image}
+						required
 						type="text"
 						name="title"
 						placeholder="Image"
@@ -114,6 +118,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						type="text"
 						name="ingredients"
 						placeholder="Ingredients"
+						required
 						onChange={(e) => setIngredients(e.target.value)}
 					/>
 					<br />
@@ -126,21 +131,11 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						type="text"
 						name="recipe"
 						placeholder="Recipe"
+						required
 						onChange={(e) => setRecipe(e.target.value)}
 					/>
 					<br />
 					<br />
-					{/* <div>
-						<h2>Alcoholic?</h2>
-						<select name="alcoholic" id="formInput">
-							<option value={false} id="formInput">
-								No
-							</option>
-							<option value={true} id="formInput">
-								Yes
-							</option>
-						</select>
-					</div> */}
 					<div
 						className="inputField"
 						value={alcoholic}
