@@ -1,17 +1,4 @@
 import { useState, useEffect } from "react";
-import { BsMusicNoteBeamed, BsTypeH1 } from "react-icons/bs";
-import {
-	AiOutlineLogout,
-	AiOutlineLogin,
-	AiOutlineConsoleSql,
-} from "react-icons/ai";
-import { BsMusicNoteBeamed, BsTypeH1 } from "react-icons/bs";
-import {
-	AiOutlineLogout,
-	AiOutlineLogin,
-	AiOutlineConsoleSql,
-} from "react-icons/ai";
-import { BiSolidDrink, BiDrink } from "react-icons/bi";
 
 export default function SideNav({ mode, token, genreSelect, setGenreSelect }) {
 	const buttonX = document.getElementById("buttonX");

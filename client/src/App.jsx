@@ -72,10 +72,15 @@ function App() {
 						</label>
 					</div>
 				</div>
-				<SideNav mode={dark} token={token} />
+				<SideNav
+					mode={dark}
+					token={token}
+					setGenreSelect={setGenreSelect}
+					genreSelect={genreSelect}
+				/>
 				<br />
 				<br />
-				<div id="music-player-container">
+				{/* <div id="music-player-container">
 					<div className="dropdown">
 						<label className="droplabel">Listen to Music: </label>
 						<br />
@@ -207,7 +212,7 @@ function App() {
 							></iframe>
 						)}
 					</section>
-				</div>
+				</div> */}
 				<MainSection
 					token={token}
 					setToken={setToken}
