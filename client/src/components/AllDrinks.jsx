@@ -380,21 +380,21 @@ export default function AllDrinks({ token, userId }) {
 										{drink.strDrink ? (
 											<div id="name section">
 												{alcIds.includes(drink.idDrink) ? (
-													<p>
+													<h3>
 														🍸
 														{drink.strDrink}
-													</p>
+													</h3>
 												) : (
-													<p>{drink.strDrink}</p>
+													<h3>{drink.strDrink}</h3>
 												)}
 											</div>
 										) : (
 											drink.drinks_name && (
 												<div id="name section">
 													{drink.alcoholic ? (
-														<p>🍸{drink.drinks_name}</p>
+														<h3>🍸{drink.drinks_name}</h3>
 													) : (
-														<p>{drink.drinks_name}</p>
+														<h3>{drink.drinks_name}</h3>
 													)}
 												</div>
 											)
@@ -418,7 +418,7 @@ export default function AllDrinks({ token, userId }) {
 									{/* API database drink */}
 									{drink.idDrink && (
 										<div id="flip-card-back">
-											<h1>{drink.strDrink}</h1>
+											<h3>{drink.strDrink}</h3>
 											{token && (
 												<FavoriteButton
 													api_drinks_id={drink.idDrink}
@@ -431,7 +431,7 @@ export default function AllDrinks({ token, userId }) {
 									{/* local database drink */}
 									{drink.drinks_id && (
 										<div id="flip-card-back">
-											<h1>{drink.drinks_name}</h1>
+											<h2>{drink.drinks_name}</h2>
 											{token && (
 												<FavoriteButton api_drinks_id={null} userId={userId} />
 											)}

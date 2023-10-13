@@ -46,24 +46,27 @@ export default function RandomDrinkButton({ userId }) {
 	//   KEEP THIS
 	console.log("is this from my random drink component?", randomDrink);
 	return (
-		<>
-			<button onClick={handleClick} id="pink-button">
+		<section>
+			<h1>Drink Randomizer</h1>
+			<h3>Click to get a random drink card!</h3>
+			<button onClick={handleClick} className="glow-on-hover-home">
 				Random Drink!
 			</button>
 			<div className="Random-Button">
 				{randomDrink ? (
 					<div>
+						<h3>🍸= Drink Contains Alcohol</h3>
 						<div id="flip-card">
 							<div id="flip-card-inner">
 								<div id="flip-card-front">
 									<div id="name section">
 										{alcIds.includes(randomDrink.idDrink) ? (
-											<p>
+											<h3>
 												🍸
 												{randomDrink.strDrink}
-											</p>
+											</h3>
 										) : (
-											<p>{randomDrink.strDrink}</p>
+											<h3>{randomDrink.strDrink}</h3>
 										)}
 									</div>
 									{randomDrink && (
@@ -71,7 +74,7 @@ export default function RandomDrinkButton({ userId }) {
 									)}
 								</div>
 								<div id="flip-card-back">
-									{randomDrink && <h1>{randomDrink.strDrink}</h1>}
+									{randomDrink && <h3>{randomDrink.strDrink}</h3>}
 									{randomDrink.strDrinkThumb && (
 										<DetailsButton drinkId={randomDrink.idDrink} />
 									)}
@@ -89,6 +92,6 @@ export default function RandomDrinkButton({ userId }) {
 					<></>
 				)}
 			</div>
-		</>
+		</section>
 	);
 }

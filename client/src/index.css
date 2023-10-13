@@ -25,7 +25,6 @@ body {
      background-color: #242424;
      color-scheme: light dark;
      color: rgba(255, 255, 255, 0.87);
-     /* background-color: #242424; */
      font-synthesis: none;
      text-rendering: optimizeLegibility;
      -webkit-font-smoothing: antialiased;
@@ -33,13 +32,11 @@ body {
      -webkit-text-size-adjust: 100%;
 }
 
-
 .iFrameStyle {
     background-color: transparent;
 }
 
-
-/* leave this outside the dark/light modes - sidebar animation */
+/* leave these outside the dark/light modes - animation components */
 @media screen and (max-height: 450px) {
      .sidenav {
           padding-top: 15px;
@@ -48,6 +45,20 @@ body {
      .sidenav a {
           font-size: 18px;
      }
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
 /* GENERAL ELEMENT FORMATTING START ----------------------------- */
@@ -100,406 +111,443 @@ h2 {
     padding-left: 3rem;
 }
 
+/* trying to get drop down menu in create drink to be font */
+.MuiSelect-root, .MuiSelect-nativeInput, .MuiSelect-select, .MuiMenuItem-root, .Mui-focusVisible
+.Mui-selected, .MuiInputBase-root, .MuiButtonBase-root{
+    font-family: "EB Garamond";
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+    font-family: "EB Garamond";
+}
+
 /* GENERAL ELEMENT FORMATTING END ----------------------------- */
 
+/* DARK MODE STYLING BEGIN --------------------------------------------------- */
 .dark-mode {
-     background: url("./assets/DarkMode.jpg") fixed;
-     background-repeat: no-repeat;
-     background-size: cover;
-     --dark-bg: #242424;
-     /* background-color:var(--dark-bg); */
+    background: url("./assets/DarkMode.jpg") fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-     /* MUI toggle formatting */
-     .css-ahj2mt-MuiTypography-root {
-          font-family: "EB Garamond";
-     }
-     .css-j204z7-MuiFormControlLabel-root {
-          place-content: center;
-     }
+    & label {
+        color: rgb(255, 255, 255);
+        font-size:1.3rem;
+    }
 
-     .MuiPaginationItem-root {
-          margin: 0.5rem 0.2rem;
-          color: white;
-          /* background-color: pink; */
-          font-size: 1.3rem;
-          font-family: inherit;
-     }
-     /* 
-    .MuiPaginationItem-page{
-        background-color: pink; 
-    } */
+    & .studio-drink-header{
+        font-size: 5rem;
+    }
 
-     .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-          background-color: rgb(115, 12, 29);
-     }
-     .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
-          background-color: rgb(170, 59, 74);
-     }
+    & #all-drinks-header{
+        font-size: 2rem;
+    }
 
-     .slider.round {
-          border-radius: 34px;
-          text-align: left;
-     }
+    & h1 {
+        font-size: 2rem;
+    }
 
-     #username {
-          background-color: white;
-          color: black;
-          font-family: inherit;
-     }
+/* MUI COMPONENTS STYLING START------------------------------------  */
+    /* MUI TOGGLE formatting */
+    & .css-ahj2mt-MuiTypography-root {
+        font-family: "EB Garamond";
+        font-size: 1.3rem;
+    }
+    & .css-j204z7-MuiFormControlLabel-root {
+        place-content: center;
+    }
 
-     #password {
-          background-color: white;
-          color: black;
-          font-family: inherit;
-     }
+    /* MUI PAGINATION formatting */
+    & .MuiPaginationItem-root {
+        margin: 0.5rem 0.2rem;
+        color: white;
+        font-size: 1.3rem;
+        font-family: inherit;
+    }
 
-     #musicChoice {
-          background-color: white;
-          color: black;
-          font-family: inherit;
-          font-size: 2rem;
-          width: auto;
-     }
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(115, 12, 29);
+    }
 
-     #music-label {
-          font-size: 2rem;
-     }
+    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+        background-color: rgb(170, 59, 74);
+    }
 
-     #pink-button {
-          background-color: #612519;
-          border-radius: 10px;
-          color: white;
-          margin: 1rem;
-          padding: 1rem;
-          font-size: 1em;
-          border: 1px solid white;
-          cursor: pointer;
-          font-family: "EB Garamond";
-     }
+    .slider.round {
+        border-radius: 34px;
+        text-align: left;
+    }
+/* MUI COMPONENTS STYLING END ------------------------------------  */
 
-     #pink-button:hover {
-          background-color: #330900;
-     }
+/* GENERAL COMPONENTS STYLING START------------------------------------  */
+    & #username {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+    }
 
-     #logo {
-          filter: invert(1);
-          transform: scale(150%);
-     }
+    & #password {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+    }
 
-     /* visited link */
-     /* a:visited {
-  color: rgb(255, 255, 255);
-  } */
+    & #musicChoice {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+        font-size: 2rem;
+        width: auto;
+    }
 
-     #home-container {
-          padding: 2rem;
-          z-index: -1;
-     }
+    & #music-label {
+        font-size: 2rem;
+    }
 
-     .dropdown-content {
-          background-color: var(--dark-bg);
-          color: white;
-     }
+    & #pink-button {
+        background-color: #612519;
+        border-radius: 10px;
+        color: white;
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 1em;
+        border: 1px solid white;
+        cursor: pointer;
+        font-family: "EB Garamond";
+    }
 
-     /* Change color of dropdown links on hover */
-     .dropdown-content a:hover {
-          background-color: rgb(1, 1, 39);
-     }
+    & #pink-button:hover {
+        background-color: #330900;
+    }
 
-     #flip-card-front {
-          background-color: rgb(255, 255, 255);
-          color: rgb(255, 255, 255);
-          font-family: "IM Fell Double Pica SC";
-          background: linear-gradient(to top, #3d0f1d, #000000);
-          border-radius: 10px;
-     }
+    & #logo {
+        filter: invert(1);
+        transform: scale(150%);
+    }
 
-     #flip-card-back {
-          background-color: black;
-          background: linear-gradient(to top, #3d0f1d, #000000);
-          color: white;
-          transform: rotateY(180deg);
-          overflow-y: scroll;
-     }
+    & #home-container {
+        padding: 2rem;
+        z-index: -1;
+    }
 
-     /* DARK DETAILS BUTTON */
-     .details-button {
-          background: #16154d;
-          height: 20%;
-          border-radius: 10px;
-     }
+/* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
-     .glow-on-hover {
-          width: 220px;
-          height: 50px;
-          border: 1px solid white;
-          margin: 1rem;
-          outline: none;
-          color: #ffffff;
-          background: #00000097;
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
-          border-radius: 10px;
-          font-family: "EB Garamond";
-     }
+/* MUSIC PLAYER STYLING START ----------------------------------------  */
+    & .dropdown-content {
+        background-color: #242424;;
+        color: white;
+    }
 
-     .glow-on-hover-home {
-          /* width: 220px; */
-          width: auto;
-          height: auto;
-          border: 1px solid rgb(255, 255, 255);
-          margin: 1rem;
-          padding: 1rem;
-          outline: none;
-          color: #ffffff;
-          background: rgba(4, 35, 88, 0.623);
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
-          text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
-          border-radius: 10px;
-          font-size: 4rem;
-          font-family: "Great Vibes";
-     }
+    /* Change color of dropdown links on hover */
+    & .dropdown-content a:hover {
+        background-color: rgb(1, 1, 39);
+    }
 
-     .glow-on-hover:before{
+/* MUSIC PLAYER STYLING END ----------------------------------------  */
+
+    & #flip-card-front {
+        background-color: rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        font-family: "IM Fell Double Pica SC";
+        background: linear-gradient(to top, #3d0f1d, #000000);
+        border-radius: 10px;
+    }
+
+    & #flip-card-back {
+        background-color: black;
+        background: linear-gradient(to top, #3d0f1d, #000000);
+        color: white;
+        transform: rotateY(180deg);
+        overflow-y: scroll;
+    }
+
+/* DARK DETAILS BUTTON STYLING START -------------------------------- */
+    & .details-button {
+        background: #16154d;
+        height: 20%;
+        border-radius: 10px;
+    }
+
+    & .glow-on-hover {
+        width: 220px;
+        height: 50px;
+        border: 1px solid white;
+        margin: 1rem;
+        outline: none;
+        color: #ffffff;
+        background: #00000097;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        font-family: "EB Garamond";
+    }
+
+    & .glow-on-hover-home {
+        /* width: 220px; */
+        width: auto;
+        height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 1rem;
+        padding: 1rem;
+        outline: none;
+        color: #ffffff;
+        background: rgba(4, 35, 88, 0.623);
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+        border-radius: 10px;
+        font-size: 4rem;
+        font-family: "Great Vibes";
+    }
+
+    & .glow-on-hover:before{
         content: "";
 
-          background: linear-gradient(
-               45deg,
-               #ff0000,
-               #ff7300,
-               #fffb00,
-               #48ff00,
-               #00ffd5,
-               #002bff,
-               #7a00ff,
-               #ff00c8,
-               #ff0000
-          );
+        background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+        );
 
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          background-size: 200%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowing 20s linear infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
-     }
-     .glow-on-hover-home:before {
-          content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 200%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 10px;
+    }
 
-          background: linear-gradient(
-               45deg,
-               #370707,
-               #35074d,
-               #1e0c6f,
-               rgb(28, 38, 148),
-               #07348e,
-               #570f83,
-               #6b0808
-          );
+    & .glow-on-hover-home:before {
+        content: "";
 
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          background-size: 200%;
-          z-index: -1;
-          filter: blur(5px);
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          animation: glowing 20s linear infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-          border-radius: 10px;
-     }
+        background: linear-gradient(
+            45deg,
+            #6b0808,
+            #370707,
+            #35074d,
+            #1e0c6f,
+            #072768,
+            #0f0f83
+        );
 
-     .glow-on-hover:active,
-     .glow-on-hover-home:active {
-          color: #f95555;
-     }
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 200%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 10px;
+    }
 
-     .glow-on-hover:active:after,
-     .glow-on-hover-home:active:after {
-          background: transparent;
-     }
+    & .glow-on-hover:active,
+    & .glow-on-hover-home:active {
+        color: #f95555;
+    }
 
-     .glow-on-hover:hover:before,
-     .glow-on-hover-home:hover:before {
-          opacity: 1;
-     }
+    & .glow-on-hover:active:after,
+    & .glow-on-hover-home:active:after {
+        background: transparent;
+    }
 
-     .glow-on-hover:after,
-     .glow-on-hover-home:after {
-          z-index: -1;
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: #ffffff0d;
-          left: 0;
-          top: 0;
-          border-radius: 10px;
-     }
+    & .glow-on-hover:hover:before,
+    & .glow-on-hover-home:hover:before {
+        opacity: 1;
+    }
 
-     /* TABS FOR PROFILE PAGE */
-     /* Style tab links */
-     #tabLink1 {
-          background-color: rgb(83, 26, 35);
-          color: white;
-          float: left;
-          border: none;
-          border-radius: 10px 5px;
-          outline: 3px solid rgb(83, 26, 35);
-          cursor: pointer;
-          padding: 12px 16px;
-          font-size: 1rem;
-          width: 25%;
-          font-family: "EB Garamond";
-     }
+    & .glow-on-hover:after,
+    & .glow-on-hover-home:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #ffffff0d;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+/* DARK DETAILS BUTTON STYLING END ------------------------------------ */
 
-     #tabLink2 {
-          background-color: rgb(11, 15, 63);
-          color: white;
-          float: left;
-          border: none;
-          border-radius: 5px 10px;
-          outline: 3px solid rgb(11, 15, 63);
-          cursor: pointer;
-          padding: 12px 16px;
-          font-size: 1rem;
-          width: 25%;
-          font-family: "EB Garamond";
-     }
+/* DARK PROFILE PAGE STYLING START ------------------------------------ */
 
-     #tabLink1:hover {
-          background-color: rgb(51, 16, 21);
-          outline: rgb(51, 16, 21);
-     }
+    /* TABS FOR PROFILE PAGE */
+    /* Style tab links */
+    & #tabLink1 {
+        background-color: rgba(83, 26, 34, 0.5);
+        color: white;
+        float: left;
+        border: none;
+        border-radius: 10px 5px;
+        cursor: pointer;
+        padding: 12px 16px;
+        font-size: 1.2rem;
+        width: 25%;
+        font-family: "EB Garamond";
+    }
 
-     #tabLink2:hover {
-          background-color: rgb(25, 32, 108);
-          outline: rgb(25, 32, 108);
-     }
+    & #tabLink2 {
+        background-color: rgba(11, 15, 63, 0.8);
+        color: white;
+        float: left;
+        border: none;
+        border-radius: 5px 10px;
+        cursor: pointer;
+        padding: 12px 16px;
+        font-size: 1.2rem;
+        width: 25%;
+        font-family: "EB Garamond";
+    }
 
-     #favorites-tab {
-          background-color: rgb(83, 26, 35);
-          border-radius: 0 10px;
-          font-family: "EB Garamond";
-     }
+    & #tabLink1:hover {
+        background-color: rgba(118, 36, 48, 0.5);
+    }
 
-     #created-drinks-tab {
-          background-color: rgb(11, 15, 63);
-          border-radius: 0 10px;
-          font-family: "EB Garamond";
-     }
+    & #tabLink2:hover {
+        background-color: rgb(25, 32, 108);
+    }
 
-     /* SIDEBAR STYLING--------------------------------- */
-     .container {
+    & #favorites-tab {
+        background-color: rgb(83, 26, 35, 0.75);
+        border-radius: 0 10px;
+        font-family: "EB Garamond";
+    }
+
+    & #created-drinks-tab {
+        background-color: rgb(11, 15, 63);
+        border-radius: 0 10px;
+        font-family: "EB Garamond";
+    }
+
+/* SIDEBAR STYLING START --------------------------------- */
+    & .container {
         display: inline-block;
         cursor: pointer;
-        }
+    }
         
     
-        #buttonX {
-            position: absolute;
-            z-index: 10;
-            top: 1rem;
-            left: 1rem;
-        }
-    
-        .bar1,
-        .bar2,
-        .bar3 {
-            width: 35px;
-            height: 5px;
-            background-color: #ffffff;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-    
-        .change .bar1 {
-            transform: translate(0, 11px) rotate(-45deg);
-        }
-    
-        .change .bar2 {
-            opacity: 0;
-        }
-    
-        .change .bar3 {
-            transform: translate(0, -11px) rotate(45deg);
-        }
-    
-        /* The side navigation menu */
-        .sidenav {
-            height: 100%;
-            /* 100% Full-height */
-            width: 0;
-            /* 0 width - change this with JavaScript */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Stay on top */
-            top: 0;
-            /* Stay at the top */
-            left: 0;
-            background: linear-gradient(218deg, rgba(0,34,64,1) 0%, rgba(44,11,91,1) 34%, rgba(129,30,54,1) 64%, rgba(70,6,8,1) 100%);
-            /* Black*/
-            overflow-x: hidden;
-            /* Disable horizontal scroll */
-            padding-top: 60px;
-            /* Place content 60px from the top */
-            transition: 0.5s;
-            /* 0.5 second transition effect to slide in the sidenav */
-        }
-    
-        /* The navigation menu links */
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #ffffff;
-            display: block;
-            transition: 0.3s;
-        }
-    
-        /* When you mouse over the navigation links, change their color */
-        .sidenav a:hover {
-            color: rgb(237, 196, 15);
-            text-decoration: underline;
-        }
-    
-        /* Position and style the close button (top right corner) */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
+    & #buttonX {
+        position: absolute;
+        z-index: 10;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    & .bar1,
+    & .bar2,
+    & .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #ffffff;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+    }
+
+    /* The side navigation menu */
+    & .sidenav {
+        height: 100%;
+        /* 100% Full-height */
+        width: 0;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        /* Stay at the top */
+        left: 0;
+        background: linear-gradient(218deg, rgba(0,34,64,1) 0%, rgba(44,11,91,1) 34%, rgba(129,30,54,1) 64%, rgba(70,6,8,1) 100%);
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidenav */
+        box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.5);
+    }
+
+    /* The navigation menu links */
+    & .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    & .sidenav a:hover {
+        color: rgb(237, 196, 15);
+        text-decoration: underline;
+    }
+
+    /* Position and style the close button (top right corner) */
+    & .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
 /* END SIDEBAR STYLING--------------------------------- */
+
+/* DARK MODE GENERAL STYLING START---------------------------- */
+    & #username {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+        font-size: 1.2rem;
+    }
+
+    & #password {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+        font-size: 1.2rem;
+    }
+
+    & #musicChoice {
+        background-color: white;
+        color: black;
+        font-family: inherit;
+        font-size: 2rem;
+        width: auto;
+    }
+/* DARK MODE GENERAL STYLING END---------------------------- */
 }
-
-@keyframes glowing {
-     0% {
-          background-position: 0 0;
-     }
-
-     50% {
-          background-position: 400% 0;
-     }
-
-     100% {
-          background-position: 0 0;
-     }
-}
+/* DARK MODE STYLING END --------------------------------------------------- */
 
 .light-mode {
 /* LIGHT MODE GENERAL START ------------------------------ */
@@ -510,10 +558,19 @@ h2 {
 
     & .studio-drink-header{
         color: black;
+        font-size: 5rem;
     }
 
     & h1, h2, h3, h4, h5, h6, p {
         color: black;
+    }
+
+    & button {
+        font-size: 1.1rem;
+    }
+
+    & h1 {
+        font-size: 2rem;
     }
 
     & #all-drinks-header{
@@ -578,6 +635,7 @@ h2 {
         /* Place content 60px from the top */
         transition: 0.5s;
         /* 0.5 second transition effect to slide in the sidenav */
+        box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.5);
     }
 
     /* The navigation menu links */
@@ -962,52 +1020,48 @@ h2 {
 /* TABS FOR PROFILE PAGE START ---------------------- */
     /* Style tab links */
     & #tabLink1 {
-        background-color: #ff7861;
-        color: white;
+        background-color: #ff7961a9;
+        color: black;
         float: left;
         border: none;
         border-radius: 10px 5px;
-        outline: 3px solid #ff7861;
         cursor: pointer;
         padding: 12px 16px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         width: 25%;
         font-family: "EB Garamond";
     }
 
     & #tabLink2 {
-        background-color: #ffbc48;
-        color: white;
+        background-color: #ffbc48b4;
+        color: rgb(0, 0, 0);
         float: left;
         border: none;
         border-radius: 5px 10px;
-        outline: 3px solid #ffbc48;
         cursor: pointer;
         padding: 12px 16px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         width: 25%;
         font-family: "EB Garamond";
     }
 
     & #tabLink1:hover {
-        background-color: #bb5847;
-        outline: 3px solid #bb5847;
+        background-color: #d36451c3;
     }
 
     & #tabLink2:hover {
-        background-color: #be7901;
-        outline: 3px solid #be7901;
+        background-color: #ca8103ce;
     }
 
     /* favorites main panel */
     & #favorites-tab {
-        background-color: #ff7861;
+        background-color: #ff7961ca;
         border-radius: 0 10px;
     }
 
     /* created drinks main panel */
     & #created-drinks-tab {
-        background-color: #ffbc48;
+        background-color: #ffbc48d2;
         border-radius: 0 10px;
         font-family: "EB Garamond";
     }
@@ -1100,6 +1154,7 @@ input:checked + .slider:before {
 
 #drink-gif {
     border-radius: 10px;
+    box-shadow: 2px 2px 7px 3px rgba(0,0,0,0.5)
 }
 
 #drink-form {
@@ -1280,7 +1335,7 @@ input:checked + .slider:before {
 }
 
 .droplabel {
-     margin: 1rem;
+    margin: 1rem;
 }
 
 .dropdown {
