@@ -10,9 +10,11 @@ import MuiAlert from "@mui/material/Alert";
 
 function SlideTransition(props) {
     return <Slide {...props} direction="up" />;
+    return <Slide {...props} direction="up" />;
 }
 
 function GrowTransition(props) {
+    return <Grow {...props} />;
     return <Grow {...props} />;
 }
 
