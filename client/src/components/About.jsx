@@ -1,4 +1,6 @@
-export default function About() {
+import LightMode from "../assets/day_mode_lemon.mp4";
+import DarkMode from "../assets/dark_mode_firey_red.mp4";
+export default function About({ dark }) {
     console.log("about usss");
     return (
         <section>
