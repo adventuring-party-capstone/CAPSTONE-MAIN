@@ -69,6 +69,7 @@ a {
 /* mouse over link */
 a:hover {
     color: rgb(145, 30, 30);
+    text-decoration: none;
 }
 
 /* selected link */
@@ -78,6 +79,7 @@ a:active {
 
 a:visited {
     color: goldenrod;
+    text-decoration: none;
 }
 
 h1 {
@@ -143,6 +145,10 @@ h2 {
 
     & h1 {
         font-size: 2rem;
+    }
+
+    & h1, h2, h3, h4, h5, h6, p, a {
+        color: white;
     }
 
 /* MUI COMPONENTS STYLING START------------------------------------  */
@@ -230,15 +236,56 @@ h2 {
 
 /* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
-/* MUSIC PLAYER STYLING START ----------------------------------------  */
+/* DARK MUSIC PLAYER STYLING START ----------------------------------------  */
     & .dropdown-content {
         background-color: #242424;;
         color: white;
     }
 
+    /* Links inside the dropdown */
+    & .dropdown-content a {
+        padding: 1rem;
+        /* font-size: 1em; */
+        text-decoration: none;
+        display: block;
+    }
+
     /* Change color of dropdown links on hover */
     & .dropdown-content a:hover {
         background-color: rgb(1, 1, 39);
+    }
+
+    .dropbtn {
+        background-color: #4a1313;
+        border-radius: 10px;
+        border: 1px solid white;
+        color: white;
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 1em;
+        cursor: pointer;
+        font-family: "EB Garamond";
+    }
+    
+    .droplabel {
+        margin: 1rem;
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+        text-decoration: none;
+    }
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+        background-color: #762330;
+        text-decoration: none;
     }
 
 /* MUSIC PLAYER STYLING END ----------------------------------------  */
@@ -1011,12 +1058,14 @@ h2 {
     & .dropdown-content a {
         color: black;
         padding: 1rem;
+        font-size: 1rem;
         text-decoration: none;
         display: block;
     }
     
     & .dropdown-content a:hover {
         background-color: rgb(179, 179, 219);
+        text-decoration: none;
     }
 
     & .droplabel {
@@ -1391,6 +1440,7 @@ input:checked + .slider:before {
 /* Links inside the dropdown */
 .dropdown-content a {
     padding: 1rem;
+    font-size: 10rem;
     text-decoration: none;
     display: block;
 }
@@ -1398,17 +1448,19 @@ input:checked + .slider:before {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+    text-decoration: none;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #762330;
+    background-color: #ff899b;
+    text-decoration: none;
 }
 
 #music-player-container {
     margin: 1rem;
     padding: 1rem;
-    display: flex;
+    display: grid;
     align-items: center;
 }
 
