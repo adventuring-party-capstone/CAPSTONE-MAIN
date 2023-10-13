@@ -109,40 +109,7 @@ export default function Home({
 						oldInput={oldInput}
 					/>
 				)}
-
-				{/* {!token && (
-				<div>
-					<Login
-						token={token}
-						setToken={setToken}
-						setUserId={setUserId}
-						userId={userId}
-					/>
-					<h2>
-						<Link to={"/register"}>Create New Account</Link>
-					</h2>
-				</div>
-			)} */}
-				{/* <h3>🍸 Drink Contains Alcohol</h3>
-			<br />
-			<h1>RANDOM DRINK</h1>
-			<RandomDrinkButton userId={userId} /> */}
 			</div>
 		</section>
 	);
 }
-
-// need a search bar
-// when someone searches genre id
-// save that search param in a variable
-// look inside genres_ingredients junction table
-// get an array of ingredients matching that genre
-
-// localdb: get all drinks with ingredient matching ingredient_id in genres_ingredients junction table
-
-// render a single drink from the array of drinks matching ingredient on button click,
-// when someone clicks again it goes to the next drink
-
-// STRETCH GOALS
-// watch out! for duplicate drinks with external API
-// API: get all drinks with ingredient
