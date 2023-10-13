@@ -1202,6 +1202,12 @@ input:checked + .slider:before {
     font-size: 1.5rem;
 }
 
+#login-text{
+    display:grid;
+    text-align: right;
+    place-content: center;
+}
+
 /* IMAGE DEFAULTS */
 #images {
     width: 70%;
