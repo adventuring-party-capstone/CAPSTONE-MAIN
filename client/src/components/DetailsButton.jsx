@@ -15,7 +15,6 @@ export default function DetailsButton({ drinkId }) {
 				{!isOpen ? "See Drink Details" : "Close details"}
 			</button>
 			<div>
-
 				{isOpen && <SingleDrinkDetails key={drinkId} drinkId={drinkId} />}
 			</div>
 		</>

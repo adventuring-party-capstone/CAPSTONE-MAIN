@@ -59,13 +59,13 @@ export default function Home({
 		}
 	};
 
-	function onChangeFunction(event) {
-		setMusicInput(event.target.value);
-		setOldInput((event.target.oldvalue = event.target.value));
-	}
+	// function onChangeFunction(event) {
+	// 	setMusicInput(event.target.value);
+	// 	setOldInput((event.target.oldvalue = event.target.value));
+	// }
 
-	const drinkCard = document.getElementById("drink-card");
-	const suggestButton = document.getElementsByClassName("glow-on-hover-home");
+	// const drinkCard = document.getElementById("drink-card");
+	// const suggestButton = document.getElementsByClassName("glow-on-hover-home");
 
 	return (
 		<section>
@@ -79,7 +79,9 @@ export default function Home({
 						name="search"
 						placeholder="Enter any artist or genre from Spotify"
 						onFocus={(event) =>
-							setOldInput((event.target.oldvalue = event.target.value))
+							setOldInput(
+								(event.target.oldvalue = event.target.value)
+							)
 						}
 						onChange={(event) => setMusicInput(event.target.value)}
 					/>

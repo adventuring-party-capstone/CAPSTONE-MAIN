@@ -255,7 +255,7 @@ h2 {
         background-color: rgb(1, 1, 39);
     }
 
-    .dropbtn {
+    & .dropbtn {
         background-color: #4a1313;
         border-radius: 10px;
         border: 1px solid white;
@@ -267,23 +267,23 @@ h2 {
         font-family: "EB Garamond";
     }
     
-    .droplabel {
+    & .droplabel {
         margin: 1rem;
     }
     
-    .dropdown {
+    & .dropdown {
         position: relative;
         display: inline-block;
     }
     
     /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
+    & .dropdown:hover .dropdown-content {
         display: block;
         text-decoration: none;
     }
     
     /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
+    & .dropdown:hover .dropbtn {
         background-color: #762330;
         text-decoration: none;
     }
@@ -607,6 +607,8 @@ h2 {
 /* DARK MODE GENERAL STYLING END---------------------------- */
 }
 /* DARK MODE STYLING END --------------------------------------------------- */
+
+/* START OF LIGHT MODE STYLING --------------------------------------------------------------- */
 
 .light-mode {
 /* LIGHT MODE GENERAL START ------------------------------ */
