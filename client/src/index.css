@@ -68,7 +68,7 @@ a {
 
 /* mouse over link */
 a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 /* selected link */
@@ -76,7 +76,7 @@ a:active {
     color: rgb(15, 15, 160);
 }
 
-a.clicked {
+a:visited {
     color: goldenrod;
 }
 
@@ -242,7 +242,15 @@ h2 {
     }
 
 /* MUSIC PLAYER STYLING END ----------------------------------------  */
-
+    & #flip-card {
+        background-color: transparent;
+        border-radius: 10px;
+        width: 30dvw;
+        height: 30dvw;
+        margin-top: 1rem;
+        /* margin-left: auto;
+        margin-right: auto; */
+    }
     & #flip-card-front {
         background-color: rgb(255, 255, 255);
         color: rgb(255, 255, 255);
@@ -442,11 +450,12 @@ h2 {
     & .container {
         display: inline-block;
         cursor: pointer;
+        z-index: 10;
     }
         
     
     & #buttonX {
-        position: absolute;
+        position: fixed;
         z-index: 10;
         top: 1rem;
         left: 1rem;
@@ -460,6 +469,7 @@ h2 {
         background-color: #ffffff;
         margin: 6px 0;
         transition: 0.4s;
+        z-index: 10;
     }
 
     .change .bar1 {
@@ -563,7 +573,7 @@ h2 {
         font-size: 5rem;
     }
 
-    & h1, h2, h3, h4, h5, h6, p {
+    & h1, h2, h3, h4, h5, h6, p, a {
         color: black;
     }
 
@@ -588,7 +598,7 @@ h2 {
     }
 
     & #buttonX {
-        position: absolute;
+        position: fixed;
         z-index: 10;
         top: 1rem;
         left: 1rem;
@@ -891,6 +901,9 @@ h2 {
         cursor: pointer;
         font-family: "EB Garamond";
     }
+    & #clear-button:hover {
+        background-color: rgba(255, 255, 255, 0.65);
+    }
 
     & #pink-button:hover {
         background-color: #be4e37;
@@ -902,11 +915,13 @@ h2 {
     & #flip-card {
         background-color: transparent;
         border-radius: 10px;
-        width: 20vw;
-        height: 20vw;
+        width: 30dvw;
+        height: 30dvw;
         margin-top: 1rem;
-        margin-left: auto;
-        margin-right: auto;
+        font-family: "EB Garamond";
+
+        /* margin-left: auto;
+        margin-right: auto; */
     }
 
     & #flip-card-front {
@@ -957,6 +972,7 @@ h2 {
         color: rgb(0, 0, 0);
         background: linear-gradient(to top, #e28874da, #ffda75de);
         border-radius: 10px;
+        font-family: "EB Garamond";
     }
 
     & #edit-flip-card-back {
@@ -1154,6 +1170,16 @@ input:checked + .slider:before {
     padding: 2rem;
 }
 
+#created-drinks-container{
+    padding: 1rem;
+}
+
+#random-drink-container{
+    display: grid;
+    margin: 2rem;
+    place-content: center;
+}
+
 #drink-gif {
     border-radius: 10px;
     box-shadow: 2px 2px 7px 3px rgba(0,0,0,0.5)
@@ -1195,14 +1221,14 @@ input:checked + .slider:before {
 #flip-card {
     background-color: transparent;
     border-radius: 10px;
-    width: 20vw;
-    height: 20vw;
+    width: 30dvw;
+    height: 30dvw;
     /* overflow: hidden; */
     /* perspective: 1000px; */
     /* Remove this if you don't want the 3D effect */
     margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 #flip-card-inner {
@@ -1225,10 +1251,10 @@ input:checked + .slider:before {
     border-radius: 10%;
     width: 100%;
     height: 100%;
+    padding: 1rem;
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
-    margin: 1rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -1259,6 +1285,7 @@ input:checked + .slider:before {
     border-radius: 10px;
     width: 30vw;
     height: 30vw;
+    font-family: "EB Garamond";
     /* overflow: hidden; */
     /* perspective: 1000px; */
     /* Remove this if you don't want the 3D effect */
@@ -1287,10 +1314,10 @@ input:checked + .slider:before {
     border-radius: 10%;
     width: 100%;
     height: 100%;
+    font-family: "EB Garamond";
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
-    margin: 1rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

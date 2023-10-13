@@ -27,7 +27,7 @@ export default function Favorites({ token, userId }) {
 	const [localArray, setLocalArray] = useState([]);
 	const [APIArrayBig, setAPIArrayBig] = useState([]);
 	const [combinedArray, setCombinedArray] = useState([]);
-	const [isToggled, setIsToggled] = useState(false);
+	const [isToggled, setIsToggled] = useState(true);
 	const [alcIds, setAlcIds] = useState([]);
 
 	// console.log("userId in favorites", userId);
@@ -274,17 +274,17 @@ export default function Favorites({ token, userId }) {
 										<div id="flip-card">
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
-													<h1>
+													<h2>
 														{drink.alcoholic == true ? (
-															<h2>
+															<h3>
 																{" "}
 																🍸
 																{drink.drinks_name}
-															</h2>
+															</h3>
 														) : (
-															<h2> {drink.drinks_name}</h2>
+															<h3> {drink.drinks_name}</h3>
 														)}
-													</h1>
+													</h2>
 
 													<img
 														src={drink.image}
@@ -294,7 +294,7 @@ export default function Favorites({ token, userId }) {
 												</div>
 
 												<div id="flip-card-back">
-													<h2>{drink.drinks_name}</h2>
+													<h3>{drink.drinks_name}</h3>
 													<DetailsButton drinkId={localDrinkId} />
 													<DeleteFavorite drinks_id={drink.drinks_id} />
 												</div>
@@ -317,19 +317,18 @@ export default function Favorites({ token, userId }) {
 													<div id="name section">
 														{alcIds.includes(drink.idDrink) ? (
 															<div>
-																<br />
-																<h2>
+																<h3>
 																	🍸
 																	{drink.strDrink}
-																</h2>
+																</h3>
 															</div>
 														) : (
 															<div>
-																<br />
-																<h2>{drink.strDrink}</h2>
+																<h3>{drink.strDrink}</h3>
 															</div>
 														)}
 													</div>
+													<br />
 													<img
 														src={drink.strDrinkThumb}
 														alt={drink.strDrink}
@@ -337,7 +336,7 @@ export default function Favorites({ token, userId }) {
 													/>
 												</div>
 												<div id="flip-card-back">
-													<h2>{drink.strDrink}</h2>
+													<h3>{drink.strDrink}</h3>
 													<div>
 														<DetailsButton drinkId={APIDrinkId} />
 													</div>

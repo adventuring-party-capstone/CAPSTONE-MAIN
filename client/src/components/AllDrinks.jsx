@@ -399,6 +399,7 @@ export default function AllDrinks({ token, userId }) {
 												</div>
 											)
 										)}
+										<br />
 										{drink.strDrinkThumb ? (
 											<img
 												src={drink.strDrinkThumb}
@@ -419,6 +420,7 @@ export default function AllDrinks({ token, userId }) {
 									{drink.idDrink && (
 										<div id="flip-card-back">
 											<h3>{drink.strDrink}</h3>
+											<br />
 											{token && (
 												<FavoriteButton
 													api_drinks_id={drink.idDrink}
@@ -433,7 +435,11 @@ export default function AllDrinks({ token, userId }) {
 										<div id="flip-card-back">
 											<h2>{drink.drinks_name}</h2>
 											{token && (
-												<FavoriteButton api_drinks_id={null} userId={userId} />
+												<FavoriteButton
+													api_drinks_id={null}
+													drinkId={drink.drinks_id}
+													userId={userId}
+												/>
 											)}
 											<DetailsButton drinkId={drink.drinks_id} />
 										</div>

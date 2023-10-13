@@ -57,7 +57,7 @@ export default function CreateNewDrink(userId) {
 				ingredients,
 				recipe,
 				image,
-				glass,
+				null,
 				alcoholic,
 				userIdCND
 			);
@@ -124,15 +124,6 @@ export default function CreateNewDrink(userId) {
 					onChange={(e) => setRecipe(e.target.value)}
 				/>
 				<br />
-				<input
-					id="formInput"
-					className="inputField"
-					value={glass}
-					type="text"
-					name="glass"
-					placeholder="Glass"
-					onChange={(e) => setGlass(e.target.value)}
-				/>
 				<br />
 				<div>
 					<h2>Alcoholic?</h2>

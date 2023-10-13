@@ -54,7 +54,7 @@ export default function RandomDrinkButton({ userId }) {
 			</button>
 			<div className="Random-Button">
 				{randomDrink ? (
-					<div>
+					<div id="random-drink-container">
 						<h3>🍸= Drink Contains Alcohol</h3>
 						<div id="flip-card">
 							<div id="flip-card-inner">
