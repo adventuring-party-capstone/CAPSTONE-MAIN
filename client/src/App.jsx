@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import lemon from "./assets/day_mode_lemon.mp4";
+import dayModeGrapefruit from "./assets/day_mode_lemon.mp4";
+import darkModeRedDrink from "./assets/dark_mode_firey_red.mp4";
 import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
@@ -80,139 +81,7 @@ function App() {
 				/>
 				<br />
 				<br />
-				{/* <div id="music-player-container">
-					<div className="dropdown">
-						<label className="droplabel">Listen to Music: </label>
-						<br />
-						<button className="dropbtn">Choose Genre</button>
-						<div className="dropdown-content">
-							<a onClick={() => genreSelector(1)}>
-								Alternative Rock
-							</a>
-							<a onClick={() => genreSelector(2)}>Classical</a>
-							<a onClick={() => genreSelector(3)}>Electronic</a>
-							<a onClick={() => genreSelector(4)}>Hip Hop</a>
-							<a onClick={() => genreSelector(5)}>Jazz</a>
-							<a onClick={() => genreSelector(6)}>Pop</a>
-							<a onClick={() => genreSelector(7)}>R&B</a>
-							<a onClick={() => genreSelector(8)}>Rock</a>
-							<a onClick={() => genreSelector(9)}>Soundtrack</a>
-							<a onClick={() => genreSelector(10)}>World</a>
-						</div>
-					</div>
-					<section id="music-player">
-						{genreSelect === 1 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EIefLxrHQP8p4?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 2 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQn1VBR3CMMWb?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 3 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQp9BVPsNVof1?utm_source=generator&theme=0"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 4 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQnqst5TRi17F?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 5 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQqA6klNdJvwx?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 6 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQncLwOalG3K7?utm_source=generator&theme=0"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 7 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 8 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator&theme=0"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 9 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EIcQBc0YedSHe?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-						{genreSelect === 10 && (
-							<iframe
-								src="https://open.spotify.com/embed/playlist/37i9dQZF1EIgGQHfQwuUUP?utm_source=generator"
-								width="100%"
-								height="152"
-								frameBorder="0"
-								allowFullScreen=""
-								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"
-							></iframe>
-						)}
-					</section>
-				</div> */}
+
 				<MainSection
 					token={token}
 					setToken={setToken}
@@ -221,11 +90,26 @@ function App() {
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
 				/>
-				<div id="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
-						<source src={lemon} type="video/mp4"></source>
-					</video>
-				</div>
+				{dark ? (
+					<div id="video-home-dark">
+						<h1></h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source
+								src={darkModeRedDrink}
+								type="video/mp4"
+							></source>
+						</video>
+					</div>
+				) : (
+					<div id="video-home">
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source
+								src={dayModeGrapefruit}
+								type="video/mp4"
+							></source>
+						</video>
+					</div>
+				)}
 			</div>
 		</div>
 	);
