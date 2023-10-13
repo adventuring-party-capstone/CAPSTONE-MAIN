@@ -126,9 +126,6 @@ h2 {
 
 /* DARK MODE STYLING BEGIN --------------------------------------------------- */
 .dark-mode {
-    background: url("./assets/DarkMode.jpg") fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
 
     & label {
         color: rgb(255, 255, 255);
@@ -1494,6 +1491,18 @@ input:checked + .slider:before {
      position: fixed;
      right: 0;
      top: 0;
+     min-width: 100dvw;
+     min-height: 100dvh;
+     width: 100dvw;
+     transform: scale(1);
+     z-index: -10;
+}
+
+#video-home-dark {
+    /* object-fit: cover; */
+     position: fixed;
+     right: 0;
+     bottom: 0;
      min-width: 100dvw;
      min-height: 100dvh;
      width: 100dvw;
