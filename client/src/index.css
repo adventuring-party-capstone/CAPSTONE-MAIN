@@ -314,16 +314,18 @@ h2 {
         background-color: rgb(255, 255, 255);
         color: rgb(255, 255, 255);
         font-family: "EB Garamond";
-        background: linear-gradient(to top, #3d0f1d, #000000);
+        background: linear-gradient(to top, #6e103f9a, #0000008a);
         border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.349);
     }
 
     & #flip-card-back {
         background-color: black;
-        background: linear-gradient(to top, #3d0f1d, #000000);
+        background: linear-gradient(to top, #3d0f1db4, #00000094);
         color: white;
         transform: rotateY(180deg);
         overflow-y: scroll;
+        border: 1px solid rgba(255, 255, 255, 0.349);
     }
 
     /* DARK DETAILS BUTTON STYLING START -------------------------------- */
