@@ -10,6 +10,7 @@ import CreateNewDrink from "./CreateNewDrink";
 import Profile from "./Profile";
 import SideNav from "./SideNav";
 import RandomDrinkButton from "./RandomDrinkButton";
+import About from "./About";
 
 export default function MainSection({
 	token,
@@ -37,6 +38,7 @@ export default function MainSection({
 						/>
 					}
 				></Route>
+				<Route path="/about" element={<About />}></Route>
 				<Route
 					path="/all_drinks"
 					element={<AllDrinks token={token} userId={userId} />}
@@ -44,7 +46,11 @@ export default function MainSection({
 				<Route
 					path="/favorites"
 					element={
-						<Favorites token={token} userId={userId} setUserId={setUserId} />
+						<Favorites
+							token={token}
+							userId={userId}
+							setUserId={setUserId}
+						/>
 					}
 				></Route>
 				<Route path="/register" element={<Register />}></Route>
@@ -70,7 +76,11 @@ export default function MainSection({
 				<Route
 					path="/profile"
 					element={
-						<Profile token={token} setToken={setToken} userId={userId} />
+						<Profile
+							token={token}
+							setToken={setToken}
+							userId={userId}
+						/>
 					}
 				/>
 				<Route
@@ -80,7 +90,11 @@ export default function MainSection({
 				<Route
 					path="/sidenav"
 					element={
-						<SideNav token={token} setToken={setToken} userId={userId} />
+						<SideNav
+							token={token}
+							setToken={setToken}
+							userId={userId}
+						/>
 					}
 				/>
 			</Routes>
