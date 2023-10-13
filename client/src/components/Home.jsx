@@ -1,5 +1,5 @@
 // This component renders the homepage
-
+import lemon from "../assets/day_mode_lemon.mp4";
 import { useState, useEffect } from "react";
 
 import Spotify from "./Spotify";
@@ -59,52 +59,54 @@ export default function Home({
 		}
 	};
 
-	function onChangeFunction(event) {
-		setMusicInput(event.target.value);
-		setOldInput((event.target.oldvalue = event.target.value));
-	}
+	// function onChangeFunction(event) {
+	// 	setMusicInput(event.target.value);
+	// 	setOldInput((event.target.oldvalue = event.target.value));
+	// }
 
-	const drinkCard = document.getElementById("drink-card");
-	const suggestButton = document.getElementsByClassName("glow-on-hover-home");
+	// const drinkCard = document.getElementById("drink-card");
+	// const suggestButton = document.getElementsByClassName("glow-on-hover-home");
 
 	return (
-		<div id="home-container">
-			<h1>Enter music choice</h1>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="Search" id="music-label">
-					Enter Artist:{" "}
-				</label>
-				<input
-					id="musicChoice"
-					type="text"
-					name="search"
-					placeholder="Enter music choice here"
-					onFocus={(event) =>
-						setOldInput((event.target.oldvalue = event.target.value))
-					}
-					onChange={(event) => setMusicInput(event.target.value)}
-				/>
-			</form>
-			<br />
-			{
-				<button
-					className="glow-on-hover-home"
-					onClick={(event) => handleSubmit(event)}
-				>
-					Suggest Drink
-				</button>
-			}
-			{musicChoice && (
-				<Spotify
-					musicChoice={musicChoice}
-					userId={userId}
-					token={token}
-					spotifyToken={spotifyToken}
-					setSpotifyToken={setSpotifyToken}
-					oldInput={oldInput}
-				/>
-			)}
-			{!token && (
+		<section>
+			<div id="home-container">
+				<h1>Enter music choice</h1>
+				<form onSubmit={handleSubmit}>
+					<label htmlFor="Search" id="music-label"></label>
+					<input
+						id="musicChoice"
+						type="text"
+						name="search"
+						placeholder="Enter any artist or genre from Spotify"
+						onFocus={(event) =>
+							setOldInput(
+								(event.target.oldvalue = event.target.value)
+							)
+						}
+						onChange={(event) => setMusicInput(event.target.value)}
+					/>
+				</form>
+				<br />
+				{
+					<button
+						className="glow-on-hover-home"
+						onClick={(event) => handleSubmit(event)}
+					>
+						Suggest Drink
+					</button>
+				}
+				{musicChoice && (
+					<Spotify
+						musicChoice={musicChoice}
+						userId={userId}
+						token={token}
+						spotifyToken={spotifyToken}
+						setSpotifyToken={setSpotifyToken}
+						oldInput={oldInput}
+					/>
+				)}
+
+				{/* {!token && (
 				<div>
 					<Login
 						token={token}
@@ -116,12 +118,13 @@ export default function Home({
 						<Link to={"/register"}>Create New Account</Link>
 					</h2>
 				</div>
-			)}
-			{/* <h3>🍸 Drink Contains Alcohol</h3>
+			)} */}
+				{/* <h3>🍸 Drink Contains Alcohol</h3>
 			<br />
 			<h1>RANDOM DRINK</h1>
 			<RandomDrinkButton userId={userId} /> */}
-		</div>
+			</div>
+		</section>
 	);
 }
 

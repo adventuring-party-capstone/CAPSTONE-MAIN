@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import lemon from "./assets/day_mode_lemon.mp4";
 import "./App.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
@@ -28,13 +28,6 @@ function App() {
 	useEffect(() => {
 		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
 	}, []);
-
-	// this function lets the genre persist between reloads (so the player stays present)
-	function genreSelector(num) {
-		console.log("num is ", num);
-		window.localStorage.setItem("genreSelect", num);
-		setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
-	}
 
 	// DARK MODE LOGIC --------------- //
 	const [dark, setDark] = useState(
@@ -68,21 +61,34 @@ function App() {
 					</div>
 					<div>
 						<label className="switch">
-							<input type="checkbox" checked={dark} onClick={toggleDarkMode} />
-							<span className="slider round">{dark ? " " + "🌙" : "🌞"}</span>
+							<input
+								type="checkbox"
+								checked={dark}
+								onClick={toggleDarkMode}
+							/>
+							<span className="slider round">
+								{dark ? " " + "🌙" : "🌞"}
+							</span>
 						</label>
 					</div>
 				</div>
-				<SideNav mode={dark} token={token} />
+				<SideNav
+					mode={dark}
+					token={token}
+					setGenreSelect={setGenreSelect}
+					genreSelect={genreSelect}
+				/>
 				<br />
 				<br />
-				<div id="music-player-container">
+				{/* <div id="music-player-container">
 					<div className="dropdown">
 						<label className="droplabel">Listen to Music: </label>
 						<br />
 						<button className="dropbtn">Choose Genre</button>
 						<div className="dropdown-content">
-							<a onClick={() => genreSelector(1)}>Alternative Rock</a>
+							<a onClick={() => genreSelector(1)}>
+								Alternative Rock
+							</a>
 							<a onClick={() => genreSelector(2)}>Classical</a>
 							<a onClick={() => genreSelector(3)}>Electronic</a>
 							<a onClick={() => genreSelector(4)}>Hip Hop</a>
@@ -206,7 +212,7 @@ function App() {
 							></iframe>
 						)}
 					</section>
-				</div>
+				</div> */}
 				<MainSection
 					token={token}
 					setToken={setToken}
@@ -215,6 +221,11 @@ function App() {
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
 				/>
+				<div id="video-home">
+					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<source src={lemon} type="video/mp4"></source>
+					</video>
+				</div>
 			</div>
 		</div>
 	);

@@ -333,8 +333,9 @@ export default function AllDrinks({ token, userId }) {
 	return (
 		<>
 			<section id="all-drinks-container">
-				<h1>All Drinks</h1>
-				<h3>🍸 Drink Contains Alcohol</h3>
+				<div id="all-drinks-header">
+					<h1>All Drinks</h1>
+				</div>
 				<FormGroup>
 					<FormControlLabel
 						control={
@@ -368,7 +369,7 @@ export default function AllDrinks({ token, userId }) {
 						color="secondary"
 					/>
 				</div>
-
+				<h3>🍸= Drink Contains Alcohol</h3>
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;
@@ -379,25 +380,26 @@ export default function AllDrinks({ token, userId }) {
 										{drink.strDrink ? (
 											<div id="name section">
 												{alcIds.includes(drink.idDrink) ? (
-													<p>
+													<h3>
 														🍸
 														{drink.strDrink}
-													</p>
+													</h3>
 												) : (
-													<p>{drink.strDrink}</p>
+													<h3>{drink.strDrink}</h3>
 												)}
 											</div>
 										) : (
 											drink.drinks_name && (
 												<div id="name section">
 													{drink.alcoholic ? (
-														<p>🍸{drink.drinks_name}</p>
+														<h3>🍸{drink.drinks_name}</h3>
 													) : (
-														<p>{drink.drinks_name}</p>
+														<h3>{drink.drinks_name}</h3>
 													)}
 												</div>
 											)
 										)}
+										<br />
 										{drink.strDrinkThumb ? (
 											<img
 												src={drink.strDrinkThumb}
@@ -417,7 +419,8 @@ export default function AllDrinks({ token, userId }) {
 									{/* API database drink */}
 									{drink.idDrink && (
 										<div id="flip-card-back">
-											<h1>{drink.strDrink}</h1>
+											<h3>{drink.strDrink}</h3>
+											<br />
 											{token && (
 												<FavoriteButton
 													api_drinks_id={drink.idDrink}
@@ -430,9 +433,13 @@ export default function AllDrinks({ token, userId }) {
 									{/* local database drink */}
 									{drink.drinks_id && (
 										<div id="flip-card-back">
-											<h1>{drink.drinks_name}</h1>
+											<h2>{drink.drinks_name}</h2>
 											{token && (
-												<FavoriteButton api_drinks_id={null} userId={userId} />
+												<FavoriteButton
+													api_drinks_id={null}
+													drinkId={drink.drinks_id}
+													userId={userId}
+												/>
 											)}
 											<DetailsButton drinkId={drink.drinks_id} />
 										</div>
@@ -450,6 +457,12 @@ export default function AllDrinks({ token, userId }) {
 						color="secondary"
 					/>
 				</div>
+				<button id="clear-button">
+					<a href="#top" style={{ "text-decoration": "none" }}>
+						{" "}
+						Back to Top
+					</a>
+				</button>
 			</section>
 		</>
 	);
