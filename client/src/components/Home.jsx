@@ -19,125 +19,102 @@ export default function Home({
     setSpotifyToken,
     dark,
 }) {
-    const [musicInput, setMusicInput] = useState("");
-    const [musicChoice, setMusicChoice] = useState("");
-    const [oldInput, setOldInput] = useState("");
-    const [isClicked, setIsClicked] = useState(false);
 
-    // const navigate = useNavigate();
+	const [musicInput, setMusicInput] = useState("");
+	const [musicChoice, setMusicChoice] = useState("");
+	const [oldInput, setOldInput] = useState("");
+	const [isClicked, setIsClicked] = useState(false);
 
-    console.log("userId in home: ", userId);
-    console.log("spotifyToken in Home", spotifyToken);
+	// const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const realMusicInput = handleInput(musicInput);
-        console.log("real music input", realMusicInput);
-        if (realMusicInput.length == 0) {
-            alert("Please enter a music choice to get a suggested drink.");
-        }
+	console.log("userId in home: ", userId);
+	console.log("spotifyToken in Home", spotifyToken);
 
-        setMusicChoice(realMusicInput);
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const realMusicInput = handleInput(musicInput);
+		console.log("real music input", realMusicInput);
+		if (realMusicInput.length == 0) {
+			alert("Please enter a music choice to get a suggested drink.");
+		}
 
-        // console.log("musicChoice", musicChoice);
-        console.log("oldInput", oldInput);
+		setMusicChoice(realMusicInput);
 
-        if (musicChoice) {
-            console.log("entering handleSubmit");
-            setIsClicked(!isClicked);
-            // navigate(0);
-            // setMusicChoice("");
-        } else {
-            console.log("can't get drink choice");
-        }
-    };
+		// console.log("musicChoice", musicChoice);
+		console.log("oldInput", oldInput);
 
-    const handleInput = (musicInput) => {
-        // if musicInput has space, then replace the space with a plus symbol
-        // else return music input
-        if (/\s/.test(musicInput)) {
-            return musicInput.replace(" ", "+");
-        } else {
-            return musicInput;
-        }
-    };
+		if (musicChoice) {
+			console.log("entering handleSubmit");
+			setIsClicked(!isClicked);
+			// navigate(0);
+			// setMusicChoice("");
+		} else {
+			console.log("can't get drink choice");
+		}
+	};
 
-    // function onChangeFunction(event) {
-    // 	setMusicInput(event.target.value);
-    // 	setOldInput((event.target.oldvalue = event.target.value));
-    // }
+	const handleInput = (musicInput) => {
+		// if musicInput has space, then replace the space with a plus symbol
+		// else return music input
+		if (/\s/.test(musicInput)) {
+			return musicInput.replace(" ", "+");
+		} else {
+			return musicInput;
+		}
+	};
 
-    // const drinkCard = document.getElementById("drink-card");
-    // const suggestButton = document.getElementsByClassName("glow-on-hover-home");
+	// function onChangeFunction(event) {
+	// 	setMusicInput(event.target.value);
+	// 	setOldInput((event.target.oldvalue = event.target.value));
+	// }
 
-    return (
-        <section>
-            <div id="home-container">
-                <h1>Enter music choice</h1>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="Search" id="music-label"></label>
-                    <input
-                        id="musicChoice"
-                        type="text"
-                        name="search"
-                        placeholder="Enter any artist or genre from Spotify"
-                        onFocus={(event) =>
-                            setOldInput(
-                                (event.target.oldvalue = event.target.value)
-                            )
-                        }
-                        onChange={(event) => setMusicInput(event.target.value)}
-                    />
-                </form>
-                <br />
-                {
-                    <button
-                        className="glow-on-hover-home"
-                        onClick={(event) => handleSubmit(event)}
-                    >
-                        Suggest Drink
-                    </button>
-                }
-                {musicChoice && (
-                    <Spotify
-                        musicChoice={musicChoice}
-                        userId={userId}
-                        token={token}
-                        spotifyToken={spotifyToken}
-                        setSpotifyToken={setSpotifyToken}
-                        oldInput={oldInput}
-                    />
-                )}
-            </div>
-            {dark ? (
-                <div id="video-home-dark">
-                    <h1></h1>
-                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
-                        <source src={DarkMode} type="video/mp4"></source>
-                    </video>
-                </div>
-            ) : (
-                <div id="video-home">
-                    <video autoPlay loop muted style={{ minWidth: "100%" }}>
-                        <source src={LightMode} type="video/mp4"></source>
-                    </video>
-                </div>
-            )}
-        </section>
-    );
+	// const drinkCard = document.getElementById("drink-card");
+	// const suggestButton = document.getElementsByClassName("glow-on-hover-home");
+
+	return (
+		<section>
+			<div id="home-container">
+			<div id="tag-line">
+						<p className="tag-line"> Your music, your drink: </p>
+						<p style={{"font-family": "Great Vibes"}}>Harmony in every sip</p>
+					</div>
+				<h1>Enter music choice</h1>
+				<form onSubmit={handleSubmit}>
+					<label htmlFor="Search" id="music-label"></label>
+					<input
+						id="musicChoice"
+						type="text"
+						name="search"
+						placeholder="Enter any artist or genre from Spotify"
+						onFocus={(event) =>
+							setOldInput(
+								(event.target.oldvalue = event.target.value)
+							)
+						}
+						onChange={(event) => setMusicInput(event.target.value)}
+					/>
+				</form>
+				<br />
+				{
+					<button
+						className="glow-on-hover-home"
+						onClick={(event) => handleSubmit(event)}
+					>
+						Suggest Drink
+					</button>
+				}
+				{musicChoice && (
+					<Spotify
+						musicChoice={musicChoice}
+						userId={userId}
+						token={token}
+						spotifyToken={spotifyToken}
+						setSpotifyToken={setSpotifyToken}
+						oldInput={oldInput}
+					/>
+				)}
+			</div>
+		</section>
+	);
+
 }
-
-// need a search bar
-// when someone searches genre id
-// save that search param in a variable
-// look inside genres_ingredients junction table
-// get an array of ingredients matching that genre
-
-// localdb: get all drinks with ingredient matching ingredient_id in genres_ingredients junction table
-
-// render a single drink from the array of drinks matching ingredient on button click,
-// when someone clicks again it goes to the next drink
-
-// STRETCH GOALS
-// watch out! for duplicate drinks with external API
-// API: get all drinks with ingredient
