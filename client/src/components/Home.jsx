@@ -70,6 +70,10 @@ export default function Home({
 	return (
 		<section>
 			<div id="home-container">
+			<div id="tag-line">
+						<p className="tag-line"> Your music, your drink: </p>
+						<p style={{"font-family": "Great Vibes"}}>Harmony in every sip</p>
+					</div>
 				<h1>Enter music choice</h1>
 				<form onSubmit={handleSubmit}>
 					<label htmlFor="Search" id="music-label"></label>
