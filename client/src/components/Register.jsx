@@ -48,7 +48,6 @@ export default function Register() {
 	const pw = document.getElementsByClassName("password");
 
 	function showPassword() {
-		console.log("pw", pw);
 		if (pw[0].type === "password" && pw[1].type === "password") {
 			pw[0].type = "text";
 			pw[1].type = "text";

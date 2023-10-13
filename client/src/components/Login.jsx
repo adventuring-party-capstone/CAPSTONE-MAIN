@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { login } from "../../fetching/local";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Login({ token, setToken, setUserId }) {
 	const [username, setUsername] = useState("");
@@ -29,6 +30,18 @@ export default function Login({ token, setToken, setUserId }) {
 		}
 	};
 
+	const pw = document.getElementById("password");
+
+	function showPassword() {
+		if (pw.type === "password" && pw.type === "password") {
+			pw.type = "text";
+			pw.type = "text";
+		} else {
+			pw.type = "password";
+			pw.type = "password";
+		}
+	}
+
 	return (
 		<div id="login-container">
 			<div id="signin-container">
@@ -36,31 +49,38 @@ export default function Login({ token, setToken, setUserId }) {
 				<form onSubmit={handleSubmit}>
 					<div id="login-text">
 						<label>
-							<h2>Username: {""}</h2>
+							Username: {""}
+							<input
+								id="username"
+								placeholder="enter username"
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+							/>
 						</label>
-						<input
-							id="username"
-							placeholder="enter username"
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-						/>
 						<br />
 						<label>
-							<h2>Password: </h2>
+							Password:
+							<input
+								id="password"
+								type="password"
+								placeholder="enter password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
 						</label>
-						<input
-							id="password"
-							type="password"
-							placeholder="enter password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-						/>
+						<label style={{ "font-size": "1rem" }}>
+							Show Password{" "}
+							<input type="checkbox" onClick={() => showPassword()} />
+						</label>
 					</div>
 					<br />
 					<button type="submit" id="pink-button">
 						Submit
 					</button>
 				</form>
+				<h3>
+					<Link to="/register">Create New Account</Link>
+				</h3>
 			</div>
 		</div>
 	);
