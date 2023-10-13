@@ -5,6 +5,12 @@ import {
 	AiOutlineLogin,
 	AiOutlineConsoleSql,
 } from "react-icons/ai";
+import { BsMusicNoteBeamed, BsTypeH1 } from "react-icons/bs";
+import {
+	AiOutlineLogout,
+	AiOutlineLogin,
+	AiOutlineConsoleSql,
+} from "react-icons/ai";
 import { BiSolidDrink, BiDrink } from "react-icons/bi";
 
 export default function SideNav({ mode, token, genreSelect, setGenreSelect }) {
@@ -186,7 +192,9 @@ export default function SideNav({ mode, token, genreSelect, setGenreSelect }) {
 						<br />
 						<button className="dropbtn">Choose Genre</button>
 						<div className="dropdown-content">
-							<a onClick={() => genreSelector(1)}>Alternative Rock</a>
+							<a onClick={() => genreSelector(1)}>
+								Alternative Rock
+							</a>
 							<a onClick={() => genreSelector(2)}>Classical</a>
 							<a onClick={() => genreSelector(3)}>Electronic</a>
 							<a onClick={() => genreSelector(4)}>Hip Hop</a>
