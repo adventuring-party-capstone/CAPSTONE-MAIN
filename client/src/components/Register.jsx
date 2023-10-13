@@ -59,7 +59,7 @@ export default function Register() {
 
 	return (
 		<div>
-			<div>
+			<div id="login-container">
 				<div id="create-user-container">
 					<h1>CREATE NEW ACCOUNT</h1>
 					<br />
