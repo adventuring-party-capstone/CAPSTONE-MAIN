@@ -3,6 +3,7 @@ import { fetchRandomDrink } from "../../fetching/randomdrink";
 import DetailsButton from "./DetailsButton";
 import FavoriteButton from "./FavoriteButton";
 import { fetchAllAlcDrinks } from "../../fetching/cocktaildb";
+import SingleDrinkDetails from "./SingleDrinkDetails";
 
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";

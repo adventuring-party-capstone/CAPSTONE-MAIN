@@ -22,16 +22,14 @@ body {
     line-height: 1.5;
     font-weight: 400;
 
-
-     background-color: #0b0b0b;
-     color-scheme: light dark;
-     color: rgba(255, 255, 255, 0.87);
-     font-synthesis: none;
-     text-rendering: optimizeLegibility;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     -webkit-text-size-adjust: 100%;
-
+    background-color: #0b0b0b;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 .iFrameStyle {
@@ -206,10 +204,9 @@ h2 {
     }
     /* MUI COMPONENTS STYLING END ------------------------------------  */
 
-
-/* GENERAL COMPONENTS STYLING START------------------------------------  */
+    /* GENERAL COMPONENTS STYLING START------------------------------------  */
     & #tag-line {
-        color: rgba(255, 255, 255, .75);
+        color: rgba(255, 255, 255, 0.75);
         mix-blend-mode: screen;
         font-family: "IM Fell Double Pica SC";
         font-size: 3rem;
@@ -581,7 +578,13 @@ h2 {
         /* Stay at the top */
         left: 0;
 
-        background: linear-gradient(218deg, rgba(0,34,64,1) 0%, rgba(44,11,91,1) 34%, rgba(129,30,54,0.5) 64%, rgba(70,6,8,0.7) 100%);
+        background: linear-gradient(
+            218deg,
+            rgba(0, 34, 64, 1) 0%,
+            rgba(44, 11, 91, 1) 34%,
+            rgba(129, 30, 54, 0.5) 64%,
+            rgba(70, 6, 8, 0.7) 100%
+        );
 
         /* Black*/
         overflow-x: hidden;
@@ -734,7 +737,13 @@ h2 {
         /* Stay at the top */
         left: 0;
 
-        background: linear-gradient(225deg, rgba(255,161,0,1) 0%, rgba(252,225,162,1) 34%, rgba(255,120,97,0.5) 73%, rgba(211,76,82,0.7) 100%);
+        background: linear-gradient(
+            225deg,
+            rgba(255, 161, 0, 1) 0%,
+            rgba(252, 225, 162, 1) 34%,
+            rgba(255, 120, 97, 0.5) 73%,
+            rgba(211, 76, 82, 0.7) 100%
+        );
 
         /* Black*/
         overflow-x: hidden;
@@ -1292,6 +1301,8 @@ input:checked + .slider:before {
 
 #drink-form {
     padding: 1rem;
+    text-align: left;
+    margin-left: 15vw;
 }
 
 #drink-card {
@@ -1302,9 +1313,12 @@ input:checked + .slider:before {
 #formInput {
     margin: 0.3rem;
     background-color: white;
+    opacity: 60%;
     color: black;
     font: inherit;
     font-size: 1.5rem;
+    width: 25vw;
+    border-radius: 10px;
 }
 
 #login-text {
@@ -1378,6 +1392,11 @@ input:checked + .slider:before {
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+}
+
+#flip-card-buttons {
+    display: inline-block;
+    justify-content: space-evenly;
 }
 
 /* FLIP CARD GENERAL END --------------------------------- */
@@ -1528,7 +1547,7 @@ input:checked + .slider:before {
     align-self: center;
 }
 
-.spotify{
+.spotify {
     height: 80px;
     width: 100%;
     /* border: 2px dotted cyan; */
@@ -1560,8 +1579,7 @@ input:checked + .slider:before {
 }
 
 #video-home-dark {
-
-/* object-fit: cover; */
+    /* object-fit: cover; */
     position: fixed;
     left: 0;
     top: 0;
