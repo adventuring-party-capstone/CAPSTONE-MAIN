@@ -50,7 +50,7 @@ export default function MainSection({
 				<Route path="/register" element={<Register />}></Route>
 				<Route
 					path="/createDrink"
-					element={<CreateNewDrink userId={userId} />}
+					element={<CreateNewDrink token={token} userId={userId} />}
 				></Route>
 				<Route
 					path="/login"

@@ -3,12 +3,16 @@ import Favorites from "./Favorites";
 import { useEffect, useState } from "react";
 import UserCreatedDrinks from "./UserCreatedDrinks";
 import { fetchSingleUser } from "../../fetching/local";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile({ token, setToken, userId }) {
 	const [username, setUsername] = useState("");
-
-	// console.log("user id in profile", userId);
 	const [toggleState, setToggleState] = useState(1);
+	const navigate = useNavigate();
+
+	if (!token) {
+		navigate("/login");
+	}
 
 	// grab user info (get user object by user id)
 	useEffect(() => {
@@ -39,26 +43,36 @@ export default function Profile({ token, setToken, userId }) {
 
 	return (
 		<section>
-			<h1>Welcome, {titleCase(username)}</h1>
-			<br />
-			<button id="tabLink1" onClick={() => setToggleState(1)}>
-				Favorites
-			</button>
-			<button id="tabLink2" onClick={() => setToggleState(2)}>
-				Created Drinks
-			</button>
-			<br></br>
-			<br />
-			{toggleState === 1 && (
-				<div id="favorites-tab">
-					<Favorites token={token} userId={userId} />
+			{token && (
+				<div>
+					<h1>Welcome, {titleCase(username)}</h1>
+					<br />
+					<button id="tabLink1" onClick={() => setToggleState(1)}>
+						Favorites
+					</button>
+					<button id="tabLink2" onClick={() => setToggleState(2)}>
+						Created Drinks
+					</button>
+					<br></br>
+					<br />
+					{toggleState === 1 && (
+						<div id="favorites-tab">
+							<Favorites token={token} userId={userId} />
+						</div>
+					)}
+					{toggleState === 2 && (
+						<div id="created-drinks-tab">
+							<UserCreatedDrinks userId={userId} />
+						</div>
+					)}
 				</div>
 			)}
-			{toggleState === 2 && (
-				<div id="created-drinks-tab">
-					<UserCreatedDrinks userId={userId} />
-				</div>
-			)}
+			<button id="clear-button">
+				<a href="#top" style={{ "text-decoration": "none" }}>
+					{" "}
+					Back to Top
+				</a>
+			</button>
 		</section>
 	);
 }

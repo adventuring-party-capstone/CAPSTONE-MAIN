@@ -16,7 +16,7 @@ function GrowTransition(props) {
 	return <Grow {...props} />;
 }
 
-export default function CreateNewDrink(userId) {
+export default function CreateNewDrink({ token, userId }) {
 	const [drinksName, setDrinksName] = useState("");
 	const [ingredients, setIngredients] = useState("");
 	const [recipe, setRecipe] = useState("");
@@ -27,6 +27,11 @@ export default function CreateNewDrink(userId) {
 		open: false,
 		Transition: Fade,
 	});
+	const navigate = useNavigate();
+
+	if (!token) {
+		navigate("/login");
+	}
 
 	const handleClick = (Transition) => () => {
 		setState({
@@ -42,9 +47,8 @@ export default function CreateNewDrink(userId) {
 		});
 	};
 
-	const navigate = useNavigate();
 	// console.log("userId in createnewdrink", userId);
-	const userIdCND = Number(userId.userId);
+	const userIdCND = Number(userId);
 	// console.log("userIdCND", userIdCND);
 
 	async function handleSubmit(e) {

@@ -220,12 +220,6 @@ function App() {
 						<source src={lemon} type="video/mp4"></source>
 					</video>
 				</div>
-				<button id="clear-button">
-					<a href="#top" style={{ "text-decoration": "none" }}>
-						{" "}
-						Back to Top
-					</a>
-				</button>
 			</div>
 		</div>
 	);

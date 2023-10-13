@@ -875,7 +875,7 @@ h2 {
         color: black;
         font-family: inherit;
         font-size: 2rem;
-        width: auto;
+        width: 14.5em;
     }
 
     & #pink-button {
