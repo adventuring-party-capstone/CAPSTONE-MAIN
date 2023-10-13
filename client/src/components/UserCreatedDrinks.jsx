@@ -171,11 +171,11 @@ export default function UserCreatedDrinks(userId) {
                                                 drinkId={localDrinkId}
                                                 id="pink-button"
                                             />
-                                            <DeleteUserCreatedDrink
-                                                drinks_id={localDrinkId}
-                                            />
                                             <EditUserDrink
                                                 drinkId={localDrinkId}
+                                            />
+                                            <DeleteUserCreatedDrink
+                                                drinks_id={localDrinkId}
                                             />
                                         </div>
                                     </div>
