@@ -69,7 +69,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				userIdCND
 			);
 			if (createDrinkResult) {
-				handleClick(GrowTransition)();
+				myFunction();
 			}
 			console.log("API Data", createDrinkResult);
 		} catch (error) {
@@ -80,8 +80,18 @@ export default function CreateNewDrink({ token, userId, dark }) {
 	const handleChange = (e) => {
 		setAlcoholic(e.target.value);
 	};
+
+	function myFunction() {
+		var x = document.getElementById("snackbar");
+		x.className = "show";
+		setTimeout(function () {
+			x.className = x.className.replace("show", "");
+		}, 3000);
+	}
+
 	return (
 		<section>
+			<div id="snackbar">Congrats! You created a drink!</div>
 			<div className="formGroup">
 				<h1>Create Your Own Drink</h1>
 				<br />
@@ -149,7 +159,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 								name="alcoholic"
 								id="formInput"
 								value={alcoholic}
-								onChange={handleChange}
+								onClick={handleChange}
 							>
 								<option value={false}>No</option>
 								<option value={true}>Yes</option>

@@ -400,6 +400,7 @@ export default function AllDrinks({ token, userId, dark }) {
 						const APIDrinkId = drink.idDrink;
 						return (
 							<div id="flip-card" key={drink.idDrink}>
+								<div id="snackbar">Added to favorites</div>
 								<div id="flip-card-inner">
 									<div id="flip-card-front">
 										{drink.strDrink ? (
