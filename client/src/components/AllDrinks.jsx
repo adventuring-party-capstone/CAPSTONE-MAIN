@@ -394,7 +394,7 @@ export default function AllDrinks({ token, userId, dark }) {
                         color="secondary"
                     />
                 </div>
-                <h3>🍸= Drink Contains Alcohol</h3>
+                <h2>🍸Key: Drink Contains Alcohol</h2>
                 <div id="all-drinks-gallery">
                     {drinksToDisplayAPI?.map((drink) => {
                         const APIDrinkId = drink.idDrink;
@@ -407,26 +407,26 @@ export default function AllDrinks({ token, userId, dark }) {
                                                 {alcIds.includes(
                                                     drink.idDrink
                                                 ) ? (
-                                                    <h3>
+                                                    <h1>
                                                         🍸
                                                         {drink.strDrink}
-                                                    </h3>
+                                                    </h1>
                                                 ) : (
-                                                    <h3>{drink.strDrink}</h3>
+                                                    <h1>{drink.strDrink}</h1>
                                                 )}
                                             </div>
                                         ) : (
                                             drink.drinks_name && (
                                                 <div id="name section">
                                                     {drink.alcoholic ? (
-                                                        <h3>
+                                                        <h1>
                                                             🍸
                                                             {drink.drinks_name}
-                                                        </h3>
+                                                        </h1>
                                                     ) : (
-                                                        <h3>
+                                                        <h1>
                                                             {drink.drinks_name}
-                                                        </h3>
+                                                        </h1>
                                                     )}
                                                 </div>
                                             )
@@ -451,8 +451,8 @@ export default function AllDrinks({ token, userId, dark }) {
                                     {/* API database drink */}
                                     {drink.idDrink && (
                                         <div id="flip-card-back">
-                                            <h3>{drink.strDrink}</h3>
-                                            <br />
+                                            <h1>{drink.strDrink}</h1>
+
                                             {token && (
                                                 <FavoriteButton
                                                     api_drinks_id={
@@ -469,7 +469,7 @@ export default function AllDrinks({ token, userId, dark }) {
                                     {/* local database drink */}
                                     {drink.drinks_id && (
                                         <div id="flip-card-back">
-                                            <h2>{drink.drinks_name}</h2>
+                                            <h1>{drink.drinks_name}</h1>
                                             {token && (
                                                 <FavoriteButton
                                                     api_drinks_id={null}

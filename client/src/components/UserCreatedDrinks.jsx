@@ -135,7 +135,7 @@ export default function UserCreatedDrinks(userId) {
                         }
                     />
                 </label>
-                <p>🍸 Drink Contains Alcohol</p>
+                <h2>🍸Key: Drink Contains Alcohol</h2>
 
                 {/* flip card */}
 
