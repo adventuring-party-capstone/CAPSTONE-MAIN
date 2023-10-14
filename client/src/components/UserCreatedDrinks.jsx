@@ -169,7 +169,6 @@ export default function UserCreatedDrinks(userId) {
                                         <div id="flip-card-buttons">
                                             <DetailsButton
                                                 drinkId={localDrinkId}
-                                                id="pink-button"
                                             />
                                             <EditUserDrink
                                                 drinkId={localDrinkId}

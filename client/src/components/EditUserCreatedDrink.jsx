@@ -50,11 +50,7 @@ export default function EditUserDrink({ drinkId }) {
 
     return (
         <div>
-            <button
-                onClick={handleClick}
-                id="clear-button"
-                class="glow-on-hover"
-            >
+            <button onClick={handleClick} id="clear-button">
                 Edit Drink
             </button>
             {isOpen && (

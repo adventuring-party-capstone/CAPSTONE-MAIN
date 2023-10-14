@@ -16,11 +16,7 @@ export default function DeleteUserCreatedDrink({ drinks_id }) {
     }
     return (
         <div>
-            <button
-                onClick={handleSubmit}
-                id="clear-button"
-                class="glow-on-hover"
-            >
+            <button onClick={handleSubmit} id="clear-button">
                 Delete Drink
             </button>
         </div>
