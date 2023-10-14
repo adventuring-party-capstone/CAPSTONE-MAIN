@@ -150,7 +150,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 								name="alcoholic"
 								id="formInput"
 								value={alcoholic}
-								onChange={handleChange}
+								onChange={() => handleChange()}
 							>
 								<option value={false}>No</option>
 								<option value={true}>Yes</option>

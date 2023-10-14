@@ -1076,7 +1076,6 @@ h2 {
         height: 30dvw;
         margin-top: 1rem;
         font-family: "EB Garamond";
-
         /* margin-left: auto;
         margin-right: auto; */
     }
@@ -1086,6 +1085,8 @@ h2 {
         color: rgb(0, 0, 0);
         background: linear-gradient(to top, #e28874da, #ffda75de);
         border-radius: 10px;
+        border: 1px solid white;
+
     }
 
     & #flip-card-back {
@@ -1095,6 +1096,8 @@ h2 {
         transform: rotateY(180deg);
         overflow-y: scroll;
         border-radius: 10px;
+        border: 1px solid white;
+
     }
 
     & #flip-card-inner {
@@ -1266,7 +1269,7 @@ h2 {
 
     /* favorites main panel */
     & #favorites-tab {
-        background-color: #fa9887ca;
+        background-color: #fa877393;
         border-radius: 0 10px;
     }
 
@@ -1474,7 +1477,7 @@ input:checked + .slider:before {
 #flip-card-front,
 #flip-card-back {
     position: absolute;
-    border-radius: 10%;
+    border-radius: 10px;
     width: 100%;
     height: 100%;
     padding: 1rem;
