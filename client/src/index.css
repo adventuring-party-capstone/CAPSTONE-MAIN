@@ -931,16 +931,45 @@ h4 {
     & .glow-on-hover-home:before {
         content: "";
 
+        /* background: linear-gradient(
+            45deg,
+            rgb(232, 145, 32),
+            #e8b320,
+            #f9db44,
+            #d89f69,
+            #ffc98c,
+            #fddcb6,
+            #ffffff,
+            #fddcb6,
+            #ffc98c,
+            #d89f69,
+            #f9db44,
+            #e8b320,
+            rgb(232, 145, 32),
+            #e8b320
+        ); */
+
         background: linear-gradient(
             45deg,
-            #ad3030,
-            #e87a20,
+            rgb(252, 136, 83),
+            rgb(255, 144, 92),
+            rgb(252, 136, 83),
+            rgb(248, 160, 44),
+            #e8b320,
             #f9db44,
-            #ffc48c,
+            #fce678,
+            rgb(248, 239, 192),
             #ffffff,
-            #d89269,
-            #af263b,
-            #ff0000
+            rgb(248, 239, 192),
+            #fce678,
+            #f9db44,
+            #e8b320,
+            rgb(248, 160, 44),
+            rgb(255, 144, 92),
+            rgb(255, 128, 70),
+            rgb(255, 144, 92),
+            rgb(255, 128, 70),
+            rgba(255, 144, 92, 0.788)
         );
 
         position: absolute;
