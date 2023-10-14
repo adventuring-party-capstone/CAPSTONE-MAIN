@@ -80,7 +80,6 @@ export default function CreateNewDrink({ token, userId, dark }) {
 	const handleChange = (e) => {
 		setAlcoholic(e.target.value);
 	};
-
 	return (
 		<section>
 			<div className="formGroup">
@@ -184,16 +183,19 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				</div>
 			</div>
 			{dark ? (
-				<div id="video-home-dark">
-					<h1></h1>
-					<video
-						autoPlay
-						loop
-						muted
-						style={{ minWidth: "100%", align: right }}
-					>
-						<source src={DarkMode} type="video/mp4"></source>
-					</video>
+				<div>
+					<div id="video-home-dark-mixologist">
+						<h1>AM I HERE?</h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source src={DarkMode} type="video/mp4"></source>
+						</video>
+					</div>
+					<div id="video-home-dark-mixologist2">
+						<h1>AM I HERE?</h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source src={DarkMode} type="video/mp4"></source>
+						</video>
+					</div>
 				</div>
 			) : (
 				<div id="video-home">
@@ -201,7 +203,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>
-			)}
+			)}{" "}
 		</section>
 	);
 }
