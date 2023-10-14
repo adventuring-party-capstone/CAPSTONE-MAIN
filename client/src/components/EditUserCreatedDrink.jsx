@@ -74,7 +74,7 @@ export default function EditUserDrink({ drinkId }) {
                         <textarea
                             id="editFormInput"
                             // multiline
-                            rows={4}
+                            rows={6}
                             autoFocus
                             // label="Ingredients"
                             value={drink.ingredients || ""}
@@ -92,7 +92,7 @@ export default function EditUserDrink({ drinkId }) {
                             id="editFormInput"
                             // label="Recipe"
                             // multiline
-                            rows={4}
+                            rows={6}
                             value={drink.recipe || ""}
                             onChange={(e) =>
                                 setDrink({
@@ -136,11 +136,7 @@ export default function EditUserDrink({ drinkId }) {
                             </select>
                         </div>
 
-                        <button
-                            type="submit"
-                            id="clear-button"
-                            className="glow-on-hover"
-                        >
+                        <button type="submit" id="clear-button">
                             Submit
                         </button>
                     </form>
