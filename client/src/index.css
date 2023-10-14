@@ -95,6 +95,10 @@ h2 {
     font-family: "IM Fell Double Pica SC";
 }
 
+h4 {
+    font-size: 1.6rem;
+}
+
 .studio-drink-header {
     font-family: "Great Vibes";
     font-size: 5rem;
@@ -289,7 +293,7 @@ h2 {
     /* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
     /* DARK MUSIC PLAYER STYLING START ----------------------------------------  */
-    & .play-button{
+    & .play-button {
         position: fixed;
         right: 1rem;
         bottom: 1rem;
@@ -300,12 +304,12 @@ h2 {
         cursor: pointer;
     }
 
-    & .play-button:hover{
+    & .play-button:hover {
         filter: invert(0);
         transition: all 0.3s ease-in-out;
     }
 
-    & .play-button-label{
+    & .play-button-label {
         position: fixed;
         right: 1rem;
         bottom: 5rem;
@@ -1146,7 +1150,7 @@ h2 {
     /* LIGHT FLIP CARDS END ------------------------------- */
 
     /* LIGHT MUSIC PLAYER START---------------------------- */
-    & .play-button{
+    & .play-button {
         position: fixed;
         right: 1rem;
         bottom: 1rem;
@@ -1158,12 +1162,12 @@ h2 {
         color: white;
     }
 
-    & .play-button:hover{
+    & .play-button:hover {
         filter: invert(0);
         transition: all 0.3s ease-in-out;
     }
 
-    & .play-button-label{
+    & .play-button-label {
         position: fixed;
         right: 1rem;
         bottom: 5rem;
@@ -1764,4 +1768,4 @@ input:checked + .slider:before {
 hr.solid {
     border-top: 1px solid #000000;
     margin: 1rem 1rem 1rem 2rem;
-  }
+}

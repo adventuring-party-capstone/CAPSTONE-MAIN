@@ -394,7 +394,7 @@ export default function AllDrinks({ token, userId, dark }) {
                         color="secondary"
                     />
                 </div>
-                <h3>🍸= Drink Contains Alcohol</h3>
+                <h2>🍸Key: Drink Contains Alcohol</h2>
                 <div id="all-drinks-gallery">
                     {drinksToDisplayAPI?.map((drink) => {
                         const APIDrinkId = drink.idDrink;

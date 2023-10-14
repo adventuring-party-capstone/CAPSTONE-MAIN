@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editDrink, fetchSingleDrink } from "../../fetching/local";
-import { TextField, InputLabel, Select, MenuItem } from "@mui/material";
-import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 export default function EditUserDrink({ drinkId }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,11 +48,7 @@ export default function EditUserDrink({ drinkId }) {
 
     return (
         <div>
-            <button
-                onClick={handleClick}
-                id="clear-button"
-                class="glow-on-hover"
-            >
+            <button onClick={handleClick} id="clear-button">
                 Edit Drink
             </button>
             {isOpen && (
@@ -81,7 +75,6 @@ export default function EditUserDrink({ drinkId }) {
                             id="editFormInput"
                             // multiline
                             rows={4}
-                            maxRows={6}
                             autoFocus
                             // label="Ingredients"
                             value={drink.ingredients || ""}
@@ -100,7 +93,6 @@ export default function EditUserDrink({ drinkId }) {
                             // label="Recipe"
                             // multiline
                             rows={4}
-                            maxRows={6}
                             value={drink.recipe || ""}
                             onChange={(e) =>
                                 setDrink({
@@ -144,24 +136,6 @@ export default function EditUserDrink({ drinkId }) {
                             </select>
                         </div>
 
-                        {/* 
-
-						<Select
-							className="inputField"
-							value={drink.alcoholic || false}
-							type="text"
-							name="alcoholic"
-							placeholder="alcoholic"
-							onChange={(e) => {
-								setDrink({
-									...drink,
-									alcoholic: e.target.value,
-								});
-							}}
-						>
-							<MenuItem value={false}>No</MenuItem>
-							<MenuItem value={true}>Yes</MenuItem>
-						</Select> */}
                         <button
                             type="submit"
                             id="clear-button"
