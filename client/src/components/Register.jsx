@@ -118,7 +118,7 @@ export default function Register({ dark }) {
                             </label>
                         </div>
                         <br />
-                        <button id="pink-button">Submit</button>
+                        <button id="clear-button">Submit</button>
                     </form>
                 </div>
             </div>
