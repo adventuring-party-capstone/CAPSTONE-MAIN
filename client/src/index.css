@@ -1335,7 +1335,6 @@ input:checked + .slider:before {
 #editFormInput {
 	background-color: transparent;
 	margin: none;
-
 	color: white;
 	font: inherit;
 	font-size: 1.5rem;

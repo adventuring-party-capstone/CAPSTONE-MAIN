@@ -127,6 +127,25 @@ export default function EditUserDrink({ drinkId }) {
 
 						<br />
 						<h1>Alcoholic?</h1>
+						<div>
+							<select
+								name="alcoholic"
+								id="editFormInput"
+								value={drink.alcoholic || false}
+								onChange={(e) => {
+									setDrink({
+										...drink,
+										alcoholic: e.target.value,
+									});
+								}}
+							>
+								<option value={false}>No</option>
+								<option value={true}>Yes</option>
+							</select>
+						</div>
+
+						{/* 
+
 						<Select
 							className="inputField"
 							value={drink.alcoholic || false}
@@ -142,8 +161,12 @@ export default function EditUserDrink({ drinkId }) {
 						>
 							<MenuItem value={false}>No</MenuItem>
 							<MenuItem value={true}>Yes</MenuItem>
-						</Select>
-						<button type="submit" id="clear-button">
+						</Select> */}
+						<button
+							type="submit"
+							id="clear-button"
+							className="glow-on-hover"
+						>
 							Submit
 						</button>
 					</form>
