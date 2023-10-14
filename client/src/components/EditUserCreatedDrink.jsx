@@ -50,16 +50,21 @@ export default function EditUserDrink({ drinkId }) {
 
     return (
         <div>
-            <button onClick={handleClick} id="clear-button">
+            <button
+                onClick={handleClick}
+                id="clear-button"
+                class="glow-on-hover"
+            >
                 Edit Drink
             </button>
             {isOpen && (
                 <div>
                     <h1>Edit Drink</h1>
                     <form onSubmit={handleEdit}>
-                        <TextField
+                        <textarea
+                            id="editFormInput"
                             autoFocus
-                            label="Drink Name"
+                            // label="Drink Name"
                             value={drink.drinks_name ? drink.drinks_name : ""}
                             onChange={(e) =>
                                 setDrink({
@@ -72,12 +77,13 @@ export default function EditUserDrink({ drinkId }) {
                         <br />
                         {/* find expanding field for ingredeints and recipes */}
 
-                        <TextField
-                            multiline
+                        <textarea
+                            id="editFormInput"
+                            // multiline
                             rows={4}
                             maxRows={6}
                             autoFocus
-                            label="Ingredients"
+                            // label="Ingredients"
                             value={drink.ingredients || ""}
                             onChange={(e) =>
                                 setDrink({
@@ -88,10 +94,11 @@ export default function EditUserDrink({ drinkId }) {
                         />
                         <br />
                         <br />
-                        <TextField
+                        <textarea
                             autoFocus
-                            label="Recipe"
-                            multiline
+                            id="editFormInput"
+                            // label="Recipe"
+                            // multiline
                             rows={4}
                             maxRows={6}
                             value={drink.recipe || ""}
@@ -104,8 +111,9 @@ export default function EditUserDrink({ drinkId }) {
                         />
                         <br />
                         <br />
-                        <TextField
+                        <textarea
                             autoFocus
+                            id="editFormInput"
                             label="Image URL"
                             placeholder="Image URL"
                             value={drink.image || ""}
@@ -118,26 +126,47 @@ export default function EditUserDrink({ drinkId }) {
                         />
 
                         <br />
-                        <br />
-                        <InputLabel></InputLabel>
-                        <div>Alcoholic?</div>
-                        <Select
-                            className="inputField"
-                            value={drink.alcoholic || false}
-                            type="text"
-                            name="alcoholic"
-                            placeholder="alcoholic"
-                            onChange={(e) => {
-                                setDrink({
-                                    ...drink,
-                                    alcoholic: e.target.value,
-                                });
-                            }}
+                        <h1>Alcoholic?</h1>
+                        <div>
+                            <select
+                                name="alcoholic"
+                                id="editFormInput"
+                                value={drink.alcoholic || false}
+                                onChange={(e) => {
+                                    setDrink({
+                                        ...drink,
+                                        alcoholic: e.target.value,
+                                    });
+                                }}
+                            >
+                                <option value={false}>No</option>
+                                <option value={true}>Yes</option>
+                            </select>
+                        </div>
+
+                        {/* 
+
+						<Select
+							className="inputField"
+							value={drink.alcoholic || false}
+							type="text"
+							name="alcoholic"
+							placeholder="alcoholic"
+							onChange={(e) => {
+								setDrink({
+									...drink,
+									alcoholic: e.target.value,
+								});
+							}}
+						>
+							<MenuItem value={false}>No</MenuItem>
+							<MenuItem value={true}>Yes</MenuItem>
+						</Select> */}
+                        <button
+                            type="submit"
+                            id="clear-button"
+                            className="glow-on-hover"
                         >
-                            <MenuItem value={false}>No</MenuItem>
-                            <MenuItem value={true}>Yes</MenuItem>
-                        </Select>
-                        <button type="submit" id="clear-button">
                             Submit
                         </button>
                     </form>

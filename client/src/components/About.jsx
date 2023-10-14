@@ -1,6 +1,5 @@
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
-
 export default function About({ dark }) {
     console.log("about usss");
     return (
@@ -10,36 +9,35 @@ export default function About({ dark }) {
                     src="../../src/assets/Studio_drink_logo.svg"
                     className="aboutlogo"
                 />
-                <h1>The StudioDrink Team:</h1>
+                <h1>The StudioDrink team:</h1>
+                <h2>what our app is about</h2>
+                <img src="../src/assets/divider3.png" className="divider" />
                 <br />
                 {/* PROFILE ONE */}
                 <div className="Individuals">
                     <div className="picture">
-                        <img
-                            src="https://i.pinimg.com/474x/7a/f0/04/7af004703ee797756ba58c0b186fdca9.jpg"
-                            className="pfp"
-                        />
+                        <img src="../src/assets/Hali.PNG" className="pfp" />
+                        <h2>Hali Jaden Rodriguez (She/Her)</h2>
+                        {/* spotify favorit song */}
+                        <iframe
+                            className="spotty"
+                            src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator"
+                            height="152"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                        ></iframe>
                     </div>
                     <br />
                     <div className="aboutsec">
-                        <h2>Polite Cat</h2>
                         <h3>
-                            {/* I am cat. I like tuna water. Meow meow meow meow moewwwwww, meow
-              meeeoowww meeooww. Fsih stcik, tuna poke.My f32 brother m35 is
-              trash. He has multiple baby momma's and is a deadbeat. He also is
-              the apple of my mom's eye. He can do no wrong and is just
-              misunderstood. My parents are retired and on a fixed budget. I do
-              well for myself and I help them out. I give them maybe $500 a month
-              to help with groceries and bills. Every once in a while I will give
-              them extra for an unexpected expense. No questions asked. My mom
-              asked me for $2,000. I sent it to her. */}
-                            Fax
+                            I am Hali. I am a 21 year old Fullstack developer
+                            and artist!.
                         </h3>
                     </div>
 
                     {/* CONTACT LINKS */}
                     <div className="contacts">
-                        <br />
                         {/* github link */}
                         <a href="https://github.com/Shaberryy">
                             <img
@@ -63,6 +61,7 @@ export default function About({ dark }) {
                         </a>
                     </div>
                 </div>
+                <br />
                 {/* PROFILE TWO */}
                 <div className="Individuals">
                     {/* CONTACT LINKS */}
@@ -92,20 +91,7 @@ export default function About({ dark }) {
                     </div>
                     <br />
                     <div className="aboutsec">
-                        <h2>Shrek</h2>
-                        <h3>
-                            Once upon a time there was a lovely princess. But
-                            she had an enchantment upon her of a fearful sort
-                            which could only be broken by love's first kiss. She
-                            was locked away in a castle guarded by a terrible
-                            fire-breathing dragon. Many brave knights had
-                            attempted to free her from this dreadful prison, but
-                            non prevailed. She waited in the dragon's keep in
-                            the highest room of the tallest tower for her true
-                            love and true love's first kiss. (laughs) Like
-                            that's ever gonna happen. What a load of - (toilet
-                            flush)
-                        </h3>
+                        <h3>Once upon a time there was a lovely princess.</h3>
                     </div>
 
                     <div className="picture">
