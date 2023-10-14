@@ -165,7 +165,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
                                 handleSubmit(e);
                             }
                         }}
-                        id="pink-button"
+                        id="clear-button"
                     >
                         Submit
                     </button>

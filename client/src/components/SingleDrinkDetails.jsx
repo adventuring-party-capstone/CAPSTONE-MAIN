@@ -122,10 +122,10 @@ export default function SingleDrinkDetails({ drinkId }) {
             )}
             {localDrink && drinkId < 9000 && (
                 <div>
-                    <h4>Ingredients:</h4>
-                    <p>{localDrink.ingredients}</p>
-                    <h4>Instructions: </h4>
-                    <p>{localDrink.recipe}</p>
+                    <h1>Ingredients:</h1>
+                    <h4>{localDrink.ingredients}</h4>
+                    <h1>Instructions: </h1>
+                    <h4>{localDrink.recipe}</h4>
                 </div>
             )}
         </section>
