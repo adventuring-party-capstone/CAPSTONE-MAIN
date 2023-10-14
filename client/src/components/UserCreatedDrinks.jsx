@@ -135,7 +135,7 @@ export default function UserCreatedDrinks(userId) {
                         }
                     />
                 </label>
-                <p>🍸 Drink Contains Alcohol</p>
+                <h2>🍸Key: Drink Contains Alcohol</h2>
 
                 {/* flip card */}
 
@@ -146,17 +146,17 @@ export default function UserCreatedDrinks(userId) {
                             <div key={drink.drinks_id} id="flip-card">
                                 <div id="flip-card-inner">
                                     <div id="flip-card-front">
-                                        <h3>
+                                        <h1>
                                             {drink.alcoholic == true ? (
-                                                <h3>
+                                                <h1>
                                                     {" "}
                                                     🍸
                                                     {drink.drinks_name}
-                                                </h3>
+                                                </h1>
                                             ) : (
-                                                <h3> {drink.drinks_name}</h3>
+                                                <h1> {drink.drinks_name}</h1>
                                             )}
-                                        </h3>
+                                        </h1>
                                         <img
                                             src={drink.image}
                                             // onerror="this.onerror=null;this.src='http://example.com/existent-image.jpg';"

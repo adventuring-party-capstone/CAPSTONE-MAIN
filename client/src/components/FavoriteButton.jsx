@@ -17,6 +17,7 @@ function SlideTransition(props) {
 
 function GrowTransition(props) {
 	return <Grow {...props} />;
+	return <Grow {...props} />;
 }
 export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
 	// const [openSnackbar, setOpenSnackbar] = useState(false);
