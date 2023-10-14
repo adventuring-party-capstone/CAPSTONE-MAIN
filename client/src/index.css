@@ -1094,6 +1094,10 @@ h2 {
 		overflow-y: scroll;
 		border-radius: 10px;
 	}
+
+	& #editFormInput {
+		color: black;
+	}
 	/* LIGHT FLIP CARDS END ------------------------------- */
 
 	/* LIGHT MUSIC PLAYER START---------------------------- */
@@ -1326,6 +1330,18 @@ input:checked + .slider:before {
 	font-size: 1.5rem;
 	width: 25vw;
 	border-radius: 10px;
+}
+
+#editFormInput {
+	background-color: transparent;
+	margin: none;
+
+	color: white;
+	font: inherit;
+	font-size: 1.5rem;
+	width: 25vw;
+	border-radius: 10px;
+	font-family: "EB Garamond";
 }
 
 #login-text {
