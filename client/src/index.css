@@ -1134,21 +1134,25 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #flip-card-front {
-		background-color: rgb(255, 255, 255);
-		color: rgb(0, 0, 0);
-		background: linear-gradient(to top, #e28874da, #ffda75de);
-		border-radius: 10px;
-	}
+    & #flip-card-front {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        background: linear-gradient(to top, #e28874da, #ffda75de);
+        border-radius: 10px;
+        border: 1px solid white;
 
-	& #flip-card-back {
-		background-color: rgb(255, 255, 255);
-		background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
-		color: rgb(0, 0, 0);
-		transform: rotateY(180deg);
-		overflow-y: scroll;
-		border-radius: 10px;
-	}
+    }
+
+    & #flip-card-back {
+        background-color: rgb(255, 255, 255);
+        background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
+        color: rgb(0, 0, 0);
+        transform: rotateY(180deg);
+        overflow-y: scroll;
+        border-radius: 10px;
+        border: 1px solid white;
+
+    }
 
 	& #flip-card-inner {
 		position: relative;
@@ -1312,11 +1316,11 @@ h4 {
 		background-color: #c98613ce;
 	}
 
-	/* favorites main panel */
-	& #favorites-tab {
-		background-color: #fa9887ca;
-		border-radius: 0 10px;
-	}
+    /* favorites main panel */
+    & #favorites-tab {
+        background-color: #fa877393;
+        border-radius: 0 10px;
+    }
 
 	/* created drinks main panel */
 	& #created-drinks-tab {
