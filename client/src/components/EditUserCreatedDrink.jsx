@@ -74,7 +74,7 @@ export default function EditUserDrink({ drinkId }) {
                         <textarea
                             id="editFormInput"
                             // multiline
-                            rows={4}
+                            rows={6}
                             autoFocus
                             // label="Ingredients"
                             value={drink.ingredients || ""}
@@ -92,7 +92,7 @@ export default function EditUserDrink({ drinkId }) {
                             id="editFormInput"
                             // label="Recipe"
                             // multiline
-                            rows={4}
+                            rows={6}
                             value={drink.recipe || ""}
                             onChange={(e) =>
                                 setDrink({
