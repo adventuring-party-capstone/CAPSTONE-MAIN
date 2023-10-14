@@ -186,7 +186,12 @@ export default function CreateNewDrink({ token, userId, dark }) {
 			{dark ? (
 				<div id="video-home-dark">
 					<h1></h1>
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						style={{ minWidth: "100%", align: right }}
+					>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
