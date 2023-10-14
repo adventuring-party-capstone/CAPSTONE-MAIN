@@ -1401,8 +1401,8 @@ input:checked + .slider:before {
 
 #formInput {
 	margin: 0.3rem;
-	background-color: white;
-	opacity: 35%;
+	background-color: whitesmoke;
+	opacity: 55%;
 	color: black;
 	font: inherit;
 	font-size: 1.5rem;

@@ -117,6 +117,7 @@ export default function Home({
 			</div>
 			{dark ? (
 				<div id="video-home-dark">
+					<h1></h1>
 					<video autoPlay loop muted style={{ minWidth: "100%" }}>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
