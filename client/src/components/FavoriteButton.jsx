@@ -19,6 +19,7 @@ function GrowTransition(props) {
 	return <Grow {...props} />;
 }
 export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
+	// const [openSnackbar, setOpenSnackbar] = useState(false);
 	// console.log("userId in FavoriteButton: ", userId);
 	// const [state, setState] = React.useState({
 	// 	open: false,
@@ -75,15 +76,6 @@ export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
 			>
 				Favorite
 			</button>
-			{/* <div>
-				<Snackbar
-					open={state.open}
-					onClose={handleClose}
-					TransitionComponent={state.Transition}
-					message="Added to favorites"
-					key={state.Transition.name}
-				/>
-			</div> */}
 		</div>
 	);
 }
