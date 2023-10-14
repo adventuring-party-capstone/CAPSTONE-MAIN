@@ -249,6 +249,7 @@ export default function CocktailDBDrinkCard({
                                 <h1>{drinkToRender.strDrink}</h1>
                             </div>
                         )}
+                        <br />
                         {drinkToRender && (
                             <img
                                 src={drinkToRender.strDrinkThumb}

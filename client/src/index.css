@@ -1114,15 +1114,16 @@ h4 {
         transform: rotateY(180deg);
     }
 
-    /* Hide scrollbar for Chrome, Safari and Opera */
+    /* Hide scrollbar for Chrome, Safari and Opera
     & #flip-card-back::-webkit-scrollbar {
-        display: none;
-    }
+        display: block;
+        width: 7px;
+    } */
 
     & #flip-card-back {
         -ms-overflow-style: none;
         /* IE and Edge */
-        scrollbar-width: none;
+        scrollbar-width: 1rem;
         /* Firefox */
     }
 
@@ -1488,7 +1489,15 @@ input:checked + .slider:before {
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 #flip-card-back::-webkit-scrollbar {
-    display: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.226);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.151);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.199);
 }
 
 #flip-card-back {
