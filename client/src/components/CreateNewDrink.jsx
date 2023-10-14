@@ -69,7 +69,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				userIdCND
 			);
 			if (createDrinkResult) {
-				handleClick(GrowTransition)();
+				myFunction();
 			}
 			console.log("API Data", createDrinkResult);
 		} catch (error) {
@@ -81,8 +81,17 @@ export default function CreateNewDrink({ token, userId, dark }) {
 		setAlcoholic(e.target.value);
 	};
 
+	function myFunction() {
+		var x = document.getElementById("snackbar");
+		x.className = "show";
+		setTimeout(function () {
+			x.className = x.className.replace("show", "");
+		}, 3000);
+	}
+
 	return (
 		<section>
+			<div id="snackbar">Congrats! You created a drink!</div>
 			<div className="formGroup">
 				<h1>Create Your Own Drink</h1>
 				<br />
@@ -184,16 +193,19 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				</div>
 			</div>
 			{dark ? (
-				<div id="video-home-dark">
-					<h1></h1>
-					<video
-						autoPlay
-						loop
-						muted
-						style={{ minWidth: "100%", align: right }}
-					>
-						<source src={DarkMode} type="video/mp4"></source>
-					</video>
+				<div>
+					<div id="video-home-dark-mixologist">
+						<h1></h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source src={DarkMode} type="video/mp4"></source>
+						</video>
+					</div>
+					<div id="video-home-dark-mixologist2">
+						<h1></h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source src={DarkMode} type="video/mp4"></source>
+						</video>
+					</div>
 				</div>
 			) : (
 				<div id="video-home">
@@ -201,7 +213,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>
-			)}
+			)}{" "}
 		</section>
 	);
 }

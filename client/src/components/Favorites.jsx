@@ -266,7 +266,7 @@ export default function Favorites({ token, userId }) {
 							}
 						/>
 					</label>
-					<p>🍸 Drink Contains Alcohol</p>
+					<h2>🍸 Key: Drink Contains Alcohol</h2>
 					<div id="favorites-gallery">
 						{drinksToDisplay
 							.filter((drink) =>
@@ -279,6 +279,10 @@ export default function Favorites({ token, userId }) {
 										<div id="flip-card">
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
+													<div id="snackbar">
+														Added to favorites
+													</div>
+
 													<h2>
 														{drink.alcoholic ==
 														true ? (
@@ -340,20 +344,20 @@ export default function Favorites({ token, userId }) {
 															drink.idDrink
 														) ? (
 															<div>
-																<h3>
+																<h1>
 																	🍸
 																	{
 																		drink.strDrink
 																	}
-																</h3>
+																</h1>
 															</div>
 														) : (
 															<div>
-																<h3>
+																<h1>
 																	{
 																		drink.strDrink
 																	}
-																</h3>
+																</h1>
 															</div>
 														)}
 													</div>
@@ -367,7 +371,7 @@ export default function Favorites({ token, userId }) {
 													/>
 												</div>
 												<div id="flip-card-back">
-													<h3>{drink.strDrink}</h3>
+													<h1>{drink.strDrink}</h1>
 													<div>
 														<DetailsButton
 															drinkId={APIDrinkId}

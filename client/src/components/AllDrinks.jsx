@@ -397,12 +397,16 @@ export default function AllDrinks({ token, userId, dark }) {
 						color="secondary"
 					/>
 				</div>
-				<h3>🍸= Drink Contains Alcohol</h3>
+				<h2>🍸Key: Drink Contains Alcohol</h2>
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;
 						return (
 							<div id="flip-card" key={drink.idDrink}>
+								<div id="snackbar">
+									<h1>Added to favorites</h1>
+								</div>
+
 								<div id="flip-card-inner">
 									<div id="flip-card-front">
 										{drink.strDrink ? (
@@ -410,26 +414,26 @@ export default function AllDrinks({ token, userId, dark }) {
 												{alcIds.includes(
 													drink.idDrink
 												) ? (
-													<h3>
+													<h1>
 														🍸
 														{drink.strDrink}
-													</h3>
+													</h1>
 												) : (
-													<h3>{drink.strDrink}</h3>
+													<h1>{drink.strDrink}</h1>
 												)}
 											</div>
 										) : (
 											drink.drinks_name && (
 												<div id="name section">
 													{drink.alcoholic ? (
-														<h3>
+														<h1>
 															🍸
 															{drink.drinks_name}
-														</h3>
+														</h1>
 													) : (
-														<h3>
+														<h1>
 															{drink.drinks_name}
-														</h3>
+														</h1>
 													)}
 												</div>
 											)
@@ -454,7 +458,7 @@ export default function AllDrinks({ token, userId, dark }) {
 									{/* API database drink */}
 									{drink.idDrink && (
 										<div id="flip-card-back">
-											<h3>{drink.strDrink}</h3>
+											<h1>{drink.strDrink}</h1>
 											<br />
 											{token && (
 												<FavoriteButton
@@ -472,7 +476,7 @@ export default function AllDrinks({ token, userId, dark }) {
 									{/* local database drink */}
 									{drink.drinks_id && (
 										<div id="flip-card-back">
-											<h2>{drink.drinks_name}</h2>
+											<h1>{drink.drinks_name}</h1>
 											{token && (
 												<FavoriteButton
 													api_drinks_id={null}
@@ -483,11 +487,6 @@ export default function AllDrinks({ token, userId, dark }) {
 											<DetailsButton
 												drinkId={drink.drinks_id}
 											/>
-											{drink.users_id == userId && (
-												<DeleteUserCreatedDrink
-													drinks_id={drink.drinks_id}
-												/>
-											)}
 										</div>
 									)}
 								</div>
@@ -522,7 +521,7 @@ export default function AllDrinks({ token, userId, dark }) {
 							<source src={LightMode} type="video/mp4"></source>
 						</video>
 					</div>
-				)}
+				)}{" "}
 			</section>
 		</>
 	);

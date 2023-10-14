@@ -100,6 +100,7 @@ function App() {
 					setUserId={setUserId}
 					spotifyToken={spotifyToken}
 					setSpotifyToken={setSpotifyToken}
+					dark={dark}
 				/>
 				<p className="play-button-label">Toggle player</p>
 				<img
@@ -230,7 +231,7 @@ function App() {
 						</section>
 					</div>
 				)}
-				{dark ? (
+				{/* {dark ? (
 					<div id="video-home-dark">
 						<h1></h1>
 						<video autoPlay loop muted style={{ minWidth: "100%" }}>
@@ -249,7 +250,7 @@ function App() {
 							></source>
 						</video>
 					</div>
-				)}{" "}
+				)}{" "} */}
 			</div>
 		</div>
 	);

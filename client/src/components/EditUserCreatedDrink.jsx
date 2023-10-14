@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { editDrink, fetchSingleDrink } from "../../fetching/local";
-import { TextField, InputLabel, Select, MenuItem } from "@mui/material";
-import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 export default function EditUserDrink({ drinkId }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,11 +48,7 @@ export default function EditUserDrink({ drinkId }) {
 
     return (
         <div>
-            <button
-                onClick={handleClick}
-                id="clear-button"
-                class="glow-on-hover"
-            >
+            <button onClick={handleClick} id="clear-button">
                 Edit Drink
             </button>
             {isOpen && (
@@ -80,8 +74,7 @@ export default function EditUserDrink({ drinkId }) {
                         <textarea
                             id="editFormInput"
                             // multiline
-                            rows={4}
-                            maxRows={6}
+                            rows={6}
                             autoFocus
                             // label="Ingredients"
                             value={drink.ingredients || ""}
@@ -99,8 +92,7 @@ export default function EditUserDrink({ drinkId }) {
                             id="editFormInput"
                             // label="Recipe"
                             // multiline
-                            rows={4}
-                            maxRows={6}
+                            rows={6}
                             value={drink.recipe || ""}
                             onChange={(e) =>
                                 setDrink({
@@ -144,29 +136,7 @@ export default function EditUserDrink({ drinkId }) {
                             </select>
                         </div>
 
-                        {/* 
-
-						<Select
-							className="inputField"
-							value={drink.alcoholic || false}
-							type="text"
-							name="alcoholic"
-							placeholder="alcoholic"
-							onChange={(e) => {
-								setDrink({
-									...drink,
-									alcoholic: e.target.value,
-								});
-							}}
-						>
-							<MenuItem value={false}>No</MenuItem>
-							<MenuItem value={true}>Yes</MenuItem>
-						</Select> */}
-                        <button
-                            type="submit"
-                            id="clear-button"
-                            className="glow-on-hover"
-                        >
+                        <button type="submit" id="clear-button">
                             Submit
                         </button>
                     </form>
