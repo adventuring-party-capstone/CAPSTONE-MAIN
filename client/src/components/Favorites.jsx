@@ -150,23 +150,6 @@ export default function Favorites({ token, userId }) {
         setIsToggled(event.target.checked);
     }
 
-<<<<<<< HEAD
-	// Alcohol toggle
-	const PinkSwitch = styled(Switch)(({ theme }) => ({
-		"& .MuiSwitch-switchBase.Mui-checked": {
-			color: pink[600],
-			"&:hover": {
-				backgroundColor: alpha(
-					pink[600],
-					theme.palette.action.hoverOpacity
-				),
-			},
-		},
-		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-			backgroundColor: pink[600],
-		},
-	}));
-=======
     // Alcohol toggle
     const PinkSwitch = styled(Switch)(({ theme }) => ({
         "& .MuiSwitch-switchBase.Mui-checked": {
@@ -182,7 +165,6 @@ export default function Favorites({ token, userId }) {
             backgroundColor: pink[600],
         },
     }));
->>>>>>> main
 
     // local DB array splitting alcoholic/non-alcoholic
     const nonAlcArray = [];
@@ -248,80 +230,6 @@ export default function Favorites({ token, userId }) {
         return str.join(" ");
     }
 
-<<<<<<< HEAD
-	return (
-		// remember to Number() the userId we are getting from localStorage
-		<section>
-			{token && (
-				<div>
-					<div>
-						<br />
-						<h1>{titleCase(username)}'s Favorites</h1>
-					</div>
-					<FormGroup>
-						<FormControlLabel
-							control={
-								<PinkSwitch
-									checked={isToggled}
-									onChange={(event) => handleSwitch(event)}
-								/>
-							}
-							label={
-								isToggled
-									? "Click to hide alcoholic drinks"
-									: "Click to show both alcoholic and nonalcoholic drinks"
-							}
-						/>
-					</FormGroup>
-					<label>
-						Search:{" "}
-						<input
-							id="formInput"
-							className="inputField"
-							type="text"
-							placeholder="Search user favorites"
-							onChange={(e) =>
-								setSearchParam(e.target.value.toLowerCase())
-							}
-						/>
-					</label>
-					<p>🍸 Drink Contains Alcohol</p>
-					<div id="favorites-gallery">
-						{drinksToDisplay
-							.filter((drink) =>
-								usersFavoriteDrinksId.includes(drink.drinks_id)
-							)
-							.map((drink) => {
-								const localDrinkId = drink.drinks_id;
-								return (
-									<div key={drink.drinks_id} id="drink-card">
-										<div id="flip-card">
-											<div id="flip-card-inner">
-												<div id="flip-card-front">
-													<div id="snackbar">
-														Added to favorites
-													</div>
-
-													<h2>
-														{drink.alcoholic ==
-														true ? (
-															<h3>
-																{" "}
-																🍸
-																{
-																	drink.drinks_name
-																}
-															</h3>
-														) : (
-															<h3>
-																{" "}
-																{
-																	drink.drinks_name
-																}
-															</h3>
-														)}
-													</h2>
-=======
     return (
         // remember to Number() the userId we are getting from localStorage
         <section>
@@ -371,6 +279,10 @@ export default function Favorites({ token, userId }) {
                                         <div id="flip-card">
                                             <div id="flip-card-inner">
                                                 <div id="flip-card-front">
+                                                    <div id="snackbar">
+                                                        Added to favorites
+                                                    </div>
+
                                                     <h2>
                                                         {drink.alcoholic ==
                                                         true ? (
@@ -390,7 +302,6 @@ export default function Favorites({ token, userId }) {
                                                             </h3>
                                                         )}
                                                     </h2>
->>>>>>> main
 
                                                     <img
                                                         src={drink.image}
@@ -399,91 +310,6 @@ export default function Favorites({ token, userId }) {
                                                     />
                                                 </div>
 
-<<<<<<< HEAD
-												<div id="flip-card-back">
-													<h3>{drink.drinks_name}</h3>
-													<DetailsButton
-														drinkId={localDrinkId}
-													/>
-													<DeleteFavorite
-														drinks_id={
-															drink.drinks_id
-														}
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								);
-							})}
-						{drinksToDisplayAPI
-							.filter((drink) =>
-								usersFavoritesDrinksIdAPI.includes(
-									Number(drink.idDrink)
-								)
-							)
-							.map((drink) => {
-								const APIDrinkId = drink.idDrink;
-								return (
-									<div key={drink.idDrink} id="drink-card">
-										<div id="flip-card">
-											<div id="flip-card-inner">
-												<div id="flip-card-front">
-													<div id="name section">
-														{alcIds.includes(
-															drink.idDrink
-														) ? (
-															<div>
-																<h3>
-																	🍸
-																	{
-																		drink.strDrink
-																	}
-																</h3>
-															</div>
-														) : (
-															<div>
-																<h3>
-																	{
-																		drink.strDrink
-																	}
-																</h3>
-															</div>
-														)}
-													</div>
-													<br />
-													<img
-														src={
-															drink.strDrinkThumb
-														}
-														alt={drink.strDrink}
-														id="images"
-													/>
-												</div>
-												<div id="flip-card-back">
-													<h3>{drink.strDrink}</h3>
-													<div>
-														<DetailsButton
-															drinkId={APIDrinkId}
-														/>
-													</div>
-													<DeleteFavorite
-														api_drinks_id={
-															drink.idDrink
-														}
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								);
-							})}
-					</div>
-				</div>
-			)}
-		</section>
-	);
-=======
                                                 <div id="flip-card-back">
                                                     <h3>{drink.drinks_name}</h3>
                                                     <DetailsButton
@@ -518,20 +344,20 @@ export default function Favorites({ token, userId }) {
                                                             drink.idDrink
                                                         ) ? (
                                                             <div>
-                                                                <h3>
+                                                                <h1>
                                                                     🍸
                                                                     {
                                                                         drink.strDrink
                                                                     }
-                                                                </h3>
+                                                                </h1>
                                                             </div>
                                                         ) : (
                                                             <div>
-                                                                <h3>
+                                                                <h1>
                                                                     {
                                                                         drink.strDrink
                                                                     }
-                                                                </h3>
+                                                                </h1>
                                                             </div>
                                                         )}
                                                     </div>
@@ -545,7 +371,7 @@ export default function Favorites({ token, userId }) {
                                                     />
                                                 </div>
                                                 <div id="flip-card-back">
-                                                    <h3>{drink.strDrink}</h3>
+                                                    <h1>{drink.strDrink}</h1>
                                                     <div>
                                                         <DetailsButton
                                                             drinkId={APIDrinkId}
@@ -567,5 +393,4 @@ export default function Favorites({ token, userId }) {
             )}
         </section>
     );
->>>>>>> main
 }
