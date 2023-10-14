@@ -10,6 +10,7 @@ import DarkMode from "../assets/dark_mode_firey_red.mp4";
 export default function Login({ token, setToken, setUserId, dark }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorText, setErrorText] = useState(false);
 	const nav = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -18,6 +19,7 @@ export default function Login({ token, setToken, setUserId, dark }) {
 		// console.log(username, password);
 		try {
 			const response = await login(username, password);
+			console.log("response in handle submit", response);
 			setToken(response.token);
 			setUserId(response.user.users_id);
 
@@ -25,9 +27,10 @@ export default function Login({ token, setToken, setUserId, dark }) {
 			console.log("response", response);
 			localStorage.setItem("token", response.token);
 			localStorage.setItem("userId", response.user.users_id);
-			console.log("response in handle submit", response);
+
 			nav("/");
 		} catch (error) {
+			setErrorText(true);
 			console.error("can't login", error);
 		}
 	};
@@ -83,6 +86,12 @@ export default function Login({ token, setToken, setUserId, dark }) {
 								/>
 							</label>
 						</div>
+						{errorText && (
+							<div>
+								<br />
+								<h3>Incorrect username or password.</h3>
+							</div>
+						)}
 						<br />
 						<button type="submit" id="clear-button">
 							Submit
