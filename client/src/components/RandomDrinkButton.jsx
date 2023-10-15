@@ -53,16 +53,30 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 	//   KEEP THIS
 	console.log("is this from my random drink component?", randomDrink);
 	return (
-		<section>
-			<h1>Drink Randomizer</h1>
-			<h3>Click to get a random drink card!</h3>
+		<section id="randomizer-container">
+			<h1
+				style={{
+					fontSize: "4rem",
+					textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+				}}
+			>
+				Drink Randomizer
+			</h1>
+			<h3
+				style={{
+					fontSize: "2rem",
+					textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+				}}
+			>
+				Click to get a random drink card!
+			</h3>
 			<button onClick={handleClick} className="glow-on-hover-home">
 				Random Drink!
 			</button>
 			<div className="Random-Button">
 				{randomDrink ? (
 					<div id="random-drink-container">
-						<h3>🍸= Drink Contains Alcohol</h3>
+						<h3>:cocktail:= Drink Contains Alcohol</h3>
 						<div id="flip-card">
 							<div id="snackbar">
 								<h1>Added to favorites</h1>
@@ -73,14 +87,15 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 										{alcIds.includes(
 											randomDrink.idDrink
 										) ? (
-											<h3>
-												🍸
+											<h1>
+												:cocktail:
 												{randomDrink.strDrink}
-											</h3>
+											</h1>
 										) : (
-											<h3>{randomDrink.strDrink}</h3>
+											<h1>{randomDrink.strDrink}</h1>
 										)}
 									</div>
+									<br />
 									{randomDrink && (
 										<img
 											src={randomDrink.strDrinkThumb}
@@ -90,14 +105,14 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 								</div>
 								<div id="flip-card-back">
 									{randomDrink && (
-										<h3>{randomDrink.strDrink}</h3>
+										<h1>{randomDrink.strDrink}</h1>
 									)}
 									{randomDrink.strDrinkThumb && (
 										<DetailsButton
 											drinkId={randomDrink.idDrink}
 										/>
 									)}
-									{token && randomDrink.strDrinkThumb && (
+									{randomDrink.strDrinkThumb && (
 										<FavoriteButton
 											userId={userId}
 											api_drinks_id={randomDrink.idDrink}
