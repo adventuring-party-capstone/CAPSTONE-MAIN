@@ -75,7 +75,11 @@ function App() {
 				<div id="header-logo-switch">
 					<div id="header-logo">
 						<img src={logo} id="logo" />
-						<h1 className="studio-drink-header">Studio Drink</h1>
+						<a href="/" style={{ "text-decoration": "none" }}>
+							<h1 className="studio-drink-header">
+								Studio Drink
+							</h1>
+						</a>
 					</div>
 					<div>
 						<label className="switch">
@@ -85,7 +89,7 @@ function App() {
 								onClick={toggleDarkMode}
 							/>
 							<span className="slider round">
-								{dark ? " " + "🌙" : "🌞"}
+								{dark ? "🌙" : "🌞"}
 							</span>
 						</label>
 					</div>
@@ -231,6 +235,8 @@ function App() {
 						</section>
 					</div>
 				)}
+
+				<h2>Please drink responsibly.</h2>
 				{/* {dark ? (
 					<div id="video-home-dark">
 						<h1></h1>

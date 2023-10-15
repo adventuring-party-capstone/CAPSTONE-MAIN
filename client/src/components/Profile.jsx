@@ -60,7 +60,9 @@ export default function Profile({ token, setToken, userId, dark }) {
 		<section>
 			{token && (
 				<div>
-					<h1>Welcome, {titleCase(username)}</h1>
+					<h1 style={{ fontSize: "3rem" }}>
+						Welcome, {titleCase(username)}
+					</h1>
 					<br />
 					<button id="tabLink1" onClick={() => setToggleState(1)}>
 						Favorites

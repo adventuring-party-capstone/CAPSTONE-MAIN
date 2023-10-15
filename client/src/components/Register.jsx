@@ -19,6 +19,8 @@ export default function Register({ dark }) {
 
 	const [text1, setText1] = useState(false);
 	const [text2, setText2] = useState(false);
+	const [text3, setText3] = useState(false);
+	const [text4, setText4] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -31,28 +33,33 @@ export default function Register({ dark }) {
 		event.preventDefault();
 
 		try {
-			console.log("entering try in handleSubmit");
 			const userResponse = await fetchAllUsers();
+			console.log("userResponse", userResponse);
 
 			if (password !== password2) {
 				setText1(true);
 			} else if (
-				userResponse.map((drink) => drink.username.includes(username))
+				userResponse.filter((user) => user.username === username)
+					.length > 0
 			) {
 				setText1(false);
 				setText2(true);
-			} else {
-				if (username.length >= 3) {
-					const response = await register(userObj);
+			} else if (username.length >= 3) {
+				const response = await register(userObj);
+				console.log("response", response);
+				if (response) {
 					setSuccessMessage("Sign up successful");
 					navigate("/login");
 				} else {
-					alert(
-						"Username too short. Please enter at least 3 characters."
-					);
-					setUsername("");
-					setPassword("");
+					setText3(true);
 				}
+			} else {
+				setText1(false);
+				setText2(false);
+				setText3(false);
+				setText4(true);
+				setUsername("");
+				setPassword("");
 			}
 		} catch (error) {
 			setError(error.message);
@@ -133,8 +140,10 @@ export default function Register({ dark }) {
 								username.
 							</h3>
 						)}
+						{text3 && <h3>Can't create new account.</h3>}
+						{text4 && <h3>Username too short.</h3>}
 						<br />
-						<button id="pink-button">Submit</button>
+						<button id="clear-button">Submit</button>
 					</form>
 				</div>
 			</div>

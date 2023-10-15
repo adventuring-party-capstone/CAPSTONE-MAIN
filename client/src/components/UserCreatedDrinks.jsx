@@ -17,6 +17,8 @@ export default function UserCreatedDrinks({ userId }) {
 	const [localArray, setLocalArray] = useState([]);
 	const [username, setUsername] = useState("");
 
+	const defaultPhoto = "../src/assets/empty-glass.jpg";
+
 	// grab user info (get user object by user id)
 	useEffect(() => {
 		async function getSingleUserProfile() {
@@ -158,14 +160,28 @@ export default function UserCreatedDrinks({ userId }) {
 											)}
 										</h1>
 										<img
-											src={drink.image}
-											// onerror="this.onerror=null;this.src='http://example.com/existent-image.jpg';"
+											src={
+												drink.image.includes("http")
+													? drink.image
+													: defaultPhoto
+											}
 											alt={drink.drinks_name}
 											id="images"
 										/>
 									</div>
 
 									<div id="flip-card-back">
+										<h1>
+											{drink.alcoholic == true ? (
+												<h1>
+													{" "}
+													🍸
+													{drink.drinks_name}
+												</h1>
+											) : (
+												<h1> {drink.drinks_name}</h1>
+											)}
+										</h1>
 										<div id="flip-card-buttons">
 											<DetailsButton
 												drinkId={localDrinkId}

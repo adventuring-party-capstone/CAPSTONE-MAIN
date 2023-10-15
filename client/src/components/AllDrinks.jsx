@@ -45,6 +45,8 @@ export default function AllDrinks({ token, userId, dark }) {
 	const [APIArrayBigToDisplay, setAPIArrayBigToDisplay] = useState([]);
 	const perPage = 20; // items per page
 
+	const defaultPhoto = "../src/assets/empty-glass.jpg";
+
 	console.log("users id in AD", userId);
 	useEffect(() => {
 		async function getAllDrinks() {
@@ -359,9 +361,10 @@ export default function AllDrinks({ token, userId, dark }) {
 	return (
 		<>
 			<section id="all-drinks-container">
-				<div id="all-drinks-header">
-					<h1>All Drinks</h1>
-				</div>
+				<h1 id="all-drinks-header" style={{ fontSize: "3rem" }}>
+					All Drinks
+				</h1>
+				<h2>Please drink responsibly.</h2>
 				<FormGroup>
 					<FormControlLabel
 						control={
@@ -448,7 +451,13 @@ export default function AllDrinks({ token, userId, dark }) {
 										) : (
 											drink.image && (
 												<img
-													src={drink.image}
+													src={
+														drink.image.includes(
+															"http"
+														)
+															? drink.image
+															: defaultPhoto
+													}
 													alt={drink.drinks_name}
 													id="images"
 												/>

@@ -99,12 +99,18 @@ h4 {
 	font-size: 1.6rem;
 }
 
+.req {
+    color: red;
+}
+
 .studio-drink-header {
 	font-family: "Great Vibes";
 	font-size: 5rem;
 	padding: 0.25rem 0 0 0;
 	margin: 0;
 	text-align: left;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
 }
 
 #header-logo {
@@ -125,11 +131,17 @@ h4 {
 #tag-line {
 	mix-blend-mode: overlay;
 	font-family: "IM Fell Double Pica SC";
-	font-size: 3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	font-size: 3.2rem;
 	text-align: center;
 	margin-top: -5rem;
 	margin-bottom: 5rem;
 	text-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.7s ease-in-out;
+}
+
+.tag-line{
+    transition: all 0.5s ease-in-out;
 }
 
 /* trying to get drop down menu in create drink to be font */
@@ -160,10 +172,18 @@ h4 {
 		padding: 0.25rem 0 0 0;
 		margin: 0;
 		text-align: left;
+        transition: all 0.5s ease-in-out;
+        text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5)
 	}
+    
+    & .studio-drink-header:hover{
+        text-shadow: 2px 4px 10px rgba(249, 204, 56, 0.8);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
 
 	& #all-drinks-header {
-		font-size: 2rem;
+		font-size: 3rem;
 	}
 
 	& h1 {
@@ -209,7 +229,8 @@ h4 {
 
 	.slider.round {
 		border-radius: 34px;
-		text-align: left;
+        padding: 0 0.2rem;
+		text-align:left;
 	}
 	/* MUI COMPONENTS STYLING END ------------------------------------  */
 
@@ -231,12 +252,15 @@ h4 {
 	}
 	& #tag-line {
 		color: rgba(255, 255, 255, 0.75);
-		mix-blend-mode: screen;
+		mix-blend-mode: normal;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        /* mix-blend-mode:overlay; */
 		font-family: "IM Fell Double Pica SC";
-		font-size: 3rem;
+		font-size: 3.2rem;
 		text-align: center;
 		margin-top: -5rem;
 		margin-bottom: 5rem;
+        transition: all 3s ease-in-out;
 	}
 
 	& #username {
@@ -283,12 +307,16 @@ h4 {
 		margin-left: 01.25rem;
 		filter: invert(1);
 		transform: scale(150%);
+        transition: all 0.5s ease-in-out;
 	}
 
-	& #home-container {
-		padding: 2rem;
-		z-index: -1;
-	}
+    #home-container {
+        /* margin: 1rem; */
+        padding: 20dvh 20dvw;
+        display: grid;
+        margin: 2rem;
+        place-content: center;
+    }
 
 	/* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
@@ -726,6 +754,11 @@ h4 {
 .light-mode {
 	/* LIGHT MODE GENERAL START ------------------------------ */
 
+    & #wave-header {
+        font-size: 0.5rem;
+        text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5)
+    }
+
 	& label {
 		color: black;
 		font-size: 1.3rem;
@@ -734,7 +767,15 @@ h4 {
 	& .studio-drink-header {
 		color: black;
 		font-size: 5rem;
+        transition: all 0.5s ease-in-out;
+        text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5)
 	}
+
+    & .studio-drink-header:hover{
+        text-shadow: 2px 4px 10px rgba(249, 56, 56, 0.8);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
 
 	& h1,
 	h2,
@@ -1029,6 +1070,7 @@ h4 {
 	& #logo {
 		margin-left: 01.25rem;
 		transform: scale(150%);
+        transition: all 0.5s ease-in-out;
 	}
 	/* LIGHT DETAILS BUTTON END------------------------------- */
 
@@ -1063,8 +1105,10 @@ h4 {
 	}
 
 	& .slider.round {
+        background-color: rgb(158, 157, 157);
 		border-radius: 34px;
 		text-align: right;
+        padding: 0 0.3rem;
 	}
 	/* MUI FORMATTING END ------------------------------------- */
 
@@ -1428,6 +1472,10 @@ input:checked + .slider:before {
 	place-content: center;
 }
 
+#randomizer-container{
+    margin-top: 10rem;
+}
+
 #random-drink-container {
 	display: grid;
 	margin: 2rem;
@@ -1670,7 +1718,7 @@ input:checked + .slider:before {
 	min-width: 100dvw;
 	min-height: 100dvh;
 	width: 100dvw;
-	transform: scale(1.4);
+    transform: scale(1.4);
 	background-repeat: repeat;
 	z-index: -9;
 }
@@ -1698,7 +1746,6 @@ input:checked + .slider:before {
 	min-height: 100dvh;
 	width: 100dvw;
 	transform: scale(1.4);
-
 	z-index: -10;
 }
 
@@ -1841,4 +1888,7 @@ input:checked + .slider:before {
 /* Solid border */
 hr.solid {
 	border-top: 1px solid #000000;
+    margin: 1rem 1rem 1rem 2rem
 }
+
+/* TEXT ANIMATIONS --------------------------- */
