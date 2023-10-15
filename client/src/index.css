@@ -1894,3 +1894,63 @@ hr.solid {
 }
 
 /* TEXT ANIMATIONS --------------------------- */
+
+/* MEDIA QUERIES --------------------------- */
+@media screen and (max-width: 700px) {
+	h1 {
+		transform: scale(0.5);
+	}
+	h2 {
+		transform: scale(0.8);
+	}
+	p {
+		transform: scale(0.5);
+	}
+	button {
+		transform: scale(0.5);
+	}
+	form {
+		transform: scale(0.5);
+	}
+	/* #app-container {
+		height: 40%;
+		width: 40%;
+	} */
+	.studio-drink-header {
+		transform: scale(0.5);
+	}
+
+	#flip-card-front {
+		font-size: 0.5px;
+		padding: 0;
+		margin: 0 0 0 0;
+	}
+	h1.studio-drink-header {
+		float: left;
+		padding: 0;
+		margin: 0;
+	}
+	.slider.round {
+		transform: scale(0.8);
+	}
+	img {
+		transform: scale(0.8);
+	}
+	app-container {
+		transform: scale(0.4);
+	}
+	.content {
+		transform: scale(0.3);
+	}
+	#name-section {
+		transform: scale(0.4em);
+		padding: 0;
+		margin: 0;
+	}
+	#flip-card {
+		padding: 0;
+		margin-top: 0;
+		width: 40px;
+		height: 40px;
+	}
+}
