@@ -8,7 +8,7 @@ import SingleDrinkDetails from "./SingleDrinkDetails";
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
 
-export default function RandomDrinkButton({ userId, dark }) {
+export default function RandomDrinkButton({ userId, dark, token }) {
 	const [randomDrink, setRandomDrink] = useState(null);
 	const [alcArray, setAlcArray] = useState([]);
 	const [alcIds, setAlcIds] = useState([]);
@@ -53,23 +53,9 @@ export default function RandomDrinkButton({ userId, dark }) {
 	//   KEEP THIS
 	console.log("is this from my random drink component?", randomDrink);
 	return (
-		<section id="randomizer-container">
-			<h1
-				style={{
-					fontSize: "4rem",
-					textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-				}}
-			>
-				Drink Randomizer
-			</h1>
-			<h3
-				style={{
-					fontSize: "2rem",
-					textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-				}}
-			>
-				Click to get a random drink card!
-			</h3>
+		<section>
+			<h1>Drink Randomizer</h1>
+			<h3>Click to get a random drink card!</h3>
 			<button onClick={handleClick} className="glow-on-hover-home">
 				Random Drink!
 			</button>
@@ -87,15 +73,14 @@ export default function RandomDrinkButton({ userId, dark }) {
 										{alcIds.includes(
 											randomDrink.idDrink
 										) ? (
-											<h1>
+											<h3>
 												🍸
 												{randomDrink.strDrink}
-											</h1>
+											</h3>
 										) : (
-											<h1>{randomDrink.strDrink}</h1>
+											<h3>{randomDrink.strDrink}</h3>
 										)}
 									</div>
-									<br />
 									{randomDrink && (
 										<img
 											src={randomDrink.strDrinkThumb}
@@ -105,14 +90,14 @@ export default function RandomDrinkButton({ userId, dark }) {
 								</div>
 								<div id="flip-card-back">
 									{randomDrink && (
-										<h1>{randomDrink.strDrink}</h1>
+										<h3>{randomDrink.strDrink}</h3>
 									)}
 									{randomDrink.strDrinkThumb && (
 										<DetailsButton
 											drinkId={randomDrink.idDrink}
 										/>
 									)}
-									{randomDrink.strDrinkThumb && (
+									{token && randomDrink.strDrinkThumb && (
 										<FavoriteButton
 											userId={userId}
 											api_drinks_id={randomDrink.idDrink}
