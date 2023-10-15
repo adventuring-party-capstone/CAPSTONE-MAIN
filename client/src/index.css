@@ -1841,4 +1841,5 @@ input:checked + .slider:before {
 /* Solid border */
 hr.solid {
 	border-top: 1px solid #000000;
+    margin: 1rem 1rem 1rem 2rem
 }
