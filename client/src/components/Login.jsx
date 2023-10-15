@@ -67,7 +67,7 @@ export default function Login({ token, setToken, setUserId, dark }) {
 							</label>
 							<br />
 							<label>
-								Password:
+								Password: {""}
 								<input
 									id="password"
 									type="password"
@@ -97,9 +97,9 @@ export default function Login({ token, setToken, setUserId, dark }) {
 							Submit
 						</button>
 					</form>
-					<h3>
+					<h2>
 						<Link to="/register">Create New Account</Link>
-					</h3>
+					</h2>
 				</div>
 			</div>
 			{dark ? (

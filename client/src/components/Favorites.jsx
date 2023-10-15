@@ -30,6 +30,8 @@ export default function Favorites({ token, userId }) {
 	const [isToggled, setIsToggled] = useState(true);
 	const [alcIds, setAlcIds] = useState([]);
 
+	const defaultPhoto = "../src/assets/empty-glass.jpg";
+
 	// console.log("userId in favorites", userId);
 
 	// grab all drinks from drinks table
@@ -286,32 +288,38 @@ export default function Favorites({ token, userId }) {
 													<h2>
 														{drink.alcoholic ==
 														true ? (
-															<h3>
+															<h1>
 																{" "}
 																🍸
 																{
 																	drink.drinks_name
 																}
-															</h3>
+															</h1>
 														) : (
-															<h3>
+															<h1>
 																{" "}
 																{
 																	drink.drinks_name
 																}
-															</h3>
+															</h1>
 														)}
 													</h2>
-
+													<br />
 													<img
-														src={drink.image}
+														src={
+															drink.image.includes(
+																"http"
+															)
+																? drink.image
+																: defaultPhoto
+														}
 														alt={drink.drinks_name}
 														id="images"
 													/>
 												</div>
 
 												<div id="flip-card-back">
-													<h3>{drink.drinks_name}</h3>
+													<h1>{drink.drinks_name}</h1>
 													<DetailsButton
 														drinkId={localDrinkId}
 													/>

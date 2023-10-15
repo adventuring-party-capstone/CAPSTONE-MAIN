@@ -268,7 +268,17 @@ export const createDrink = async (
 	userId
 ) => {
 	try {
-		console.log("...starting to create drink");
+		console.log(
+			"...starting to create drink",
+			cocktails_db_drinks_id,
+			drinks_name,
+			ingredients,
+			recipe,
+			image,
+			glass,
+			alcoholic,
+			userId
+		);
 		const response = await fetch(`${base_url}/drinks`, {
 			method: "POST",
 			headers: {

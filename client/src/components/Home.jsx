@@ -75,7 +75,10 @@ export default function Home({
 			<div id="home-container">
 				<div id="tag-line">
 					<p className="tag-line"> Your music, your drink: </p>
-					<p style={{ "font-family": "Great Vibes" }}>
+					<p
+						className="tag-line"
+						style={{ "font-family": "Great Vibes" }}
+					>
 						Harmony in every sip
 					</p>
 				</div>
@@ -116,7 +119,13 @@ export default function Home({
 				)}
 			</div>
 			{dark ? (
-				<div id="video-home-dark">
+				<div
+					id="video-home-dark"
+					style={{
+						filter: "brightness(0.95)",
+						position: "cover",
+					}}
+				>
 					<h1></h1>
 					<video autoPlay loop muted style={{ minWidth: "100%" }}>
 						<source src={DarkMode} type="video/mp4"></source>

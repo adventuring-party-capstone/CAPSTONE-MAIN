@@ -30,6 +30,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 		open: false,
 		Transition: Fade,
 	});
+
 	const navigate = useNavigate();
 
 	if (!token) {
@@ -95,14 +96,18 @@ export default function CreateNewDrink({ token, userId, dark }) {
 			<div className="formGroup">
 				<h1>Create Your Own Drink</h1>
 				<br />
+				<h3>
+					<span className="req">*</span> - Required field
+				</h3>
 				<form id="drink-form">
+					<span className="req">*</span>
 					<input
 						id="formInput"
 						className="inputField"
 						value={drinksName}
 						type="text"
 						name="title"
-						placeholder="Drink name"
+						placeholder="Drink name*"
 						required
 						onChange={(e) => setDrinksName(e.target.value)}
 					/>
@@ -118,6 +123,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						onChange={(e) => setImage(e.target.value)}
 					/>
 					<br />
+					<span className="req">*</span>
 					<textarea
 						cols={50}
 						rows={10}
@@ -126,11 +132,12 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						value={ingredients}
 						type="text"
 						name="ingredients"
-						placeholder="Ingredients"
+						placeholder="Ingredients*"
 						required
 						onChange={(e) => setIngredients(e.target.value)}
 					/>
 					<br />
+					<span className="req">*</span>
 					<textarea
 						cols={50}
 						rows={10}
@@ -139,7 +146,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						value={recipe}
 						type="text"
 						name="recipe"
-						placeholder="Recipe"
+						placeholder="Instructions*"
 						required
 						onChange={(e) => setRecipe(e.target.value)}
 					/>
@@ -151,15 +158,17 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						type="text"
 						name="alcoholic"
 						placeholder="alcoholic"
-						onChange={handleChange}
+						onClick={() => handleChange()}
 					>
 						<h1>Alcoholic?</h1>
 						<div>
+							<span className="req">*</span>
 							<select
 								name="alcoholic"
 								id="formInput"
 								value={alcoholic}
-								onChange={() => handleChange()}
+								onClick={() => handleChange()}
+								required
 							>
 								<option value={false}>No</option>
 								<option value={true}>Yes</option>
@@ -180,9 +189,6 @@ export default function CreateNewDrink({ token, userId, dark }) {
 					</button>
 				</form>
 				<div>
-					{/* <Button onClick={handleClick(GrowTransition)}>Grow Transition</Button>
-				<Button onClick={handleClick(Fade)}>Fade Transition</Button>
-				<Button onClick={handleClick(SlideTransition)}>Slide Transition</Button> */}
 					<Snackbar
 						open={state.open}
 						onClose={handleClose}

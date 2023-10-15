@@ -20,6 +20,7 @@ export default function Register({ dark }) {
 	const [text1, setText1] = useState(false);
 	const [text2, setText2] = useState(false);
 	const [text3, setText3] = useState(false);
+	const [text4, setText4] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -53,9 +54,10 @@ export default function Register({ dark }) {
 					setText3(true);
 				}
 			} else {
-				alert(
-					"Username too short. Please enter at least 3 characters."
-				);
+				setText1(false);
+				setText2(false);
+				setText3(false);
+				setText4(true);
 				setUsername("");
 				setPassword("");
 			}
@@ -139,8 +141,9 @@ export default function Register({ dark }) {
 							</h3>
 						)}
 						{text3 && <h3>Can't create new account.</h3>}
+						{text4 && <h3>Username too short.</h3>}
 						<br />
-						<button id="pink-button">Submit</button>
+						<button id="clear-button">Submit</button>
 					</form>
 				</div>
 			</div>
