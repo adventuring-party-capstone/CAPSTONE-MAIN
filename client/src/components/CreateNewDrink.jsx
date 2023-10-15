@@ -92,7 +92,9 @@ export default function CreateNewDrink({ token, userId, dark }) {
 
 	return (
 		<section>
-			<div id="snackbar">Congrats! You created a drink!</div>
+			<div id="snackbar">
+				<h2>You created a drink!</h2>
+			</div>
 			<div className="formGroup">
 				<h1>Create Your Own Drink</h1>
 				<br />
@@ -158,7 +160,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 						type="text"
 						name="alcoholic"
 						placeholder="alcoholic"
-						onClick={() => handleChange()}
+						onChange={handleChange}
 					>
 						<h1>Alcoholic?</h1>
 						<div>
@@ -167,8 +169,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 								name="alcoholic"
 								id="formInput"
 								value={alcoholic}
-								onClick={() => handleChange()}
-								required
+								onClick={handleChange}
 							>
 								<option value={false}>No</option>
 								<option value={true}>Yes</option>

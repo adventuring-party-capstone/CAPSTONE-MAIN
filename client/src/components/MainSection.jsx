@@ -100,7 +100,13 @@ export default function MainSection({
 				/>
 				<Route
 					path="/random_drink"
-					element={<RandomDrinkButton userId={userId} dark={dark} />}
+					element={
+						<RandomDrinkButton
+							userId={userId}
+							dark={dark}
+							token={token}
+						/>
+					}
 				/>
 				<Route
 					path="/sidenav"

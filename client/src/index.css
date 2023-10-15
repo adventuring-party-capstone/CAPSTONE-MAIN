@@ -100,7 +100,7 @@ h4 {
 }
 
 .req {
-    color: red;
+	color: red;
 }
 
 .studio-drink-header {
@@ -109,8 +109,8 @@ h4 {
 	padding: 0.25rem 0 0 0;
 	margin: 0;
 	text-align: left;
-    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease-in-out;
+	text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
+	transition: all 0.5s ease-in-out;
 }
 
 #header-logo {
@@ -131,17 +131,17 @@ h4 {
 #tag-line {
 	mix-blend-mode: overlay;
 	font-family: "IM Fell Double Pica SC";
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	font-size: 3.2rem;
 	text-align: center;
 	margin-top: -5rem;
 	margin-bottom: 5rem;
 	text-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.5);
-    transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
 }
 
-.tag-line{
-    transition: all 0.5s ease-in-out;
+.tag-line {
+	transition: all 0.5s ease-in-out;
 }
 
 /* trying to get drop down menu in create drink to be font */
@@ -172,15 +172,15 @@ h4 {
 		padding: 0.25rem 0 0 0;
 		margin: 0;
 		text-align: left;
-        transition: all 0.5s ease-in-out;
-        text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5)
+		transition: all 0.5s ease-in-out;
+		text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.5);
 	}
-    
-    & .studio-drink-header:hover{
-        text-shadow: 2px 4px 10px rgba(249, 204, 56, 0.8);
-        transition: all 0.5s ease-in-out;
-        cursor: pointer;
-    }
+
+	& .studio-drink-header:hover {
+		text-shadow: 2px 4px 10px rgba(249, 204, 56, 0.8);
+		transition: all 0.5s ease-in-out;
+		cursor: pointer;
+	}
 
 	& #all-drinks-header {
 		font-size: 3rem;
@@ -229,8 +229,8 @@ h4 {
 
 	.slider.round {
 		border-radius: 34px;
-        padding: 0 0.2rem;
-		text-align:left;
+		padding: 0 0.2rem;
+		text-align: left;
 	}
 	/* MUI COMPONENTS STYLING END ------------------------------------  */
 
@@ -253,14 +253,14 @@ h4 {
 	& #tag-line {
 		color: rgba(255, 255, 255, 0.75);
 		mix-blend-mode: normal;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        /* mix-blend-mode:overlay; */
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+		/* mix-blend-mode:overlay; */
 		font-family: "IM Fell Double Pica SC";
 		font-size: 3.2rem;
 		text-align: center;
 		margin-top: -5rem;
 		margin-bottom: 5rem;
-        transition: all 3s ease-in-out;
+		transition: all 3s ease-in-out;
 	}
 
 	& #username {
@@ -307,16 +307,16 @@ h4 {
 		margin-left: 01.25rem;
 		filter: invert(1);
 		transform: scale(150%);
-        transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 
-    #home-container {
-        /* margin: 1rem; */
-        padding: 20dvh 20dvw;
-        display: grid;
-        margin: 2rem;
-        place-content: center;
-    }
+	#home-container {
+		/* margin: 1rem; */
+		padding: 20dvh 20dvw;
+		display: grid;
+		margin: 2rem;
+		place-content: center;
+	}
 
 	/* GENERAL COMPONENTS STYLING END ------------------------------------  */
 
@@ -754,10 +754,10 @@ h4 {
 .light-mode {
 	/* LIGHT MODE GENERAL START ------------------------------ */
 
-    & #wave-header {
-        font-size: 0.5rem;
-        text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5)
-    }
+	& #wave-header {
+		font-size: 0.5rem;
+		text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
+	}
 
 	& label {
 		color: black;
@@ -767,15 +767,15 @@ h4 {
 	& .studio-drink-header {
 		color: black;
 		font-size: 5rem;
-        transition: all 0.5s ease-in-out;
-        text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5)
+		transition: all 0.5s ease-in-out;
+		text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
 	}
 
-    & .studio-drink-header:hover{
-        text-shadow: 2px 4px 10px rgba(249, 56, 56, 0.8);
-        transition: all 0.5s ease-in-out;
-        cursor: pointer;
-    }
+	& .studio-drink-header:hover {
+		text-shadow: 2px 4px 10px rgba(249, 56, 56, 0.8);
+		transition: all 0.5s ease-in-out;
+		cursor: pointer;
+	}
 
 	& h1,
 	h2,
@@ -1070,7 +1070,7 @@ h4 {
 	& #logo {
 		margin-left: 01.25rem;
 		transform: scale(150%);
-        transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 	/* LIGHT DETAILS BUTTON END------------------------------- */
 
@@ -1105,10 +1105,10 @@ h4 {
 	}
 
 	& .slider.round {
-        background-color: rgb(158, 157, 157);
+		background-color: rgb(158, 157, 157);
 		border-radius: 34px;
 		text-align: right;
-        padding: 0 0.3rem;
+		padding: 0 0.3rem;
 	}
 	/* MUI FORMATTING END ------------------------------------- */
 
@@ -1178,25 +1178,23 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-    & #flip-card-front {
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        background: linear-gradient(to top, #e28874da, #ffda75de);
-        border-radius: 10px;
-        border: 1px solid white;
+	& #flip-card-front {
+		background-color: rgb(255, 255, 255);
+		color: rgb(0, 0, 0);
+		background: linear-gradient(to top, #e28874da, #ffda75de);
+		border-radius: 10px;
+		border: 1px solid white;
+	}
 
-    }
-
-    & #flip-card-back {
-        background-color: rgb(255, 255, 255);
-        background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
-        color: rgb(0, 0, 0);
-        transform: rotateY(180deg);
-        overflow-y: scroll;
-        border-radius: 10px;
-        border: 1px solid white;
-
-    }
+	& #flip-card-back {
+		background-color: rgb(255, 255, 255);
+		background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
+		color: rgb(0, 0, 0);
+		transform: rotateY(180deg);
+		overflow-y: scroll;
+		border-radius: 10px;
+		border: 1px solid white;
+	}
 
 	& #flip-card-inner {
 		position: relative;
@@ -1360,11 +1358,11 @@ h4 {
 		background-color: #c98613ce;
 	}
 
-    /* favorites main panel */
-    & #favorites-tab {
-        background-color: #fa877393;
-        border-radius: 0 10px;
-    }
+	/* favorites main panel */
+	& #favorites-tab {
+		background-color: #fa877393;
+		border-radius: 0 10px;
+	}
 
 	/* created drinks main panel */
 	& #created-drinks-tab {
@@ -1472,9 +1470,9 @@ input:checked + .slider:before {
 	place-content: center;
 }
 
-#randomizer-container{
-    /*margin-top: 10rem;*/
-	padding: 20dvh 20dvw;
+#randomizer-container {
+	/*margin-top: 10rem;*/
+	padding: 25dvh 20dvw;
 	display: grid;
 	margin: 2rem;
 	place-content: center;
@@ -1722,7 +1720,7 @@ input:checked + .slider:before {
 	min-width: 100dvw;
 	min-height: 100dvh;
 	width: 100dvw;
-    transform: scale(1.4);
+	transform: scale(1.4);
 	background-repeat: repeat;
 	z-index: -9;
 }
@@ -1892,45 +1890,7 @@ input:checked + .slider:before {
 /* Solid border */
 hr.solid {
 	border-top: 1px solid #000000;
-    margin: 1rem 1rem 1rem 2rem
+	margin: 1rem 1rem 1rem 2rem;
 }
 
 /* TEXT ANIMATIONS --------------------------- */
-
-/* MEDIA QUERIES START ------------------------------ */
-
-/* For mobile phones: */
-[class*="col-"] {
-    width: 100%;
-  }
-  
-@media only screen and (min-width: 48rem) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-  }
-/* If the screen size is 601px or more, set the font-size of <div> to 80px */
-@media only screen and (min-width: 38rem) {
-    div {
-      font-size: 5rem;
-    }
-  }
-  
-/* If the screen size is 600px or less, set the font-size of <div> to 30px */
-@media only screen and (max-width: 37.5rem) {
-    div {
-      font-size: 1.875rem;
-    }
-  }
-  
-/* MEDIA QUERIES END ----------------------------- */
