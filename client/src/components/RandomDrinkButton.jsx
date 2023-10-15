@@ -76,7 +76,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 			<div className="Random-Button">
 				{randomDrink ? (
 					<div id="random-drink-container">
-						<h3>:cocktail:= Drink Contains Alcohol</h3>
+						<h3>🍸= Drink Contains Alcohol</h3>
 						<div id="flip-card">
 							<div id="snackbar">
 								<h1>Added to favorites</h1>
@@ -88,7 +88,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 											randomDrink.idDrink
 										) ? (
 											<h1>
-												:cocktail:
+												🍸
 												{randomDrink.strDrink}
 											</h1>
 										) : (
@@ -112,7 +112,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 											drinkId={randomDrink.idDrink}
 										/>
 									)}
-									{randomDrink.strDrinkThumb && (
+									{token && randomDrink.strDrinkThumb && (
 										<FavoriteButton
 											userId={userId}
 											api_drinks_id={randomDrink.idDrink}
