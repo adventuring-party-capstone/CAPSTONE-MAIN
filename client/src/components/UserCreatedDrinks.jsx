@@ -56,7 +56,7 @@ export default function UserCreatedDrinks({ userId }) {
 	useEffect(() => {
 		createdDrinks.filter((drink) => {
 			// filtering alcoholic drinks
-			if (drink.alcoholic && isToggled) {
+			if (isToggled) {
 				setLocalArray(createdDrinks);
 			} else if (!drink.alcoholic && !isToggled) {
 				nonAlcArray.push(drink);
