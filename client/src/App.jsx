@@ -266,7 +266,6 @@ function App() {
                         </video>
                     </div>
                 )}{" "}
-                */}
             </div>
         </div>
     );
