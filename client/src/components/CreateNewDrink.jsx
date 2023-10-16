@@ -25,7 +25,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 	const [recipe, setRecipe] = useState("");
 	const [image, setImage] = useState("");
 	const [glass, setGlass] = useState("");
-	const [alcoholic, setAlcoholic] = useState("");
+	const [alcoholic, setAlcoholic] = useState(false);
 	const [state, setState] = React.useState({
 		open: false,
 		Transition: Fade,
@@ -184,7 +184,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 								handleSubmit(e);
 							}
 						}}
-						id="pink-button"
+						id="clear-button"
 					>
 						Submit
 					</button>
