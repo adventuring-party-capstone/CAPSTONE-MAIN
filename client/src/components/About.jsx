@@ -1,5 +1,13 @@
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
+
+import Annalisa from "../assets/AnnaLisa2.png";
+import Emily from "../assets/gisula.png";
+import Hali from "../assets/Hali.jpeg";
+import Winnie from "../assets/Winnie.png";
+import topDivider from "../assets/Divider.png";
+import betweenDivider from "../assets/divider2.png";
+
 export default function About({ dark }) {
     console.log("about usss");
     return (
@@ -31,12 +39,12 @@ export default function About({ dark }) {
                 </h2>
                 <br />
 
-                <img src="../src/assets/Divider.PNG" className="divider" />
+                <img src={topDivider} className="divider" />
                 <br />
                 {/* PROFILE HALI */}
                 <div className="Individuals">
                     <div className="picture">
-                        <img src="../src/assets/Hali.jpeg" className="pfp" />
+                        <img src={Hali} className="pfp" />
                         <h2>Hali Jaden Rodriguez (She/Her)</h2>
                         {/* spotify favorite song */}
                         <iframe
@@ -98,7 +106,7 @@ export default function About({ dark }) {
                         </a>
                     </div>
                 </div>
-                <img src="../src/assets/Divider2.PNG" className="divider" />
+                <img src={betweenDivider} className="divider" />
                 <br />
                 {/* PROFILE EMILY */}
                 <div className="Individuals">
@@ -158,7 +166,7 @@ export default function About({ dark }) {
                     </div>
                     {/* Profile Picture */}
                     <div className="picture">
-                        <img src="../src/assets/Emily.jpg" className="pfp" />
+                        <img src={Emily} className="pfp" />
                         <h2>Emily Cheng (She/Her)</h2>
                         <iframe
                             className="spotty"
@@ -171,14 +179,11 @@ export default function About({ dark }) {
                         ></iframe>
                     </div>
                 </div>
-                <img src="../src/assets/Divider2.PNG" className="divider" />
+                <img src={betweenDivider} className="divider" />
                 {/* PROFILE ANNALISA */}
                 <div className="Individuals">
                     <div className="picture">
-                        <img
-                            src="../src/assets/Annalisa2.png"
-                            className="pfp"
-                        />
+                        <img src={Annalisa} className="pfp" />
                         <h2>Annalisa Boerner(She/Her)</h2>
                         {/* spotify favorite song */}
                         <iframe
@@ -231,7 +236,7 @@ export default function About({ dark }) {
                         </a>
                     </div>
                 </div>
-                <img src="../src/assets/Divider2.PNG" className="divider" />
+                <img src={betweenDivider} className="divider" />
 
                 {/* PROFILE WINNIE */}
                 <div className="Individuals">
@@ -278,7 +283,7 @@ export default function About({ dark }) {
                     </div>
                     {/* Profile Picture */}
                     <div className="picture">
-                        <img src="../src/assets/Winnie.png" className="pfp" />
+                        <img src={Winnie} className="pfp" />
                         <h2>Winnie Mei (She/Her)</h2>
                         <iframe
                             className="spotty"
@@ -291,7 +296,7 @@ export default function About({ dark }) {
                         ></iframe>
                     </div>
                 </div>
-                <img src="../src/assets/Divider2.PNG" className="divider" />
+                <img src={betweenDivider} className="divider" />
 
                 {/* PROFILE LINDA */}
                 <div className="Individuals">
@@ -354,7 +359,7 @@ export default function About({ dark }) {
                     </div>
                 </div>
                 <br />
-                <img src="../src/assets/Divider2.PNG" className="divider" />
+                <img src={betweenDivider} className="divider" />
 
                 <h1>Technologies:</h1>
                 <div>
@@ -405,7 +410,7 @@ export default function About({ dark }) {
 
                     <h2 className="app-sum"></h2>
                     <br />
-                    <img src="../src/assets/Divider.PNG" className="divider" />
+                    <img src={topDivider} className="divider" />
                 </div>
             </div>
 
