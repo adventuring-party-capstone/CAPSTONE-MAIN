@@ -8,7 +8,7 @@ import SingleDrinkDetails from "./SingleDrinkDetails";
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
 
-export default function RandomDrinkButton({ userId, dark }) {
+export default function RandomDrinkButton({ userId, dark, token }) {
 	const [randomDrink, setRandomDrink] = useState(null);
 	const [alcArray, setAlcArray] = useState([]);
 	const [alcIds, setAlcIds] = useState([]);
@@ -76,7 +76,7 @@ export default function RandomDrinkButton({ userId, dark }) {
 			<div className="Random-Button">
 				{randomDrink ? (
 					<div id="random-drink-container">
-						<h3>🍸= Drink Contains Alcohol</h3>
+						<h3>:cocktail:= Drink Contains Alcohol</h3>
 						<div id="flip-card">
 							<div id="snackbar">
 								<h1>Added to favorites</h1>
@@ -88,7 +88,7 @@ export default function RandomDrinkButton({ userId, dark }) {
 											randomDrink.idDrink
 										) ? (
 											<h1>
-												🍸
+												:cocktail:
 												{randomDrink.strDrink}
 											</h1>
 										) : (
