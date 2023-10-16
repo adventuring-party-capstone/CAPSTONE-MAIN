@@ -17,6 +17,8 @@ import Switch from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
+import defaultPhoto from "../assets/empty-glass.jpg";
+
 export default function Favorites({ token, userId }) {
 	const [usersFavorites, setUsersFavorites] = useState([]);
 	const [drinks, setDrinks] = useState([]);
@@ -29,8 +31,6 @@ export default function Favorites({ token, userId }) {
 	const [combinedArray, setCombinedArray] = useState([]);
 	const [isToggled, setIsToggled] = useState(true);
 	const [alcIds, setAlcIds] = useState([]);
-
-	const defaultPhoto = "../src/assets/empty-glass.jpg";
 
 	// console.log("userId in favorites", userId);
 
@@ -305,17 +305,25 @@ export default function Favorites({ token, userId }) {
 														)}
 													</h2>
 													<br />
-													<img
-														src={
-															drink.image.includes(
-																"http"
-															)
-																? drink.image
-																: defaultPhoto
-														}
-														alt={drink.drinks_name}
-														id="images"
-													/>
+													{drink.image.includes(
+														"http"
+													) ? (
+														<img
+															src={drink.image}
+															alt={
+																drink.drinks_name
+															}
+															id="images"
+														/>
+													) : (
+														<img
+															src={defaultPhoto}
+															alt={
+																drink.drinks_name
+															}
+															id="images"
+														/>
+													)}
 												</div>
 
 												<div id="flip-card-back">

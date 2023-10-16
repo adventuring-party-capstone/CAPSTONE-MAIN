@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import dayModeGrapefruit from "./assets/day_mode_lemon.mp4";
 import darkModeRedDrink from "./assets/dark_mode_firey_red.mp4";
 import "./App.css";
+import "./index.css";
 import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
 import SideNav from "./components/SideNav";

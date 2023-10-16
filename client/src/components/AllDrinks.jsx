@@ -17,6 +17,8 @@ import { Pagination, Typography } from "@mui/material";
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
 
+import defaultPhoto from "../assets/empty-glass.jpg";
+
 const List = styled("ul")({
 	listStyle: "none",
 	padding: 0,
@@ -45,7 +47,7 @@ export default function AllDrinks({ token, userId, dark }) {
 	const [APIArrayBigToDisplay, setAPIArrayBigToDisplay] = useState([]);
 	const perPage = 20; // items per page
 
-	const defaultPhoto = "../src/assets/empty-glass.jpg";
+	// const defaultPhoto = "../src/assets/empty-glass.jpg";
 
 	console.log("users id in AD", userId);
 	useEffect(() => {
@@ -442,27 +444,27 @@ export default function AllDrinks({ token, userId, dark }) {
 											)
 										)}
 										<br />
-										{drink.strDrinkThumb ? (
+										{drink.strDrinkThumb && (
 											<img
 												src={drink.strDrinkThumb}
 												alt={drink.strDrink}
 												id="images"
 											/>
-										) : (
-											drink.image && (
+										)}
+										{drink.image &&
+											(drink.image.includes("http") ? (
 												<img
-													src={
-														drink.image.includes(
-															"http"
-														)
-															? drink.image
-															: defaultPhoto
-													}
+													src={drink.image}
 													alt={drink.drinks_name}
 													id="images"
 												/>
-											)
-										)}
+											) : (
+												<img
+													src={defaultPhoto}
+													alt={drink.drinks_name}
+													id="images"
+												/>
+											))}
 									</div>
 									{/* API database drink */}
 									{drink.idDrink && (

@@ -203,6 +203,20 @@ h4 {
 
 	/* MUI COMPONENTS STYLING START------------------------------------  */
 	/* MUI TOGGLE formatting */
+	& .css-9l3uo3 {
+		font-family: "EB Garamond";
+		font-size: 1.3rem;
+	}
+
+	& .MuiTypography-root {
+		font-family: "EB Garamond";
+		font-size: 1.3rem;
+	}
+
+	& .css-1jaw3da {
+		place-content: center;
+	}
+
 	& .css-ahj2mt-MuiTypography-root {
 		font-family: "EB Garamond";
 		font-size: 1.3rem;
@@ -219,15 +233,23 @@ h4 {
 		font-family: inherit;
 	}
 
-	.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+	/* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(115, 12, 29);
+    } */
+
+	& .css-1kz0k3h.Mui-selected {
 		background-color: rgb(115, 12, 29);
 	}
 
-	.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+	& .css-1kz0k3h.Mui-selected:hover {
 		background-color: rgb(170, 59, 74);
 	}
 
-	.slider.round {
+	/* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+        background-color: rgb(170, 59, 74);
+    } */
+
+	& .slider.round {
 		border-radius: 34px;
 		padding: 0 0.2rem;
 		text-align: left;
@@ -574,6 +596,23 @@ h4 {
 		left: 0;
 		top: 0;
 		border-radius: 10px;
+	}
+	/* ABOUT ME */
+	.aboutlogo {
+		width: 100px;
+		height: auto;
+		justify-content: center;
+		filter: invert(1);
+	}
+	.divider {
+		width: 50%;
+		height: auto;
+		filter: invert(1);
+	}
+	.contactLinks {
+		width: 60px;
+		height: auto;
+		filter: invert(1);
 	}
 	/* DARK DETAILS BUTTON STYLING END ------------------------------------ */
 
@@ -1076,6 +1115,20 @@ h4 {
 
 	/* MUI COMPONENTS START ---------------------------------- */
 	/* MUI toggle formatting */
+	& .css-9l3uo3 {
+		font-family: "EB Garamond";
+		font-size: 1.3rem;
+	}
+
+	& .MuiTypography-root {
+		font-family: "EB Garamond";
+		font-size: 1.3rem;
+	}
+
+	& .css-1jaw3da {
+		place-content: center;
+	}
+
 	& .css-ahj2mt-MuiTypography-root {
 		font-family: "EB Garamond";
 		font-size: 1.3rem;
@@ -1092,13 +1145,21 @@ h4 {
 		font-family: inherit;
 	}
 
-	.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+	& .css-1kz0k3h.Mui-selected {
 		background-color: rgb(198, 65, 65);
 	}
 
-	.css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+	& .css-1kz0k3h.Mui-selected:hover {
 		background-color: rgb(255, 128, 128);
 	}
+
+	/* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(198, 65, 65);
+    } */
+
+	/* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+        background-color: rgb(255, 128, 128);
+    } */
 
 	& a:visited {
 		color: rgb(0, 0, 0);
@@ -1374,6 +1435,20 @@ h4 {
 	/* SEARCH BARS */
 	& #search {
 		background-color: white;
+	}
+	/* ABOUT PAGE */
+	.aboutlogo {
+		width: 100px;
+		height: auto;
+		justify-content: center;
+	}
+	.divider {
+		width: 50%;
+		height: auto;
+	}
+	.contactLinks {
+		width: 60px;
+		height: auto;
 	}
 }
 /* END OF LIGHT MODE STYLING --------------------------------------------------------------- */
@@ -1821,27 +1896,34 @@ input:checked + .slider:before {
 
 /* ABOUT US STYLING START ---------------------------- */
 .aboutus {
-	background-color: #5d2c2c55;
+	background-color: #4c4c4c77;
 	margin-bottom: auto;
 	margin-top: auto;
+	border: rgba(64, 57, 57, 0.557);
+	border-style: double;
+
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.app-sum {
+	padding-left: 30px;
+	padding-right: 30px;
+	font-family: "EB Garamond";
 }
 /* Images */
 
 .picture {
 	margin-top: auto;
 	margin-bottom: auto;
-	padding: 8px;
+	padding: 10px;
+	width: auto;
 }
-
 .pfp {
 	border-radius: 50%;
 	height: 200px;
 	width: auto;
 }
-& .hali {
-	background: url("../src/assets/Hali.PNG");
-}
-
+/* sectioning */
 .aboutsec {
 	font-size: larger;
 	margin-bottom: auto;
@@ -1852,13 +1934,7 @@ input:checked + .slider:before {
 .Individuals {
 	display: flex;
 	margin-bottom: auto;
-
 	justify-content: space-between;
-}
-
-.contactLinks {
-	width: 60px;
-	height: auto;
 }
 
 .contacts {
@@ -1868,23 +1944,20 @@ input:checked + .slider:before {
 	justify-content: space-evenly;
 }
 
-.aboutlogo {
-	width: 100px;
+.divider {
+	width: 50%;
 	height: auto;
-	/* filter: invert(1); */
-	justify-content: center;
 }
+.web-logo {
+	filter: invert(0);
+}
+/* spotify player */
 .spotty {
 	background-color: #a13a3a;
 	border-radius: 12px;
 	border: none;
 	height: 80px;
-	/* border: #00ffd5;
-    border-style: dotted; */
-}
-.divider {
-	width: 40%;
-	height: auto;
+	width: auto;
 }
 
 /* Solid border */
