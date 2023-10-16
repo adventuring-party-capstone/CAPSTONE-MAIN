@@ -1,4 +1,4 @@
-const base_url = "https://studiodrink.onrender.com/api";
+const base_url = "https://studiodrinkwest.onrender.com/";
 // const base_url = "http://localhost:8080/api";
 
 // grabs all users from LOCAL database
