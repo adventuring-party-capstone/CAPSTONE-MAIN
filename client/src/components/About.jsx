@@ -2,21 +2,20 @@ import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
 
 import Annalisa from "../assets/AnnaLisa2.png";
-import Emily from "../assets/gisula.png";
+import Emily from "../assets/Emily.jpg";
 import Hali from "../assets/Hali.jpeg";
 import Winnie from "../assets/Winnie.png";
 import topDivider from "../assets/Divider.png";
 import betweenDivider from "../assets/divider2.png";
+import topLogo from "./../assets/Studio_drink_logo.svg";
+import gisula from "../assets/gisula.png";
 
 export default function About({ dark }) {
     console.log("about usss");
     return (
         <section>
             <div className="aboutus">
-                <img
-                    src="../../src/assets/Studio_drink_logo.svg"
-                    className="aboutlogo"
-                />
+                <img src={topLogo} className="aboutlogo" />
                 <h1>The StudioDrink Team:</h1>
                 <br />
                 <h2 className="app-sum">
@@ -137,7 +136,7 @@ export default function About({ dark }) {
                         {/* emily's music site */}
                         <a href="https://www.gisula.com/">
                             <img
-                                src="../src/assets/gisula.PNG"
+                                src={gisula}
                                 className="contactLinks"
                                 style={{
                                     filter: "invert(0)",
