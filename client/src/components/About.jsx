@@ -5,7 +5,7 @@ import Annalisa from "../assets/AnnaLisa2.png";
 import Emily from "../assets/gisula.png";
 import Hali from "../assets/Hali.jpeg";
 import Winnie from "../assets/Winnie.png";
-import topDivider from "../assets/Divider.PNG";
+import topDivider from "../assets/Divider.png";
 import betweenDivider from "../assets/divider2.png";
 
 export default function About({ dark }) {
