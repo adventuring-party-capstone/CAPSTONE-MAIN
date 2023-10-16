@@ -1518,7 +1518,7 @@ input:checked + .slider:before {
 	margin: none;
 	color: white;
 	font: inherit;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	width: 20vw;
 	border-radius: 10px;
 	font-family: "EB Garamond";
