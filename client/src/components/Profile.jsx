@@ -13,6 +13,7 @@ export default function Profile({ token, setToken, userId, dark }) {
 	const [toggleState, setToggleState] = useState(
 		Number(window.localStorage.getItem("toggleState"))
 	);
+	// const [toggleState, setToggleState] = useState(1);
 	const navigate = useNavigate();
 
 	console.log("toggleState is at top of profile", toggleState);
