@@ -1,13 +1,21 @@
 import LightMode from "../assets/day_mode_lemon.mp4";
 import DarkMode from "../assets/dark_mode_firey_red.mp4";
-import logo from "../assets/Studio_drink_logo.svg";
+
+import Annalisa from "../assets/AnnaLisa2.png";
+import Emily from "../assets/Emily.jpg";
+import Hali from "../assets/Hali.jpeg";
+import Winnie from "../assets/Winnie.png";
+import topDivider from "../assets/Divider.png";
+import betweenDivider from "../assets/divider2.png";
+import topLogo from "./../assets/Studio_drink_logo.svg";
+import gisula from "../assets/gisula.png";
 
 export default function About({ dark }) {
 	console.log("about usss");
 	return (
 		<section>
 			<div className="aboutus">
-				<img src={logo} className="aboutlogo" />
+				<img src={topLogo} className="aboutlogo" />
 				<h1>The StudioDrink Team:</h1>
 				<br />
 				<h2 className="app-sum">
@@ -30,12 +38,12 @@ export default function About({ dark }) {
 				</h2>
 				<br />
 
-				<img src="../src/assets/Divider.PNG" className="divider" />
+				<img src={topDivider} className="divider" />
 				<br />
 				{/* PROFILE HALI */}
 				<div className="Individuals">
 					<div className="picture">
-						<img src="../src/assets/Hali.jpeg" className="pfp" />
+						<img src={Hali} className="pfp" />
 						<h2>Hali Jaden Rodriguez (She/Her)</h2>
 						{/* spotify favorite song */}
 						<iframe
@@ -97,7 +105,7 @@ export default function About({ dark }) {
 						</a>
 					</div>
 				</div>
-				<img src="../src/assets/Divider2.PNG" className="divider" />
+				<img src={betweenDivider} className="divider" />
 				<br />
 				{/* PROFILE EMILY */}
 				<div className="Individuals">
@@ -128,7 +136,7 @@ export default function About({ dark }) {
 						{/* emily's music site */}
 						<a href="https://www.gisula.com/">
 							<img
-								src="../src/assets/gisula.PNG"
+								src={gisula}
 								className="contactLinks"
 								style={{
 									filter: "invert(0)",
@@ -157,7 +165,7 @@ export default function About({ dark }) {
 					</div>
 					{/* Profile Picture */}
 					<div className="picture">
-						<img src="../src/assets/Emily.jpg" className="pfp" />
+						<img src={Emily} className="pfp" />
 						<h2>Emily Cheng (She/Her)</h2>
 						<iframe
 							className="spotty"
@@ -170,14 +178,11 @@ export default function About({ dark }) {
 						></iframe>
 					</div>
 				</div>
-				<img src="../src/assets/Divider2.PNG" className="divider" />
+				<img src={betweenDivider} className="divider" />
 				{/* PROFILE ANNALISA */}
 				<div className="Individuals">
 					<div className="picture">
-						<img
-							src="../src/assets/Annalisa2.png"
-							className="pfp"
-						/>
+						<img src={Annalisa} className="pfp" />
 						<h2>Annalisa Boerner(She/Her)</h2>
 						{/* spotify favorite song */}
 						<iframe
@@ -230,7 +235,7 @@ export default function About({ dark }) {
 						</a>
 					</div>
 				</div>
-				<img src="../src/assets/Divider2.PNG" className="divider" />
+				<img src={betweenDivider} className="divider" />
 
 				{/* PROFILE WINNIE */}
 				<div className="Individuals">
@@ -277,7 +282,7 @@ export default function About({ dark }) {
 					</div>
 					{/* Profile Picture */}
 					<div className="picture">
-						<img src="../src/assets/Winnie.png" className="pfp" />
+						<img src={Winnie} className="pfp" />
 						<h2>Winnie Mei (She/Her)</h2>
 						<iframe
 							className="spotty"
@@ -290,7 +295,7 @@ export default function About({ dark }) {
 						></iframe>
 					</div>
 				</div>
-				<img src="../src/assets/Divider2.PNG" className="divider" />
+				<img src={betweenDivider} className="divider" />
 
 				{/* PROFILE LINDA */}
 				<div className="Individuals">
@@ -353,7 +358,7 @@ export default function About({ dark }) {
 					</div>
 				</div>
 				<br />
-				<img src="../src/assets/Divider2.PNG" className="divider" />
+				<img src={betweenDivider} className="divider" />
 
 				<h1>Technologies:</h1>
 				<div>
@@ -404,7 +409,7 @@ export default function About({ dark }) {
 
 					<h2 className="app-sum"></h2>
 					<br />
-					<img src="../src/assets/Divider.PNG" className="divider" />
+					<img src={topDivider} className="divider" />
 				</div>
 			</div>
 
