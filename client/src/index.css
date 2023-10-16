@@ -203,6 +203,16 @@ h4 {
 
     /* MUI COMPONENTS STYLING START------------------------------------  */
     /* MUI TOGGLE formatting */
+    & .css-9l3uo3{
+        font-family: "EB Garamond";
+        font-size: 1.3rem;
+    }
+
+    & .MuiTypography-root{
+        font-family: "EB Garamond";
+        font-size: 1.3rem;
+    }
+
     & .css-ahj2mt-MuiTypography-root {
         font-family: "EB Garamond";
         font-size: 1.3rem;
@@ -219,15 +229,23 @@ h4 {
         font-family: inherit;
     }
 
-    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    /* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(115, 12, 29);
+    } */
+
+    & .css-1kz0k3h.Mui-selected{
         background-color: rgb(115, 12, 29);
     }
-
-    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+    
+    & .css-1kz0k3h.Mui-selected:hover{
         background-color: rgb(170, 59, 74);
     }
 
-    .slider.round {
+    /* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+        background-color: rgb(170, 59, 74);
+    } */
+
+    & .slider.round {
         border-radius: 34px;
         padding: 0 0.2rem;
         text-align: left;
@@ -1093,6 +1111,16 @@ h4 {
 
     /* MUI COMPONENTS START ---------------------------------- */
     /* MUI toggle formatting */
+    & .css-9l3uo3{
+        font-family: "EB Garamond";
+        font-size: 1.3rem;
+    }
+
+    & .MuiTypography-root{
+        font-family: "EB Garamond";
+        font-size: 1.3rem;
+    }
+
     & .css-ahj2mt-MuiTypography-root {
         font-family: "EB Garamond";
         font-size: 1.3rem;
@@ -1109,13 +1137,21 @@ h4 {
         font-family: inherit;
     }
 
-    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    & .css-1kz0k3h.Mui-selected{
         background-color: rgb(198, 65, 65);
     }
 
-    .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+    & .css-1kz0k3h.Mui-selected:hover{
         background-color: rgb(255, 128, 128);
     }
+
+    /* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+        background-color: rgb(198, 65, 65);
+    } */
+
+    /* .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+        background-color: rgb(255, 128, 128);
+    } */
 
     & a:visited {
         color: rgb(0, 0, 0);
