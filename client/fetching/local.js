@@ -1,5 +1,17 @@
-// const base_url = "https://studiodrink.onrender.com/api";
-const base_url = "http://localhost:8080/api";
+const base_url = "https://studiodrinkwest.onrender.com/api";
+// const base_url = "http://localhost:8080/api";
+
+// grabs all users from LOCAL database
+export const fetchAllUsers = async () => {
+	try {
+		const response = await fetch(`${base_url}/users`);
+		const result = await response.json();
+		console.log("result from fetchAllUser ", result);
+		return result;
+	} catch (error) {
+		console.error(error);
+	}
+};
 
 // grabs all drinks from LOCAL database
 export const fetchAllDrinks = async () => {
@@ -235,7 +247,9 @@ export const deleteUserDrinkAPI = async (api_drinks_id) => {
 			}
 		);
 		const result = await response.json();
-		console.log("I never want to see that API drink again >:( good riddance");
+		console.log(
+			"I never want to see that API drink again >:( good riddance"
+		);
 		return result;
 	} catch (error) {
 		console.log(error);
@@ -254,7 +268,17 @@ export const createDrink = async (
 	userId
 ) => {
 	try {
-		console.log("...starting to create drink");
+		console.log(
+			"...starting to create drink",
+			cocktails_db_drinks_id,
+			drinks_name,
+			ingredients,
+			recipe,
+			image,
+			glass,
+			alcoholic,
+			userId
+		);
 		const response = await fetch(`${base_url}/drinks`, {
 			method: "POST",
 			headers: {

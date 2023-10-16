@@ -231,9 +231,12 @@ export default function CocktailDBDrinkCard({
                     }
                 />
             </FormGroup>
-            <h3>🍸 Drink Contains Alcohol</h3>
+            <h2>🍸 Key: Drink Contains Alcohol</h2>
             {/* if the drink to render.idDrink is in the alcIngredientArray*/}
             <div id="flip-card">
+                <div id="snackbar">
+                    <h1>Added to favorites</h1>
+                </div>
                 <div id="flip-card-inner">
                     <div id="flip-card-front">
                         {drinkToRender &&
@@ -241,14 +244,15 @@ export default function CocktailDBDrinkCard({
                         isToggled ? (
                             <div>
                                 <br />
-                                <h2>🍸{drinkToRender.strDrink}</h2>
+                                <h1>🍸{drinkToRender.strDrink}</h1>
                             </div>
                         ) : (
                             <div>
                                 <br />
-                                <h2>{drinkToRender.strDrink}</h2>
+                                <h1>{drinkToRender.strDrink}</h1>
                             </div>
                         )}
+                        <br />
                         {drinkToRender && (
                             <img
                                 src={drinkToRender.strDrinkThumb}

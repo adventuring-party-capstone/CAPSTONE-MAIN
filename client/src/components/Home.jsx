@@ -11,15 +11,14 @@ import { Link, useNavigate } from "react-router-dom";
 import RandomDrinkButton from "./RandomDrinkButton";
 
 export default function Home({
-    token,
-    setToken,
-    userId,
-    setUserId,
-    spotifyToken,
-    setSpotifyToken,
-    dark,
+	token,
+	setToken,
+	userId,
+	setUserId,
+	spotifyToken,
+	setSpotifyToken,
+	dark,
 }) {
-
 	const [musicInput, setMusicInput] = useState("");
 	const [musicChoice, setMusicChoice] = useState("");
 	const [oldInput, setOldInput] = useState("");
@@ -74,10 +73,15 @@ export default function Home({
 	return (
 		<section>
 			<div id="home-container">
-			<div id="tag-line">
-						<p className="tag-line"> Your music, your drink: </p>
-						<p style={{"font-family": "Great Vibes"}}>Harmony in every sip</p>
-					</div>
+				<div id="tag-line">
+					<p className="tag-line"> Your music, your drink: </p>
+					<p
+						className="tag-line"
+						style={{ "font-family": "Great Vibes" }}
+					>
+						Harmony in every sip
+					</p>
+				</div>
 				<h1>Enter music choice</h1>
 				<form onSubmit={handleSubmit}>
 					<label htmlFor="Search" id="music-label"></label>
@@ -114,7 +118,26 @@ export default function Home({
 					/>
 				)}
 			</div>
+			{dark ? (
+				<div
+					id="video-home-dark"
+					style={{
+						filter: "brightness(0.95)",
+						position: "cover",
+					}}
+				>
+					<h1></h1>
+					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<source src={DarkMode} type="video/mp4"></source>
+					</video>
+				</div>
+			) : (
+				<div id="video-home">
+					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<source src={LightMode} type="video/mp4"></source>
+					</video>
+				</div>
+			)}{" "}
 		</section>
 	);
-
 }

@@ -6,6 +6,7 @@ import MainSection from "./components/MainSection";
 import NavBar from "./components/NavBar";
 import SideNav from "./components/SideNav";
 import logo from "./assets/Studio_drink_logo.svg";
+import player2 from "./assets/player2.png";
 
 function App() {
     //get tokens where other components can use them
@@ -13,23 +14,9 @@ function App() {
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
-    const [isPlayerOpen, setPlayerOpen] = useState(false);
     const [genreSelect, setGenreSelect] = useState(
         Number(window.localStorage.getItem("genreSelect"))
     );
-
-    const handleSnackbarOpen = () => {
-        setSnackbarOpen(true);
-    };
-
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false);
-    };
-
-    // MUSIC PLAYER
-    useEffect(() => {
-        setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
-    }, []);
 
     // DARK MODE LOGIC --------------- //
     const [dark, setDark] = useState(
@@ -49,6 +36,19 @@ function App() {
     function toggleDarkMode() {
         setDark(!dark);
     }
+
+    // MUSIC PLAYER
+    useEffect(() => {
+        setGenreSelect(Number(window.localStorage.getItem("genreSelect")));
+    }, []);
+
+    const [isPlayerOpen, setPlayerOpen] = useState(
+        window.localStorage.getItem("playerStatus") === "true"
+    );
+
+    useEffect(() => {
+        localStorage.setItem("playerStatus", isPlayerOpen);
+    }, [isPlayerOpen]);
 
     // MUSIC PLAYER
     useEffect(() => {
@@ -75,7 +75,11 @@ function App() {
                 <div id="header-logo-switch">
                     <div id="header-logo">
                         <img src={logo} id="logo" />
-                        <h1 className="studio-drink-header">Studio Drink</h1>
+                        <a href="/" style={{ "text-decoration": "none" }}>
+                            <h1 className="studio-drink-header">
+                                Studio Drink
+                            </h1>
+                        </a>
                     </div>
                     <div>
                         <label className="switch">
@@ -85,7 +89,7 @@ function App() {
                                 onClick={toggleDarkMode}
                             />
                             <span className="slider round">
-                                {dark ? " " + "🌙" : "🌞"}
+                                {dark ? "🌙" : "🌞"}
                             </span>
                         </label>
                     </div>
@@ -100,15 +104,21 @@ function App() {
                     setUserId={setUserId}
                     spotifyToken={spotifyToken}
                     setSpotifyToken={setSpotifyToken}
+                    dark={dark}
                 />
-                <button onClick={() => openPlayer()}>Open Music Player</button>
+                <p className="play-button-label">Toggle player</p>
+                <img
+                    src={player2}
+                    alt="icon of a play button"
+                    className="play-button"
+                    onClick={() => openPlayer()}
+                />
                 {isPlayerOpen && (
                     <div id="music-player-container">
                         <div className="dropdown">
                             <label className="droplabel">
                                 Listen to Music:{" "}
                             </label>
-                            <br />
                             <button className="dropbtn">Choose Genre</button>
                             <div className="dropdown-content">
                                 <a onClick={() => genreSelector(1)}>
@@ -136,9 +146,6 @@ function App() {
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EIefLxrHQP8p4?utm_source=generator"
                                     className="spotify"
-                                    // width="100%"
-                                    // height="352"
-                                    // frameBorder="0"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -147,9 +154,7 @@ function App() {
                             {genreSelect === 2 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQn1VBR3CMMWb?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -158,9 +163,7 @@ function App() {
                             {genreSelect === 3 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQp9BVPsNVof1?utm_source=generator&theme=0"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -169,9 +172,7 @@ function App() {
                             {genreSelect === 4 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQnqst5TRi17F?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -180,9 +181,7 @@ function App() {
                             {genreSelect === 5 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQqA6klNdJvwx?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -191,9 +190,7 @@ function App() {
                             {genreSelect === 6 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQncLwOalG3K7?utm_source=generator&theme=0"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -202,9 +199,7 @@ function App() {
                             {genreSelect === 7 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -213,9 +208,7 @@ function App() {
                             {genreSelect === 8 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator&theme=0"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -224,9 +217,7 @@ function App() {
                             {genreSelect === 9 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EIcQBc0YedSHe?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -235,9 +226,7 @@ function App() {
                             {genreSelect === 10 && (
                                 <iframe
                                     src="https://open.spotify.com/embed/playlist/37i9dQZF1EIgGQHfQwuUUP?utm_source=generator"
-                                    width="100%"
-                                    height="152"
-                                    frameBorder="0"
+                                    className="spotify"
                                     allowFullScreen=""
                                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                     loading="lazy"
@@ -246,26 +235,28 @@ function App() {
                         </section>
                     </div>
                 )}
-                {dark ? (
-                    <div id="video-home-dark">
-                        <h1></h1>
-                        <video autoPlay loop muted style={{ minWidth: "100%" }}>
-                            <source
-                                src={darkModeRedDrink}
-                                type="video/mp4"
-                            ></source>
-                        </video>
-                    </div>
-                ) : (
-                    <div id="video-home">
-                        <video autoPlay loop muted style={{ minWidth: "100%" }}>
-                            <source
-                                src={dayModeGrapefruit}
-                                type="video/mp4"
-                            ></source>
-                        </video>
-                    </div>
-                )}{" "}
+
+                <h2>Please drink responsibly.</h2>
+                {/* {dark ? (
+					<div id="video-home-dark">
+						<h1></h1>
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source
+								src={darkModeRedDrink}
+								type="video/mp4"
+							></source>
+						</video>
+					</div>
+				) : (
+					<div id="video-home">
+						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+							<source
+								src={dayModeGrapefruit}
+								type="video/mp4"
+							></source>
+						</video>
+					</div>
+				)}{" "} */}
             </div>
         </div>
     );

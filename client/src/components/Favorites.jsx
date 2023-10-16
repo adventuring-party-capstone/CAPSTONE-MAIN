@@ -30,6 +30,8 @@ export default function Favorites({ token, userId }) {
 	const [isToggled, setIsToggled] = useState(true);
 	const [alcIds, setAlcIds] = useState([]);
 
+	const defaultPhoto = "../src/assets/empty-glass.jpg";
+
 	// console.log("userId in favorites", userId);
 
 	// grab all drinks from drinks table
@@ -155,7 +157,10 @@ export default function Favorites({ token, userId }) {
 		"& .MuiSwitch-switchBase.Mui-checked": {
 			color: pink[600],
 			"&:hover": {
-				backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
+				backgroundColor: alpha(
+					pink[600],
+					theme.palette.action.hoverOpacity
+				),
 			},
 		},
 		"& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
@@ -200,7 +205,7 @@ export default function Favorites({ token, userId }) {
 		for (let i = 0; i < allAlcDrinks.length; i++) {
 			alcIdArray.push(allAlcDrinks[i].idDrink);
 		}
-		console.log("alcIdArray inside UE", alcIdArray);
+		// console.log("alcIdArray inside UE", alcIdArray);
 		setAlcIds(alcIdArray);
 	}, [allAlcDrinks]);
 
@@ -258,10 +263,12 @@ export default function Favorites({ token, userId }) {
 							className="inputField"
 							type="text"
 							placeholder="Search user favorites"
-							onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
+							onChange={(e) =>
+								setSearchParam(e.target.value.toLowerCase())
+							}
 						/>
 					</label>
-					<p>🍸 Drink Contains Alcohol</p>
+					<h2>🍸 Key: Drink Contains Alcohol</h2>
 					<div id="favorites-gallery">
 						{drinksToDisplay
 							.filter((drink) =>
@@ -274,29 +281,53 @@ export default function Favorites({ token, userId }) {
 										<div id="flip-card">
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
+													<div id="snackbar">
+														Added to favorites
+													</div>
+
 													<h2>
-														{drink.alcoholic == true ? (
-															<h3>
+														{drink.alcoholic ==
+														true ? (
+															<h1>
 																{" "}
 																🍸
-																{drink.drinks_name}
-															</h3>
+																{
+																	drink.drinks_name
+																}
+															</h1>
 														) : (
-															<h3> {drink.drinks_name}</h3>
+															<h1>
+																{" "}
+																{
+																	drink.drinks_name
+																}
+															</h1>
 														)}
 													</h2>
-
+													<br />
 													<img
-														src={drink.image}
+														src={
+															drink.image.includes(
+																"http"
+															)
+																? drink.image
+																: defaultPhoto
+														}
 														alt={drink.drinks_name}
 														id="images"
 													/>
 												</div>
 
 												<div id="flip-card-back">
-													<h3>{drink.drinks_name}</h3>
-													<DetailsButton drinkId={localDrinkId} />
-													<DeleteFavorite drinks_id={drink.drinks_id} />
+													<h1>{drink.drinks_name}</h1>
+													<DetailsButton
+														drinkId={localDrinkId}
+													/>
+													<DeleteFavorite
+														drinks_id={
+															drink.drinks_id
+														}
+													/>
 												</div>
 											</div>
 										</div>
@@ -305,7 +336,9 @@ export default function Favorites({ token, userId }) {
 							})}
 						{drinksToDisplayAPI
 							.filter((drink) =>
-								usersFavoritesDrinksIdAPI.includes(Number(drink.idDrink))
+								usersFavoritesDrinksIdAPI.includes(
+									Number(drink.idDrink)
+								)
 							)
 							.map((drink) => {
 								const APIDrinkId = drink.idDrink;
@@ -315,32 +348,48 @@ export default function Favorites({ token, userId }) {
 											<div id="flip-card-inner">
 												<div id="flip-card-front">
 													<div id="name section">
-														{alcIds.includes(drink.idDrink) ? (
+														{alcIds.includes(
+															drink.idDrink
+														) ? (
 															<div>
-																<h3>
+																<h1>
 																	🍸
-																	{drink.strDrink}
-																</h3>
+																	{
+																		drink.strDrink
+																	}
+																</h1>
 															</div>
 														) : (
 															<div>
-																<h3>{drink.strDrink}</h3>
+																<h1>
+																	{
+																		drink.strDrink
+																	}
+																</h1>
 															</div>
 														)}
 													</div>
 													<br />
 													<img
-														src={drink.strDrinkThumb}
+														src={
+															drink.strDrinkThumb
+														}
 														alt={drink.strDrink}
 														id="images"
 													/>
 												</div>
 												<div id="flip-card-back">
-													<h3>{drink.strDrink}</h3>
+													<h1>{drink.strDrink}</h1>
 													<div>
-														<DetailsButton drinkId={APIDrinkId} />
+														<DetailsButton
+															drinkId={APIDrinkId}
+														/>
 													</div>
-													<DeleteFavorite api_drinks_id={drink.idDrink} />
+													<DeleteFavorite
+														api_drinks_id={
+															drink.idDrink
+														}
+													/>
 												</div>
 											</div>
 										</div>
