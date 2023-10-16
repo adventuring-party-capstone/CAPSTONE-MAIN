@@ -10,6 +10,8 @@ import DetailsButton from "./DetailsButton";
 import DeleteUserCreatedDrink from "./DeleteUserCreatedDrink";
 import EditUserDrink from "./EditUserCreatedDrink";
 
+import defaultPhoto from "../assets/empty-glass.jpg";
+
 export default function UserCreatedDrinks({ userId }) {
 	const [createdDrinks, setCreatedDrinks] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
@@ -17,7 +19,7 @@ export default function UserCreatedDrinks({ userId }) {
 	const [localArray, setLocalArray] = useState([]);
 	const [username, setUsername] = useState("");
 
-	const defaultPhoto = "../src/assets/empty-glass.jpg";
+	// const defaultPhoto = "../src/assets/empty-glass.jpg";
 
 	// grab user info (get user object by user id)
 	useEffect(() => {
@@ -159,15 +161,19 @@ export default function UserCreatedDrinks({ userId }) {
 												<h1> {drink.drinks_name}</h1>
 											)}
 										</h1>
-										<img
-											src={
-												drink.image.includes("http")
-													? drink.image
-													: defaultPhoto
-											}
-											alt={drink.drinks_name}
-											id="images"
-										/>
+										{drink.image.includes("http") ? (
+											<img
+												src={drink.image}
+												alt={drink.drinks_name}
+												id="images"
+											/>
+										) : (
+											<img
+												src={defaultPhoto}
+												alt={drink.drinks_name}
+												id="images"
+											/>
+										)}
 									</div>
 
 									<div id="flip-card-back">

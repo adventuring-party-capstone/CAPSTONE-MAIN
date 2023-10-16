@@ -1852,7 +1852,7 @@ input:checked + .slider:before {
 
 /* ABOUT US STYLING START ---------------------------- */
 .aboutus {
-    background-color: #4c4c4c3d;
+    background-color: #4c4c4c77;
     margin-bottom: auto;
     margin-top: auto;
     border: rgba(64, 57, 57, 0.557);
