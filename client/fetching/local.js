@@ -1,5 +1,5 @@
-// const base_url = "https://studiodrink.onrender.com/api";
-const base_url = "http://localhost:8080/api";
+const base_url = "https://studiodrink.onrender.com/api";
+// const base_url = "http://localhost:8080/api";
 
 // grabs all users from LOCAL database
 export const fetchAllUsers = async () => {
