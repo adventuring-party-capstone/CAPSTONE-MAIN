@@ -465,6 +465,12 @@ export default function About({ dark }) {
 					</video>
 				</div>
 			)}
+			<button className="clear-button">
+				<a href="#top" style={{ "text-decoration": "none" }}>
+					{" "}
+					Back to Top
+				</a>
+			</button>
 		</section>
 	);
 }
