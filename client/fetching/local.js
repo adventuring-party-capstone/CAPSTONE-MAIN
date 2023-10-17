@@ -329,7 +329,7 @@ export const editDrink = async (drinkData, drinkId) => {
 			body: JSON.stringify(drinkData),
 		});
 		const result = await response.json();
-		alert("Successfully edited drink");
+		// alert("Successfully edited drink");
 		return result;
 	} catch (error) {
 		alert(
