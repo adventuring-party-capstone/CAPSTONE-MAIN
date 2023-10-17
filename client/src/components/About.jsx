@@ -11,18 +11,17 @@ import topLogo from "./../assets/Studio_drink_logo.svg";
 import gisula from "../assets/gisula.png";
 
 export default function About({ dark }) {
-    console.log("about usss");
     return (
         <section>
             <div className="aboutus">
                 <img src={topLogo} className="aboutlogo" />
-                <h1>The StudioDrink Team:</h1>
+                <h1>The Studio Drink Team:</h1>
                 <br />
                 <h2 className="app-sum">
                     Enter any of the millions of artists or genres on Spotify
                     into the box and click submit. Like magic, Studio Drink
                     serves you a drink recommendation to enjoy along with your
-                    music! Studio drink has the ability to cater to both
+                    music! Studio Drink has the ability to cater to both
                     alcoholic and non-alcoholic preferences, and even features
                     dynamic day and night modes to elevate your mood and enhance
                     your experience.
@@ -326,13 +325,16 @@ export default function About({ dark }) {
                     <div className="aboutsec">
                         <h3>
                             Linda Givers is a Full Stack Software Engineer based
-                            in Syosset, New York. She brings her array of skills
-                            from business management with an emphasis in data
-                            structure and customer service relations. While
-                            working in the medical field she used her managing
-                            skills, helping create a startup. She is a live
-                            music lover, nature enthusiast, and in her free time
-                            enjoys reading, hiking, watching documentaries,
+                            in Syosset, New York. She brings a diverse set of
+                            business management skills to her coding career with
+                            an emphasis in data structure and customer service
+                            relations. She has an acute eye for detail, is
+                            inquisitive by nature, and is always exploring,
+                            researching, and deepening her coding craft. While
+                            working in the medical field, she leveraged her
+                            management skills to co-launch a startup. Linda is a
+                            live music lover, nature enthusiast, and in her free
+                            time enjoys reading, hiking, watching documentaries,
                             being with friends and playing with her cat Asteria.
                         </h3>
                     </div>
@@ -409,6 +411,12 @@ export default function About({ dark }) {
                         Our day/night mode toggle allows two distinct aesthetic
                         experiences and persists through the entire user
                         session.{" "}
+                    </h2>
+                    <br />
+                    <h2 className="app-sum">
+                        Spotify's API requires a new authentication token each
+                        hour. Our site dyamically refreshes the token to
+                        maintain the seamless user experience.{" "}
                     </h2>
                     <br />
 

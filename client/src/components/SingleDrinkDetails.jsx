@@ -22,7 +22,6 @@ export default function SingleDrinkDetails({ drinkId }) {
 
     // identifies drinkId in this component based on what prop is passed in
     useEffect(() => {
-        console.log("drinkId at top level", drinkId);
         routeDrinkId();
     }, [drinkId]);
 
@@ -30,7 +29,6 @@ export default function SingleDrinkDetails({ drinkId }) {
     useEffect(() => {
         async function getCocktailById() {
             const response = await fetchCocktailById(APIDrinkIdSDD);
-            // console.log("response from FCBI", response);
             if (response) {
                 setCocktail(response.drinks[0]);
             } else {
@@ -46,7 +44,6 @@ export default function SingleDrinkDetails({ drinkId }) {
             if (APIDrinkIdSDD) {
                 // case 1 - seedData
                 const response = await fetchCocktailById(APIDrinkIdSDD);
-                // console.log("response from FCBI in getLocalDrinkbyId", response);
                 if (response) {
                     setLocalDrink(response.drinks[0]);
                 } else {
@@ -57,7 +54,6 @@ export default function SingleDrinkDetails({ drinkId }) {
             } else {
                 // case 2 - user created drink
                 const response = await fetchSingleDrink(localDrinkIdSDD);
-                // console.log("response from FSD", response);
                 if (response) {
                     setLocalDrink(response);
                 } else {

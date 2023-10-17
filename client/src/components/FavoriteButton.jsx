@@ -12,71 +12,46 @@ import Grow from "@mui/material/Grow";
 import MuiAlert from "@mui/material/Alert";
 
 function SlideTransition(props) {
-	return <Slide {...props} direction="up" />;
+    return <Slide {...props} direction="up" />;
 }
 
 function GrowTransition(props) {
-	return <Grow {...props} />;
-	return <Grow {...props} />;
+    return <Grow {...props} />;
 }
 export default function FavoriteButton({ drinkId, userId, api_drinks_id }) {
-	// const [openSnackbar, setOpenSnackbar] = useState(false);
-	// console.log("userId in FavoriteButton: ", userId);
-	// const [state, setState] = React.useState({
-	// 	open: false,
-	// 	Transition: Fade,
-	// });
+    async function handleSubmit(event) {
+        event.preventDefault();
 
-	// const handleClick = (Transition) => () => {
-	// 	setState({
-	// 		open: true,
-	// 		Transition,
-	// 	});
-	// };
+        try {
+            await createNewFavorite(userId, drinkId, api_drinks_id);
+            myFunction();
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
-	// const handleClose = () => {
-	// 	setState({
-	// 		...state,
-	// 		open: false,
-	// 	});
-	// };
+    function myFunction() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    }
 
-	//  const navigate = useNavigate();
-
-	async function handleSubmit(event) {
-		event.preventDefault();
-
-		try {
-			await createNewFavorite(userId, drinkId, api_drinks_id);
-			myFunction();
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	function myFunction() {
-		var x = document.getElementById("snackbar");
-		x.className = "show";
-		setTimeout(function () {
-			x.className = x.className.replace("show", "");
-		}, 3000);
-	}
-
-	return (
-		<div>
-			<button
-				onClick={(event) => {
-					{
-						handleSubmit(event);
-						myFunction();
-					}
-				}}
-				// onClick={handleSubmit} // if i just do handle submit, i wont get snackbar
-				id="favorite-button"
-				className="glow-on-hover"
-			>
-				Favorite
-			</button>
-		</div>
-	);
+    return (
+        <div>
+            <button
+                onClick={(event) => {
+                    {
+                        handleSubmit(event);
+                        myFunction();
+                    }
+                }}
+                id="favorite-button"
+                className="glow-on-hover"
+            >
+                Favorite
+            </button>
+        </div>
+    );
 }
