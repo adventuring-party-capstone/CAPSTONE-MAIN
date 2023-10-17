@@ -27,7 +27,9 @@ export default function Login({ token, setToken, setUserId, dark }) {
 			console.log("response", response);
 			localStorage.setItem("token", response.token);
 			localStorage.setItem("userId", response.user.users_id);
-
+			if (response) {
+				myFunction();
+			}
 			nav("/");
 		} catch (error) {
 			setErrorText(true);
@@ -63,7 +65,6 @@ export default function Login({ token, setToken, setUserId, dark }) {
 					<form
 						onSubmit={(event) => {
 							handleSubmit(event);
-							myFunction();
 						}}
 					>
 						<div id="login-text">
@@ -111,7 +112,7 @@ export default function Login({ token, setToken, setUserId, dark }) {
 						</button>
 					</form>
 					<div id="snackbar">
-						<h1>You're logged in!</h1>
+						<h1>You are logged in!</h1>
 					</div>
 					<h2>
 						<Link to="/register">Create New Account</Link>

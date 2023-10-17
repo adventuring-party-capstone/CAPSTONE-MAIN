@@ -49,6 +49,7 @@ export default function Register({ dark }) {
 				console.log("response", response);
 				if (response) {
 					setSuccessMessage("Sign up successful");
+					myFunction();
 					navigate("/login");
 				} else {
 					setText3(true);
@@ -78,13 +79,25 @@ export default function Register({ dark }) {
 		}
 	}
 
+	function myFunction() {
+		var x = document.getElementById("snackbar");
+		x.className = "show";
+		setTimeout(function () {
+			x.className = x.className.replace("show", "");
+		}, 3000);
+	}
+
 	return (
 		<section>
 			<div id="login-container">
 				<div id="create-user-container">
 					<h1>CREATE NEW ACCOUNT</h1>
 					<br />
-					<form onSubmit={handleSubmit}>
+					<form
+						onSubmit={(event) => {
+							handleSubmit(event);
+						}}
+					>
 						<div id="login-text">
 							<label>
 								Username:{" "}
@@ -145,6 +158,9 @@ export default function Register({ dark }) {
 						<br />
 						<button className="clear-button">Submit</button>
 					</form>
+					<div id="snackbar">
+						<h1>You are registered!</h1>
+					</div>
 				</div>
 			</div>
 			{dark ? (
