@@ -1,3 +1,5 @@
+//OLD MVP VERSION CODE
+
 import { useState, useEffect, useParams } from "react";
 import {
     fetchAllDrinks,
@@ -14,8 +16,6 @@ import { alpha, styled } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
 
 export default function DrinkCard({ musicChoice, userId }) {
-    console.log("userId in DrinkCard: ", userId);
-
     const [drinks, setDrinks] = useState([]);
     const [genres, setGenres] = useState([]);
     const [ingredients, setIngredients] = useState([]);
@@ -29,9 +29,7 @@ export default function DrinkCard({ musicChoice, userId }) {
     useEffect(() => {
         async function getAllDrinks() {
             const response = await fetchAllDrinks();
-            console.log(response);
             setDrinks(response);
-            // console.log("ALL DRINKS", response);
         }
         getAllDrinks();
     }, []);
@@ -40,20 +38,16 @@ export default function DrinkCard({ musicChoice, userId }) {
     useEffect(() => {
         async function getAllGenres() {
             const response = await fetchAllGenres();
-            console.log(response);
             setGenres(response);
-            console.log("ALL GENRES", response);
         }
         getAllGenres();
     }, []);
-    // console.log("ALL GENRES", genres);
 
     // get all genres_ingredients
     useEffect(() => {
         async function getAllGenresIngredients() {
             const junctionGenresIngredients = await fetchAllGenresIngredients();
             setJunctionGenresIngredients(junctionGenresIngredients);
-            // console.log("junctionGenresIngredients", junctionGenresIngredients);
         }
         getAllGenresIngredients();
     }, []);
@@ -63,7 +57,6 @@ export default function DrinkCard({ musicChoice, userId }) {
         async function getAllIngredients() {
             const ingredients = await fetchAllIngredients();
             setIngredients(ingredients);
-            // console.log("ingredients", ingredients);
         }
         getAllIngredients();
     }, []);
@@ -82,13 +75,11 @@ export default function DrinkCard({ musicChoice, userId }) {
     const filtered_ingredients_names = [];
 
     junctionGenresIngredients.map((junctionGenreIngredient) => {
-        console.log("LOGGING FILTERED INGREDIENTS...");
         if (junctionGenreIngredient.genres_id == genreId[0]) {
             // getting the ingredients_ids associated with genres_id
             filtered_ingredients_ids.push(
                 junctionGenreIngredient.ingredients_id
             );
-            console.log("FILTERED INGREDIENTS", filtered_ingredients_ids);
 
             // getting the ingredients_name associated with ingredients_id
             ingredients.map((ingredient) => {
@@ -97,10 +88,6 @@ export default function DrinkCard({ musicChoice, userId }) {
                 ) {
                     filtered_ingredients_names.push(
                         ingredient.ingredients_name
-                    );
-                    console.log(
-                        "FILTERED INGREDIENTS NAMES",
-                        filtered_ingredients_names
                     );
                 }
             });
@@ -137,7 +124,6 @@ export default function DrinkCard({ musicChoice, userId }) {
                 setLocalArray(drinks);
             } else if (!drink.alcoholic && !isToggled) {
                 nonAlcArray.push(drink);
-                console.log("nonAlcArray", nonAlcArray);
                 setLocalArray(nonAlcArray);
             }
         });
