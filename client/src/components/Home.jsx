@@ -82,22 +82,26 @@ export default function Home({
 						Harmony in every sip
 					</p>
 				</div>
-				<h1>Enter music choice</h1>
-				<form onSubmit={handleSubmit}>
-					<label htmlFor="Search" id="music-label"></label>
-					<input
-						id="musicChoice"
-						type="text"
-						name="search"
-						placeholder="Enter any artist or genre from Spotify"
-						onFocus={(event) =>
-							setOldInput(
-								(event.target.oldvalue = event.target.value)
-							)
-						}
-						onChange={(event) => setMusicInput(event.target.value)}
-					/>
-				</form>
+				<div id="form-music-choice">
+					<h1>Enter music choice</h1>
+					<form onSubmit={handleSubmit}>
+						<label htmlFor="Search" id="music-label"></label>
+						<input
+							id="musicChoice"
+							type="text"
+							name="search"
+							placeholder="Enter any artist or genre from Spotify"
+							onFocus={(event) =>
+								setOldInput(
+									(event.target.oldvalue = event.target.value)
+								)
+							}
+							onChange={(event) =>
+								setMusicInput(event.target.value)
+							}
+						/>
+					</form>
+				</div>
 				<br />
 				{
 					<button
@@ -127,13 +131,25 @@ export default function Home({
 					}}
 				>
 					<h1></h1>
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
 			) : (
 				<div id="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>

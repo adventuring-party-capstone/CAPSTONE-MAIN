@@ -1969,61 +1969,164 @@ hr.solid {
 /* TEXT ANIMATIONS --------------------------- */
 
 /* MEDIA QUERIES --------------------------- */
-@media screen and (max-width: 700px) {
-	h1 {
-		transform: scale(0.5);
-	}
-	h2 {
-		transform: scale(0.8);
-	}
-	p {
-		transform: scale(0.5);
-	}
-	button {
-		transform: scale(0.5);
-	}
-	form {
-		transform: scale(0.5);
-	}
-	/* #app-container {
-		height: 40%;
-		width: 40%;
-	} */
-	.studio-drink-header {
-		transform: scale(0.5);
+/* mobile devices (phones) */
+@media screen and (max-width: 568px) {
+
+    #app-container {
+        overflow-x: hidden;
+        transform: scale(1);
+        margin: 0;
 	}
 
-	#flip-card-front {
-		font-size: 0.5px;
-		padding: 0;
-		margin: 0 0 0 0;
-	}
-	h1.studio-drink-header {
-		float: left;
-		padding: 0;
-		margin: 0;
-	}
-	.slider.round {
-		transform: scale(0.8);
-	}
-	img {
-		transform: scale(0.8);
-	}
-	app-container {
-		transform: scale(0.4);
-	}
-	.content {
-		transform: scale(0.3);
-	}
-	#name-section {
-		transform: scale(0.4em);
-		padding: 0;
-		margin: 0;
-	}
-	#flip-card {
-		padding: 0;
-		margin-top: 0;
-		width: 40px;
-		height: 40px;
-	}
+    #home-container{
+        transform: scale(0.7);
+    }
+
+    #video-home-dark {
+        transform: scaleX(0.7);
+        left: -30rem;
+        bottom: 30rem;
+    }
+
+    #video-home {
+        transform: scaleX(0.7);
+        left: -30rem;
+    }
+
+    .switch{
+        right: 1rem;
+        top: 1rem;
+    }
+
+    #header-logo{
+        transform: scale(0.5);
+        position: absolute;
+        left: -3rem;
+        top: 0rem;
+        padding: 0;
+    }
+
+    .dark-mode, .light-mode{
+        & .studio-drink-header {
+            padding: 0;
+            margin: 0;
+            font-size: 3.9rem;
+            top: -1rem;
+            left: 20rem;
+        }
+        & .play-button-label{
+            /* position: relative; */
+            right: 0;
+            bottom: -1rem;
+        }
+        & .play-button{
+            right: 0;
+            bottom: -5rem;
+        }    
+        & #flip-card-front{
+            transform: scale(2);
+        }
+        & #flip-card-back{
+            transform: rotateY(180deg) scale(2);
+        }
+        #flip-card-back::-webkit-scrollbar {
+            border-radius: 10px;
+            width: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.315);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+
+
+    #tag-line{
+        position: relative;
+        top: -10rem;
+        left: 0rem;
+    }
+
+    #form-music-choice{
+        position: relative;
+        top: -10rem;
+    }
+
+    .glow-on-hover-home{
+        position: relative;
+        top: -10rem;
+    }
+
+    #drink-disclaimer{
+        position: fixed;
+        right: 20dvw;
+        bottom: -5rem;
+    }
+
+    #drink-card{
+        position: relative;
+        top: -10rem;
+    }
+
+    #flip-card {
+        position: relative;
+        top: 20rem;
+        padding: 0;
+        transform: scale(1.5);
+    } 
+
+    #flip-card:hover #flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    #flip-card-front{
+        position: relative;
+        top: -7rem;
+        right: -6rem;
+        transform: scale(2);
+        margin: 0;
+        padding: 0.2rem;
+
+        & h1{
+            font-size: 0.6rem;
+        }
+    }
+
+    #flip-card-back{
+        position: relative;
+        top: -14rem;
+        right: 6rem;
+        margin: 0;
+        padding: 0.2rem;
+        overflow-x: hidden;
+        
+        & h1{
+            font-size: 0.6rem;
+        }
+
+        & #favorite-button{
+            position: relative;
+            margin: -1.3rem 2rem -1.3rem -1rem;
+            transform: scale(0.3);
+        }
+
+        & div{
+            display: grid;
+        }
+    }
+
+    #flip-card-inner {
+        position: relative;
+        border-radius: 10px;
+        transform: scale(1);
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        
+        & h4{
+            font-size: 0.5rem;
+        }
+    }
+
+
+
+
 }
