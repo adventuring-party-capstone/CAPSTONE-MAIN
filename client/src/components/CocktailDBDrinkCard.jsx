@@ -278,7 +278,11 @@ export default function CocktailDBDrinkCard({
 				</div>
 			</div>
 			<br />
-			<button onClick={handleClick} id="pink-button">
+			<button
+				onClick={handleClick}
+				id="home-suggest-button"
+				className="pink-button"
+			>
 				Suggest Another Drink
 			</button>
 		</section>

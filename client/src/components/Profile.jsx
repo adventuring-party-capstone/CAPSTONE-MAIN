@@ -85,7 +85,7 @@ export default function Profile({ token, setToken, userId, dark }) {
 					)}
 				</div>
 			)}
-			<button id="clear-button">
+			<button className="clear-button">
 				<a href="#top" style={{ "text-decoration": "none" }}>
 					{" "}
 					Back to Top

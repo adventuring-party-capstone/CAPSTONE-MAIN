@@ -143,7 +143,7 @@ export default function Register({ dark }) {
 						{text3 && <h3>Can't create new account.</h3>}
 						{text4 && <h3>Username too short.</h3>}
 						<br />
-						<button id="clear-button">Submit</button>
+						<button className="clear-button">Submit</button>
 					</form>
 				</div>
 			</div>

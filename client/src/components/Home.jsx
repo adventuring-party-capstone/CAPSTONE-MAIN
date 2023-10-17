@@ -71,7 +71,7 @@ export default function Home({
 	// const suggestButton = document.getElementsByClassName("glow-on-hover-home");
 
 	return (
-		<section>
+		<section id="outer-home">
 			<div id="home-container">
 				<div id="tag-line">
 					<p className="tag-line"> Your music, your drink: </p>

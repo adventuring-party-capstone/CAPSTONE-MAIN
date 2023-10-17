@@ -93,7 +93,7 @@ export default function Login({ token, setToken, setUserId, dark }) {
 							</div>
 						)}
 						<br />
-						<button type="submit" id="clear-button">
+						<button type="submit" className="clear-button">
 							Submit
 						</button>
 					</form>

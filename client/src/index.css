@@ -258,7 +258,7 @@ h4 {
 
 	/* GENERAL COMPONENTS STYLING START------------------------------------  */
 
-	& #clear-button {
+	& .clear-button {
 		color: rgb(255, 255, 255);
 		background-color: rgba(241, 249, 255, 0.116);
 		border-radius: 10px;
@@ -269,7 +269,7 @@ h4 {
 		cursor: pointer;
 		font-family: "EB Garamond";
 	}
-	& #clear-button:hover {
+	& .clear-button:hover {
 		background-color: rgba(98, 187, 255, 0.356);
 	}
 	& #tag-line {
@@ -309,7 +309,7 @@ h4 {
 		font-size: 2rem;
 	}
 
-	& #pink-button {
+	& .pink-button {
 		background-color: #612519;
 		border-radius: 10px;
 		color: white;
@@ -321,7 +321,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #pink-button:hover {
+	& .pink-button:hover {
 		background-color: #330900;
 	}
 
@@ -1196,7 +1196,7 @@ h4 {
 		width: 14.5em;
 	}
 
-	& #pink-button {
+	& .pink-button {
 		background-color: #d06550;
 		border-radius: 10px;
 		color: white;
@@ -1208,7 +1208,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #clear-button {
+	& .clear-button {
 		color: black;
 		background-color: rgba(255, 255, 255, 0.466);
 		border-radius: 10px;
@@ -1219,11 +1219,11 @@ h4 {
 		cursor: pointer;
 		font-family: "EB Garamond";
 	}
-	& #clear-button:hover {
+	& .clear-button:hover {
 		background-color: rgba(255, 255, 255, 0.65);
 	}
 
-	& #pink-button:hover {
+	& .pink-button:hover {
 		background-color: #be4e37;
 	}
 	/* MISC BUTTONS END ------------------------------------- */
@@ -1978,6 +1978,10 @@ hr.solid {
         margin: 0;
 	}
 
+    #main-section-container{
+        margin:0;
+    }
+
     #home-container{
         transform: scale(0.7);
     }
@@ -1989,9 +1993,13 @@ hr.solid {
     }
 
     #video-home {
-        transform: scaleX(0.7);
-        left: -30rem;
+        position: fixed;
+        top: -90rem;
+        left: -10rem;
+        transform: scale(0.3);
+        /* left: -30rem; */
     }
+
 
     .switch{
         right: 1rem;
@@ -2015,13 +2023,14 @@ hr.solid {
             left: 20rem;
         }
         & .play-button-label{
-            /* position: relative; */
+            position: fixed;
             right: 0;
-            bottom: -1rem;
+            bottom: 22rem;
+            z-index: -10;
         }
         & .play-button{
             right: 0;
-            bottom: -5rem;
+            bottom: 18rem;
         }    
         & #flip-card-front{
             transform: scale(2);
@@ -2029,15 +2038,24 @@ hr.solid {
         & #flip-card-back{
             transform: rotateY(180deg) scale(2);
         }
-        #flip-card-back::-webkit-scrollbar {
+        & #drink-disclaimer{
+            position: fixed;
+            right: 20dvw;
+            bottom: 18rem;
+            z-index: -10;
+        }
+
+        & #flip-card-back::-webkit-scrollbar {
             border-radius: 10px;
             width: 0.5rem;
             background-color: rgba(255, 255, 255, 0.315);
             box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
         }
+
+        & .dropdown:hover .dropdown-content {
+            display: grid;
+        }
     }
-
-
 
     #tag-line{
         position: relative;
@@ -2053,12 +2071,6 @@ hr.solid {
     .glow-on-hover-home{
         position: relative;
         top: -10rem;
-    }
-
-    #drink-disclaimer{
-        position: fixed;
-        right: 20dvw;
-        bottom: -5rem;
     }
 
     #drink-card{
@@ -2126,6 +2138,10 @@ hr.solid {
         }
     }
 
+    #home-suggest-button{
+        position: relative;
+        top: 15rem;
+    }
 
 
 

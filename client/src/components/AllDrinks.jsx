@@ -513,7 +513,7 @@ export default function AllDrinks({ token, userId, dark }) {
 						color="secondary"
 					/>
 				</div>
-				<button id="clear-button">
+				<button className="clear-button">
 					<a href="#top" style={{ "text-decoration": "none" }}>
 						{" "}
 						Back to Top
