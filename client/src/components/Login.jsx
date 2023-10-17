@@ -15,13 +15,21 @@ export default function Login({ token, setToken, setUserId, dark }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("entering handle submit");
+        // console.log(username, password);
         try {
             const response = await login(username, password);
+            console.log("response in handle submit", response);
             setToken(response.token);
             setUserId(response.user.users_id);
+
+            console.log("response.token in Login function: ", response.token);
+            console.log("response", response);
             localStorage.setItem("token", response.token);
             localStorage.setItem("userId", response.user.users_id);
-
+            if (response) {
+                myFunction();
+            }
             nav("/");
         } catch (error) {
             setErrorText(true);
@@ -41,12 +49,24 @@ export default function Login({ token, setToken, setUserId, dark }) {
         }
     }
 
+    function myFunction() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    }
+
     return (
         <section>
             <div id="login-container">
                 <div id="signin-container">
                     <h1>LOGIN</h1>
-                    <form onSubmit={handleSubmit}>
+                    <form
+                        onSubmit={(event) => {
+                            handleSubmit(event);
+                        }}
+                    >
                         <div id="login-text">
                             <label>
                                 Username: {""}
@@ -91,6 +111,9 @@ export default function Login({ token, setToken, setUserId, dark }) {
                             Submit
                         </button>
                     </form>
+                    <div id="snackbar">
+                        <h1>You are logged in!</h1>
+                    </div>
                     <h2>
                         <Link to="/register">Create New Account</Link>
                     </h2>

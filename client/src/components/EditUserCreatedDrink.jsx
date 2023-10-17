@@ -18,6 +18,7 @@ export default function EditUserDrink({ drinkId }) {
         async function fetchDrinkData() {
             try {
                 const response = await fetchSingleDrink(drink_id);
+                console.log("fetched drink data:", response);
                 setDrink(response);
             } catch (error) {
                 console.error("error fetching drink:", error);
@@ -25,6 +26,14 @@ export default function EditUserDrink({ drinkId }) {
         }
         fetchDrinkData();
     }, []);
+
+    function myFunction() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 3000);
+    }
 
     async function handleEdit(event) {
         event.preventDefault();
@@ -39,6 +48,7 @@ export default function EditUserDrink({ drinkId }) {
 
         try {
             await editDrink(drinkData, drink_id);
+            myFunction();
             navigate(0);
         } catch (err) {
             console.error("can't edit drink", err);
@@ -47,7 +57,12 @@ export default function EditUserDrink({ drinkId }) {
 
     return (
         <div>
-            <button onClick={handleClick} className="clear-button">
+            <button
+                onClick={(e) => {
+                    handleClick(e);
+                }}
+                className="clear-button"
+            >
                 Edit Drink
             </button>
             {isOpen && (
@@ -115,7 +130,9 @@ export default function EditUserDrink({ drinkId }) {
                                 })
                             }
                         />
-
+                        <div id="snackbar">
+                            <h1>You edited a drink!</h1>
+                        </div>
                         <br />
                         <h1>Alcoholic?</h1>
                         <div>

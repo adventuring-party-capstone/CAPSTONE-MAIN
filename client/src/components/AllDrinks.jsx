@@ -428,19 +428,21 @@ export default function AllDrinks({ token, userId, dark }) {
                                             />
                                         )}
                                         {drink.image &&
-                                            (drink.image.includes("http") ? (
+                                            drink.image.includes("http") && (
                                                 <img
                                                     src={drink.image}
                                                     alt={drink.drinks_name}
                                                     id="images"
                                                 />
-                                            ) : (
+                                            )}
+                                        {!drink.image &&
+                                            !drink.strDrinkThumb && (
                                                 <img
                                                     src={defaultPhoto}
                                                     alt={drink.drinks_name}
                                                     id="images"
                                                 />
-                                            ))}
+                                            )}
                                     </div>
                                     {/* API database drink */}
                                     {drink.idDrink && (
