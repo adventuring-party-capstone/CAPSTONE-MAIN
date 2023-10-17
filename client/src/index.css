@@ -1984,6 +1984,7 @@ hr.solid {
 
     #main-section-container{
         margin:0;
+        padding: 3rem 0 0 0;
     }
 
     #home-container{
@@ -2039,7 +2040,7 @@ hr.solid {
             margin: 0;
             padding: 0.2rem;
             overflow-x: hidden;
-            transform: rotateY(180deg)
+            transform: rotateY(180deg);
             
             & h1{
                 font-size: 0.6rem;
@@ -2068,7 +2069,6 @@ hr.solid {
                 font-size: 0.5rem;
             }
         }
-
     }
 
     #random-drink-container{
@@ -2077,6 +2077,22 @@ hr.solid {
             top: -15rem;
             left: 0rem;
         }
+    }
+
+    .aboutus{
+        display: block;
+    }
+
+    .Individuals{
+        display: block;
+    }
+
+    .spotty{
+        display: none;
+    }
+
+    .contacts{
+        display: inline;
     }
 
     #video-home-dark-mobile {
