@@ -47,12 +47,25 @@ export default function Login({ token, setToken, setUserId, dark }) {
 		}
 	}
 
+	function myFunction() {
+		var x = document.getElementById("snackbar");
+		x.className = "show";
+		setTimeout(function () {
+			x.className = x.className.replace("show", "");
+		}, 3000);
+	}
+
 	return (
 		<section>
 			<div id="login-container">
 				<div id="signin-container">
 					<h1>LOGIN</h1>
-					<form onSubmit={handleSubmit}>
+					<form
+						onSubmit={(event) => {
+							handleSubmit(event);
+							myFunction();
+						}}
+					>
 						<div id="login-text">
 							<label>
 								Username: {""}
@@ -97,6 +110,9 @@ export default function Login({ token, setToken, setUserId, dark }) {
 							Submit
 						</button>
 					</form>
+					<div id="snackbar">
+						<h1>You're logged in!</h1>
+					</div>
 					<h2>
 						<Link to="/register">Create New Account</Link>
 					</h2>
