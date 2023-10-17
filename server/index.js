@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-const { COOKIE_SECRET } = require("../server/.env");
+const { COOKIE_SECRET } = require("./secrets.js");
 const { authRequired } = require("./api/utils");
 const PORT = 8080;
 
