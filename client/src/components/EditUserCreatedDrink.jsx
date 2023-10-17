@@ -67,9 +67,6 @@ export default function EditUserDrink({ drinkId }) {
 			</button>
 			{isOpen && (
 				<div>
-					<div id="snackbar">
-						<h1>You edited a drink!</h1>
-					</div>
 					<h1>Edit Drink</h1>
 					<form onSubmit={handleEdit}>
 						<textarea
@@ -133,7 +130,9 @@ export default function EditUserDrink({ drinkId }) {
 								})
 							}
 						/>
-
+						<div id="snackbar">
+							<h1>You edited a drink!</h1>
+						</div>
 						<br />
 						<h1>Alcoholic?</h1>
 						<div>
