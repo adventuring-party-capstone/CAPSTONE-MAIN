@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET, COOKIE_SECRET } = require("../secrets");
+const { JWT_SECRET, COOKIE_SECRET } = require("../.env");
 const SALT_ROUNDS = 10;
 // const { authRequired } = require("./utils");
 
@@ -44,7 +44,6 @@ router.get("/:userId", async (req, res, next) => {
 
 // GET - /api/users/user/:username - get user by username
 // router.get("/api/")
-
 
 router.get("/user/:username", async (req, res, next) => {
 	try {
