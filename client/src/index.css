@@ -1632,7 +1632,7 @@ input:checked + .slider:before {
 	transform-style: preserve-3d;
 }
 
-.flip-card:hover #flip-card-inner {
+.flip-card:hover .flip-card-inner {
 	transform: rotateY(180deg);
 }
 
