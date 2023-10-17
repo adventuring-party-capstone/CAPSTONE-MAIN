@@ -147,9 +147,9 @@ export default function UserCreatedDrinks({ userId }) {
 					{drinksToDisplay.map((drink) => {
 						const localDrinkId = drink.drinks_id;
 						return (
-							<div key={drink.drinks_id} id="flip-card">
-								<div id="flip-card-inner">
-									<div id="flip-card-front">
+							<div key={drink.drinks_id} className="flip-card">
+								<div className="flip-card-inner">
+									<div className="flip-card-front">
 										<h1>
 											{drink.alcoholic == true ? (
 												<h1>
@@ -176,7 +176,7 @@ export default function UserCreatedDrinks({ userId }) {
 										)}
 									</div>
 
-									<div id="flip-card-back">
+									<div className="flip-card-back">
 										<h1>
 											{drink.alcoholic == true ? (
 												<h1>

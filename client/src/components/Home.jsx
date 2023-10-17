@@ -124,7 +124,8 @@ export default function Home({
 			</div>
 			{dark ? (
 				<div
-					id="video-home-dark"
+					className="video-home-dark"
+					id="video-home-dark-mobile"
 					style={{
 						filter: "brightness(0.95)",
 						position: "cover",
@@ -142,7 +143,7 @@ export default function Home({
 					</video>
 				</div>
 			) : (
-				<div id="video-home">
+				<div className="video-home" id="video-home-light-mobile">
 					<video
 						autoPlay
 						loop

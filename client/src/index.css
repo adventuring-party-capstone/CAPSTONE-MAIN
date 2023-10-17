@@ -426,7 +426,7 @@ h4 {
 	/* MUSIC PLAYER STYLING END ----------------------------------------  */
 
 	/* DARK MODE FLIP CARD STYLING */
-	& #flip-card {
+	& .flip-card {
 		background-color: transparent;
 		border-radius: 10px;
 		width: 28dvw;
@@ -435,7 +435,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #flip-card-front {
+	& .flip-card-front {
 		background-color: rgb(255, 255, 255);
 		color: rgb(255, 255, 255);
 		font-family: "EB Garamond";
@@ -444,7 +444,7 @@ h4 {
 		border: 1px solid rgba(255, 255, 255, 0.349);
 	}
 
-	& #flip-card-back {
+	& .flip-card-back {
 		background-color: black;
 		background: linear-gradient(to top, #3d0f1db4, #00000094);
 		color: white;
@@ -453,7 +453,7 @@ h4 {
 		border: 1px solid rgba(255, 255, 255, 0.349);
 	}
 
-	#flip-card-back::-webkit-scrollbar {
+	.flip-card-back::-webkit-scrollbar {
 		border-radius: 4px;
 		background-color: rgba(255, 255, 255, 0.315);
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -1230,7 +1230,7 @@ h4 {
 
 	/* LIGHT FLIP CARDS START ------------------------------- */
 	/* FLIP CARD */
-	& #flip-card {
+	& .flip-card {
 		background-color: transparent;
 		border-radius: 10px;
 		width: 28dvw;
@@ -1239,7 +1239,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #flip-card-front {
+	& .flip-card-front {
 		background-color: rgb(255, 255, 255);
 		color: rgb(0, 0, 0);
 		background: linear-gradient(to top, #e28874da, #ffda75de);
@@ -1247,7 +1247,7 @@ h4 {
 		border: 1px solid white;
 	}
 
-	& #flip-card-back {
+	& .flip-card-back {
 		background-color: rgb(255, 255, 255);
 		background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
 		color: rgb(0, 0, 0);
@@ -1257,7 +1257,7 @@ h4 {
 		border: 1px solid white;
 	}
 
-	& #flip-card-inner {
+	& .flip-card-inner {
 		position: relative;
 		border-radius: 10px;
 		width: 100%;
@@ -1267,7 +1267,7 @@ h4 {
 		transform-style: preserve-3d;
 	}
 
-	& #flip-card:hover #flip-card-inner {
+	& .flip-card:hover .flip-card-inner {
 		transform: rotateY(180deg);
 	}
 
@@ -1277,14 +1277,14 @@ h4 {
         width: 7px;
     } */
 
-	& #flip-card-back {
+	& .flip-card-back {
 		-ms-overflow-style: none;
 		/* IE and Edge */
 		scrollbar-width: 1rem;
 		/* Firefox */
 	}
 
-	#flip-card-back::-webkit-scrollbar {
+	.flip-card-back::-webkit-scrollbar {
 		border-radius: 4px;
 		background-color: rgba(0, 0, 0, 0.226);
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -1622,7 +1622,7 @@ input:checked + .slider:before {
 
 /* FLIP CARD GENERAL START ---------------------------- */
 
-#flip-card-inner {
+.flip-card-inner {
 	position: relative;
 	border-radius: 10px;
 	width: 100%;
@@ -1632,12 +1632,12 @@ input:checked + .slider:before {
 	transform-style: preserve-3d;
 }
 
-#flip-card:hover #flip-card-inner {
+.flip-card:hover #flip-card-inner {
 	transform: rotateY(180deg);
 }
 
-#flip-card-front,
-#flip-card-back {
+.flip-card-front,
+.flip-card-back {
 	position: absolute;
 	border-radius: 10px;
 	width: 100%;
@@ -1648,7 +1648,7 @@ input:checked + .slider:before {
 	backface-visibility: hidden;
 }
 
-#flip-card-back {
+.flip-card-back {
 	-ms-overflow-style: none;
 	/* IE and Edge */
 	scrollbar-width: none;
@@ -1775,7 +1775,7 @@ input:checked + .slider:before {
 	color: white;
 }
 
-#video-home {
+.video-home {
 	/* object-fit: cover; */
 	position: fixed;
 	right: 0;
@@ -1787,7 +1787,7 @@ input:checked + .slider:before {
 	z-index: -10;
 }
 
-#video-home-dark-mixologist {
+.video-home-dark-mixologist {
 	/* object-fit: cover; */
 	position: fixed;
 	right: -35dvw;
@@ -1800,7 +1800,7 @@ input:checked + .slider:before {
 	z-index: -9;
 }
 
-#video-home-dark-mixologist2 {
+.video-home-dark-mixologist2 {
 	/* object-fit: cover; */
 	position: fixed;
 	left: 0;
@@ -1814,7 +1814,7 @@ input:checked + .slider:before {
 	filter: brightness(20%);
 }
 
-#video-home-dark {
+.video-home-dark {
 	/* object-fit: cover; */
 	position: fixed;
 	left: 0;
@@ -1978,6 +1978,10 @@ hr.solid {
         margin: 0;
 	}
 
+    #all-drinks-container{
+        max-height: fit-content;
+    }
+
     #main-section-container{
         margin:0;
     }
@@ -1986,18 +1990,28 @@ hr.solid {
         transform: scale(0.7);
     }
 
-    #video-home-dark {
+    #video-home-dark-mobile {
         transform: scaleX(0.7);
         left: -30rem;
         bottom: 30rem;
     }
 
-    #video-home {
+    #video-home-light-mobile {
         position: fixed;
         top: -90rem;
         left: -10rem;
         transform: scale(0.3);
-        /* left: -30rem; */
+    }
+
+    #video-all-drinks-dark {
+        transform: scale(1);
+        left: -4rem;
+    }
+
+    #video-all-drinks-light {
+        position: fixed;
+
+        transform: scale(1);
     }
 
 
@@ -2032,10 +2046,10 @@ hr.solid {
             right: 0;
             bottom: 18rem;
         }    
-        & #flip-card-front{
+        & .flip-card-front{
             transform: scale(2);
         }
-        & #flip-card-back{
+        & .flip-card-back{
             transform: rotateY(180deg) scale(2);
         }
         & #drink-disclaimer{
@@ -2045,7 +2059,7 @@ hr.solid {
             z-index: -10;
         }
 
-        & #flip-card-back::-webkit-scrollbar {
+        & .flip-card-back::-webkit-scrollbar {
             border-radius: 10px;
             width: 0.5rem;
             background-color: rgba(255, 255, 255, 0.315);
@@ -2078,18 +2092,18 @@ hr.solid {
         top: -10rem;
     }
 
-    #flip-card {
+    .flip-card {
         position: relative;
         top: 20rem;
         padding: 0;
         transform: scale(1.5);
     } 
 
-    #flip-card:hover #flip-card-inner {
+    .flip-card:hover .flip-card-inner {
         transform: rotateY(180deg);
     }
 
-    #flip-card-front{
+    .flip-card-front{
         position: relative;
         top: -7rem;
         right: -6rem;
@@ -2102,7 +2116,7 @@ hr.solid {
         }
     }
 
-    #flip-card-back{
+    .flip-card-back{
         position: relative;
         top: -14rem;
         right: 6rem;
@@ -2125,7 +2139,7 @@ hr.solid {
         }
     }
 
-    #flip-card-inner {
+    .flip-card-inner {
         position: relative;
         border-radius: 10px;
         transform: scale(1);
@@ -2143,6 +2157,44 @@ hr.solid {
         top: 15rem;
     }
 
+    #formInput{
+        width: 15rem;
+        text-align: center;
+    }
 
+    #all-drinks-gallery{
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -53rem;
+        left: -7rem;
 
+        & #all-drinks-flip-card{
+            margin: 8rem 0;
+        }
+        
+        & #all-drinks-flip-card-inner{
+            margin: 0;
+        }
+
+        & #all-drinks-flip-card-front{
+            & #images{
+                position: fixed;
+                top: 1.3rem;
+                left: 0.9rem;
+            }
+        }
+
+        & #all-drinks-flip-card-back{
+            border: 1px solid red;
+        }
+
+        & .clear-button{
+            margin: -12rem 0 -1rem 0;
+            transform: scale(0.3);
+        }
+
+    }
+    
 }

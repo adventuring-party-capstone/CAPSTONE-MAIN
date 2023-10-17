@@ -77,12 +77,12 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 				{randomDrink ? (
 					<div id="random-drink-container">
 						<h3>🍸= Drink Contains Alcohol</h3>
-						<div id="flip-card">
+						<div className="flip-card">
 							<div id="snackbar">
 								<h1>Added to favorites</h1>
 							</div>
-							<div id="flip-card-inner">
-								<div id="flip-card-front">
+							<div className="flip-card-inner">
+								<div className="flip-card-front">
 									<div id="name section">
 										{alcIds.includes(
 											randomDrink.idDrink
@@ -103,7 +103,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 										/>
 									)}
 								</div>
-								<div id="flip-card-back">
+								<div className="flip-card-back">
 									{randomDrink && (
 										<h1>{randomDrink.strDrink}</h1>
 									)}
@@ -127,14 +127,14 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 				)}
 			</div>
 			{dark ? (
-				<div id="video-home-dark">
+				<div className="video-home-dark">
 					<h1></h1>
 					<video autoPlay loop muted style={{ minWidth: "100%" }}>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
 			) : (
-				<div id="video-home">
+				<div className="video-home">
 					<video autoPlay loop muted style={{ minWidth: "100%" }}>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>

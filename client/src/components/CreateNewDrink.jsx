@@ -201,13 +201,13 @@ export default function CreateNewDrink({ token, userId, dark }) {
 			</div>
 			{dark ? (
 				<div>
-					<div id="video-home-dark-mixologist">
+					<div className="video-home-dark-mixologist">
 						<h1></h1>
 						<video autoPlay loop muted style={{ minWidth: "100%" }}>
 							<source src={DarkMode} type="video/mp4"></source>
 						</video>
 					</div>
-					<div id="video-home-dark-mixologist2">
+					<div className="video-home-dark-mixologist2">
 						<h1></h1>
 						<video autoPlay loop muted style={{ minWidth: "100%" }}>
 							<source src={DarkMode} type="video/mp4"></source>
@@ -215,7 +215,7 @@ export default function CreateNewDrink({ token, userId, dark }) {
 					</div>
 				</div>
 			) : (
-				<div id="video-home">
+				<div className="video-home">
 					<video autoPlay loop muted style={{ minWidth: "100%" }}>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
