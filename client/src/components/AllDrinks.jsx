@@ -150,12 +150,14 @@ export default function AllDrinks({ token, userId, dark }) {
 	// local DB array splitting alcoholic/non-alcoholic
 	const nonAlcArray = [];
 	useEffect(() => {
+		console.log("entering all drinks UE");
 		allDrinks.filter((drink) => {
 			// filtering alcoholic drinks
-			if (drink.alcoholic && isToggled) {
+			if (isToggled) {
 				setLocalArray(allDrinks);
-			} else if (!drink.alcoholic && !isToggled) {
+			} else if (!isToggled && !drink.alcoholic) {
 				nonAlcArray.push(drink);
+				console.log("isToggled", isToggled);
 				console.log("nonAlcArray", nonAlcArray);
 				setLocalArray(nonAlcArray);
 			}
@@ -188,6 +190,8 @@ export default function AllDrinks({ token, userId, dark }) {
 	useEffect(() => {
 		let localLength = localArray.length;
 
+		console.log("localArray in UE", localArray);
+
 		// page 1 behavior for toggle off
 		if (localLength < perPage) {
 			// less than 18 local nonalc drinks
@@ -204,7 +208,7 @@ export default function AllDrinks({ token, userId, dark }) {
 			let currentPageArray = localArray.slice(0, perPage);
 			setAPIArrayBigToDisplay(currentPageArray);
 		}
-	}, [localArray, APIArrayBig]);
+	}, [localArray, APIArrayBig, isToggled]);
 
 	//pushing the ids from alcoholic drinks into an array
 	const alcIdArray = [];

@@ -11,12 +11,12 @@ const drinks = [
 	{
 		drinks_id: 1,
 		cocktails_db_drinks_id: null,
-		drinks_name: "Cranberry Mojito",
-		ingredients: "Cranberry juice, rum, sugar, mint leaves",
+		drinks_name: "Cranberry Mojito (Nonalcoholic)",
+		ingredients: "Cranberry juice, sugar, mint leaves",
 		recipe: "Muddle mint leaves and sugar together in the bottom of a glass. Pour other ingredients; add ice and stir.",
 		image: "https://homecookingmemories.com/wp-content/uploads/2019/11/Cranberry-Mojito-Recipe-17.jpg",
 		glass: null,
-		alcoholic: true,
+		alcoholic: false,
 	},
 	{
 		drinks_id: 2,
