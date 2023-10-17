@@ -9,6 +9,7 @@ import topDivider from "../assets/Divider.png";
 import betweenDivider from "../assets/divider2.png";
 import topLogo from "./../assets/Studio_drink_logo.svg";
 import gisula from "../assets/gisula.png";
+import frog from "../assets/frog.png";
 
 export default function About({ dark }) {
 	return (
@@ -205,7 +206,7 @@ export default function About({ dark }) {
 							teaching, and management) to her new field, where
 							she is excited to adapt her passion for seamless,
 							gamified lesson design and “sneaky teaching” to
-							enhance her clients’ web experiences. In her free
+							enhance her clients' web experiences. In her free
 							time, she likes to play (and GM for) D&D, practice
 							CrossFit and Aerial Silks, organize book clubs, and
 							spend time with her charming friends and adorable
@@ -432,6 +433,8 @@ export default function About({ dark }) {
 					</h2>
 					<br />
 					<img src={topDivider} className="divider" />
+					<br />
+					<img src={frog} className="frog" />
 				</div>
 			</div>
 
