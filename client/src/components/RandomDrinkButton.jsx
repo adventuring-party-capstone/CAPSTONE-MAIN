@@ -129,13 +129,25 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 			{dark ? (
 				<div className="video-home-dark">
 					<h1></h1>
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
 			) : (
 				<div className="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>

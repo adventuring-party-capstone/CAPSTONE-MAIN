@@ -2009,7 +2009,7 @@ hr.solid {
     }
 
     #video-all-drinks-light {
-        position: fixed;
+        /* position: fixed; */
 
         transform: scale(1);
     }
@@ -2187,14 +2187,56 @@ hr.solid {
         }
 
         & #all-drinks-flip-card-back{
-            border: 1px solid red;
+            margin: 0;
         }
 
         & .clear-button{
             margin: -12rem 0 -1rem 0;
             transform: scale(0.3);
         }
+    }
 
+    #favorites-gallery {
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -20rem;
+        left: -7rem;
+    }
+
+    #created-drinks-gallery {
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -10rem;
+        left: -7rem;
+    }
+
+    #favorites-mobile-flip-card{
+        margin: 8rem 0;
+    }
+    
+    #favorites-mobile-flip-card-inner{
+        margin: 0;
+    }
+
+    #favorites-mobile-flip-card-front{
+        & #images{
+            position: fixed;
+            top: 1.3rem;
+            left: 0.9rem;
+        }
+    }
+
+    #favorites-mobile-flip-card-back{
+        margin: 0;
+    }
+
+    .clear-button{
+        margin: -12rem 0 -1rem 0;
+        transform: scale(0.3);
     }
     
 }

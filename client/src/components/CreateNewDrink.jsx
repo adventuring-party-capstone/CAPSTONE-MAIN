@@ -203,20 +203,38 @@ export default function CreateNewDrink({ token, userId, dark }) {
 				<div>
 					<div className="video-home-dark-mixologist">
 						<h1></h1>
-						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<video
+							autoPlay
+							loop
+							muted
+							playsInline
+							style={{ minWidth: "100%" }}
+						>
 							<source src={DarkMode} type="video/mp4"></source>
 						</video>
 					</div>
 					<div className="video-home-dark-mixologist2">
 						<h1></h1>
-						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<video
+							autoPlay
+							loop
+							muted
+							playsInline
+							style={{ minWidth: "100%" }}
+						>
 							<source src={DarkMode} type="video/mp4"></source>
 						</video>
 					</div>
 				</div>
 			) : (
 				<div className="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>

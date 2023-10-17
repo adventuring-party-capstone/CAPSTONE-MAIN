@@ -278,9 +278,18 @@ export default function Favorites({ token, userId }) {
 								const localDrinkId = drink.drinks_id;
 								return (
 									<div key={drink.drinks_id} id="drink-card">
-										<div className="flip-card">
-											<div className="flip-card-inner">
-												<div className="flip-card-front">
+										<div
+											className="flip-card"
+											id="favorites-mobile-flip-card"
+										>
+											<div
+												className="flip-card-inner"
+												id="favorites-mobile-flip-card-inner"
+											>
+												<div
+													className="flip-card-front"
+													id="favorites-mobile-flip-card-front"
+												>
 													<div id="snackbar">
 														Added to favorites
 													</div>
@@ -326,7 +335,10 @@ export default function Favorites({ token, userId }) {
 													)}
 												</div>
 
-												<div className="flip-card-back">
+												<div
+													className="flip-card-back"
+													id="favorites-mobile-flip-card-back"
+												>
 													<h1>{drink.drinks_name}</h1>
 													<DetailsButton
 														drinkId={localDrinkId}
@@ -352,9 +364,18 @@ export default function Favorites({ token, userId }) {
 								const APIDrinkId = drink.idDrink;
 								return (
 									<div key={drink.idDrink} id="drink-card">
-										<div className="flip-card">
-											<div className="flip-card-inner">
-												<div className="flip-card-front">
+										<div
+											className="flip-card"
+											id="favorites-mobile-flip-card"
+										>
+											<div
+												className="flip-card-inner"
+												id="favorites-mobile-flip-card-inner"
+											>
+												<div
+													className="flip-card-front"
+													id="favorites-mobile-flip-card-front"
+												>
 													<div id="name section">
 														{alcIds.includes(
 															drink.idDrink
@@ -386,7 +407,10 @@ export default function Favorites({ token, userId }) {
 														id="images"
 													/>
 												</div>
-												<div className="flip-card-back">
+												<div
+													className="flip-card-back"
+													id="favorites-mobile-flip-card-back"
+												>
 													<h1>{drink.strDrink}</h1>
 													<div>
 														<DetailsButton
