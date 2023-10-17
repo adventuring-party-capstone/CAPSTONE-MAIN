@@ -49,6 +49,8 @@ export default function AllDrinks({ token, userId, dark }) {
 
 	// const defaultPhoto = "../src/assets/empty-glass.jpg";
 
+	console.log("defaultPhoto at top", defaultPhoto);
+
 	console.log("users id in AD", userId);
 	useEffect(() => {
 		async function getAllDrinks() {
@@ -410,6 +412,7 @@ export default function AllDrinks({ token, userId, dark }) {
 				<div id="all-drinks-gallery">
 					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;
+						console.log("drinkImage", drink.image);
 						return (
 							<div
 								className="flip-card"
@@ -466,19 +469,21 @@ export default function AllDrinks({ token, userId, dark }) {
 											/>
 										)}
 										{drink.image &&
-											(drink.image.includes("http") ? (
+											drink.image.includes("http") && (
 												<img
 													src={drink.image}
 													alt={drink.drinks_name}
 													id="images"
 												/>
-											) : (
+											)}
+										{!drink.image &&
+											!drink.strDrinkThumb && (
 												<img
 													src={defaultPhoto}
 													alt={drink.drinks_name}
 													id="images"
 												/>
-											))}
+											)}
 									</div>
 									{/* API database drink */}
 									{drink.idDrink && (
