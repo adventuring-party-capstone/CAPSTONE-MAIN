@@ -407,13 +407,23 @@ export default function AllDrinks({ token, userId, dark }) {
 					{drinksToDisplayAPI?.map((drink) => {
 						const APIDrinkId = drink.idDrink;
 						return (
-							<div id="flip-card" key={drink.idDrink}>
+							<div
+								className="flip-card"
+								id="all-drinks-flip-card"
+								key={drink.idDrink}
+							>
 								<div id="snackbar">
 									<h1>Added to favorites</h1>
 								</div>
 
-								<div id="flip-card-inner">
-									<div id="flip-card-front">
+								<div
+									className="flip-card-inner"
+									id="all-drinks-flip-card-inner"
+								>
+									<div
+										className="flip-card-front"
+										id="all-drinks-flip-card-front"
+									>
 										{drink.strDrink ? (
 											<div id="name section">
 												{alcIds.includes(
@@ -468,7 +478,10 @@ export default function AllDrinks({ token, userId, dark }) {
 									</div>
 									{/* API database drink */}
 									{drink.idDrink && (
-										<div id="flip-card-back">
+										<div
+											className="flip-card-back"
+											id="all-drinks-flip-card-back"
+										>
 											<h1>{drink.strDrink}</h1>
 											<br />
 											{token && (
@@ -486,7 +499,7 @@ export default function AllDrinks({ token, userId, dark }) {
 									)}
 									{/* local database drink */}
 									{drink.drinks_id && (
-										<div id="flip-card-back">
+										<div className="flip-card-back">
 											<h1>{drink.drinks_name}</h1>
 											{token && (
 												<FavoriteButton
@@ -513,22 +526,34 @@ export default function AllDrinks({ token, userId, dark }) {
 						color="secondary"
 					/>
 				</div>
-				<button id="clear-button">
+				<button className="clear-button">
 					<a href="#top" style={{ "text-decoration": "none" }}>
 						{" "}
 						Back to Top
 					</a>
 				</button>
 				{dark ? (
-					<div id="video-home-dark">
+					<div className="video-home-dark" id="video-all-drinks-dark">
 						<h1></h1>
-						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+						<video
+							autoPlay
+							loop
+							muted
+							playsInline
+							style={{ minWidth: "100%" }}
+						>
 							<source src={DarkMode} type="video/mp4"></source>
 						</video>
 					</div>
 				) : (
-					<div id="video-home">
-						<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<div className="video-home" id="video-all-drinks-light">
+						<video
+							autoPlay
+							loop
+							muted
+							playsInline
+							style={{ minWidth: "100%" }}
+						>
 							<source src={LightMode} type="video/mp4"></source>
 						</video>
 					</div>

@@ -258,7 +258,7 @@ h4 {
 
 	/* GENERAL COMPONENTS STYLING START------------------------------------  */
 
-	& #clear-button {
+	& .clear-button {
 		color: rgb(255, 255, 255);
 		background-color: rgba(241, 249, 255, 0.116);
 		border-radius: 10px;
@@ -269,7 +269,7 @@ h4 {
 		cursor: pointer;
 		font-family: "EB Garamond";
 	}
-	& #clear-button:hover {
+	& .clear-button:hover {
 		background-color: rgba(98, 187, 255, 0.356);
 	}
 	& #tag-line {
@@ -309,7 +309,7 @@ h4 {
 		font-size: 2rem;
 	}
 
-	& #pink-button {
+	& .pink-button {
 		background-color: #612519;
 		border-radius: 10px;
 		color: white;
@@ -321,7 +321,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #pink-button:hover {
+	& .pink-button:hover {
 		background-color: #330900;
 	}
 
@@ -426,7 +426,7 @@ h4 {
 	/* MUSIC PLAYER STYLING END ----------------------------------------  */
 
 	/* DARK MODE FLIP CARD STYLING */
-	& #flip-card {
+	& .flip-card {
 		background-color: transparent;
 		border-radius: 10px;
 		width: 28dvw;
@@ -435,7 +435,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #flip-card-front {
+	& .flip-card-front {
 		background-color: rgb(255, 255, 255);
 		color: rgb(255, 255, 255);
 		font-family: "EB Garamond";
@@ -444,7 +444,7 @@ h4 {
 		border: 1px solid rgba(255, 255, 255, 0.349);
 	}
 
-	& #flip-card-back {
+	& .flip-card-back {
 		background-color: black;
 		background: linear-gradient(to top, #3d0f1db4, #00000094);
 		color: white;
@@ -453,7 +453,7 @@ h4 {
 		border: 1px solid rgba(255, 255, 255, 0.349);
 	}
 
-	#flip-card-back::-webkit-scrollbar {
+	.flip-card-back::-webkit-scrollbar {
 		border-radius: 4px;
 		background-color: rgba(255, 255, 255, 0.315);
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -1196,7 +1196,7 @@ h4 {
 		width: 14.5em;
 	}
 
-	& #pink-button {
+	& .pink-button {
 		background-color: #d06550;
 		border-radius: 10px;
 		color: white;
@@ -1208,7 +1208,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #clear-button {
+	& .clear-button {
 		color: black;
 		background-color: rgba(255, 255, 255, 0.466);
 		border-radius: 10px;
@@ -1219,18 +1219,18 @@ h4 {
 		cursor: pointer;
 		font-family: "EB Garamond";
 	}
-	& #clear-button:hover {
+	& .clear-button:hover {
 		background-color: rgba(255, 255, 255, 0.65);
 	}
 
-	& #pink-button:hover {
+	& .pink-button:hover {
 		background-color: #be4e37;
 	}
 	/* MISC BUTTONS END ------------------------------------- */
 
 	/* LIGHT FLIP CARDS START ------------------------------- */
 	/* FLIP CARD */
-	& #flip-card {
+	& .flip-card {
 		background-color: transparent;
 		border-radius: 10px;
 		width: 28dvw;
@@ -1239,7 +1239,7 @@ h4 {
 		font-family: "EB Garamond";
 	}
 
-	& #flip-card-front {
+	& .flip-card-front {
 		background-color: rgb(255, 255, 255);
 		color: rgb(0, 0, 0);
 		background: linear-gradient(to top, #e28874da, #ffda75de);
@@ -1247,7 +1247,7 @@ h4 {
 		border: 1px solid white;
 	}
 
-	& #flip-card-back {
+	& .flip-card-back {
 		background-color: rgb(255, 255, 255);
 		background: linear-gradient(to top, #e28874da, #ffda75de) border-box;
 		color: rgb(0, 0, 0);
@@ -1257,7 +1257,7 @@ h4 {
 		border: 1px solid white;
 	}
 
-	& #flip-card-inner {
+	& .flip-card-inner {
 		position: relative;
 		border-radius: 10px;
 		width: 100%;
@@ -1267,7 +1267,7 @@ h4 {
 		transform-style: preserve-3d;
 	}
 
-	& #flip-card:hover #flip-card-inner {
+	& .flip-card:hover .flip-card-inner {
 		transform: rotateY(180deg);
 	}
 
@@ -1277,14 +1277,14 @@ h4 {
         width: 7px;
     } */
 
-	& #flip-card-back {
+	& .flip-card-back {
 		-ms-overflow-style: none;
 		/* IE and Edge */
 		scrollbar-width: 1rem;
 		/* Firefox */
 	}
 
-	#flip-card-back::-webkit-scrollbar {
+	.flip-card-back::-webkit-scrollbar {
 		border-radius: 4px;
 		background-color: rgba(0, 0, 0, 0.226);
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -1622,7 +1622,7 @@ input:checked + .slider:before {
 
 /* FLIP CARD GENERAL START ---------------------------- */
 
-#flip-card-inner {
+.flip-card-inner {
 	position: relative;
 	border-radius: 10px;
 	width: 100%;
@@ -1632,12 +1632,12 @@ input:checked + .slider:before {
 	transform-style: preserve-3d;
 }
 
-#flip-card:hover #flip-card-inner {
+.flip-card:hover .flip-card-inner {
 	transform: rotateY(180deg);
 }
 
-#flip-card-front,
-#flip-card-back {
+.flip-card-front,
+.flip-card-back {
 	position: absolute;
 	border-radius: 10px;
 	width: 100%;
@@ -1648,7 +1648,7 @@ input:checked + .slider:before {
 	backface-visibility: hidden;
 }
 
-#flip-card-back {
+.flip-card-back {
 	-ms-overflow-style: none;
 	/* IE and Edge */
 	scrollbar-width: none;
@@ -1775,7 +1775,7 @@ input:checked + .slider:before {
 	color: white;
 }
 
-#video-home {
+.video-home {
 	/* object-fit: cover; */
 	position: fixed;
 	right: 0;
@@ -1787,7 +1787,7 @@ input:checked + .slider:before {
 	z-index: -10;
 }
 
-#video-home-dark-mixologist {
+.video-home-dark-mixologist {
 	/* object-fit: cover; */
 	position: fixed;
 	right: -35dvw;
@@ -1800,7 +1800,7 @@ input:checked + .slider:before {
 	z-index: -9;
 }
 
-#video-home-dark-mixologist2 {
+.video-home-dark-mixologist2 {
 	/* object-fit: cover; */
 	position: fixed;
 	left: 0;
@@ -1814,7 +1814,7 @@ input:checked + .slider:before {
 	filter: brightness(20%);
 }
 
-#video-home-dark {
+.video-home-dark {
 	/* object-fit: cover; */
 	position: fixed;
 	left: 0;
@@ -1969,61 +1969,463 @@ hr.solid {
 /* TEXT ANIMATIONS --------------------------- */
 
 /* MEDIA QUERIES --------------------------- */
-@media screen and (max-width: 700px) {
-	h1 {
-		transform: scale(0.5);
-	}
-	h2 {
-		transform: scale(0.8);
-	}
-	p {
-		transform: scale(0.5);
-	}
-	button {
-		transform: scale(0.5);
-	}
-	form {
-		transform: scale(0.5);
-	}
-	/* #app-container {
-		height: 40%;
-		width: 40%;
-	} */
-	.studio-drink-header {
-		transform: scale(0.5);
+/* mobile devices (phones) */
+@media screen and (max-width: 568px) {
+
+    #app-container {
+        overflow-x: hidden;
+        transform: scale(1);
+        margin: 0;
 	}
 
-	#flip-card-front {
-		font-size: 0.5px;
-		padding: 0;
-		margin: 0 0 0 0;
-	}
-	h1.studio-drink-header {
-		float: left;
-		padding: 0;
-		margin: 0;
-	}
-	.slider.round {
-		transform: scale(0.8);
-	}
-	img {
-		transform: scale(0.8);
-	}
-	app-container {
-		transform: scale(0.4);
-	}
-	.content {
-		transform: scale(0.3);
-	}
-	#name-section {
-		transform: scale(0.4em);
-		padding: 0;
-		margin: 0;
-	}
-	#flip-card {
-		padding: 0;
-		margin-top: 0;
-		width: 40px;
-		height: 40px;
-	}
+    #all-drinks-container{
+        max-height: fit-content;
+    }
+
+    #main-section-container{
+        margin:0;
+        padding: 3rem 0 0 0;
+    }
+
+    #home-container{
+        transform: scale(0.7);
+    }
+
+    #randomizer-container{
+        & h1{
+            margin: -10rem 0 1rem 0;
+            transform: scale(0.8);
+        }
+
+        & .glow-on-hover-home{
+            margin: 11rem 0 3rem 0;
+            transform: scale(0.8);
+        }
+        & .flip-card {
+            position: relative;
+            top: 20rem;
+            left: -5rem;
+            padding: 0;
+            transform: scale(1.5);
+        } 
+
+        .flip-card-front{
+            position: relative;
+            top: -20rem;
+            left: 5.5rem;
+            transform: scale(1.8);
+            margin: 0;
+            padding: 0.2rem;
+    
+            & h1{
+                font-size: 0.6rem;
+                position: relative;
+                top: 10rem;
+            }
+
+            & #images{
+                position: relative;
+                top: 8rem;
+            }
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+    
+        .flip-card-back{
+            position: relative;
+            top: -26rem;
+            right: 6rem;
+            margin: 0;
+            padding: 0.2rem;
+            overflow-x: hidden;
+            transform: rotateY(180deg);
+            
+            & h1{
+                font-size: 0.6rem;
+            }
+    
+            & #favorite-button{
+                position: relative;
+                margin: -1.3rem 2rem -1.3rem -1rem;
+                transform: scale(0.3);
+            }
+    
+            & div{
+                display: grid;
+            }
+        }
+    
+        .flip-card-inner {
+            position: relative;
+            border-radius: 10px;
+            transform: scale(1);
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            
+            & h4{
+                font-size: 0.5rem;
+            }
+        }
+    }
+
+    #random-drink-container{
+        & h3{
+            position:relative;
+            top: -15rem;
+            left: 0rem;
+        }
+    }
+
+    .aboutus{
+        display: block;
+    }
+
+    .Individuals{
+        display: block;
+    }
+
+    .spotty{
+        display: none;
+    }
+
+    .contacts{
+        display: inline;
+    }
+
+    #video-home-dark-mobile {
+        transform: scaleX(0.7);
+        left: -30rem;
+        bottom: 30rem;
+    }
+
+    #video-home-light-mobile {
+        position: fixed;
+        top: -90rem;
+        left: -10rem;
+        transform: scale(0.3);
+    }
+
+    #video-all-drinks-dark {
+        transform: scale(1);
+        left: -4rem;
+    }
+
+    #video-all-drinks-light {
+        transform: scale(1);
+    }
+
+
+    .switch{
+        right: 1rem;
+        top: 1rem;
+    }
+
+    #header-logo{
+        transform: scale(0.5);
+        position: absolute;
+        left: -3rem;
+        top: 0rem;
+        padding: 0;
+    }
+
+    .dark-mode, .light-mode{
+        & .studio-drink-header {
+            padding: 0;
+            margin: 0;
+            font-size: 3.9rem;
+            top: -1rem;
+            left: 20rem;
+        }
+        & .play-button-label{
+            position: fixed;
+            right: 0;
+            bottom: 22rem;
+            z-index: -10;
+        }
+        & .play-button{
+            right: 0;
+            bottom: 18rem;
+        }    
+        & .flip-card-front{
+            transform: scale(2);
+        }
+        & .flip-card-back{
+            transform: rotateY(180deg) scale(2);
+        }
+        & #drink-disclaimer{
+            position: fixed;
+            right: 20dvw;
+            bottom: 18rem;
+            z-index: -10;
+        }
+
+        & .flip-card-back::-webkit-scrollbar {
+            border-radius: 10px;
+            width: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.315);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+        }
+
+        & .dropdown:hover .dropdown-content {
+            display: grid;
+        }
+    }
+
+    #tag-line{
+        position: relative;
+        top: -10rem;
+        left: 0rem;
+    }
+
+    #form-music-choice{
+        position: relative;
+        top: -10rem;
+    }
+
+    .glow-on-hover-home{
+        position: relative;
+        top: -10rem;
+    }
+
+    #drink-card{
+        position: relative;
+        top: -10rem;
+    }
+
+    .flip-card {
+        position: relative;
+        top: 20rem;
+        padding: 0;
+        transform: scale(1.5);
+    } 
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front{
+        position: relative;
+        top: -7rem;
+        right: -6rem;
+        transform: scale(2);
+        margin: 0;
+        padding: 0.2rem;
+
+        & h1{
+            font-size: 0.6rem;
+        }
+    }
+
+    .flip-card-back{
+        position: relative;
+        top: -14rem;
+        right: 6rem;
+        margin: 0;
+        padding: 0.2rem;
+        overflow-x: hidden;
+        
+        & h1{
+            font-size: 0.6rem;
+        }
+
+        & #favorite-button{
+            position: relative;
+            margin: -1.3rem 2rem -1.3rem -1rem;
+            transform: scale(0.3);
+        }
+
+        & div{
+            display: grid;
+        }
+    }
+
+    .flip-card-inner {
+        position: relative;
+        border-radius: 10px;
+        transform: scale(1);
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        
+        & h4{
+            font-size: 0.5rem;
+        }
+    }
+
+    #home-suggest-button{
+        position: relative;
+        top: 15rem;
+    }
+
+    #formInput{
+        width: 15rem;
+        text-align: center;
+    }
+
+    #all-drinks-gallery{
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -53rem;
+        left: -7rem;
+
+        & #all-drinks-flip-card{
+            margin: 8rem 0;
+        }
+        
+        & #all-drinks-flip-card-inner{
+            margin: 0;
+        }
+
+        & #all-drinks-flip-card-front{
+            & #images{
+                position: fixed;
+                top: 1.3rem;
+                left: 0.9rem;
+            }
+        }
+
+        & #all-drinks-flip-card-back{
+            margin: 0;
+        }
+
+        & .clear-button{
+            margin: -12rem 0 -1rem 0;
+            transform: scale(0.3);
+        }
+    }
+
+    #favorites-gallery {
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -20rem;
+        left: -7rem;
+    }
+
+    #created-drinks-gallery {
+        transform: scale(0.8);
+        display: grid;
+        justify-items: center;
+        position: relative;
+        top: -10rem;
+        left: -7rem;
+    }
+
+    #favorites-mobile-flip-card{
+        margin: 8rem 0;
+    }
+    
+    #favorites-mobile-flip-card-inner{
+        margin: 0;
+    }
+
+    #favorites-mobile-flip-card-front{
+        & #images{
+            position: fixed;
+            top: 1.3rem;
+            left: 0.9rem;
+        }
+    }
+
+    #favorites-mobile-flip-card-back{
+        margin: 0;
+    }
+
+    .clear-button{
+        margin: -12rem 0 -1rem 0;
+        transform: scale(0.3);
+    }
+
+    .formGroup{
+        & .clear-button{
+            transform: scale(1);
+        }
+    }
+    
+}
+
+/* tablets */
+@media screen and (min-width: 768px) and (max-width: 1366px){
+    #drink-card{
+        & h1{
+            font-size: 1rem;
+            position: relative;
+            margin: 0;
+        }
+        & #images{
+            position: fixed;
+            top: 3rem;
+            left: 2rem;
+            transform: scale(0.8);
+        }
+        & .flip-card{
+            margin: 1rem 5rem;
+        }
+    }
+
+    #all-drinks-flip-card-front{
+        display: grid;
+        & h1{
+            font-size: 1rem;
+            position: relative;
+            margin: 0;
+        }
+        & #images{
+            position: fixed;
+            top: 3rem;
+            left: 2rem;
+            transform: scale(0.8);
+        }
+    }
+
+    #favorites-gallery{
+        & h1{
+            font-size: 1rem;
+            position: relative;
+            margin: 0;
+        }
+        & #images{
+            position: fixed;
+            top: 3rem;
+            left: 2rem;
+            transform: scale(0.8);
+        }
+    }
+
+    #random-drink-container{
+        & h1{
+            font-size: 1rem;
+            position: relative;
+            margin: 0;
+        }
+        & #images{
+            position: fixed;
+            top: 3rem;
+            left: 2rem;
+            transform: scale(0.8);
+        }
+    }
+
+    .aboutus{
+        display: block;
+        padding: 1rem;
+    }
+
+    .Individuals{
+        display: block;
+    }
+
+    .spotty{
+        display: none;
+    }
+
+    .contacts{
+        display: inline;
+    }
 }

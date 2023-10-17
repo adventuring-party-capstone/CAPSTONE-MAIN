@@ -4,21 +4,21 @@ import { useState } from "react";
 import SingleDrinkDetails from "./SingleDrinkDetails";
 
 export default function DetailsButton({ drinkId }) {
-    const [isOpen, setIsOpen] = useState(false);
-    function handleClick() {
-        setIsOpen(!isOpen);
-    }
+	const [isOpen, setIsOpen] = useState(false);
+	function handleClick() {
+		setIsOpen(!isOpen);
+	}
 
-    return (
-        <>
-            <button onClick={handleClick} id="clear-button">
-                {!isOpen ? "See Drink Details" : "Close details"}
-            </button>
-            <div>
-                {isOpen && (
-                    <SingleDrinkDetails key={drinkId} drinkId={drinkId} />
-                )}
-            </div>
-        </>
-    );
+	return (
+		<>
+			<button onClick={handleClick} className="clear-button">
+				{!isOpen ? "See Drink Details" : "Close details"}
+			</button>
+			<div>
+				{isOpen && (
+					<SingleDrinkDetails key={drinkId} drinkId={drinkId} />
+				)}
+			</div>
+		</>
+	);
 }

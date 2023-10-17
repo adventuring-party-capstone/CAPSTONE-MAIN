@@ -143,20 +143,32 @@ export default function Register({ dark }) {
 						{text3 && <h3>Can't create new account.</h3>}
 						{text4 && <h3>Username too short.</h3>}
 						<br />
-						<button id="clear-button">Submit</button>
+						<button className="clear-button">Submit</button>
 					</form>
 				</div>
 			</div>
 			{dark ? (
-				<div id="video-home-dark">
+				<div className="video-home-dark">
 					<h1></h1>
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
 			) : (
-				<div id="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+				<div className="video-home">
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>

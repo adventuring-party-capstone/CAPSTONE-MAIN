@@ -85,22 +85,34 @@ export default function Profile({ token, setToken, userId, dark }) {
 					)}
 				</div>
 			)}
-			<button id="clear-button">
+			<button className="clear-button">
 				<a href="#top" style={{ "text-decoration": "none" }}>
 					{" "}
 					Back to Top
 				</a>
 			</button>
 			{dark ? (
-				<div id="video-home-dark">
+				<div className="video-home-dark">
 					<h1></h1>
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={DarkMode} type="video/mp4"></source>
 					</video>
 				</div>
 			) : (
-				<div id="video-home">
-					<video autoPlay loop muted style={{ minWidth: "100%" }}>
+				<div className="video-home">
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						style={{ minWidth: "100%" }}
+					>
 						<source src={LightMode} type="video/mp4"></source>
 					</video>
 				</div>
