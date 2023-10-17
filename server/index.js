@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-const cookieParser = require('cookie-parser');
-const { COOKIE_SECRET } = require('./secrets');
-const { authRequired } = require('./api/utils');
+const cookieParser = require("cookie-parser");
+const { COOKIE_SECRET } = require("./secrets.js");
+const { authRequired } = require("./api/utils");
 const PORT = 8080;
 
 const client = require("./db/client");
@@ -21,8 +21,8 @@ app.use(bodyParser.json());
 // init cookie-parser
 app.use(cookieParser(COOKIE_SECRET));
 
-app.get('/test', authRequired, (req, res, next) => {
-	res.send('You are authorized')
+app.get("/test", authRequired, (req, res, next) => {
+	res.send("You are authorized");
 });
 
 // init cors
