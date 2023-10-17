@@ -1990,6 +1990,95 @@ hr.solid {
         transform: scale(0.7);
     }
 
+    #randomizer-container{
+        & h1{
+            margin: -10rem 0 1rem 0;
+            transform: scale(0.8);
+        }
+
+        & .glow-on-hover-home{
+            margin: 11rem 0 3rem 0;
+            transform: scale(0.8);
+        }
+        & .flip-card {
+            position: relative;
+            top: 20rem;
+            left: -5rem;
+            padding: 0;
+            transform: scale(1.5);
+        } 
+
+        .flip-card-front{
+            position: relative;
+            top: -20rem;
+            left: 5.5rem;
+            transform: scale(1.8);
+            margin: 0;
+            padding: 0.2rem;
+    
+            & h1{
+                font-size: 0.6rem;
+                position: relative;
+                top: 10rem;
+            }
+
+            & #images{
+                position: relative;
+                top: 8rem;
+            }
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+    
+        .flip-card-back{
+            position: relative;
+            top: -26rem;
+            right: 6rem;
+            margin: 0;
+            padding: 0.2rem;
+            overflow-x: hidden;
+            transform: rotateY(180deg)
+            
+            & h1{
+                font-size: 0.6rem;
+            }
+    
+            & #favorite-button{
+                position: relative;
+                margin: -1.3rem 2rem -1.3rem -1rem;
+                transform: scale(0.3);
+            }
+    
+            & div{
+                display: grid;
+            }
+        }
+    
+        .flip-card-inner {
+            position: relative;
+            border-radius: 10px;
+            transform: scale(1);
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            
+            & h4{
+                font-size: 0.5rem;
+            }
+        }
+
+    }
+
+    #random-drink-container{
+        & h3{
+            position:relative;
+            top: -15rem;
+            left: 0rem;
+        }
+    }
+
     #video-home-dark-mobile {
         transform: scaleX(0.7);
         left: -30rem;
@@ -2009,8 +2098,6 @@ hr.solid {
     }
 
     #video-all-drinks-light {
-        /* position: fixed; */
-
         transform: scale(1);
     }
 
@@ -2237,6 +2324,12 @@ hr.solid {
     .clear-button{
         margin: -12rem 0 -1rem 0;
         transform: scale(0.3);
+    }
+
+    .formGroup{
+        & .clear-button{
+            transform: scale(1);
+        }
     }
     
 }

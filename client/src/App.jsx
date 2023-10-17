@@ -238,6 +238,7 @@ function App() {
 				)}
 
 				<h2 id="drink-disclaimer">Please drink responsibly.</h2>
+				<h3>Site best viewed on desktop.</h3>
 				{/* {dark ? (
 					<div id="video-home-dark">
 						<h1></h1>

@@ -127,7 +127,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 				)}
 			</div>
 			{dark ? (
-				<div className="video-home-dark">
+				<div className="video-home-dark" id="video-home-dark-mobile">
 					<h1></h1>
 					<video
 						autoPlay
@@ -140,7 +140,7 @@ export default function RandomDrinkButton({ userId, dark, token }) {
 					</video>
 				</div>
 			) : (
-				<div className="video-home">
+				<div className="video-home" id="video-home-light-mobile">
 					<video
 						autoPlay
 						loop
