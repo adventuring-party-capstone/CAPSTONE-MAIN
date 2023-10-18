@@ -172,7 +172,7 @@ export default function AllDrinks({ token, userId, dark }) {
 		if (localLength < perPage) {
 			// less than 18 local nonalc drinks
 
-			console.log("case initial 1");
+			// console.log("case initial 1");
 			let currentLocalArray = localArray.slice(0, localLength);
 
 			let currentAPIArray = APIArrayBig.slice(0, perPage - localLength);
@@ -184,7 +184,7 @@ export default function AllDrinks({ token, userId, dark }) {
 
 			// console.log("case initial 2");
 			let currentPageArray = localArray.slice(0, perPage);
-			console.log("currentPageArray in UE", currentPageArray);
+			// console.log("currentPageArray in UE", currentPageArray);
 			setAPIArrayBigToDisplay(currentPageArray);
 		}
 	}, [localArray, APIArrayBig]);
